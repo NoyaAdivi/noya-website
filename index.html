@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noya Adivi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --baby-blue: #dbefff;
+      --sky: #a9d6f5;
+      --lavender: #e7e0fb;
+      --mint: #dcf5ec;
+      --peach: #ffe9e1;
+      --ink: #4b5a6b;
+      --title: #5b8fc7;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 15%, var(--lavender) 0, transparent 40%),
+        radial-gradient(circle at 90% 30%, var(--mint) 0, transparent 40%),
+        radial-gradient(circle at 20% 85%, var(--peach) 0, transparent 35%),
+        radial-gradient(circle at 85% 90%, var(--baby-blue) 0, transparent 40%),
+        #f6fbff;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .hero {
+      background: linear-gradient(135deg, #cfe8fb 0%, #e3dcfa 55%, #fbe3ec 100%);
+      border-radius: 2rem;
+      padding: 4rem 1.5rem;
+      box-shadow: 0 1rem 2.5rem rgba(140, 170, 210, .25);
+      border: 1px solid rgba(255, 255, 255, .8);
+    }
+    .hero h1 {
+      font-weight: 800;
+      color: #4f7fb5;
+      letter-spacing: 1px;
+    }
+    .hero .lead { color: #7a86a8; font-weight: 600; }
+    .wave { font-size: 2.5rem; display: inline-block; }
+
+    /* Cards */
+    .card {
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 .5rem 1.5rem rgba(140, 170, 210, .15);
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+    .card:hover {
+      transform: scale(1.04);
+      box-shadow: 0 1.5rem 3rem rgba(140, 170, 210, .35);
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-title, .section-title {
+      color: var(--title);
+      font-weight: 800;
+      margin-bottom: 1.1rem;
+    }
+    .emoji { margin-right: .4rem; }
+
+    /* Soft color accents per project card */
+    .accent-blue     { border-top: 6px solid var(--sky); }
+    .accent-lavender { border-top: 6px solid #cbbcf4; }
+    .accent-mint     { border-top: 6px solid #a9e3cd; }
+    .accent-peach    { border-top: 6px solid #f8c8b6; }
+
+    .list-group-item { background: transparent; border-color: #e6eef7; }
+    .item-name { color: #4f7fb5; font-weight: 700; }
+    .tech { color: #9a8fd1; font-size: .9rem; font-weight: 600; }
+
+    .pill {
+      display: inline-block;
+      padding: .4em 1em;
+      border-radius: 50rem;
+      font-weight: 600;
+      font-size: .9rem;
+      color: var(--ink);
+    }
+    .pill-blue     { background: var(--baby-blue); }
+    .pill-lavender { background: var(--lavender); }
+    .pill-mint     { background: var(--mint); }
+    .pill-peach    { background: var(--peach); }
+
+    .contact-item {
+      background: rgba(255, 255, 255, .6);
+      border-radius: 1rem;
+      padding: .75rem 1rem;
+    }
+    a { color: #5b8fc7; text-decoration: none; }
+    a:hover { color: #3f6d9f; text-decoration: underline; }
+
+    footer { color: #9aa8bd; }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5" style="max-width: 920px;">
+
+    <!-- Header -->
+    <div class="hero text-center mb-5">
+      <div class="wave mb-2">👩‍💻</div>
+      <h1 class="display-4">Noya Adivi</h1>
+      <p class="lead mb-0">Computer Science Student</p>
+    </div>
+
+    <!-- About -->
+    <div class="card mb-4">
+      <div class="card-body p-4">
+        <h2 class="h4 card-title"><span class="emoji">🌸</span>About Me</h2>
+        <p class="card-text fs-6 lh-lg mb-0">
+          A 3rd-year Computer Science student at HIT with a genuine passion for software development
+          and problem-solving. Driven by a deep curiosity about how systems work and a desire to build
+          functional, high-quality solutions. A dedicated team player and a fast learner with strong
+          independent and collaborative working skills.
+        </p>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="card mb-4">
+      <div class="card-body p-4">
+        <h2 class="h4 card-title"><span class="emoji">🎓</span>Education</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item px-0 py-3">
+            <div class="d-flex justify-content-between flex-wrap gap-2 mb-1">
+              <span class="item-name">B.Sc. in Computer Science - Holon Institute of Technology (HIT)</span>
+              <span class="pill pill-lavender">2024 - 2027</span>
+            </div>
+            Core Programming (C, C++), Data Science, Machine Learning, Database Systems,
+            Computer Networks, and Theoretical Foundations.
+          </li>
+          <li class="list-group-item px-0 py-3">
+            <div class="d-flex justify-content-between flex-wrap gap-2 mb-1">
+              <span class="item-name">Computer Software Engineering (35 units) - Eylon High School</span>
+              <span class="pill pill-mint">2018 - 2021</span>
+            </div>
+            Majors: Computer Science, Software Development (Android/Java), Chemistry,
+            Mathematics and English.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <h2 class="h4 section-title mt-5"><span class="emoji">🚀</span>Projects</h2>
+    <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="card h-100 accent-blue">
+          <div class="card-body p-4">
+            <h3 class="h5 item-name">💬 Text Emotion Recognition</h3>
+            <p class="tech mb-2">Python · Scikit-Learn · Pandas · NumPy</p>
+            <p class="card-text mb-0">Implemented a Multinomial Naive Bayes classifier from scratch.
+              Engineered a text processing pipeline using TF-IDF and automated hyperparameter tuning to
+              maximize Macro-F1 score across 6 emotion categories.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 accent-lavender">
+          <div class="card-body p-4">
+            <h3 class="h5 item-name">🌐 Client-Server Chat Application</h3>
+            <p class="tech mb-2">Python · TCP/IP · Sockets</p>
+            <p class="card-text mb-0">Developed a multi-client chat architecture using raw TCP sockets and
+              multi-threading. Implemented a central server engine and conducted deep packet inspection
+              using Wireshark.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 accent-mint">
+          <div class="card-body p-4">
+            <h3 class="h5 item-name">🏨 DiviStay - System Architecture</h3>
+            <p class="tech mb-2">UML · OOP · Design Patterns</p>
+            <p class="card-text mb-0">Engineered the architecture for a concurrent group-booking platform
+              using MVC and a modular backend with OOP principles (Strategy, Factory, Adapter).</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 accent-peach">
+          <div class="card-body p-4">
+            <h3 class="h5 item-name">📱 HaMivchanon - Android Study App</h3>
+            <p class="tech mb-2">Java · Android Studio · Firebase · OOP</p>
+            <p class="card-text mb-0">Developed a native Android application for study planning and time
+              management. Integrated Google Firebase (NoSQL Realtime Database and Storage) to store user
+              data, documents and images. Implemented background processing using WorkManager and
+              BroadcastReceiver to push scheduled study notifications, with dynamic UI components like
+              RecyclerView and Adapters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="card mb-4">
+      <div class="card-body p-4">
+        <h2 class="h4 card-title"><span class="emoji">🧩</span>Skills</h2>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="pill pill-blue">Python</span>
+          <span class="pill pill-lavender">C</span>
+          <span class="pill pill-mint">C++</span>
+          <span class="pill pill-peach">Java</span>
+          <span class="pill pill-blue">SQL</span>
+          <span class="pill pill-lavender">HTML/CSS</span>
+          <span class="pill pill-mint">Data Structures &amp; Algorithms</span>
+          <span class="pill pill-peach">Machine Learning (Pandas, NumPy)</span>
+          <span class="pill pill-blue">Linux</span>
+          <span class="pill pill-lavender">Git</span>
+          <span class="pill pill-mint">Android Studio</span>
+          <span class="pill pill-peach">VS Code</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="card">
+      <div class="card-body p-4">
+        <h2 class="h4 card-title"><span class="emoji">📬</span>Contact</h2>
+        
+        <div class="row g-3">
+          <div class="col-sm-6"><div class="contact-item">📞 052-3232870</div></div>
+          <div class="col-sm-6"><div class="contact-item">✉️ <a href="mailto:noya.adivi@gmail.com">noya.adivi@gmail.com</a></div></div>
+          <div class="col-sm-6"><div class="contact-item">💼 <a href="https://www.linkedin.com/in/noya-adivi/">LinkedIn</a></div></div>
+          <div class="col-sm-6"><div class="contact-item">🐙 <a href="https://github.com/NoyaAdivi">GitHub</a></div></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center mt-5 small">Made with 💙 by Noya Adivi · 2026</footer>
+
+  </div>
+
+</body>
+</html>
