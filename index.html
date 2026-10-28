@@ -74,6 +74,19 @@
     .accent-lavender { border-top: 6px solid #cbbcf4; }
     .accent-mint     { border-top: 6px solid #a9e3cd; }
     .accent-peach    { border-top: 6px solid #f8c8b6; }
+    .accent-rose     { border-top: 6px solid #f5b8c8; }
+
+    .project-links { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+    .project-links a {
+      display: inline-block;
+      padding: .35em .9em;
+      border-radius: 50rem;
+      background: rgba(255, 255, 255, .85);
+      border: 1px solid #e3ebf5;
+      font-weight: 700;
+      font-size: .85rem;
+    }
+    .project-links a:hover { text-decoration: none; background: var(--baby-blue); }
 
     .list-group-item { background: transparent; border-color: #e6eef7; }
     .item-name { color: #4f7fb5; font-weight: 700; }
@@ -134,16 +147,16 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item px-0 py-3">
             <div class="d-flex justify-content-between flex-wrap gap-2 mb-1">
-              <span class="item-name">B.Sc. in Computer Science - Holon Institute of Technology (HIT)</span>
-              <span class="pill pill-lavender">2024 - 2027</span>
+              <span class="item-name">B.Sc. in Computer Science – Holon Institute of Technology (HIT)</span>
+              <span class="pill pill-lavender">2024 – 2027</span>
             </div>
             Core Programming (C, C++), Data Science, Machine Learning, Database Systems,
             Computer Networks, and Theoretical Foundations.
           </li>
           <li class="list-group-item px-0 py-3">
             <div class="d-flex justify-content-between flex-wrap gap-2 mb-1">
-              <span class="item-name">Computer Software Engineering (35 units) - Eylon High School</span>
-              <span class="pill pill-mint">2018 - 2021</span>
+              <span class="item-name">Computer Software Engineering (35 units) – Eylon High School</span>
+              <span class="pill pill-mint">2018 – 2021</span>
             </div>
             Majors: Computer Science, Software Development (Android/Java), Chemistry,
             Mathematics and English.
@@ -155,6 +168,37 @@
     <!-- Projects -->
     <h2 class="h4 section-title mt-5"><span class="emoji">🚀</span>Projects</h2>
     <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="card h-100 accent-rose">
+          <div class="card-body p-4">
+            <h3 class="h5 item-name">🗺️ Okeat – Dietary Food Map</h3>
+            <p class="tech mb-2">Next.js · React · TypeScript · Supabase (PostgreSQL) · Mapbox</p>
+            <p class="card-text mb-0">A full-stack, community-verified map of nearly 20,000 kosher, vegan and
+              gluten-free places to eat across Israel. Verification rules are enforced in the database
+              (Row Level Security, triggers), with in-app navigation, Hebrew voice guidance and a full
+              accessibility menu.</p>
+            <div class="project-links">
+              <a href="https://okeat.vercel.app" target="_blank" rel="noopener">🌐 Live site</a>
+              <a href="https://github.com/NoyaAdivi/Okeat" target="_blank" rel="noopener">🐙 Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 accent-blue">
+          <div class="card-body p-4">
+            <h3 class="h5 item-name">🖼️ Sort Photos – AI Image Classifier</h3>
+            <p class="tech mb-2">Python · PyTorch · OpenCLIP · Pillow</p>
+            <p class="card-text mb-0">A command-line tool that sorts tens of thousands of photos into family
+              photos vs. photographed documents using zero-shot CLIP classification – no training data needed.
+              Runs fully offline on a CPU, copies instead of moving by default, resumes after interruption, and
+              routes low-confidence images to a review folder.</p>
+            <div class="project-links">
+              <a href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener">🐙 Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="col-md-6">
         <div class="card h-100 accent-blue">
           <div class="card-body p-4">
@@ -180,7 +224,7 @@
       <div class="col-md-6">
         <div class="card h-100 accent-mint">
           <div class="card-body p-4">
-            <h3 class="h5 item-name">🏨 DiviStay - System Architecture</h3>
+            <h3 class="h5 item-name">🏨 DiviStay – System Architecture</h3>
             <p class="tech mb-2">UML · OOP · Design Patterns</p>
             <p class="card-text mb-0">Engineered the architecture for a concurrent group-booking platform
               using MVC and a modular backend with OOP principles (Strategy, Factory, Adapter).</p>
@@ -190,7 +234,7 @@
       <div class="col-md-6">
         <div class="card h-100 accent-peach">
           <div class="card-body p-4">
-            <h3 class="h5 item-name">📱 HaMivchanon - Android Study App</h3>
+            <h3 class="h5 item-name">📱 HaMivchanon – Android Study App</h3>
             <p class="tech mb-2">Java · Android Studio · Firebase · OOP</p>
             <p class="card-text mb-0">Developed a native Android application for study planning and time
               management. Integrated Google Firebase (NoSQL Realtime Database and Storage) to store user
@@ -211,6 +255,10 @@
           <span class="pill pill-lavender">C</span>
           <span class="pill pill-mint">C++</span>
           <span class="pill pill-peach">Java</span>
+          <span class="pill pill-blue">TypeScript</span>
+          <span class="pill pill-lavender">React / Next.js</span>
+          <span class="pill pill-mint">PostgreSQL / Supabase</span>
+          <span class="pill pill-peach">PyTorch / CLIP</span>
           <span class="pill pill-blue">SQL</span>
           <span class="pill pill-lavender">HTML/CSS</span>
           <span class="pill pill-mint">Data Structures &amp; Algorithms</span>
@@ -227,10 +275,9 @@
     <div class="card">
       <div class="card-body p-4">
         <h2 class="h4 card-title"><span class="emoji">📬</span>Contact</h2>
-        
         <div class="row g-3">
-          <div class="col-sm-6"><div class="contact-item">💼 <a href="https://www.linkedin.com/in/noya-adivi/">LinkedIn</a></div></div>
-          <div class="col-sm-6"><div class="contact-item">🐙 <a href="https://github.com/NoyaAdivi">GitHub</a></div></div>
+          <div class="col-sm-6"><div class="contact-item">💼 <a href="https://www.linkedin.com/in/noya-adivi" target="_blank" rel="noopener">LinkedIn</a></div></div>
+          <div class="col-sm-6"><div class="contact-item">🐙 <a href="https://github.com/NoyaAdivi" target="_blank" rel="noopener">GitHub</a></div></div>
         </div>
       </div>
     </div>
