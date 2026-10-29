@@ -784,6 +784,31 @@
 
               <div class="glass t-item reveal">
                 <div class="d-flex align-items-start gap-3">
+                  <span class="t-icon" aria-hidden="true">🏫</span>
+                  <div class="flex-grow-1">
+                    <span class="when">2018 – 2021</span>
+                    <h3 class="h5 mb-1" data-i18n="edu2Title">Computer Software Engineering (35 units)</h3>
+                    <p class="fw-bold mb-1" data-i18n="edu2Place">Eylon High School</p>
+                    <p class="small mb-2 text-soft" data-i18n="edu2Prog">Full matriculation · 5 majors</p>
+                  </div>
+                </div>
+                <button class="t-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#hsMajors" aria-expanded="false" aria-controls="hsMajors">
+                  <span data-i18n="showMajors">Show majors</span> <span class="chev" aria-hidden="true">▾</span>
+                </button>
+                <div class="collapse" id="hsMajors">
+                  <div class="pt-3">
+                    <span class="course c-blue" data-i18n="m1">Computer Science</span>
+                    <span class="course c-lav" data-i18n="m2">Software Development (Android / Java)</span>
+                    <span class="course c-mint" data-i18n="m3">Mathematics</span>
+                    <span class="course c-peach" data-i18n="m4">English</span>
+                    <span class="course c-blue" data-i18n="m5">Chemistry</span>
+                    <p class="small mt-2 mb-0" data-i18n="m6">Final project: HaMivchanon - an Android study-planning app.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass t-item reveal">
+                <div class="d-flex align-items-start gap-3">
                   <span class="t-icon" aria-hidden="true">🎓</span>
                   <div class="flex-grow-1">
                     <span class="when">2024 – 2027</span>
@@ -822,31 +847,6 @@
                     <span class="course c-blue" data-i18n="mt4">Probability</span>
                     <span class="course c-lav" data-i18n="mt5">Discrete Mathematics 1</span>
                     <span class="course c-mint" data-i18n="mt6">Discrete Mathematics 2</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="glass t-item reveal">
-                <div class="d-flex align-items-start gap-3">
-                  <span class="t-icon" aria-hidden="true">🏫</span>
-                  <div class="flex-grow-1">
-                    <span class="when">2018 – 2021</span>
-                    <h3 class="h5 mb-1" data-i18n="edu2Title">Computer Software Engineering (35 units)</h3>
-                    <p class="fw-bold mb-1" data-i18n="edu2Place">Eylon High School</p>
-                    <p class="small mb-2 text-soft" data-i18n="edu2Prog">Full matriculation · 5 majors</p>
-                  </div>
-                </div>
-                <button class="t-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#hsMajors" aria-expanded="false" aria-controls="hsMajors">
-                  <span data-i18n="showMajors">Show majors</span> <span class="chev" aria-hidden="true">▾</span>
-                </button>
-                <div class="collapse" id="hsMajors">
-                  <div class="pt-3">
-                    <span class="course c-blue" data-i18n="m1">Computer Science</span>
-                    <span class="course c-lav" data-i18n="m2">Software Development (Android / Java)</span>
-                    <span class="course c-mint" data-i18n="m3">Mathematics</span>
-                    <span class="course c-peach" data-i18n="m4">English</span>
-                    <span class="course c-blue" data-i18n="m5">Chemistry</span>
-                    <p class="small mt-2 mb-0" data-i18n="m6">Final project: HaMivchanon - an Android study-planning app.</p>
                   </div>
                 </div>
               </div>
@@ -1043,7 +1043,6 @@
       if (window.matchMedia('(hover: none)').matches) hintEl.textContent = dict.hintTouch;
       document.title = l === 'he' ? 'נויה אדיבי | סטודנטית למדעי המחשב' : 'Noya Adivi | Computer Science Student';
       wordIndex = 0; charIndex = 0; deleting = false;
-      store.set('lang', l);
     }
     document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
 
@@ -1377,8 +1376,8 @@
     reduceMotionMQ.addEventListener && reduceMotionMQ.addEventListener('change', startCanvas);
 
     /* ---------------- Init ---------------- */
-    const savedLang = store.get('lang');
-    setLang(savedLang === 'he' ? 'he' : 'en');
+    // The site always opens in English; Hebrew is chosen per visit
+    setLang('en');
     const go = () => applyA11y();
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(go); else go();
     // Rebuild the particle name after a language switch (text direction changes)
