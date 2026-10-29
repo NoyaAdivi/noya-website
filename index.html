@@ -133,9 +133,9 @@
         <h2 class="h4 card-title"><span class="emoji">🌸</span>About Me</h2>
         <p class="card-text fs-6 lh-lg mb-0">
           A 3rd-year Computer Science student at HIT with a genuine passion for software development
-          and problem-solving. Driven by a deep curiosity about how systems work and a desire to build
-          functional, high-quality solutions. A dedicated team player and a fast learner with strong
-          independent and collaborative working skills.
+          and problem-solving. Driven by curiosity about how systems work, I enjoy building complete,
+          high-quality solutions - from idea to working product. A dedicated team player and a fast
+          learner, comfortable working both independently and collaboratively.
         </p>
       </div>
     </div>
@@ -172,11 +172,8 @@
         <div class="card h-100 accent-rose">
           <div class="card-body p-4">
             <h3 class="h5 item-name">🗺️ Okeat – Dietary Food Map</h3>
-            <p class="tech mb-2">Next.js · React · TypeScript · Supabase (PostgreSQL) · Mapbox</p>
-            <p class="card-text mb-0">A full-stack, community-verified map of nearly 20,000 kosher, vegan and
-              gluten-free places to eat across Israel. Verification rules are enforced in the database
-              (Row Level Security, triggers), with in-app navigation, Hebrew voice guidance and a full
-              accessibility menu.</p>
+            <p class="tech mb-2">Next.js · TypeScript · Supabase (PostgreSQL/PostGIS) · Mapbox · Claude API</p>
+            <p class="card-text mb-0">Full-stack, community-verified map of kosher, vegan and gluten-free eateries in Israel. Verification rules enforced in the database (RLS, PL/pgSQL), AI reading of kosher certificates, and in-app voice navigation.</p>
             <div class="project-links">
               <a href="https://okeat.vercel.app" target="_blank" rel="noopener">🌐 Live site</a>
               <a href="https://github.com/NoyaAdivi/Okeat" target="_blank" rel="noopener">🐙 Code</a>
@@ -188,11 +185,8 @@
         <div class="card h-100 accent-blue">
           <div class="card-body p-4">
             <h3 class="h5 item-name">🖼️ Sort Photos – AI Image Classifier</h3>
-            <p class="tech mb-2">Python · PyTorch · OpenCLIP · Pillow</p>
-            <p class="card-text mb-0">A command-line tool that sorts tens of thousands of photos into family
-              photos vs. photographed documents using zero-shot CLIP classification – no training data needed.
-              Runs fully offline on a CPU, copies instead of moving by default, resumes after interruption, and
-              routes low-confidence images to a review folder.</p>
+            <p class="tech mb-2">Python · PyTorch · OpenCLIP</p>
+            <p class="card-text mb-0">Offline CLI tool that sorts tens of thousands of photos into documents vs. photos using zero-shot CLIP. Optimized for CPU with int8 quantization, with resumable runs and confidence thresholds.</p>
             <div class="project-links">
               <a href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener">🐙 Code</a>
             </div>
@@ -200,47 +194,50 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="card h-100 accent-blue">
+        <div class="card h-100 accent-lavender">
           <div class="card-body p-4">
             <h3 class="h5 item-name">💬 Text Emotion Recognition</h3>
             <p class="tech mb-2">Python · Scikit-Learn · Pandas · NumPy</p>
-            <p class="card-text mb-0">Implemented a Multinomial Naive Bayes classifier from scratch.
-              Engineered a text processing pipeline using TF-IDF and automated hyperparameter tuning to
-              maximize Macro-F1 score across 6 emotion categories.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card h-100 accent-lavender">
-          <div class="card-body p-4">
-            <h3 class="h5 item-name">🌐 Client-Server Chat Application</h3>
-            <p class="tech mb-2">Python · TCP/IP · Sockets</p>
-            <p class="card-text mb-0">Developed a multi-client chat architecture using raw TCP sockets and
-              multi-threading. Implemented a central server engine and conducted deep packet inspection
-              using Wireshark.</p>
+            <p class="card-text mb-0">Implemented a Multinomial Naive Bayes classifier from scratch, with TF-IDF and hyperparameter tuning to maximize Macro-F1 across 6 emotions.</p>
+            <div class="project-links">
+              <a href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener">🐙 Code</a>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="card h-100 accent-mint">
           <div class="card-body p-4">
-            <h3 class="h5 item-name">🏨 DiviStay – System Architecture</h3>
-            <p class="tech mb-2">UML · OOP · Design Patterns</p>
-            <p class="card-text mb-0">Engineered the architecture for a concurrent group-booking platform
-              using MVC and a modular backend with OOP principles (Strategy, Factory, Adapter).</p>
+            <h3 class="h5 item-name">🌐 Client-Server Chat Application</h3>
+            <p class="tech mb-2">Python · TCP/IP · Sockets</p>
+            <p class="card-text mb-0">Multi-client chat with a thread-per-client server, GUI clients and private messaging. Analyzed the TCP handshake and SEQ/ACK traffic in Wireshark.</p>
+            <div class="project-links">
+              <a href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener">🐙 Code</a>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="card h-100 accent-peach">
           <div class="card-body p-4">
+            <h3 class="h5 item-name">🏨 DiviStay – System Architecture</h3>
+            <p class="tech mb-2">UML · OOP · Design Patterns</p>
+            <p class="card-text mb-0">Wrote the SRS and architecture document for a group-booking platform with payment splitting, using MVC, Strategy, Adapter and Factory, plus a 30-minute room lock that prevents overbooking.</p>
+            <div class="project-links">
+              <a href="https://github.com/NoyaAdivi/DiviStay_Architecture" target="_blank" rel="noopener">📄 Docs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 accent-blue">
+          <div class="card-body p-4">
             <h3 class="h5 item-name">📱 HaMivchanon – Android Study App</h3>
             <p class="tech mb-2">Java · Android Studio · Firebase · OOP</p>
-            <p class="card-text mb-0">Developed a native Android application for study planning and time
-              management. Integrated Google Firebase (NoSQL Realtime Database and Storage) to store user
-              data, documents and images. Implemented background processing using WorkManager and
-              BroadcastReceiver to push scheduled study notifications, with dynamic UI components like
-              RecyclerView and Adapters.</p>
+            <p class="card-text mb-0">Native Android app for study planning, with Firebase storage and WorkManager-based scheduled notifications.</p>
+            <div class="project-links">
+              <a href="https://github.com/NoyaAdivi/HaMivchanon" target="_blank" rel="noopener">🐙 Code</a>
+            </div>
           </div>
         </div>
       </div>
@@ -250,23 +247,55 @@
     <div class="card mb-4">
       <div class="card-body p-4">
         <h2 class="h4 card-title"><span class="emoji">🧩</span>Skills</h2>
-        <div class="d-flex flex-wrap gap-2">
-          <span class="pill pill-blue">Python</span>
-          <span class="pill pill-lavender">C</span>
-          <span class="pill pill-mint">C++</span>
-          <span class="pill pill-peach">Java</span>
-          <span class="pill pill-blue">TypeScript</span>
-          <span class="pill pill-lavender">React / Next.js</span>
-          <span class="pill pill-mint">PostgreSQL / Supabase</span>
-          <span class="pill pill-peach">PyTorch / CLIP</span>
-          <span class="pill pill-blue">SQL</span>
-          <span class="pill pill-lavender">HTML/CSS</span>
-          <span class="pill pill-mint">Data Structures &amp; Algorithms</span>
-          <span class="pill pill-peach">Machine Learning (Pandas, NumPy)</span>
-          <span class="pill pill-blue">Linux</span>
-          <span class="pill pill-lavender">Git</span>
-          <span class="pill pill-mint">Android Studio</span>
-          <span class="pill pill-peach">VS Code</span>
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Languages</div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="pill pill-blue">Python</span>
+            <span class="pill pill-blue">Java</span>
+            <span class="pill pill-blue">C</span>
+            <span class="pill pill-blue">C++</span>
+            <span class="pill pill-blue">TypeScript</span>
+            <span class="pill pill-blue">JavaScript</span>
+            <span class="pill pill-blue">SQL</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Web</div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="pill pill-lavender">React</span>
+            <span class="pill pill-lavender">Next.js</span>
+            <span class="pill pill-lavender">HTML/CSS</span>
+            <span class="pill pill-lavender">Bootstrap</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Data &amp; ML</div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="pill pill-mint">PyTorch</span>
+            <span class="pill pill-mint">Scikit-Learn</span>
+            <span class="pill pill-mint">Pandas</span>
+            <span class="pill pill-mint">NumPy</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Databases &amp; Cloud</div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="pill pill-peach">PostgreSQL</span>
+            <span class="pill pill-peach">PostGIS</span>
+            <span class="pill pill-peach">Supabase</span>
+            <span class="pill pill-peach">Firebase</span>
+            <span class="pill pill-peach">Vercel</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Tools</div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="pill pill-blue">Git</span>
+            <span class="pill pill-blue">Linux</span>
+            <span class="pill pill-blue">Wireshark</span>
+            <span class="pill pill-blue">Android Studio</span>
+            <span class="pill pill-blue">VS Code</span>
+          </div>
         </div>
       </div>
     </div>
@@ -276,9 +305,8 @@
       <div class="card-body p-4">
         <h2 class="h4 card-title"><span class="emoji">📬</span>Contact</h2>
         <div class="row g-3">
-          <div class="col-sm-6"><div class="contact-item">💼 <a href="https://www.linkedin.com/in/noya-adivi" target="_blank" rel="noopener">LinkedIn</a></div></div>
-          <div class="col-sm-6"><div class="contact-item">🐙 <a href="https://github.com/NoyaAdivi" target="_blank" rel="noopener">GitHub</a></div></div>
-        </div>
+          <div class="col-sm-6"><div class="contact-item">💼 <a href="https://www.linkedin.com/in/noya-adivi/" target="_blank" rel="noopener">LinkedIn</a></div></div>
+          <div class="col-sm-6"><div class="contact-item">🐙 <a href="https://github.com/NoyaAdivi" target="_blank" rel="noopener">GitHub</a></div></div>        </div>
       </div>
     </div>
 
