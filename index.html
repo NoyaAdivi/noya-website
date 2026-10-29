@@ -6,6 +6,7 @@
   <title>Noya Adivi | Computer Science Student</title>
   <meta name="description" content="Noya Adivi - 3rd-year Computer Science student at HIT. Full-stack development, machine learning and networking projects.">
   <meta name="theme-color" content="#cfe8fb">
+  <meta name="color-scheme" content="light dark">
 
   <link id="bs-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,36 +47,20 @@
       --lh: 1.65;
     }
     :root[data-theme="dark"] {
-      --bg: #141a26;
-      --surface: rgba(30, 38, 56, .78);
-      --surface-solid: #1e2638;
-      --border: rgba(120, 140, 180, .25);
-      --ink: #d6deeb;
-      --ink-soft: #a5b0c7;
-      --title: #9cc8f2;
-      --accent: #9cc8f2;
-      --accent-2: #c4b8f5;
-      --shadow: 0 .6rem 1.6rem rgba(0, 0, 0, .35);
-      --shadow-lg: 0 1.5rem 3rem rgba(0, 0, 0, .5);
-      --focus: #ffd38a;
+      --bg: #1d2333;
+      --surface: rgba(40, 48, 68, .82);
+      --surface-solid: #283044;
+      --border: rgba(150, 170, 210, .18);
+      --ink: #cdd5e3;
+      --ink-soft: #a3adc2;
+      --title: #a9cdf0;
+      --accent: #a9cdf0;
+      --accent-2: #c2b6ee;
+      --shadow: 0 .6rem 1.6rem rgba(0, 0, 0, .28);
+      --shadow-lg: 0 1.5rem 3rem rgba(0, 0, 0, .38);
+      --focus: #ffd9a0;
+      color-scheme: dark;
     }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]):not([data-theme-set]) {
-        --bg: #141a26;
-        --surface: rgba(30, 38, 56, .78);
-        --surface-solid: #1e2638;
-        --border: rgba(120, 140, 180, .25);
-        --ink: #d6deeb;
-        --ink-soft: #a5b0c7;
-        --title: #9cc8f2;
-        --accent: #9cc8f2;
-        --accent-2: #c4b8f5;
-        --shadow: 0 .6rem 1.6rem rgba(0, 0, 0, .35);
-        --shadow-lg: 0 1.5rem 3rem rgba(0, 0, 0, .5);
-        --focus: #ffd38a;
-      }
-    }
-
     /* ---------- Base ---------- */
     html { font-size: calc(16px * var(--fs-scale)); scroll-behavior: smooth; scroll-padding-top: 80px; }
     body {
@@ -109,7 +94,6 @@
     .bg-blobs span:nth-child(3) { width: 30vw; height: 30vw; background: var(--peach); bottom: -8vw; left: 20vw; animation-delay: -12s; }
     .bg-blobs span:nth-child(4) { width: 26vw; height: 26vw; background: var(--baby-blue); top: 60vh; left: -6vw; animation-delay: -3s; }
     :root[data-theme="dark"] .bg-blobs span { opacity: .07; }
-    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]):not([data-theme-set]) .bg-blobs span { opacity: .07; } }
     @keyframes drift {
       0% { transform: translate(0, 0) scale(1); }
       50% { transform: translate(4vw, 3vh) scale(1.08); }
@@ -269,7 +253,7 @@
       display: flex; align-items: center; justify-content: center;
     }
     .cover-featured { background: var(--peach); border-radius: 1.6rem 1.6rem 0 0; }
-    @media (min-width: 992px) { .cover-featured { border-radius: 0; border-start-start-radius: 1.6rem; border-end-start-radius: 1.6rem; } }
+    @media (min-width: 992px) { .project .cover.cover-featured { aspect-ratio: auto; min-height: 22rem; width: 100%; border-radius: 0; border-start-start-radius: 1.6rem; border-end-start-radius: 1.6rem; } .cover-featured img { position: absolute; inset: 0; } }
     .project .cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
     .project:hover .cover img { transform: scale(1.06); }
     .project .body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
@@ -362,7 +346,10 @@
     .f-emoji { font-size: 2rem; transition: transform .4s ease; }
     .flip:hover .f-emoji { transform: scale(1.15) rotate(-8deg); }
     .f-title { font-weight: 800; color: #3f5f88; }
-    :root[data-theme="dark"] .flip-face.front { filter: brightness(.55) saturate(1.2); }
+    :root[data-theme="dark"] .flip-face.front { background: linear-gradient(150deg, #2c3e5c, #3b3466); }
+    :root[data-theme="dark"] .flip:nth-child(2) .flip-face.front { background: linear-gradient(150deg, #24484a, #2c3e5c); }
+    :root[data-theme="dark"] .flip:nth-child(3) .flip-face.front { background: linear-gradient(150deg, #54393f, #3b3466); }
+    :root[data-theme="dark"] .t-icon { background: rgba(156, 200, 242, .15); }
     :root[data-theme="dark"] .f-title { color: #fff; }
     html.a11y-still .flip-inner { transition: none; }
     html.a11y-contrast .flip-face { background: #fff !important; border: 2px solid #000; }
@@ -436,7 +423,7 @@
 
     /* ---------- Contact ---------- */
     .contact-card { padding: 3rem 2rem; text-align: center; background: linear-gradient(135deg, rgba(207,232,251,.85), rgba(227,220,250,.85) 55%, rgba(251,227,236,.85)); }
-    :root[data-theme="dark"] .contact-card { background: linear-gradient(135deg, rgba(60,80,110,.6), rgba(80,70,120,.6)); }
+    :root[data-theme="dark"] .contact-card { background: linear-gradient(135deg, rgba(64,86,120,.55), rgba(84,74,122,.55)); }
     .contact-link { display: inline-flex; align-items: center; gap: .55rem; padding: .85rem 1.4rem; border-radius: 50rem; background: var(--surface-solid); color: var(--title); font-weight: 800; text-decoration: none; box-shadow: var(--shadow); transition: transform .25s ease; margin: .35rem; }
     .contact-link:hover { transform: translateY(-4px) scale(1.03); color: var(--title); }
 
@@ -1123,7 +1110,7 @@
       gctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       gctx.clearRect(0, 0, cw, ch);
       const wave = time * 0.00006, R = 90;
-      const isDarkNow = root.getAttribute('data-theme') === 'dark' || (!root.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      const isDarkNow = root.getAttribute('data-theme') === 'dark' || false;
       for (const p of particles) {
         if (!still) {
           const dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
@@ -1344,6 +1331,9 @@
     const sizeVal = document.getElementById('sizeVal');
     const themeBtn = document.getElementById('themeBtn');
 
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+    // No choice made yet: follow the computer's light/dark setting (and keep following it if it changes)
+    systemDark.addEventListener && systemDark.addEventListener('change', () => { if (state.dark === undefined) applyA11y(); });
     function applyA11y() {
       opts.forEach(k => {
         if (k === 'dark') return;
@@ -1351,8 +1341,8 @@
       });
       if (state.dark === true) { root.setAttribute('data-theme', 'dark'); root.setAttribute('data-theme-set', ''); }
       else if (state.dark === false) { root.setAttribute('data-theme', 'light'); root.setAttribute('data-theme-set', ''); }
-      else { root.removeAttribute('data-theme'); root.removeAttribute('data-theme-set'); }
-      const isDark = root.getAttribute('data-theme') === 'dark' || (!root.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      else { root.setAttribute('data-theme', systemDark.matches ? 'dark' : 'light'); root.removeAttribute('data-theme-set'); }
+      const isDark = root.getAttribute('data-theme') === 'dark' || false;
       document.querySelectorAll('[data-a11y]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.a11y === 'dark' ? isDark : !!state[b.dataset.a11y])));
       themeBtn.textContent = isDark ? '☀️' : '🌙';
       root.style.setProperty('--fs-scale', size / 100);
@@ -1363,7 +1353,7 @@
     }
     function toggle(k) {
       if (k === 'dark') {
-        const isDark = root.getAttribute('data-theme') === 'dark' || (!root.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        const isDark = root.getAttribute('data-theme') === 'dark' || false;
         state.dark = !isDark;
       } else state[k] = !state[k];
       applyA11y();
