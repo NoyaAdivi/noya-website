@@ -3,8 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Noya Adivi | Computer Science Student</title>
-  <meta name="description" content="Noya Adivi - 3rd-year Computer Science student at HIT. Full-stack development, machine learning and networking projects.">
+  <title>Noya Adivi | Software Engineering Student</title>
+  <meta name="description" content="Noya Adivi - 3rd-year Computer Science student at HIT, looking for a software engineering student position. Creator of Okeat and DiviStay.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Noya Adivi | Software Engineering Student">
+  <meta property="og:description" content="Full-stack projects, machine learning and networking. Creator of Okeat and DiviStay.">
+  <meta property="og:url" content="https://noyaadivi.github.io/noya-website/">
+  <meta property="og:image" content="https://noyaadivi.github.io/noya-website/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23a9d6f5'/%3E%3Cstop offset='1' stop-color='%23cbbcf4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Ctext x='32' y='45' font-family='Arial' font-size='36' font-weight='700' text-anchor='middle' fill='%23fff'%3EN%3C/text%3E%3C/svg%3E">
   <meta name="theme-color" content="#cfe8fb">
   <meta name="color-scheme" content="light dark">
 
@@ -481,6 +488,38 @@
       .scroll-cue { display: none; }
       .a11y-grid { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ---------- Stats and project deep dives ---------- */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.75rem 0 .5rem; }
+    .stat { padding: 1.1rem .9rem; text-align: center; border-radius: 1.4rem; }
+    .stat b { display: block; font-size: 2rem; font-weight: 900; line-height: 1.15; color: var(--title); }
+    .stat span { font-size: .9rem; font-weight: 700; color: var(--ink-soft); }
+    .case { padding: 1.6rem; height: 100%; display: flex; flex-direction: column; gap: .9rem; }
+    .case h3 { margin: 0; font-weight: 800; color: var(--title); }
+    .case h4 { margin: 0 0 .3rem; font-size: .8rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-2); }
+    .case p, .case ul { margin: 0; }
+    .case ul { padding-inline-start: 1.15rem; }
+    .case li { margin-bottom: .4rem; }
+    .case .links { margin-top: auto; }
+    .flow { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; }
+    .flow span { padding: .35em .8em; border-radius: 50rem; font-size: .82rem; font-weight: 700; color: #44506a; animation: flowPulse 4s ease-in-out infinite; }
+    .flow span:nth-of-type(1) { background: var(--baby-blue); }
+    .flow span:nth-of-type(2) { background: var(--lavender); animation-delay: 1s; }
+    .flow span:nth-of-type(3) { background: var(--peach); animation-delay: 2s; }
+    .flow span:nth-of-type(4) { background: var(--mint); animation-delay: 3s; }
+    .flow i { font-style: normal; color: var(--accent); }
+    [dir="rtl"] .flow i { transform: scaleX(-1); }
+    @keyframes flowPulse { 0%, 30%, 100% { transform: none; } 15% { transform: translateY(-3px); } }
+    .fact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin-top: 1.5rem; }
+    .fact { padding: 1rem .8rem; text-align: center; border-radius: 1.2rem; font-size: .9rem; }
+    .fact .f-emoji { display: block; font-size: 1.5rem; }
+    .fact b { display: block; margin: .15rem 0 .3rem; color: var(--title); }
+    @media (max-width: 767.98px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .fact-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) { .flow span { animation: none; } }
+    .a11y-still .flow span { animation: none; }
   </style>
 </head>
 <body>
@@ -518,7 +557,7 @@
     <div class="container">
       <div class="row align-items-center g-4">
       <div class="col-lg-7">
-      <p class="hero-meta mb-2"><span aria-hidden="true">📍</span> <span data-i18n="location">Israel</span></p>
+      <p class="hero-meta mb-2"><span aria-hidden="true">📍</span> <span data-i18n="location">Israel · Open to student developer positions</span></p>
       <div class="name-wrap" id="nameWrap">
         <canvas id="nameCanvas" aria-hidden="true"></canvas>
         <h1 class="hero-name">Noya<br>Adivi</h1>
@@ -528,6 +567,7 @@
       <p class="lead-hero mb-4"><span data-i18n="iBuild">I build</span> <span class="typed" id="typed" aria-live="off">full-stack web apps</span></p>
       <div class="d-flex flex-wrap gap-3">
         <a href="#projects" class="btn btn-main" data-i18n="ctaWork">See my work ↓</a>
+        <a href="CV_Noya_Adivi.pdf" class="btn btn-soft" download data-i18n="ctaCv">📄 Download CV</a>
         <a href="https://www.linkedin.com/in/noya-adivi/" class="btn btn-soft" target="_blank" rel="noopener" data-i18n="ctaLinkedin">💼 LinkedIn</a>
         <a href="https://github.com/NoyaAdivi" class="btn btn-soft" target="_blank" rel="noopener" data-i18n="ctaGithub">🐙 GitHub</a>
       </div>
@@ -563,6 +603,13 @@
           <p class="section-sub" data-i18n="projSub">From a live full-stack map to machine learning and networking - each card links to the code.</p>
         </div>
 
+        <div class="stats reveal">
+          <div class="glass stat"><b data-count="20000" data-suffix="+">20,000+</b><span data-i18n="stat1">eateries on Okeat</span></div>
+          <div class="glass stat"><b data-count="18000" data-suffix="+">18,000+</b><span data-i18n="stat2">real hotels on DiviStay</span></div>
+          <div class="glass stat"><b data-count="63">63</b><span data-i18n="stat3">automated tests</span></div>
+          <div class="glass stat"><b data-count="2">2</b><span data-i18n="stat4">live products</span></div>
+        </div>
+
         <div class="filter-bar d-flex flex-wrap gap-2 my-4 reveal" role="group" aria-label="Filter projects" data-i18n-aria="filterAria">
           <button class="pill-btn" data-filter="all" aria-pressed="true" data-i18n="fAll">All</button>
           <button class="pill-btn" data-filter="web" aria-pressed="false" data-i18n="fWeb">Full-Stack & Web</button>
@@ -577,8 +624,7 @@
               <div class="row g-0 h-100">
                 <div class="col-lg-7">
                   <div class="cover cover-featured h-100">
-                    <img src="okeat.png" alt="Okeat home page and nationwide map" data-i18n-alt="okeatAlt" loading="lazy"
-                         onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/NoyaAdivi/Okeat/main/okeat.png'">
+                    <img src="https://raw.githubusercontent.com/NoyaAdivi/Okeat/main/okeat.png" alt="Okeat home page and nationwide map" data-i18n-alt="okeatAlt" loading="lazy">
                     <span class="featured-badge" data-i18n="featured">★ Featured</span>
                   </div>
                 </div>
@@ -586,7 +632,7 @@
                   <div class="body h-100">
                     <div class="tag-line"><span data-i18n="okeatTag">Full-stack web app</span></div>
                     <h3>🗺️ Okeat</h3>
-                    <p data-i18n="okeatDesc">A community-verified map of over 20,000 kosher, vegan, vegetarian and gluten-free eateries across Israel, in Hebrew and English. Verification and moderation rules are enforced inside the database, and the site includes OCR reading of kosher certificates, turn-by-turn voice navigation, star reviews, saved places, moderated photo uploads and a full accessibility menu.</p>
+                    <p data-i18n="okeatDesc">A bilingual map of 20,000+ kosher, vegan, vegetarian and gluten-free eateries across Israel. Community verification and moderation are enforced inside the database, with OCR of kosher certificates and Hebrew voice navigation.</p>
                     <div>
                       <span class="chip c-blue">Next.js</span><span class="chip c-lav">TypeScript</span><span class="chip c-mint">Supabase</span><span class="chip c-peach">PostGIS</span><span class="chip c-blue">Mapbox</span><span class="chip c-lav">Tesseract OCR</span>
                     </div>
@@ -614,13 +660,14 @@
                   <div class="body h-100">
                     <div class="tag-line"><span data-i18n="divTag">Full-stack · designed by a team of 3</span></div>
                 <h3>🏨 DiviStay</h3>
-                <p data-i18n="divDesc">Group hotel booking with payment splitting, taken from SRS and architecture to a live site: Java and Spring Boot, Strategy, Adapter and Factory patterns, a 30-minute room hold and more than 18,000 real hotels from OpenStreetMap.</p>
+                <p data-i18n="divDesc">Group hotel booking with payment splitting, taken from SRS and UML to a live demo with 18,000+ real hotels. Built with Strategy, Factory and Adapter patterns, an atomic 30-minute room hold and 45 automated tests.</p>
                 <div><span class="chip c-blue">Java</span><span class="chip c-lav">Spring Boot</span><span class="chip c-mint">Design Patterns</span><span class="chip c-peach">UML</span><span class="chip c-blue">Docker</span></div>
                 <div class="links">
                   <a class="btn btn-main btn-sm" href="https://divistay.onrender.com" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a>
                   <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/DiviStay" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a>
                   <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/DiviStay/tree/main/docs" target="_blank" rel="noopener" data-i18n="docs">📄 Docs</a>
                 </div>
+                <p class="small text-body-secondary mt-3 mb-0" data-i18n="divNote">Demo project: payments, rooms and prices are simulated. The first load can take about 30 seconds.</p>
                   </div>
                 </div>
               </div>
@@ -634,7 +681,7 @@
               <div class="body">
                 <div class="tag-line"><span data-i18n="sortTag">Computer vision</span></div>
                 <h3>🖼️ Sort Photos</h3>
-                <p data-i18n="sortDesc">Offline CLI tool that sorts tens of thousands of photos into documents vs. photos using zero-shot CLIP, optimized for CPU with int8 quantization.</p>
+                <p data-i18n="sortDesc">Offline CLI that separates documents from photos using zero-shot CLIP, with no training data, optimized for CPU with int8 quantization.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">PyTorch</span><span class="chip c-mint">OpenCLIP</span></div>
                 <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
@@ -654,7 +701,7 @@
               <div class="body">
                 <div class="tag-line"><span data-i18n="emoTag">NLP · team of 3</span></div>
                 <h3>🎭 Text Emotion Recognition</h3>
-                <p data-i18n="emoDesc">Multinomial Naive Bayes implemented from scratch, with grid search over Bag-of-Words vs. TF-IDF and 5-fold cross-validation, classifying 6 emotions.</p>
+                <p data-i18n="emoDesc">Multinomial Naive Bayes implemented from scratch for 6 emotions. Grid search and oversampling raised recall of the rarest emotion from 0.10 to 0.55.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">Scikit-Learn</span><span class="chip c-mint">Pandas</span><span class="chip c-peach">NumPy</span></div>
                 <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
@@ -686,7 +733,7 @@
                 <div class="phone"><span></span><span></span><span></span><span></span><b>⏰</b></div>
               </div>
               <div class="body">
-                <div class="tag-line"><span data-i18n="hamTag">Android app</span></div>
+                <div class="tag-line"><span data-i18n="hamTag">High-school final project</span></div>
                 <h3>📱 HaMivchanon</h3>
                 <p data-i18n="hamDesc">Native Android app for study planning, with Firebase storage and WorkManager-based scheduled study notifications.</p>
                 <div><span class="chip c-blue">Java</span><span class="chip c-lav">Android Studio</span><span class="chip c-mint">Firebase</span></div>
@@ -704,10 +751,53 @@
               <div class="body">
                 <div class="tag-line"><span data-i18n="webTag">Personal website</span></div>
                 <h3>💼 <span data-i18n="webTitle">This website</span></h3>
-                <p data-i18n="webDesc">A single-page portfolio built with Bootstrap: interactive particle name, English/Hebrew with right-to-left layout, and a full accessibility menu.</p>
+                <p data-i18n="webDesc">Single-page portfolio with an interactive particle name, Hebrew and English, and a full accessibility menu.</p>
                 <div><span class="chip c-blue">HTML</span><span class="chip c-lav">Bootstrap</span><span class="chip c-mint">JavaScript</span><span class="chip c-peach">Canvas</span></div>
                 <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/noya-website" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Deep dive ========== -->
+    <section class="pt-0" id="deep" aria-labelledby="deepTitle">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow" data-i18n="deepEyebrow">How it's built</p>
+          <h2 class="section-title" id="deepTitle" data-i18n="deepTitle">Two projects up close 🔍</h2>
+          <p class="section-sub" data-i18n="deepSub">The problem, how it works and the main decisions.</p>
+        </div>
+        <div class="row g-4 mt-1">
+          <div class="col-lg-6 reveal">
+            <article class="glass case">
+              <h3>🗺️ Okeat</h3>
+              <div><h4 data-i18n="csProblem">The problem</h4><p data-i18n="okProblem">Information about kosher, vegan and gluten-free places is scattered and goes out of date.</p></div>
+              <div><h4 data-i18n="csFlow">How a claim becomes trusted</h4>
+                <div class="flow"><span data-i18n="okF1">Claim added</span><i aria-hidden="true">→</i><span data-i18n="okF2">Pending</span><i aria-hidden="true">→</i><span data-i18n="okF3">3 confirmations</span><i aria-hidden="true">→</i><span data-i18n="okF4">Verified</span></div></div>
+              <div><h4 data-i18n="csDecisions">Main decisions</h4>
+                <ul>
+                  <li data-i18n="okD1">Rules live in the database: RLS and triggers protect the data even if someone calls the API without the site.</li>
+                  <li data-i18n="okD2">The map loads light points and clusters them, so 20,000 places stay fast.</li>
+                  <li data-i18n="okD3">Imported data stays labelled and never counts as community-verified.</li>
+                </ul></div>
+              <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/Okeat/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener" data-i18n="csArch">📐 Architecture</a></div>
+            </article>
+          </div>
+          <div class="col-lg-6 reveal">
+            <article class="glass case">
+              <h3>🏨 DiviStay</h3>
+              <div><h4 data-i18n="csProblem">The problem</h4><p data-i18n="dvProblem">In a group booking, one person usually pays for everyone and then has to collect from the others.</p></div>
+              <div><h4 data-i18n="csFlow2">How a booking works</h4>
+                <div class="flow"><span data-i18n="dvF1">30-minute hold</span><i aria-hidden="true">→</i><span data-i18n="dvF2">Split the cost</span><i aria-hidden="true">→</i><span data-i18n="dvF3">Everyone pays</span><i aria-hidden="true">→</i><span data-i18n="dvF4">Confirmed</span></div></div>
+              <div><h4 data-i18n="csDecisions">Main decisions</h4>
+                <ul>
+                  <li data-i18n="dvD1">Room holds are atomic: a test races 32 threads for one room and exactly one wins.</li>
+                  <li data-i18n="dvD2">Money is stored in whole agorot, so every split adds up exactly.</li>
+                  <li data-i18n="dvD3">Payments are idempotent, so a double click can never charge twice.</li>
+                </ul></div>
+              <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/DiviStay/tree/main/docs" target="_blank" rel="noopener" data-i18n="csArch">📐 Architecture</a></div>
             </article>
           </div>
         </div>
@@ -720,8 +810,8 @@
         <div class="row g-4 g-lg-5 align-items-center">
           <div class="col-lg-5 reveal">
             <p class="eyebrow" data-i18n="termEyebrow">Under the hood</p>
-            <h2 class="section-title" id="termTitle" data-i18n="termTitle">40,000 photos, one command ⚡</h2>
-            <p class="section-sub" data-i18n="termSub">Sort Photos classifies a whole photo library on an old laptop - fully offline, so private photos never leave the computer.</p>
+            <h2 class="section-title" id="termTitle" data-i18n="termTitle">A whole photo library, one command ⚡</h2>
+            <p class="section-sub" data-i18n="termSub">Sort Photos classifies a whole photo library on an old laptop - fully offline, so private photos never leave the computer. This is a sample run.</p>
           </div>
           <div class="col-lg-7 reveal">
             <div class="terminal" role="img" aria-label="Terminal animation of Sort Photos sorting images" data-i18n-aria="termAria">
@@ -741,29 +831,13 @@
             <div class="reveal">
               <p class="eyebrow" data-i18n="aboutEyebrow">About me</p>
               <h2 class="section-title" id="aboutTitle" data-i18n="aboutTitle">Hi, I'm Noya 🌸</h2>
-              <p class="fs-5" data-i18n="aboutP1">A 3rd-year Computer Science student at HIT with a genuine passion for software development and problem-solving.</p>
-              <p data-i18n="aboutP2">Driven by curiosity about how systems work, I enjoy building complete, high-quality solutions - from idea to working product. A dedicated team player and a fast learner, comfortable working both independently and collaboratively.</p>
+              <p class="fs-5" data-i18n="aboutP1">3rd-year Computer Science student at HIT with a passion for software development and problem-solving.</p>
+              <p data-i18n="aboutP2">Curious about how systems work, I enjoy building complete, high-quality solutions, from idea to working product. A team player and fast learner, comfortable working both independently and collaboratively.</p>
             </div>
-            <p class="hint mt-4 mb-2 reveal" data-i18n="flipHint">👆 Tap a card to flip it</p>
-            <div class="flip-grid reveal">
-              <button type="button" class="flip" aria-pressed="false">
-                <span class="flip-inner">
-                  <span class="flip-face front"><span class="f-emoji" aria-hidden="true">🔍</span><span class="f-title" data-i18n="f1Title">What drives me</span></span>
-                  <span class="flip-face back" data-i18n="f1Back">Curiosity about how systems really work - under the hood.</span>
-                </span>
-              </button>
-              <button type="button" class="flip" aria-pressed="false">
-                <span class="flip-inner">
-                  <span class="flip-face front"><span class="f-emoji" aria-hidden="true">🤝</span><span class="f-title" data-i18n="f2Title">How I work</span></span>
-                  <span class="flip-face back" data-i18n="f2Back">A team player and a fast learner - equally good alone or with others.</span>
-                </span>
-              </button>
-              <button type="button" class="flip" aria-pressed="false">
-                <span class="flip-inner">
-                  <span class="flip-face front"><span class="f-emoji" aria-hidden="true">🚀</span><span class="f-title" data-i18n="f3Title">Right now</span></span>
-                  <span class="flip-face back" data-i18n="f3Back">Growing Okeat and looking for a student developer position.</span>
-                </span>
-              </button>
+            <div class="fact-grid reveal">
+              <div class="glass fact"><span class="f-emoji" aria-hidden="true">🔍</span><b data-i18n="f1Title">What drives me</b><span data-i18n="f1Back">Curiosity about how systems really work.</span></div>
+              <div class="glass fact"><span class="f-emoji" aria-hidden="true">🤝</span><b data-i18n="f2Title">How I work</b><span data-i18n="f2Back">Equally good alone or with a team.</span></div>
+              <div class="glass fact"><span class="f-emoji" aria-hidden="true">🚀</span><b data-i18n="f3Title">Right now</b><span data-i18n="f3Back">Growing Okeat and looking for a student developer position.</span></div>
             </div>
           </div>
           <div class="col-lg-7">
@@ -856,15 +930,15 @@
         </div>
         <div class="row g-4 mt-1">
           <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-blue"><div class="icon" aria-hidden="true">💻</div><h3 data-i18n="sk1">Languages</h3>
-            <button type="button" class="skill" data-uses="Sort Photos · Text Emotion Recognition · TCP Chat">Python</button><button type="button" class="skill" data-uses="HaMivchanon">Java</button><button type="button" class="skill" data-uses="HIT coursework">C</button><button type="button" class="skill" data-uses="HIT coursework">C++</button><button type="button" class="skill" data-uses="Okeat">TypeScript</button><button type="button" class="skill" data-uses="Okeat · This website">JavaScript</button><button type="button" class="skill" data-uses="Okeat">SQL</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
-          <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-lav"><div class="icon" aria-hidden="true">🌐</div><h3 data-i18n="sk2">Web</h3>
-            <button type="button" class="skill" data-uses="Okeat">React</button><button type="button" class="skill" data-uses="Okeat">Next.js</button><button type="button" class="skill" data-uses="This website · Okeat">HTML/CSS</button><button type="button" class="skill" data-uses="This website">Bootstrap</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+            <button type="button" class="skill" data-uses="Sort Photos · Text Emotion Recognition · TCP Chat">Python</button><button type="button" class="skill" data-uses="DiviStay · HaMivchanon">Java</button><button type="button" class="skill" data-uses="HIT coursework">C</button><button type="button" class="skill" data-uses="HIT coursework">C++</button><button type="button" class="skill" data-uses="Okeat">TypeScript</button><button type="button" class="skill" data-uses="Okeat · This website">JavaScript</button><button type="button" class="skill" data-uses="Okeat · HIT coursework">SQL</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+          <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-lav"><div class="icon" aria-hidden="true">🌐</div><h3 data-i18n="sk2">Web & Backend</h3>
+            <button type="button" class="skill" data-uses="DiviStay">Spring Boot</button><button type="button" class="skill" data-uses="Okeat">React</button><button type="button" class="skill" data-uses="Okeat">Next.js</button><button type="button" class="skill" data-uses="This website · Okeat · DiviStay">HTML/CSS</button><button type="button" class="skill" data-uses="This website">Bootstrap</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
           <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-mint"><div class="icon" aria-hidden="true">🧠</div><h3 data-i18n="sk3">Data & ML</h3>
             <button type="button" class="skill" data-uses="Sort Photos">PyTorch</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Scikit-Learn</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Pandas</button><button type="button" class="skill" data-uses="Text Emotion Recognition">NumPy</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
           <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-peach"><div class="icon" aria-hidden="true">🗄️</div><h3 data-i18n="sk4">Databases & Cloud</h3>
             <button type="button" class="skill" data-uses="Okeat">PostgreSQL</button><button type="button" class="skill" data-uses="Okeat">PostGIS</button><button type="button" class="skill" data-uses="Okeat">Supabase</button><button type="button" class="skill" data-uses="HaMivchanon">Firebase</button><button type="button" class="skill" data-uses="Okeat">Vercel</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
           <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-rose"><div class="icon" aria-hidden="true">🛠️</div><h3 data-i18n="sk5">Tools</h3>
-            <button type="button" class="skill" data-uses="All projects">Git</button><button type="button" class="skill" data-uses="HIT coursework">Linux</button><button type="button" class="skill" data-uses="TCP Chat">Wireshark</button><button type="button" class="skill" data-uses="HaMivchanon">Android Studio</button><button type="button" class="skill" data-uses="All projects">VS Code</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+            <button type="button" class="skill" data-uses="All projects">Git</button><button type="button" class="skill" data-uses="DiviStay">Docker</button><button type="button" class="skill" data-uses="Okeat">GitHub Actions</button><button type="button" class="skill" data-uses="DiviStay">JUnit</button><button type="button" class="skill" data-uses="HIT coursework">Linux</button><button type="button" class="skill" data-uses="TCP Chat">Wireshark</button><button type="button" class="skill" data-uses="HaMivchanon">Android Studio</button><button type="button" class="skill" data-uses="All projects">VS Code</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
         </div>
       </div>
     </section>
@@ -876,9 +950,10 @@
           <p class="eyebrow" data-i18n="contactEyebrow">Let's talk</p>
           <h2 class="section-title" id="contactTitle" data-i18n="contactTitle">Looking for a student developer? 📬</h2>
           <p class="section-sub mx-auto mb-4" data-i18n="contactSub">I'm looking for a Software Engineering / Software Development student position. I'd be happy to hear from you.</p>
+          <a class="contact-link" href="mailto:noya.adivi@gmail.com">📧 noya.adivi@gmail.com</a>
+          <a class="contact-link" href="CV_Noya_Adivi.pdf" download data-i18n="ctaCv">📄 Download CV</a>
           <a class="contact-link" href="https://www.linkedin.com/in/noya-adivi/" target="_blank" rel="noopener">💼 LinkedIn</a>
           <a class="contact-link" href="https://github.com/NoyaAdivi" target="_blank" rel="noopener">🐙 GitHub</a>
-          <a class="contact-link" href="https://okeat.vercel.app" target="_blank" rel="noopener">🗺️ Okeat</a>
         </div>
       </div>
     </section>
@@ -962,34 +1037,34 @@
     const he = {
       skip: 'דילוג לתוכן הראשי', nowBuilding: 'עכשיו בונה', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
       navProjects: 'פרויקטים', navAbout: 'עליי', navSkills: 'כישורים', navContact: 'יצירת קשר',
-      location: 'ישראל', hint: '✨ העבירו את העכבר מעל השם שלי',
+      location: 'ישראל · מחפשת משרת סטודנטית לפיתוח', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת - ממסד הנתונים ועד העלייה לאוויר.',
-      iBuild: 'אני בונה', ctaWork: 'לפרויקטים שלי ↓', ctaLinkedin: '💼 לינקדאין', ctaGithub: '🐙 גיטהאב',
+      iBuild: 'אני בונה', ctaWork: 'לפרויקטים שלי ↓', ctaCv: '📄 הורדת קורות חיים', ctaLinkedin: '💼 לינקדאין', ctaGithub: '🐙 גיטהאב',
       projEyebrow: 'עבודות נבחרות', projTitle: 'פרויקטים 🚀', projSub: 'ממפה חיה מקצה לקצה ועד למידת מכונה ורשתות - כל כרטיס מקשר לקוד.',
       filterAria: 'סינון פרויקטים', fAll: 'הכול', fWeb: 'Full-Stack ו-Web', fMl: 'למידת מכונה', fSys: 'מערכות ותכנון',
       featured: '★ מומלץ', okeatAlt: 'דף הבית והמפה הארצית של Okeat', okeatTag: 'אפליקציית Web מקצה לקצה',
-      okeatDesc: 'מפה מאומתת-קהילה של יותר מ-20,000 מקומות אוכל כשרים, טבעוניים, צמחוניים וללא גלוטן ברחבי ישראל, בעברית ובאנגלית. כללי האימות והניהול נאכפים בתוך מסד הנתונים, ובאתר יש קריאת תעודות כשרות ב-OCR, ניווט קולי, ביקורות, שמירת מקומות, העלאת תמונות באישור מנהל ותפריט נגישות מלא.',
+      okeatDesc: 'מפה דו-לשונית של יותר מ-20,000 מקומות אוכל כשרים, טבעוניים, צמחוניים וללא גלוטן ברחבי ישראל. אימות קהילתי וניהול נאכפים בתוך מסד הנתונים, עם קריאת תעודות כשרות ב-OCR וניווט קולי בעברית.',
       live: '🌐 לאתר', code: '🐙 קוד', docs: '📄 מסמכים',
-      sortTag: 'ראייה ממוחשבת', sortDesc: 'כלי שורת פקודה שממיין עשרות אלפי תמונות למסמכים ולתמונות רגילות בעזרת CLIP, בלי אימון ובלי אינטרנט, ומותאם למעבד בעזרת int8 quantization.',
-      emoTag: 'עיבוד שפה · צוות של 3', emoDesc: 'מסווג Multinomial Naive Bayes שמימשנו מאפס, עם Grid Search שהשווה בין Bag-of-Words ל-TF-IDF ו-5-fold cross-validation, לזיהוי 6 רגשות.',
+      sortTag: 'ראייה ממוחשבת', sortDesc: 'כלי שורת פקודה שמפריד בין מסמכים לתמונות בעזרת CLIP, בלי נתוני אימון ובלי אינטרנט, ומותאם למעבד בעזרת int8 quantization.',
+      emoTag: 'עיבוד שפה · צוות של 3', emoDesc: 'מסווג Multinomial Naive Bayes שמימשנו מאפס לזיהוי 6 רגשות. Grid Search ו-oversampling העלו את ה-recall של הרגש הנדיר ביותר מ-0.10 ל-0.55.',
       chatTag: 'רשתות תקשורת', chatDesc: 'צ׳אט מרובה משתמשים עם שרת שמטפל בכל לקוח ב-thread נפרד, לקוחות עם ממשק גרפי והודעות פרטיות, וניתוח של לחיצת היד של TCP ותעבורת SEQ/ACK ב-Wireshark.',
-      divAlt: 'דף הבית של DiviStay עם חיפוש מלונות לקבוצות', divTag: 'פול-סטאק · תוכנן בצוות של 3', divDesc: 'הזמנת מלון קבוצתית עם פיצול תשלומים, ממסמכי דרישות וארכיטקטורה ועד אתר חי: Java ו-Spring Boot, תבניות Strategy, Adapter ו-Factory, החזקת חדרים ל-30 דקות, ויותר מ-18,000 מלונות אמיתיים מ-OpenStreetMap.',
-      hamTag: 'אפליקציית אנדרואיד', hamDesc: 'אפליקציית אנדרואיד לתכנון למידה, עם אחסון ב-Firebase ותזכורות למידה מתוזמנות בעזרת WorkManager.',
-      webTag: 'אתר אישי', webTitle: 'האתר הזה', webDesc: 'תיק עבודות בעמוד אחד שבנוי ב-Bootstrap: שם אינטראקטיבי מחלקיקים, אנגלית ועברית מימין לשמאל, ותפריט נגישות מלא.',
-      termEyebrow: 'מאחורי הקלעים', termTitle: '40,000 תמונות, פקודה אחת ⚡', termSub: 'Sort Photos ממיין ספריית תמונות שלמה גם על מחשב ישן - בלי אינטרנט, כך שתמונות פרטיות לא יוצאות מהמחשב.',
+      divAlt: 'דף הבית של DiviStay עם חיפוש מלונות לקבוצות', divTag: 'פול-סטאק · תוכנן בצוות של 3', divDesc: 'הזמנת מלון קבוצתית עם פיצול תשלומים, ממסמכי דרישות ו-UML ועד הדגמה חיה עם יותר מ-18,000 מלונות אמיתיים. נבנה עם תבניות Strategy, Factory ו-Adapter, החזקת חדרים אטומית ל-30 דקות ו-45 בדיקות אוטומטיות.', divNote: 'פרויקט הדגמה: התשלומים, החדרים והמחירים מדומים. הטעינה הראשונה יכולה לקחת כ-30 שניות.',
+      hamTag: 'פרויקט גמר בתיכון', hamDesc: 'אפליקציית אנדרואיד לתכנון למידה, עם אחסון ב-Firebase ותזכורות למידה מתוזמנות בעזרת WorkManager.',
+      webTag: 'אתר אישי', webTitle: 'האתר הזה', webDesc: 'תיק עבודות בעמוד אחד עם שם אינטראקטיבי מחלקיקים, עברית ואנגלית ותפריט נגישות מלא.', stat1: 'מקומות אוכל ב-Okeat', stat2: 'מלונות אמיתיים ב-DiviStay', stat3: 'בדיקות אוטומטיות', stat4: 'מוצרים חיים', deepEyebrow: 'איך זה בנוי', deepTitle: 'שני פרויקטים מקרוב 🔍', deepSub: 'הבעיה, איך זה עובד וההחלטות המרכזיות.', csProblem: 'הבעיה', csFlow: 'איך טענה הופכת למאומתת', csFlow2: 'איך הזמנה עובדת', csDecisions: 'החלטות מרכזיות', csArch: '📐 ארכיטקטורה', okProblem: 'מידע על מקומות כשרים, טבעוניים וללא גלוטן מפוזר בהרבה מקומות ומתיישן מהר.', okF1: 'הוספת טענה', okF2: 'ממתינה', okF3: '3 אישורים', okF4: 'מאומתת', okD1: 'הכללים נמצאים במסד הנתונים: RLS וטריגרים מגנים על הנתונים גם אם פונים ל-API בלי האתר.', okD2: 'המפה טוענת נקודות קלות ומקבצת אותן, כך ש-20,000 מקומות נשארים מהירים.', okD3: 'מידע מיובא נשאר מסומן ולא נחשב כמאומת על ידי הקהילה.', dvProblem: 'בהזמנה קבוצתית אדם אחד בדרך כלל משלם על כולם ואז צריך לגבות מהאחרים.', dvF1: 'החזקה ל-30 דקות', dvF2: 'פיצול העלות', dvF3: 'כולם משלמים', dvF4: 'אישור', dvD1: 'החזקת החדרים אטומית: בדיקה מריצה 32 תהליכים על אותו חדר ורק אחד מצליח.', dvD2: 'הכסף נשמר באגורות שלמות, כך שכל פיצול מסתכם במדויק.', dvD3: 'התשלומים אידמפוטנטיים, כך שלחיצה כפולה לא תחייב פעמיים.',
+      termEyebrow: 'מאחורי הקלעים', termTitle: 'ספריית תמונות שלמה, פקודה אחת ⚡', termSub: 'Sort Photos ממיין ספריית תמונות שלמה גם על מחשב ישן - בלי אינטרנט, כך שתמונות פרטיות לא יוצאות מהמחשב. זו הרצה לדוגמה.',
       termAria: 'אנימציה של Sort Photos ממיין תמונות בטרמינל',
       aboutEyebrow: 'עליי', aboutTitle: 'היי, אני נויה 🌸',
-      aboutP1: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, עם תשוקה אמיתית לפיתוח תוכנה ולפתרון בעיות.',
-      aboutP2: 'אני סקרנית לגבי האופן שבו מערכות עובדות, ונהנית לבנות פתרונות שלמים ואיכותיים - מהרעיון ועד מוצר עובד. שחקנית צוות מסורה ולומדת מהר, שמרגישה בנוח לעבוד גם לבד וגם בצוות.',
-      flipHint: '👆 לחצו על כרטיס כדי להפוך אותו', f1Title: 'מה מניע אותי', f1Back: 'סקרנות לגבי האופן שבו מערכות באמת עובדות - מאחורי הקלעים.',
-      f2Title: 'איך אני עובדת', f2Back: 'שחקנית צוות ולומדת מהר - עובדת טוב גם לבד וגם עם אחרים.', f3Title: 'עכשיו', f3Back: 'מפתחת את Okeat ומחפשת משרת סטודנטית לפיתוח.',
+      aboutP1: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, עם תשוקה לפיתוח תוכנה ולפתרון בעיות.',
+      aboutP2: 'אני סקרנית לגבי האופן שבו מערכות עובדות, ונהנית לבנות פתרונות שלמים ואיכותיים, מהרעיון ועד מוצר עובד. שחקנית צוות ולומדת מהר, שמרגישה בנוח לעבוד גם לבד וגם בצוות.',
+      f1Title: 'מה מניע אותי', f1Back: 'סקרנות לגבי האופן שבו מערכות באמת עובדות.',
+      f2Title: 'איך אני עובדת', f2Back: 'עובדת טוב גם לבד וגם בצוות.', f3Title: 'עכשיו', f3Back: 'מפתחת את Okeat ומחפשת משרת סטודנטית לפיתוח.',
       edu1Prog: 'שנה ג׳ מתוך 3 · בתהליך', edu2Prog: 'בגרות מלאה · 5 מגמות', showCourses: 'הצגת הקורסים', hideCourses: 'הסתרת הקורסים', showMajors: 'הצגת המגמות', hideMajors: 'הסתרת המגמות',
       c1: 'מבני נתונים', c2: 'אלגוריתמים 1 ו-2', c3: 'תכנות מונחה עצמים', c4: 'מערכות הפעלה', c5: 'רשתות תקשורת', c6: 'מערכות מסדי נתונים', c7: 'הנדסת תוכנה', c8: 'למידת מכונה', c9: 'מבוא למדעי הנתונים',
       m1: 'מדעי המחשב', m2: 'פיתוח תוכנה (אנדרואיד / Java)', m3: 'מתמטיקה', m4: 'אנגלית', m5: 'כימיה', m6: 'פרויקט גמר: HaMivchanon - אפליקציית אנדרואיד לתכנון למידה.', tNext: 'הבא בתור: התפקיד הראשון שלי כסטודנטית לפיתוח',
       csHead: '💻 מדעי המחשב', ipTag: '· בתהליך', mathHead: '📐 מתמטיקה', cs0: 'מבני נתונים', cs1: 'אלגוריתמים 1', cs2: 'אלגוריתמים 2', cs3: 'תכנות מונחה עצמים', cs4: 'סדנה מתקדמת בתכנות', cs5: 'מבוא למדעי המחשב', cs6: 'מבוא למערכות מחשב', cs7: 'מערכות הפעלה', cs8: 'רשתות תקשורת מחשבים', cs9: 'מערכות בסיסי נתונים', cs10: 'הנדסת תוכנה', cs11: 'למידת מכונה', cs12: 'מבוא למדעי הנתונים - שיטות וכלים', cs13: 'אוטומטים ושפות פורמליות', cs14: 'חישוביות וסיבוכיות אלגוריתמים', mt0: 'חשבון אינפיניטסימלי 1', mt1: 'חשבון אינפיניטסימלי 2', mt2: 'אלגברה לינארית', mt3: 'אלגברה 2', mt4: 'הסתברות', mt5: 'מתמטיקה בדידה 1', mt6: 'מתמטיקה בדידה 2',
       edu1Title: 'תואר ראשון במדעי המחשב', edu1Place: 'מכון טכנולוגי חולון (HIT)', edu1Desc: 'תכנות (C, C++), מדעי הנתונים, למידת מכונה, מערכות מסדי נתונים, רשתות תקשורת ויסודות תיאורטיים.',
       edu2Title: 'הנדסת תוכנה (35 יחידות)', edu2Place: 'תיכון אילון', edu2Desc: 'מגמות: מדעי המחשב, פיתוח תוכנה (אנדרואיד/Java), כימיה, מתמטיקה ואנגלית.',
-      skillsEyebrow: 'ארגז הכלים', skillsSub: 'כל כישור מקושר לפרויקטים שבהם השתמשתי בו בפועל.', usesHint: 'העבירו את העכבר או לחצו על כישור כדי לראות איפה השתמשתי בו', runAgain: '▶ להריץ שוב', skillsTitle: 'כישורים 🧩', sk1: 'שפות', sk2: 'Web', sk3: 'נתונים ו-ML', sk4: 'מסדי נתונים וענן', sk5: 'כלים',
+      skillsEyebrow: 'ארגז הכלים', skillsSub: 'כל כישור מקושר לפרויקטים שבהם השתמשתי בו בפועל.', usesHint: 'העבירו את העכבר או לחצו על כישור כדי לראות איפה השתמשתי בו', runAgain: '▶ להריץ שוב', skillsTitle: 'כישורים 🧩', sk1: 'שפות', sk2: 'Web ו-Backend', sk3: 'נתונים ו-ML', sk4: 'מסדי נתונים וענן', sk5: 'כלים',
       contactEyebrow: 'בואו נדבר', contactTitle: 'מחפשים סטודנטית לפיתוח? 📬', contactSub: 'אני מחפשת משרת סטודנטית בהנדסת תוכנה או בפיתוח תוכנה, ואשמח לשמוע מכם.',
       madeWith: 'נבנה עם 💙 ו-Bootstrap', statementLink: 'הצהרת נגישות', topAria: 'חזרה למעלה',
       a11yAria: 'אפשרויות נגישות', a11yTitle: '♿ נגישות', closeAria: 'סגירה', sizeDownAria: 'הקטנת טקסט', sizeUpAria: 'הגדלת טקסט', textSize: 'גודל טקסט',
@@ -1002,7 +1077,7 @@
       en: ['full-stack web apps', 'machine learning models', 'networked systems', 'accessible interfaces'],
       he: ['אפליקציות Web מקצה לקצה', 'מודלים של למידת מכונה', 'מערכות תקשורת', 'ממשקים נגישים']
     };
-    const marqueeWords = ['Full-Stack', 'Next.js', 'TypeScript', 'Machine Learning', 'PyTorch', 'PostgreSQL', 'Supabase', 'Computer Networks', 'Android', 'Accessibility', 'UML & Design Patterns', 'Python', 'Java', 'C++'];
+    const marqueeWords = ['Full-Stack', 'Next.js', 'TypeScript', 'Spring Boot', 'Java', 'Machine Learning', 'PyTorch', 'PostgreSQL', 'Supabase', 'Docker', 'Computer Networks', 'Accessibility', 'UML & Design Patterns', 'Python', 'C++'];
 
     const en = {};
     document.querySelectorAll('[data-i18n]').forEach(el => en[el.dataset.i18n] = el.textContent);
@@ -1026,10 +1101,10 @@
       document.querySelectorAll('[data-i18n-aria]').forEach(el => { const v = dict[el.dataset.i18nAria]; if (v) el.setAttribute('aria-label', v); });
       document.querySelectorAll('[data-i18n-alt]').forEach(el => { const v = dict[el.dataset.i18nAlt]; if (v) el.setAttribute('alt', v); });
       document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === l)));
-      document.querySelectorAll('[data-suffix]').forEach(el => { el.dataset.suffixNow = l === 'he' ? '' : el.dataset.suffix; if (el.dataset.done) el.textContent = el.dataset.count + el.dataset.suffixNow; });
+      document.querySelectorAll('[data-suffix]').forEach(el => { el.dataset.suffixNow = el.dataset.suffix; if (el.dataset.done) el.textContent = Number(el.dataset.count).toLocaleString('en-US') + (el.dataset.suffixNow || ''); });
       const hintEl = document.querySelector('[data-i18n="hint"]');
       if (window.matchMedia('(hover: none)').matches) hintEl.textContent = dict.hintTouch;
-      document.title = l === 'he' ? 'נויה אדיבי | סטודנטית למדעי המחשב' : 'Noya Adivi | Computer Science Student';
+      document.title = l === 'he' ? 'נויה אדיבי | סטודנטית לפיתוח תוכנה' : 'Noya Adivi | Software Engineering Student';
       wordIndex = 0; charIndex = 0; deleting = false;
     }
     document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
