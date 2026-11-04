@@ -520,6 +520,12 @@
     }
     @media (prefers-reduced-motion: reduce) { .flow span { animation: none; } }
     .a11y-still .flow span { animation: none; }
+
+    /* ---------- Clickable project titles and images ---------- */
+    .project .cover { position: relative; }
+    .cover-link { position: absolute; inset: 0; z-index: 3; cursor: pointer; }
+    .proj-link { color: inherit; text-decoration: none; transition: color .2s; }
+    .proj-link:hover { color: var(--accent); text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -622,7 +628,7 @@
             <article class="glass project reveal tilt">
               <div class="row g-0 h-100">
                 <div class="col-lg-7">
-                  <div class="cover cover-featured h-100">
+                  <div class="cover cover-featured h-100"><a class="cover-link" href="https://okeat.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
                     <img src="https://raw.githubusercontent.com/NoyaAdivi/Okeat/main/okeat.png" alt="Okeat home page and nationwide map" data-i18n-alt="okeatAlt" loading="lazy">
                     <span class="featured-badge" data-i18n="featured">★ Featured</span>
                   </div>
@@ -630,7 +636,7 @@
                 <div class="col-lg-5">
                   <div class="body h-100">
                     <div class="tag-line"><span data-i18n="okeatTag">Full-stack web app</span></div>
-                    <h3>🗺️ Okeat</h3>
+                    <h3><a class="proj-link" href="https://okeat.vercel.app" target="_blank" rel="noopener">🗺️ Okeat</a></h3>
                     <p data-i18n="okeatDesc">A bilingual map of 20,000+ kosher, vegan, vegetarian and gluten-free eateries across Israel. Community verification and moderation are enforced inside the database, with OCR of kosher certificates and Hebrew voice navigation.</p>
                     <div>
                       <span class="chip c-blue">Next.js</span><span class="chip c-lav">TypeScript</span><span class="chip c-mint">Supabase</span><span class="chip c-peach">PostGIS</span><span class="chip c-blue">Mapbox</span><span class="chip c-lav">Tesseract OCR</span>
@@ -650,7 +656,7 @@
             <article class="glass project reveal tilt">
               <div class="row g-0 h-100">
                 <div class="col-lg-7">
-                  <div class="cover cover-featured h-100">
+                  <div class="cover cover-featured h-100"><a class="cover-link" href="https://divistay.onrender.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
                     <img src="https://raw.githubusercontent.com/NoyaAdivi/DiviStay/main/docs/screenshot.jpg" alt="DiviStay home page with the group hotel search" data-i18n-alt="divAlt" loading="lazy">
                     <span class="featured-badge" data-i18n="featured">★ Featured</span>
                   </div>
@@ -658,7 +664,7 @@
                 <div class="col-lg-5">
                   <div class="body h-100">
                     <div class="tag-line"><span data-i18n="divTag">Full-stack · designed by a team of 3</span></div>
-                <h3>🏨 DiviStay</h3>
+                <h3><a class="proj-link" href="https://divistay.onrender.com" target="_blank" rel="noopener">🏨 DiviStay</a></h3>
                 <p data-i18n="divDesc">Group hotel booking with payment splitting, taken from SRS and UML to a live demo with 18,000+ real hotels. Built with Strategy, Factory and Adapter patterns, an atomic 30-minute room hold and 45 automated tests.</p>
                 <div><span class="chip c-blue">Java</span><span class="chip c-lav">Spring Boot</span><span class="chip c-mint">Design Patterns</span><span class="chip c-peach">UML</span><span class="chip c-blue">Docker</span></div>
                 <div class="links">
@@ -676,10 +682,10 @@
           <!-- Sort Photos -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
             <article class="glass project reveal tilt">
-              <div class="cover cv-sort" aria-hidden="true"><div class="tile">🧾</div><div class="tile">👨‍👩‍👧</div><div class="tile">📄</div><div class="tile">🏖️</div></div>
+              <div class="cover cv-sort" aria-hidden="true"><a class="cover-link" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><div class="tile">🧾</div><div class="tile">👨‍👩‍👧</div><div class="tile">📄</div><div class="tile">🏖️</div></div>
               <div class="body">
                 <div class="tag-line"><span data-i18n="sortTag">Computer vision</span></div>
-                <h3>🖼️ Sort Photos</h3>
+                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener">🖼️ Sort Photos</a></h3>
                 <p data-i18n="sortDesc">Offline CLI that separates documents from photos using zero-shot CLIP, with no training data, optimized for CPU with int8 quantization.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">PyTorch</span><span class="chip c-mint">OpenCLIP</span></div>
                 <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
@@ -690,7 +696,7 @@
           <!-- Emotion -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
             <article class="glass project reveal tilt">
-              <div class="cover cv-emotion" aria-hidden="true">
+              <div class="cover cv-emotion" aria-hidden="true"><a class="cover-link" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
                 <div class="bar"><span style="width:4.6rem">joy</span><span class="track"><i style="width:80%"></i></span></div>
                 <div class="bar"><span style="width:4.6rem">sadness</span><span class="track"><i style="width:72%;animation-delay:-.6s"></i></span></div>
                 <div class="bar"><span style="width:4.6rem">anger</span><span class="track"><i style="width:58%;animation-delay:-1.2s"></i></span></div>
@@ -699,7 +705,7 @@
               </div>
               <div class="body">
                 <div class="tag-line"><span data-i18n="emoTag">NLP · team of 3</span></div>
-                <h3>🎭 Text Emotion Recognition</h3>
+                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener">🎭 Text Emotion Recognition</a></h3>
                 <p data-i18n="emoDesc">Multinomial Naive Bayes implemented from scratch for 6 emotions. Grid search and oversampling raised recall of the rarest emotion from 0.10 to 0.55.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">Scikit-Learn</span><span class="chip c-mint">Pandas</span><span class="chip c-peach">NumPy</span></div>
                 <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
@@ -710,14 +716,14 @@
           <!-- TCP Chat -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="sys">
             <article class="glass project reveal tilt">
-              <div class="cover cv-chat" aria-hidden="true">
+              <div class="cover cv-chat" aria-hidden="true"><a class="cover-link" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
                 <div class="msg">/users</div>
                 <div class="msg me">hi everyone 👋</div>
                 <div class="msg">/dm noya hey!</div>
               </div>
               <div class="body">
                 <div class="tag-line"><span data-i18n="chatTag">Computer networks</span></div>
-                <h3>💬 Client-Server TCP Chat</h3>
+                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener">💬 Client-Server TCP Chat</a></h3>
                 <p data-i18n="chatDesc">Multi-client chat with a thread-per-client server, GUI clients and private messages, plus Wireshark analysis of the TCP handshake and SEQ/ACK traffic.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">TCP/IP</span><span class="chip c-mint">Sockets</span><span class="chip c-peach">Wireshark</span></div>
                 <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
@@ -728,12 +734,12 @@
           <!-- HaMivchanon -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="web">
             <article class="glass project reveal tilt">
-              <div class="cover cv-phone" aria-hidden="true">
+              <div class="cover cv-phone" aria-hidden="true"><a class="cover-link" href="https://github.com/NoyaAdivi/HaMivchanon" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
                 <div class="phone"><span></span><span></span><span></span><span></span><b>⏰</b></div>
               </div>
               <div class="body">
                 <div class="tag-line"><span data-i18n="hamTag">High-school final project</span></div>
-                <h3>📱 HaMivchanon</h3>
+                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/HaMivchanon" target="_blank" rel="noopener">📱 HaMivchanon</a></h3>
                 <p data-i18n="hamDesc">Native Android app for study planning, with Firebase storage and WorkManager-based scheduled study notifications.</p>
                 <div><span class="chip c-blue">Java</span><span class="chip c-lav">Android Studio</span><span class="chip c-mint">Firebase</span></div>
                 <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/HaMivchanon" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
@@ -744,12 +750,12 @@
           <!-- This website -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="web">
             <article class="glass project reveal tilt">
-              <div class="cover cv-web" aria-hidden="true">
+              <div class="cover cv-web" aria-hidden="true"><a class="cover-link" href="https://github.com/NoyaAdivi/noya-website" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
                 <div class="win"><div class="top"><i></i><i></i><i></i></div><div class="content"><span></span><span></span><span></span><span></span><span></span></div></div>
               </div>
               <div class="body">
                 <div class="tag-line"><span data-i18n="webTag">Personal website</span></div>
-                <h3>💼 <span data-i18n="webTitle">This website</span></h3>
+                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/noya-website" target="_blank" rel="noopener">💼 <span data-i18n="webTitle">This website</span></a></h3>
                 <p data-i18n="webDesc">Single-page portfolio with an interactive particle name, Hebrew and English, and a full accessibility menu.</p>
                 <div><span class="chip c-blue">HTML</span><span class="chip c-lav">Bootstrap</span><span class="chip c-mint">JavaScript</span><span class="chip c-peach">Canvas</span></div>
                 <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/noya-website" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
@@ -771,7 +777,7 @@
         <div class="row g-4 mt-1">
           <div class="col-lg-6 reveal">
             <article class="glass case">
-              <h3>🗺️ Okeat</h3>
+              <h3><a class="proj-link" href="https://okeat.vercel.app" target="_blank" rel="noopener">🗺️ Okeat</a></h3>
               <div><h4 data-i18n="csProblem">The problem</h4><p data-i18n="okProblem">Information about kosher, vegan and gluten-free places is scattered and goes out of date.</p></div>
               <div><h4 data-i18n="csFlow">How a claim becomes trusted</h4>
                 <div class="flow"><span data-i18n="okF1">Claim added</span><i aria-hidden="true">→</i><span data-i18n="okF2">Pending</span><i aria-hidden="true">→</i><span data-i18n="okF3">3 confirmations</span><i aria-hidden="true">→</i><span data-i18n="okF4">Verified</span></div></div>
@@ -786,7 +792,7 @@
           </div>
           <div class="col-lg-6 reveal">
             <article class="glass case">
-              <h3>🏨 DiviStay</h3>
+              <h3><a class="proj-link" href="https://divistay.onrender.com" target="_blank" rel="noopener">🏨 DiviStay</a></h3>
               <div><h4 data-i18n="csProblem">The problem</h4><p data-i18n="dvProblem">In a group booking, one person usually pays for everyone and then has to collect from the others.</p></div>
               <div><h4 data-i18n="csFlow2">How a booking works</h4>
                 <div class="flow"><span data-i18n="dvF1">30-minute hold</span><i aria-hidden="true">→</i><span data-i18n="dvF2">Split the cost</span><i aria-hidden="true">→</i><span data-i18n="dvF3">Everyone pays</span><i aria-hidden="true">→</i><span data-i18n="dvF4">Confirmed</span></div></div>
