@@ -10,14 +10,6 @@
   <a href="https://noyaadivi.github.io/noya-website/"><img src="https://img.shields.io/badge/🌐_Visit_the_live_site-ffb6c1?style=for-the-badge" alt="Live site"></a>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Bootstrap_5-7952B3?style=flat-square&logo=bootstrap&logoColor=white" alt="Bootstrap 5">
-  <img src="https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=github&logoColor=white" alt="GitHub Pages">
-</p>
-
 <!-- Add a screenshot of the site here:
 <p align="center"><img src="docs/preview.png" alt="Site preview" width="800"></p>
 -->
