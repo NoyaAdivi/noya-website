@@ -1,4 +1,4 @@
-<h1 align="center">🌸 Noya Adivi – Personal Portfolio 🌸</h1>
+<h1 align="center">🌸 Noya Adivi - Personal Portfolio 🌸</h1>
 
 <p align="center"><b>🇬🇧 English</b> · <a href="README.he.md">🇮🇱 עברית</a></p>
 
