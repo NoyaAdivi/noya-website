@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="https://noyaadivi.github.io/noya-website"><img src="https://img.shields.io/badge/Visit_site-FFD5C9?style=for-the-badge&logo=googlechrome&logoColor=A8483A" alt="Visit site"></a> <img src="https://img.shields.io/badge/HTML5-CFE6FA?style=for-the-badge&logo=html5&logoColor=3F6D9F" alt="HTML5"> <img src="https://img.shields.io/badge/Bootstrap_5-DAD5FF?style=for-the-badge&logo=bootstrap&logoColor=5548C8" alt="Bootstrap 5"> <img src="https://img.shields.io/badge/JavaScript-BFEBD9?style=for-the-badge&logo=javascript&logoColor=1F7350" alt="JavaScript">
+  <a href="https://noyaadivi.github.io/noya-website"><img src="https://img.shields.io/badge/Visit_site-FFD5C9?style=for-the-badge&logo=googlechrome&logoColor=A8483A" alt="Visit site"></a>>
 </p>
 
 <p align="center">
