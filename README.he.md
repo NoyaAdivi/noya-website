@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://noyaadivi.github.io/noya-website"><img src="https://img.shields.io/badge/לאתר-FFD5C9?style=for-the-badge&logo=googlechrome&logoColor=A8483A" alt="Visit site"></a>
+  <a href="https://noyaadivi.github.io/noya-website"><img src="https://img.shields.io/badge/Visit_site-FFD5C9?style=for-the-badge&logo=googlechrome&logoColor=A8483A" alt="Visit site"></a>
 </p>
 
 <p align="center">
