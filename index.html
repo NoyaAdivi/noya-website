@@ -535,6 +535,10 @@
     [dir=rtl] .project .cover.cover-featured img { object-position: right center; }
     .project:hover .cover.cover-featured img { transform: scale(1.03); }
     .cover-link { position: absolute; inset: 0; z-index: 3; cursor: pointer; }
+    .live-dot { display: inline-block; width: .55rem; height: .55rem; border-radius: 50%; background: #34c38f; margin-inline-end: .45rem; vertical-align: middle; animation: livePulse 2s ease-out infinite; }
+    @keyframes livePulse { 0% { box-shadow: 0 0 0 0 rgba(52,195,143,.55); } 70% { box-shadow: 0 0 0 .55rem rgba(52,195,143,0); } 100% { box-shadow: 0 0 0 0 rgba(52,195,143,0); } }
+    html.a11y-still .live-dot { animation: none; }
+    @media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
     .project .cover.cover-img { aspect-ratio: 1200 / 627; background: linear-gradient(135deg, #ffe9e1, #e7e0fb); }
     .project .cover.cover-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(111,96,240,.12)); opacity: 0; transition: opacity .4s ease; pointer-events: none; }
     .project:hover .cover.cover-img::after { opacity: 1; }
@@ -577,7 +581,7 @@
     <div class="container">
       <div class="row align-items-center g-4">
       <div class="col-lg-7">
-      <p class="hero-meta mb-2"><span aria-hidden="true">📍</span> <span data-i18n="location">Israel · Open to student developer positions</span></p>
+      <p class="hero-meta mb-2"><span class="live-dot" aria-hidden="true"></span><span aria-hidden="true">📍</span> <span data-i18n="location">Israel · Open to student developer positions</span></p>
       <div class="name-wrap" id="nameWrap">
         <canvas id="nameCanvas" aria-hidden="true"></canvas>
         <h1 class="hero-name">Noya<br>Adivi</h1>
@@ -1179,7 +1183,8 @@
       if (!ctx) return;
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       const rect = wrap.getBoundingClientRect();
-      cw = rect.width; ch = rect.height;
+      cw = Math.round(rect.width); ch = Math.round(rect.height);
+      if (cw < 10 || ch < 10) { particles = []; return; }
       canvas.width = cw * dpr; canvas.height = ch * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       const off = document.createElement('canvas');
@@ -1252,6 +1257,9 @@
       if (!ctx || motionOff() || contrast) { wrap.parentElement.classList.remove('canvas-on'); wrap.parentElement.classList.add('canvas-off'); return; }
       wrap.parentElement.classList.add('canvas-on'); wrap.parentElement.classList.remove('canvas-off');
       buildParticles();
+      // Safety net: if the name could not be drawn (hidden tab, zero size, font not ready), show the text version and try again later
+      if (!particles.length) { wrap.parentElement.classList.remove('canvas-on'); wrap.parentElement.classList.add('canvas-off'); if ((startCanvas.tries = (startCanvas.tries || 0) + 1) < 6) setTimeout(startCanvas, 700); return; }
+      startCanvas.tries = 0;
       rafId = requestAnimationFrame(draw);
     }
     const setMouse = (cx, cy) => { const r = canvas.getBoundingClientRect(); mouse.x = cx - r.left; mouse.y = cy - r.top; };
@@ -1263,6 +1271,9 @@
     });
     let resizeT;
     window.addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(startCanvas, 200); });
+    let lastW = 0;
+    if (window.ResizeObserver) new ResizeObserver(([e]) => { const w = Math.round(e.contentRect.width); if (w && w !== lastW) { lastW = w; clearTimeout(resizeT); resizeT = setTimeout(startCanvas, 150); } }).observe(wrap);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && !particles.length) startCanvas(); });
 
     /* ---------------- Scroll effects ---------------- */
     const nav = document.getElementById('mainNav');
