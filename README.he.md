@@ -31,7 +31,7 @@
 
 <table align="center">
   <tr>
-    <td align="center" width="25%"><a href="#s1"><b>🚀 5</b></a><br><sub>פרויקטים באתר</sub></td>
+    <td align="center" width="25%"><a href="#s1"><b>🚀 7</b></a><br><sub>פרויקטים באתר</sub></td>
     <td align="center" width="25%"><a href="https://noyaadivi.github.io/noya-website"><b>🌍 HE · EN</b></a><br><sub>דו־לשוני עם RTL</sub></td>
     <td align="center" width="25%"><a href="https://noyaadivi.github.io/noya-website"><b>🌙 Dark</b></a><br><sub>מצב כהה</sub></td>
     <td align="center" width="25%"><a href="index.html"><b>📄 1</b></a><br><sub>קובץ אחד, בלי build</sub></td>

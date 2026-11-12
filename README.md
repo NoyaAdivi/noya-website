@@ -29,7 +29,7 @@
 
 <table align="center">
   <tr>
-    <td align="center" width="25%"><a href="#projects-on-the-site"><b>🚀 5</b></a><br><sub>projects on the site</sub></td>
+    <td align="center" width="25%"><a href="#projects-on-the-site"><b>🚀 7</b></a><br><sub>projects on the site</sub></td>
     <td align="center" width="25%"><a href="https://noyaadivi.github.io/noya-website"><b>🌍 HE · EN</b></a><br><sub>bilingual, RTL ready</sub></td>
     <td align="center" width="25%"><a href="https://noyaadivi.github.io/noya-website"><b>🌙 Dark</b></a><br><sub>dark mode</sub></td>
     <td align="center" width="25%"><a href="index.html"><b>📄 1</b></a><br><sub>file, no build step</sub></td>

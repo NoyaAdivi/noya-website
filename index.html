@@ -526,6 +526,9 @@
     .project .cover.cover-featured img { object-fit: contain; }
     .project:hover .cover.cover-featured img { transform: scale(1.02); }
     .cover-link { position: absolute; inset: 0; z-index: 3; cursor: pointer; }
+    .project .cover.cover-img { aspect-ratio: 1200 / 627; background: linear-gradient(135deg, #ffe9e1, #e7e0fb); }
+    .project .cover.cover-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(111,96,240,.12)); opacity: 0; transition: opacity .4s ease; pointer-events: none; }
+    .project:hover .cover.cover-img::after { opacity: 1; }
     .proj-link { color: inherit; text-decoration: none; transition: color .2s; }
     .proj-link:hover { color: var(--accent); text-decoration: underline; }
   </style>
@@ -607,7 +610,7 @@
         <div class="reveal">
           <p class="eyebrow" data-i18n="projEyebrow">Selected work</p>
           <h2 class="section-title" id="projectsTitle" data-i18n="projTitle">Projects 🚀</h2>
-          <p class="section-sub" data-i18n="projSub">From a live full-stack map to machine learning and networking - each card links to the code.</p>
+          <p class="section-sub" data-i18n="projSub">Two live products, plus machine learning, networking and mobile work. Every card links to the code.</p>
         </div>
 
         <div class="stats reveal">
@@ -631,7 +634,7 @@
               <div class="row g-0 h-100">
                 <div class="col-lg-7">
                   <div class="cover cover-featured h-100"><a class="cover-link" href="https://okeat.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
-                    <img src="https://raw.githubusercontent.com/NoyaAdivi/Okeat/main/Banner.png" alt="Okeat home page and nationwide map" data-i18n-alt="okeatAlt" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/NoyaAdivi/Okeat/main/Banner.png" data-src-he="https://raw.githubusercontent.com/NoyaAdivi/Okeat/main/Banner-he.png" alt="Okeat home page and nationwide map" data-i18n-alt="okeatAlt" loading="lazy">
                     <span class="featured-badge" data-i18n="featured">★ Featured</span>
                   </div>
                 </div>
@@ -659,7 +662,7 @@
               <div class="row g-0 h-100">
                 <div class="col-lg-7">
                   <div class="cover cover-featured h-100"><a class="cover-link" href="https://divistay.onrender.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
-                    <img src="https://raw.githubusercontent.com/NoyaAdivi/DiviStay/main/docs/screenshot.png" alt="DiviStay home page with the group hotel search" data-i18n-alt="divAlt" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/NoyaAdivi/DiviStay/main/docs/screenshot.png" data-src-he="https://raw.githubusercontent.com/NoyaAdivi/DiviStay/main/docs/screenshot-he.png" alt="DiviStay home page with the group hotel search" data-i18n-alt="divAlt" loading="lazy">
                     <span class="featured-badge" data-i18n="featured">★ Featured</span>
                   </div>
                 </div>
@@ -684,7 +687,7 @@
           <!-- Sort Photos -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
             <article class="glass project reveal tilt">
-              <div class="cover cv-sort" aria-hidden="true"><a class="cover-link" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><div class="tile">🧾</div><div class="tile">👨‍👩‍👧</div><div class="tile">📄</div><div class="tile">🏖️</div></div>
+              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/sort-en.jpg" data-src-he="assets/projects/sort-he.jpg" alt="Sort Photos sorting a photo library into documents and photos" data-i18n-alt="sortAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
                 <div class="tag-line"><span data-i18n="sortTag">Computer vision</span></div>
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener">🖼️ Sort Photos</a></h3>
@@ -698,19 +701,13 @@
           <!-- Emotion -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
             <article class="glass project reveal tilt">
-              <div class="cover cv-emotion" aria-hidden="true"><a class="cover-link" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
-                <div class="bar"><span style="width:4.6rem">joy</span><span class="track"><i style="width:80%"></i></span></div>
-                <div class="bar"><span style="width:4.6rem">sadness</span><span class="track"><i style="width:72%;animation-delay:-.6s"></i></span></div>
-                <div class="bar"><span style="width:4.6rem">anger</span><span class="track"><i style="width:58%;animation-delay:-1.2s"></i></span></div>
-                <div class="bar"><span style="width:4.6rem">love</span><span class="track"><i style="width:46%;animation-delay:-1.8s"></i></span></div>
-                <div class="bar"><span style="width:4.6rem">surprise</span><span class="track"><i style="width:38%;animation-delay:-2.4s"></i></span></div>
-              </div>
+              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/emotion-en.jpg" data-src-he="assets/projects/emotion-he.jpg" alt="Emotion Detection predicting the emotion of a sentence" data-i18n-alt="emoAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
                 <div class="tag-line"><span data-i18n="emoTag">NLP · team of 3</span></div>
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener">🎭 Text Emotion Recognition</a></h3>
                 <p data-i18n="emoDesc">Multinomial Naive Bayes implemented from scratch for 6 emotions. Grid search and oversampling raised recall of the rarest emotion from 0.10 to 0.55.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">Scikit-Learn</span><span class="chip c-mint">Pandas</span><span class="chip c-peach">NumPy</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a> <a class="btn btn-soft btn-sm" href="https://colab.research.google.com/github/NoyaAdivi/emotion_detection_ml/blob/main/Notebook.ipynb" target="_blank" rel="noopener" data-i18n="colab">📓 Open in Colab</a></div>
               </div>
             </article>
           </div>
@@ -718,17 +715,13 @@
           <!-- TCP Chat -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="sys">
             <article class="glass project reveal tilt">
-              <div class="cover cv-chat" aria-hidden="true"><a class="cover-link" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
-                <div class="msg">/users</div>
-                <div class="msg me">hi everyone 👋</div>
-                <div class="msg">/dm noya hey!</div>
-              </div>
+              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/chat-en.jpg" data-src-he="assets/projects/chat-he.jpg" alt="TCP chat window next to a Wireshark capture" data-i18n-alt="chatAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
                 <div class="tag-line"><span data-i18n="chatTag">Computer networks</span></div>
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener">💬 Client-Server TCP Chat</a></h3>
                 <p data-i18n="chatDesc">Multi-client chat with a thread-per-client server, GUI clients and private messages, plus Wireshark analysis of the TCP handshake and SEQ/ACK traffic.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">TCP/IP</span><span class="chip c-mint">Sockets</span><span class="chip c-peach">Wireshark</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/Networking-project/blob/main/Summary_Report.pdf" target="_blank" rel="noopener" data-i18n="report">📄 Report</a></div>
               </div>
             </article>
           </div>
@@ -736,15 +729,13 @@
           <!-- HaMivchanon -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="web">
             <article class="glass project reveal tilt">
-              <div class="cover cv-phone" aria-hidden="true"><a class="cover-link" href="https://github.com/NoyaAdivi/HaMivchanon" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
-                <div class="phone"><span></span><span></span><span></span><span></span><b>⏰</b></div>
-              </div>
+              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/HaMivchanon" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/hamivchanon-en.jpg" data-src-he="assets/projects/hamivchanon-he.jpg" alt="HaMivchanon Android app with study reminders" data-i18n-alt="hamAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
                 <div class="tag-line"><span data-i18n="hamTag">High-school final project</span></div>
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/HaMivchanon" target="_blank" rel="noopener">📱 HaMivchanon</a></h3>
-                <p data-i18n="hamDesc">Native Android app for study planning, with Firebase storage and WorkManager-based scheduled study notifications.</p>
+                <p data-i18n="hamDesc">Native Android app for exam preparation: smart study reminders with WorkManager, a workspace per subject, and photos and PDFs synced to Firebase.</p>
                 <div><span class="chip c-blue">Java</span><span class="chip c-lav">Android Studio</span><span class="chip c-mint">Firebase</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/HaMivchanon" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/HaMivchanon" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/HaMivchanon/blob/main/HaMivchanon.pdf" target="_blank" rel="noopener" data-i18n="portfolioPdf">📄 Project portfolio</a></div>
               </div>
             </article>
           </div>
@@ -752,15 +743,13 @@
           <!-- This website -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="web">
             <article class="glass project reveal tilt">
-              <div class="cover cv-web" aria-hidden="true"><a class="cover-link" href="https://github.com/NoyaAdivi/noya-website" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
-                <div class="win"><div class="top"><i></i><i></i><i></i></div><div class="content"><span></span><span></span><span></span><span></span><span></span></div></div>
-              </div>
+              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/noya-website" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/website-en.jpg" data-src-he="assets/projects/website-he.jpg" alt="This portfolio website in English and Hebrew" data-i18n-alt="webAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
                 <div class="tag-line"><span data-i18n="webTag">Personal website</span></div>
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/noya-website" target="_blank" rel="noopener">💼 <span data-i18n="webTitle">This website</span></a></h3>
-                <p data-i18n="webDesc">Single-page portfolio with an interactive particle name, Hebrew and English, and a full accessibility menu.</p>
+                <p data-i18n="webDesc">Single-page portfolio with an interactive particle name, full Hebrew and English (RTL), dark mode and a WCAG-based accessibility menu.</p>
                 <div><span class="chip c-blue">HTML</span><span class="chip c-lav">Bootstrap</span><span class="chip c-mint">JavaScript</span><span class="chip c-peach">Canvas</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/noya-website" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/noya-website" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a> <a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/noya-website" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a></div>
               </div>
             </article>
           </div>
@@ -838,12 +827,12 @@
             <div class="reveal">
               <p class="eyebrow" data-i18n="aboutEyebrow">About me</p>
               <h2 class="section-title" id="aboutTitle" data-i18n="aboutTitle">Hi, I'm Noya 🌸</h2>
-              <p class="fs-5" data-i18n="aboutP1">3rd-year Computer Science student at HIT with a passion for software development and problem-solving.</p>
-              <p data-i18n="aboutP2">Curious about how systems work, I enjoy building complete, high-quality solutions, from idea to working product. A team player and fast learner, comfortable working both independently and collaboratively.</p>
+              <p class="fs-5" data-i18n="aboutP1">3rd-year Computer Science student at HIT who loves turning real problems into software people actually use.</p>
+              <p data-i18n="aboutP2">I like understanding how systems work under the hood, and I care about the details users never see: data integrity, tests and accessibility. I can own a project end to end on my own, and I enjoy building as part of a team.</p>
             </div>
             <div class="fact-grid reveal">
               <div class="glass fact"><span class="f-emoji" aria-hidden="true">🔍</span><b data-i18n="f1Title">What drives me</b><span data-i18n="f1Back">Curiosity about how systems really work.</span></div>
-              <div class="glass fact"><span class="f-emoji" aria-hidden="true">🤝</span><b data-i18n="f2Title">How I work</b><span data-i18n="f2Back">Equally good alone or with a team.</span></div>
+              <div class="glass fact"><span class="f-emoji" aria-hidden="true">🤝</span><b data-i18n="f2Title">How I work</b><span data-i18n="f2Back">Owning a task end to end, alone or with a team.</span></div>
               <div class="glass fact"><span class="f-emoji" aria-hidden="true">🚀</span><b data-i18n="f3Title">Right now</b><span data-i18n="f3Back">Growing Okeat and looking for a student developer position.</span></div>
             </div>
           </div>
@@ -855,7 +844,7 @@
                 <div class="d-flex align-items-start gap-3">
                   <span class="t-icon" aria-hidden="true">🏫</span>
                   <div class="flex-grow-1">
-                    <span class="when">2018 – 2021</span>
+                    <span class="when">2018 - 2021</span>
                     <h3 class="h5 mb-1" data-i18n="edu2Title">Computer Software Engineering (35 units)</h3>
                     <p class="fw-bold mb-1" data-i18n="edu2Place">Eylon High School</p>
                     <p class="small mb-2 text-soft" data-i18n="edu2Prog">Full matriculation · 5 majors</p>
@@ -880,7 +869,7 @@
                 <div class="d-flex align-items-start gap-3">
                   <span class="t-icon" aria-hidden="true">🎓</span>
                   <div class="flex-grow-1">
-                    <span class="when">2024 – 2027</span>
+                    <span class="when">2024 - 2027</span>
                     <h3 class="h5 mb-1" data-i18n="edu1Title">B.Sc. in Computer Science</h3>
                     <p class="fw-bold mb-1" data-i18n="edu1Place">Holon Institute of Technology (HIT)</p>
                     <div class="progress-year" aria-hidden="true"><span style="--p:66%"></span></div>
@@ -1046,7 +1035,7 @@
       location: 'ישראל · מחפשת משרת סטודנטית לפיתוח', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת - ממסד הנתונים ועד העלייה לאוויר.',
       iBuild: 'אני בונה', ctaWork: 'לפרויקטים שלי ↓', ctaLinkedin: '💼 לינקדאין', ctaGithub: '🐙 גיטהאב',
-      projEyebrow: 'עבודות נבחרות', projTitle: 'פרויקטים 🚀', projSub: 'ממפה חיה מקצה לקצה ועד למידת מכונה ורשתות - כל כרטיס מקשר לקוד.',
+      projEyebrow: 'עבודות נבחרות', projTitle: 'פרויקטים 🚀', projSub: 'שני מוצרים שעובדים באוויר, לצד עבודות בלמידת מכונה, רשתות ומובייל. כל כרטיס מקשר לקוד.',
       filterAria: 'סינון פרויקטים', fAll: 'הכול', fWeb: 'Full-Stack ו-Web', fMl: 'למידת מכונה', fSys: 'מערכות ותכנון',
       featured: '★ מומלץ', okeatAlt: 'דף הבית והמפה הארצית של Okeat', okeatTag: 'אפליקציית Web מקצה לקצה',
       okeatDesc: 'מפה דו-לשונית של יותר מ-20,000 מקומות אוכל כשרים, טבעוניים, צמחוניים וללא גלוטן ברחבי ישראל. אימות קהילתי וניהול נאכפים בתוך מסד הנתונים, עם קריאת תעודות כשרות ב-OCR וניווט קולי בעברית.',
@@ -1055,15 +1044,15 @@
       emoTag: 'עיבוד שפה · צוות של 3', emoDesc: 'מסווג Multinomial Naive Bayes שמימשנו מאפס לזיהוי 6 רגשות. Grid Search ו-oversampling העלו את ה-recall של הרגש הנדיר ביותר מ-0.10 ל-0.55.',
       chatTag: 'רשתות תקשורת', chatDesc: 'צ׳אט מרובה משתמשים עם שרת שמטפל בכל לקוח ב-thread נפרד, לקוחות עם ממשק גרפי והודעות פרטיות, וניתוח של לחיצת היד של TCP ותעבורת SEQ/ACK ב-Wireshark.',
       divAlt: 'דף הבית של DiviStay עם חיפוש מלונות לקבוצות', divTag: 'פול-סטאק · תוכנן בצוות של 3', divDesc: 'הזמנת מלון קבוצתית עם פיצול תשלומים, ממסמכי דרישות ו-UML ועד הדגמה חיה עם יותר מ-18,000 מלונות אמיתיים. נבנה עם תבניות Strategy, Factory ו-Adapter, החזקת חדרים אטומית ל-30 דקות ו-45 בדיקות אוטומטיות.', divNote: 'פרויקט הדגמה: התשלומים, החדרים והמחירים מדומים. הטעינה הראשונה יכולה לקחת כ-30 שניות.',
-      hamTag: 'פרויקט גמר בתיכון', hamDesc: 'אפליקציית אנדרואיד לתכנון למידה, עם אחסון ב-Firebase ותזכורות למידה מתוזמנות בעזרת WorkManager.',
-      webTag: 'אתר אישי', webTitle: 'האתר הזה', webDesc: 'תיק עבודות בעמוד אחד עם שם אינטראקטיבי מחלקיקים, עברית ואנגלית ותפריט נגישות מלא.', stat1: 'מקומות אוכל ב-Okeat', stat2: 'מלונות אמיתיים ב-DiviStay', stat3: 'בדיקות אוטומטיות', stat4: 'מוצרים חיים', deepEyebrow: 'איך זה בנוי', deepTitle: 'שני פרויקטים מקרוב 🔍', deepSub: 'הבעיה, איך זה עובד וההחלטות המרכזיות.', csProblem: 'הבעיה', csFlow: 'איך טענה הופכת למאומתת', csFlow2: 'איך הזמנה עובדת', csDecisions: 'החלטות מרכזיות', csArch: '📐 ארכיטקטורה', okProblem: 'מידע על מקומות כשרים, טבעוניים וללא גלוטן מפוזר בהרבה מקומות ומתיישן מהר.', okF1: 'הוספת טענה', okF2: 'ממתינה', okF3: '3 אישורים', okF4: 'מאומתת', okD1: 'הכללים נמצאים במסד הנתונים: RLS וטריגרים מגנים על הנתונים גם אם פונים ל-API בלי האתר.', okD2: 'המפה טוענת נקודות קלות ומקבצת אותן, כך ש-20,000 מקומות נשארים מהירים.', okD3: 'מידע מיובא נשאר מסומן ולא נחשב כמאומת על ידי הקהילה.', dvProblem: 'בהזמנה קבוצתית אדם אחד בדרך כלל משלם על כולם ואז צריך לגבות מהאחרים.', dvF1: 'החזקה ל-30 דקות', dvF2: 'פיצול העלות', dvF3: 'כולם משלמים', dvF4: 'אישור', dvD1: 'החזקת החדרים אטומית: בדיקה מריצה 32 תהליכים על אותו חדר ורק אחד מצליח.', dvD2: 'הכסף נשמר באגורות שלמות, כך שכל פיצול מסתכם במדויק.', dvD3: 'התשלומים אידמפוטנטיים, כך שלחיצה כפולה לא תחייב פעמיים.',
+      hamTag: 'פרויקט גמר בתיכון', hamDesc: 'אפליקציית אנדרואיד להכנה למבחנים: תזכורות למידה חכמות עם WorkManager, מרחב עבודה לכל מקצוע, ותמונות ו-PDF שמסונכרנים ל-Firebase.', hamAlt: 'אפליקציית המבחנון עם תזכורות למידה', colab: '📓 לפתוח ב-Colab', report: '📄 דוח', portfolioPdf: '📄 תיק הפרויקט', sortAlt: 'Sort Photos ממיין ספריית תמונות למסמכים ולתמונות', emoAlt: 'Emotion Detection מזהה את הרגש במשפט', chatAlt: 'חלון צ׳אט לצד הקלטת Wireshark', webAlt: 'האתר הזה בעברית ובאנגלית',
+      webTag: 'אתר אישי', webTitle: 'האתר הזה', webDesc: 'תיק עבודות בעמוד אחד עם שם אינטראקטיבי מחלקיקים, עברית ואנגלית מלאות (RTL), מצב כהה ותפריט נגישות לפי WCAG.', stat1: 'מקומות אוכל ב-Okeat', stat2: 'מלונות אמיתיים ב-DiviStay', stat3: 'בדיקות אוטומטיות', stat4: 'מוצרים חיים', deepEyebrow: 'איך זה בנוי', deepTitle: 'שני פרויקטים מקרוב 🔍', deepSub: 'הבעיה, איך זה עובד וההחלטות המרכזיות.', csProblem: 'הבעיה', csFlow: 'איך טענה הופכת למאומתת', csFlow2: 'איך הזמנה עובדת', csDecisions: 'החלטות מרכזיות', csArch: '📐 ארכיטקטורה', okProblem: 'מידע על מקומות כשרים, טבעוניים וללא גלוטן מפוזר בהרבה מקומות ומתיישן מהר.', okF1: 'הוספת טענה', okF2: 'ממתינה', okF3: '3 אישורים', okF4: 'מאומתת', okD1: 'הכללים נמצאים במסד הנתונים: RLS וטריגרים מגנים על הנתונים גם אם פונים ל-API בלי האתר.', okD2: 'המפה טוענת נקודות קלות ומקבצת אותן, כך ש-20,000 מקומות נשארים מהירים.', okD3: 'מידע מיובא נשאר מסומן ולא נחשב כמאומת על ידי הקהילה.', dvProblem: 'בהזמנה קבוצתית אדם אחד בדרך כלל משלם על כולם ואז צריך לגבות מהאחרים.', dvF1: 'החזקה ל-30 דקות', dvF2: 'פיצול העלות', dvF3: 'כולם משלמים', dvF4: 'אישור', dvD1: 'החזקת החדרים אטומית: בדיקה מריצה 32 תהליכים על אותו חדר ורק אחד מצליח.', dvD2: 'הכסף נשמר באגורות שלמות, כך שכל פיצול מסתכם במדויק.', dvD3: 'התשלומים אידמפוטנטיים, כך שלחיצה כפולה לא תחייב פעמיים.',
       termEyebrow: 'מאחורי הקלעים', termTitle: 'ספריית תמונות שלמה, פקודה אחת ⚡', termSub: 'Sort Photos ממיין ספריית תמונות שלמה גם על מחשב ישן - בלי אינטרנט, כך שתמונות פרטיות לא יוצאות מהמחשב. זו הרצה לדוגמה.',
       termAria: 'אנימציה של Sort Photos ממיין תמונות בטרמינל',
       aboutEyebrow: 'עליי', aboutTitle: 'היי, אני נויה 🌸',
-      aboutP1: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, עם תשוקה לפיתוח תוכנה ולפתרון בעיות.',
-      aboutP2: 'אני סקרנית לגבי האופן שבו מערכות עובדות, ונהנית לבנות פתרונות שלמים ואיכותיים, מהרעיון ועד מוצר עובד. שחקנית צוות ולומדת מהר, שמרגישה בנוח לעבוד גם לבד וגם בצוות.',
+      aboutP1: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שאוהבת להפוך בעיות אמיתיות לתוכנה שאנשים באמת משתמשים בה.',
+      aboutP2: 'אני אוהבת להבין איך מערכות עובדות מבפנים, ואכפת לי מהפרטים שהמשתמשים לא רואים: שלמות הנתונים, בדיקות ונגישות. אני יודעת להוביל פרויקט מקצה לקצה לבד, ונהנית לבנות גם כחלק מצוות.',
       f1Title: 'מה מניע אותי', f1Back: 'סקרנות לגבי האופן שבו מערכות באמת עובדות.',
-      f2Title: 'איך אני עובדת', f2Back: 'עובדת טוב גם לבד וגם בצוות.', f3Title: 'עכשיו', f3Back: 'מפתחת את Okeat ומחפשת משרת סטודנטית לפיתוח.',
+      f2Title: 'איך אני עובדת', f2Back: 'לוקחת אחריות על משימה מתחילתה ועד סופה, לבד או בצוות.', f3Title: 'עכשיו', f3Back: 'מפתחת את Okeat ומחפשת משרת סטודנטית לפיתוח.',
       edu1Prog: 'שנה ג׳ מתוך 3 · בתהליך', edu2Prog: 'בגרות מלאה · 5 מגמות', showCourses: 'הצגת הקורסים', hideCourses: 'הסתרת הקורסים', showMajors: 'הצגת המגמות', hideMajors: 'הסתרת המגמות',
       c1: 'מבני נתונים', c2: 'אלגוריתמים 1 ו-2', c3: 'תכנות מונחה עצמים', c4: 'מערכות הפעלה', c5: 'רשתות תקשורת', c6: 'מערכות מסדי נתונים', c7: 'הנדסת תוכנה', c8: 'למידת מכונה', c9: 'מבוא למדעי הנתונים',
       m1: 'מדעי המחשב', m2: 'פיתוח תוכנה (אנדרואיד / Java)', m3: 'מתמטיקה', m4: 'אנגלית', m5: 'כימיה', m6: 'פרויקט גמר: HaMivchanon - אפליקציית אנדרואיד לתכנון למידה.', tNext: 'הבא בתור: התפקיד הראשון שלי כסטודנטית לפיתוח',
@@ -1106,6 +1095,7 @@
       document.querySelectorAll('[data-i18n-html]').forEach(el => { const v = dict[el.dataset.i18nHtml]; if (v) el.innerHTML = v; });
       document.querySelectorAll('[data-i18n-aria]').forEach(el => { const v = dict[el.dataset.i18nAria]; if (v) el.setAttribute('aria-label', v); });
       document.querySelectorAll('[data-i18n-alt]').forEach(el => { const v = dict[el.dataset.i18nAlt]; if (v) el.setAttribute('alt', v); });
+      document.querySelectorAll('img[data-src-he]').forEach(img => { if (!img.dataset.srcEn) img.dataset.srcEn = img.getAttribute('src'); img.src = l === 'he' ? img.dataset.srcHe : img.dataset.srcEn; });
       document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === l)));
       document.querySelectorAll('[data-suffix]').forEach(el => { el.dataset.suffixNow = el.dataset.suffix; if (el.dataset.done) el.textContent = Number(el.dataset.count).toLocaleString('en-US') + (el.dataset.suffixNow || ''); });
       const hintEl = document.querySelector('[data-i18n="hint"]');
