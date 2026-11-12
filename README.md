@@ -7,7 +7,6 @@
 <p align="center">
   <a href="https://noyaadivi.github.io/noya-website"><img src="https://img.shields.io/badge/Visit_site-FFD5C9?style=for-the-badge&logo=googlechrome&logoColor=A8483A" alt="Visit site"></a>
   <a href="index.html"><img src="https://img.shields.io/badge/View_code-DAD5FF?style=for-the-badge&logo=html5&logoColor=5548C8" alt="View code"></a>
-  <a href="https://www.linkedin.com/in/noya-adivi/"><img src="https://img.shields.io/badge/LinkedIn-D9F3E7?style=for-the-badge" alt="LinkedIn"></a>
 </p>
 
 <p align="center">
