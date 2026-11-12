@@ -16,6 +16,11 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23a9d6f5'/%3E%3Cstop offset='1' stop-color='%23cbbcf4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Ctext x='32' y='45' font-family='Arial' font-size='36' font-weight='700' text-anchor='middle' fill='%23fff'%3EN%3C/text%3E%3C/svg%3E">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Noya Adivi","jobTitle":"Computer Science Student","alumniOf":"Holon Institute of Technology (HIT)","url":"https://noyaadivi.github.io/noya-website/","sameAs":["https://github.com/NoyaAdivi","https://www.linkedin.com/in/noya-adivi/"],"knowsAbout":["Full-Stack Development","Machine Learning","Java","Python","TypeScript","PostgreSQL"]}</script>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Noya Adivi">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#cfe8fb">
   <meta name="color-scheme" content="light dark">
 
@@ -560,6 +565,7 @@
           <button type="button" class="pill-btn" data-lang="en" aria-pressed="true">EN</button>
           <button type="button" class="pill-btn" data-lang="he" aria-pressed="false" lang="he">עב</button>
         </div>
+        <button type="button" class="pill-btn" id="installBtn" hidden aria-label="Install app" data-i18n-aria="installAria">📲</button>
         <button type="button" class="pill-btn" id="themeBtn" aria-label="Toggle dark mode" data-i18n-aria="themeAria">🌙</button>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu" data-i18n-aria="menuAria">
           <span class="navbar-toggler-icon"></span>
@@ -1043,7 +1049,7 @@
 
     /* ---------------- Translations ---------------- */
     const he = {
-      skip: 'דילוג לתוכן הראשי', nowBuilding: 'עכשיו בונה', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
+      skip: 'דילוג לתוכן הראשי', installAria: 'התקנת האתר כאפליקציה', nowBuilding: 'עכשיו בונה', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
       navProjects: 'פרויקטים', navAbout: 'עליי', navSkills: 'כישורים', navContact: 'יצירת קשר',
       location: 'ישראל · מחפשת משרת סטודנטית לפיתוח', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת - ממסד הנתונים ועד העלייה לאוויר.',
@@ -1141,6 +1147,14 @@
       window.addEventListener('click', e => { if (moved && btn.contains(e.target)) { e.preventDefault(); e.stopImmediatePropagation(); moved = false; } }, true);
       addEventListener('resize', () => { if (btn.classList.contains('placed')) place(parseFloat(btn.style.left), parseFloat(btn.style.top)); });
     })();
+
+
+    /* ---------------- Install as an app (PWA) ---------------- */
+    if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+    let installEvt = null; const installBtn = document.getElementById('installBtn');
+    addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; installBtn.hidden = false; });
+    installBtn.addEventListener('click', async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice; installEvt = null; installBtn.hidden = true; });
+    addEventListener('appinstalled', () => { installBtn.hidden = true; });
 
     /* ---------------- Typed text ---------------- */
     const typedEl = document.getElementById('typed');
