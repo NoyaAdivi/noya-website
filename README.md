@@ -37,7 +37,7 @@
 </table>
 
 <a name="projects-on-the-site"></a>
-<p align="center"><a href="https://noyaadivi.github.io/noya-website/#projects"><img src="docs/readme/projects-on-the-site-en.svg" width="100%" alt="Projects on the site"></a></p>
+<p align="center"><a href="#what-s-inside"><img src="docs/readme/projects-on-the-site-en.svg" width="100%" alt="Projects on the site"></a></p>
 
 - 🗺️ **[Okeat](https://github.com/NoyaAdivi/Okeat)** - bilingual map of 20,000+ eateries · [live](https://okeat.vercel.app)
 - 🏨 **[DiviStay](https://github.com/NoyaAdivi/DiviStay)** - group hotel booking with payment splitting · [live](https://divistay.onrender.com)
@@ -46,7 +46,7 @@
 - 💬 **[TCP Chat](https://github.com/NoyaAdivi/Networking-project)** - multi-client chat with Wireshark analysis
 
 <a name="what-s-inside"></a>
-<p align="center"><a href="index.html"><img src="docs/readme/what-s-inside-en.svg" width="100%" alt="What's inside"></a></p>
+<p align="center"><a href="#built-with"><img src="docs/readme/what-s-inside-en.svg" width="100%" alt="What's inside"></a></p>
 
 - 🎨 **Interactive particle name** that reacts to the mouse
 - 🌍 **Hebrew and English** with a full right-to-left layout
@@ -57,12 +57,12 @@
 - 📱 **Responsive** from phones to wide screens
 
 <a name="built-with"></a>
-<p align="center"><a href="https://getbootstrap.com"><img src="docs/readme/built-with-en.svg" width="100%" alt="Built with"></a></p>
+<p align="center"><a href="#run-locally"><img src="docs/readme/built-with-en.svg" width="100%" alt="Built with"></a></p>
 
 A single `index.html` file with HTML, CSS, JavaScript and Bootstrap 5, hosted on GitHub Pages. No build step.
 
 <a name="run-locally"></a>
-<p align="center"><a href="LICENSE"><img src="docs/readme/run-locally-en.svg" width="100%" alt="Run locally"></a></p>
+<p align="center"><a href="#contact"><img src="docs/readme/run-locally-en.svg" width="100%" alt="Run locally"></a></p>
 
 ```bash
 git clone https://github.com/NoyaAdivi/noya-website.git

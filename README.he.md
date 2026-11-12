@@ -39,7 +39,7 @@
 </table>
 
 <a name="s1"></a>
-<p align="center"><a href="https://noyaadivi.github.io/noya-website/#projects"><img src="docs/readme/s1-he.svg" width="100%" alt="הפרויקטים באתר"></a></p>
+<p align="center"><a href="#s2"><img src="docs/readme/s1-he.svg" width="100%" alt="הפרויקטים באתר"></a></p>
 
 - 🗺️ **[Okeat](https://github.com/NoyaAdivi/Okeat)** - מפה דו-לשונית של 20,000+ מקומות אוכל · [לאתר](https://okeat.vercel.app)
 - 🏨 **[DiviStay](https://github.com/NoyaAdivi/DiviStay)** - הזמנת מלון קבוצתית עם פיצול תשלום · [לאתר](https://divistay.onrender.com)
@@ -48,7 +48,7 @@
 - 💬 **[TCP Chat](https://github.com/NoyaAdivi/Networking-project)** - צ'אט מרובה משתמשים וניתוח ב-Wireshark
 
 <a name="s2"></a>
-<p align="center"><a href="index.html"><img src="docs/readme/s2-he.svg" width="100%" alt="מה יש באתר"></a></p>
+<p align="center"><a href="#s3"><img src="docs/readme/s2-he.svg" width="100%" alt="מה יש באתר"></a></p>
 
 - 🎨 **שם אינטראקטיבי מחלקיקים** שמגיב לעכבר
 - 🌍 **עברית ואנגלית** עם תצוגה מלאה מימין לשמאל
@@ -59,12 +59,12 @@
 - 📱 **מותאם** לטלפון ולמסך רחב
 
 <a name="s3"></a>
-<p align="center"><a href="https://getbootstrap.com"><img src="docs/readme/s3-he.svg" width="100%" alt="טכנולוגיות"></a></p>
+<p align="center"><a href="#s4"><img src="docs/readme/s3-he.svg" width="100%" alt="טכנולוגיות"></a></p>
 
 קובץ `index.html` אחד עם HTML, CSS, JavaScript ו-Bootstrap 5, באחסון GitHub Pages, בלי שלב בנייה.
 
 <a name="s4"></a>
-<p align="center"><a href="LICENSE"><img src="docs/readme/s4-he.svg" width="100%" alt="הרצה מקומית"></a></p>
+<p align="center"><a href="#contact"><img src="docs/readme/s4-he.svg" width="100%" alt="הרצה מקומית"></a></p>
 
 ```bash
 git clone https://github.com/NoyaAdivi/noya-website.git
