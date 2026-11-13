@@ -536,7 +536,7 @@
     /* ---------- Clickable project titles and images ---------- */
     .project .cover { position: relative; }
     .project .cover.cover-featured { background: transparent; }
-    .project .cover.cover-featured img { object-fit: cover; object-position: left center; }
+    .project .cover.cover-featured img { object-fit: contain; object-position: center; background: linear-gradient(135deg, #ffe9e1, #e7e0fb); }
     [dir=rtl] .project .cover.cover-featured img { object-position: right center; }
     .project:hover .cover.cover-featured img { transform: scale(1.03); }
     .cover-link { position: absolute; inset: 0; z-index: 3; cursor: pointer; }
