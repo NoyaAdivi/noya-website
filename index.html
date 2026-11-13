@@ -27,7 +27,7 @@
   <link id="bs-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Rubik:wght@400;500;700;800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Rubik:wght@400;500;700;800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     /* ---------- Theme tokens ---------- */
@@ -56,8 +56,8 @@
       --shadow-lg: 0 1.5rem 3rem rgba(140, 170, 210, .32);
       --focus: #3f6d9f;
 
-      --font-body: 'Nunito', system-ui, sans-serif;
-      --font-he: 'Rubik', 'Nunito', system-ui, sans-serif;
+      --font-body: 'Rubik', system-ui, sans-serif;
+      --font-he: 'Rubik', system-ui, sans-serif;
       --font-mono: 'JetBrains Mono', ui-monospace, monospace;
       --fs-scale: 1;
       --lh: 1.65;
@@ -549,6 +549,7 @@
     .project:hover .cover.cover-img::after { opacity: 1; }
     .proj-link { color: inherit; text-decoration: none; transition: color .2s; }
     .proj-link:hover { color: var(--accent); text-decoration: underline; }
+    h1, h2, h3, .section-title, .navbar-brand { font-family: 'Fredoka', 'Rubik', system-ui, sans-serif; }
   </style>
 </head>
 <body>
@@ -629,21 +630,21 @@
         <div class="reveal">
           <p class="eyebrow" data-i18n="projEyebrow">Selected work</p>
           <h2 class="section-title" id="projectsTitle" data-i18n="projTitle">Projects 🚀</h2>
-          <p class="section-sub" data-i18n="projSub">Two live products, plus machine learning, networking and mobile work. Every card links to the code.</p>
+          <p class="section-sub" data-i18n="projSub">Seven live sites and 15 projects: full-stack products, AI, security, DevOps and everyday tools. Ordered from the most significant, and every card links to the code.</p>
         </div>
 
         <div class="stats reveal">
           <div class="glass stat"><b data-count="20000" data-suffix="+">20,000+</b><span data-i18n="stat1">eateries on Okeat</span></div>
           <div class="glass stat"><b data-count="18000" data-suffix="+">18,000+</b><span data-i18n="stat2">real hotels on DiviStay</span></div>
-          <div class="glass stat"><b data-count="64">64</b><span data-i18n="stat3">automated tests</span></div>
-          <div class="glass stat"><b data-count="2">2</b><span data-i18n="stat4">live products</span></div>
+          <div class="glass stat"><b data-count="15">15</b><span data-i18n="stat3">projects on GitHub</span></div>
+          <div class="glass stat"><b data-count="7">7</b><span data-i18n="stat4">live sites</span></div>
         </div>
 
         <div class="filter-bar d-flex flex-wrap gap-2 my-4 reveal" role="group" aria-label="Filter projects" data-i18n-aria="filterAria">
           <button class="pill-btn" data-filter="all" aria-pressed="true" data-i18n="fAll">All</button>
           <button class="pill-btn" data-filter="web" aria-pressed="false" data-i18n="fWeb">Full-Stack & Web</button>
-          <button class="pill-btn" data-filter="ml" aria-pressed="false" data-i18n="fMl">Machine Learning</button>
-          <button class="pill-btn" data-filter="sys" aria-pressed="false" data-i18n="fSys">Systems & Design</button>
+          <button class="pill-btn" data-filter="ml" aria-pressed="false" data-i18n="fMl">AI & Machine Learning</button>
+          <button class="pill-btn" data-filter="sys" aria-pressed="false" data-i18n="fSys">Systems, DevOps & Security</button>
         </div>
 
         <div class="row g-4" id="projectGrid">
@@ -653,7 +654,7 @@
               <div class="row g-0 h-100">
                 <div class="col-lg-7">
                   <div class="cover cover-featured h-100"><a class="cover-link" href="https://okeat.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
-                    <img src="https://raw.githubusercontent.com/NoyaAdivi/Okeat/main/Banner.png" data-src-he="https://raw.githubusercontent.com/NoyaAdivi/Okeat/main/Banner-he.png" alt="Okeat home page and nationwide map" data-i18n-alt="okeatAlt" loading="lazy">
+                    <img src="assets/projects/okeat-en.jpg" data-src-he="assets/projects/okeat-he.jpg" alt="Okeat home page and nationwide map" data-i18n-alt="okeatAlt" loading="lazy">
                     <span class="featured-badge" data-i18n="featured">★ Featured</span>
                   </div>
                 </div>
@@ -674,14 +675,13 @@
               </div>
             </article>
           </div>
-
           <!-- DiviStay (featured) -->
           <div class="col-12 project-col" data-cat="web">
             <article class="glass project reveal tilt">
               <div class="row g-0 h-100">
                 <div class="col-lg-7">
                   <div class="cover cover-featured h-100"><a class="cover-link" href="https://divistay.onrender.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
-                    <img src="https://raw.githubusercontent.com/NoyaAdivi/DiviStay/main/docs/screenshot.png" data-src-he="https://raw.githubusercontent.com/NoyaAdivi/DiviStay/main/docs/screenshot-he.png" alt="DiviStay home page with the group hotel search" data-i18n-alt="divAlt" loading="lazy">
+                    <img src="assets/projects/divistay-en.jpg" data-src-he="assets/projects/divistay-he.jpg" alt="DiviStay home page with the group hotel search" data-i18n-alt="divAlt" loading="lazy">
                     <span class="featured-badge" data-i18n="featured">★ Featured</span>
                   </div>
                 </div>
@@ -702,6 +702,61 @@
               </div>
             </article>
           </div>
+          <!-- Okeat Lens -->
+          <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/okeat-lens/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/okeat-lens-en.jpg" data-src-he="assets/projects/okeat-lens-he.jpg" alt="Okeat Lens recognizing a dish from a photo" data-i18n-alt="lensAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="lensTag">Computer vision · connects to Okeat</span></div>
+                <h3><a class="proj-link" href="https://noyaadivi.github.io/okeat-lens/" target="_blank" rel="noopener">📸 Okeat Lens</a></h3>
+                <p data-i18n="lensDesc">Snap a dish and know what you can eat. A model trained on 101 dishes turns a photo into diet hints (vegan, gluten-free, kosher type) that plug straight into Okeat. Runs in the browser and as an API.</p>
+                <div><span class="chip c-blue">Python</span><span class="chip c-lav">PyTorch</span><span class="chip c-mint">FastAPI</span><span class="chip c-peach">ONNX</span></div>
+                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/okeat-lens/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/okeat-lens" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
+
+          <!-- LeakLens -->
+          <div class="col-md-6 col-lg-4 project-col" data-cat="sys">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/LeakLens/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/leaklens-en.jpg" data-src-he="assets/projects/leaklens-he.jpg" alt="LeakLens checking how safe a password is" data-i18n-alt="leakAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="leakTag">Security · REST API</span></div>
+                <h3><a class="proj-link" href="https://noyaadivi.github.io/LeakLens/" target="_blank" rel="noopener">🔐 LeakLens</a></h3>
+                <p data-i18n="leakDesc">A REST API that scores password strength, checks data breaches and generates secure passphrases. Your password never leaves the device: only 5 characters of its hash are sent (k-anonymity).</p>
+                <div><span class="chip c-blue">Python</span><span class="chip c-lav">FastAPI</span><span class="chip c-mint">Docker</span><span class="chip c-peach">pytest</span></div>
+                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/LeakLens/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/LeakLens" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
+
+          <!-- SplitShip -->
+          <div class="col-md-6 col-lg-4 project-col" data-cat="sys">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://splitship-1.onrender.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/splitship-en.jpg" data-src-he="assets/projects/splitship-he.jpg" alt="SplitShip pipeline from git push to the cloud" data-i18n-alt="shipAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="shipTag">DevOps · CI/CD</span></div>
+                <h3><a class="proj-link" href="https://splitship-1.onrender.com" target="_blank" rel="noopener">🚢 SplitShip</a></h3>
+                <p data-i18n="shipDesc">A bill-splitting API wrapped in a full DevOps pipeline: every push is tested on two Node versions, built into a non-root Docker image and deployed to the cloud, then verified through a health check.</p>
+                <div><span class="chip c-blue">Node.js</span><span class="chip c-lav">Docker</span><span class="chip c-mint">GitHub Actions</span><span class="chip c-peach">Render</span></div>
+                <div class="links"><a class="btn btn-main btn-sm" href="https://splitship-1.onrender.com" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/splitship" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Nudgy -->
+          <div class="col-md-6 col-lg-4 project-col" data-cat="sys">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/nudgy-bot" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/nudgy-en.jpg" data-src-he="assets/projects/nudgy-he.jpg" alt="Nudgy reminding about deadlines in Telegram" data-i18n-alt="nudgyAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="nudgyTag">Telegram bot · bilingual</span></div>
+                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/nudgy-bot" target="_blank" rel="noopener">🔔 Nudgy</a></h3>
+                <p data-i18n="nudgyDesc">A Telegram bot that remembers assignment deadlines and nudges you before each one. Natural commands like /add tomorrow 23:59 in Hebrew or English, private tasks per chat and automated tests.</p>
+                <div><span class="chip c-blue">Python</span><span class="chip c-lav">Telegram Bot API</span><span class="chip c-mint">SQLite</span><span class="chip c-peach">pytest</span></div>
+                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/nudgy-bot" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
 
           <!-- Sort Photos -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
@@ -713,6 +768,33 @@
                 <p data-i18n="sortDesc">Offline CLI that separates documents from photos using zero-shot CLIP, with no training data, optimized for CPU with int8 quantization.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">PyTorch</span><span class="chip c-mint">OpenCLIP</span></div>
                 <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
+          <!-- Photo Twins -->
+          <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/photo-twins-en.jpg" data-src-he="assets/projects/photo-twins-he.jpg" alt="Photo Twins finding duplicate photos" data-i18n-alt="twinsAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="twinsTag">Image processing · CLI</span></div>
+                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener">👯 Photo Twins</a></h3>
+                <p data-i18n="twinsDesc">Finds exact and similar duplicate photos in huge libraries with SHA-256 and a 64-bit perceptual hash, even after resizing or WhatsApp compression. Never deletes, and every move can be undone.</p>
+                <div><span class="chip c-blue">Python</span><span class="chip c-lav">Pillow</span><span class="chip c-mint">Perceptual hashing</span><span class="chip c-peach">CLI</span></div>
+                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
+
+          <!-- FocusBloom -->
+          <div class="col-md-6 col-lg-4 project-col" data-cat="web">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/FocusBloom" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/focusbloom-en.jpg" data-src-he="assets/projects/focusbloom-he.jpg" alt="FocusBloom popup with the focus timer" data-i18n-alt="bloomAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="bloomTag">Chrome extension</span></div>
+                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/FocusBloom" target="_blank" rel="noopener">🌸 FocusBloom</a></h3>
+                <p data-i18n="bloomDesc">A Chrome extension that joins a Pomodoro timer and a site blocker. Distracting sites are blocked only while you focus and open again the moment your break starts. Built on Manifest V3.</p>
+                <div><span class="chip c-blue">JavaScript</span><span class="chip c-lav">Manifest V3</span><span class="chip c-mint">Chrome APIs</span><span class="chip c-peach">Node test</span></div>
+                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/FocusBloom" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
             </article>
           </div>
@@ -730,6 +812,33 @@
               </div>
             </article>
           </div>
+          <!-- Gradely -->
+          <div class="col-md-6 col-lg-4 project-col" data-cat="web">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/gradely/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/gradely-en.jpg" data-src-he="assets/projects/gradely-he.jpg" alt="Gradely degree GPA calculator" data-i18n-alt="gradeAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="gradeTag">Web app · Hebrew and English</span></div>
+                <h3><a class="proj-link" href="https://noyaadivi.github.io/gradely/" target="_blank" rel="noopener">🎓 Gradely</a></h3>
+                <p data-i18n="gradeDesc">A credit-weighted GPA calculator for any degree. Add semesters, watch the average update live and find out exactly what you need in the remaining credits to reach your goal.</p>
+                <div><span class="chip c-blue">JavaScript</span><span class="chip c-lav">HTML</span><span class="chip c-mint">CSS</span><span class="chip c-peach">localStorage</span></div>
+                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/gradely/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/gradely" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Pomodoro Timer -->
+          <div class="col-md-6 col-lg-4 project-col" data-cat="web">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/pomodoro-timer/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/pomodoro-en.jpg" data-src-he="assets/projects/pomodoro-he.jpg" alt="Pomodoro Timer with an animated focus ring" data-i18n-alt="pomoAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="pomoTag">Web app · productivity</span></div>
+                <h3><a class="proj-link" href="https://noyaadivi.github.io/pomodoro-timer/" target="_blank" rel="noopener">🍅 Pomodoro Timer</a></h3>
+                <p data-i18n="pomoDesc">A study timer in pure JavaScript with smooth animations, a task list, daily stats and a weekly chart. Light and dark mode, Hebrew and English, and nothing is lost on refresh.</p>
+                <div><span class="chip c-blue">JavaScript</span><span class="chip c-lav">HTML</span><span class="chip c-mint">CSS</span><span class="chip c-peach">localStorage</span></div>
+                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/pomodoro-timer/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/pomodoro-timer" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
 
           <!-- TCP Chat -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="sys">
@@ -744,7 +853,6 @@
               </div>
             </article>
           </div>
-
           <!-- HaMivchanon -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="web">
             <article class="glass project reveal tilt">
@@ -758,7 +866,6 @@
               </div>
             </article>
           </div>
-
           <!-- This website -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="web">
             <article class="glass project reveal tilt">
@@ -772,6 +879,7 @@
               </div>
             </article>
           </div>
+        
         </div>
       </div>
     </section>
@@ -1054,8 +1162,8 @@
       location: 'ישראל · מחפשת משרת סטודנטית לפיתוח', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת - ממסד הנתונים ועד העלייה לאוויר.',
       iBuild: 'אני בונה', ctaWork: 'לפרויקטים שלי ↓', ctaLinkedin: '💼 לינקדאין', ctaGithub: '🐙 גיטהאב',
-      projEyebrow: 'עבודות נבחרות', projTitle: 'פרויקטים 🚀', projSub: 'שני מוצרים שעובדים באוויר, לצד עבודות בלמידת מכונה, רשתות ומובייל. כל כרטיס מקשר לקוד.',
-      filterAria: 'סינון פרויקטים', fAll: 'הכול', fWeb: 'Full-Stack ו-Web', fMl: 'למידת מכונה', fSys: 'מערכות ותכנון',
+      projEyebrow: 'עבודות נבחרות', projTitle: 'פרויקטים 🚀', projSub: 'שבעה אתרים באוויר ו-15 פרויקטים: מוצרי פול-סטאק, בינה מלאכותית, אבטחת מידע, DevOps וכלים יומיומיים. מסודרים מהמשמעותי ביותר, וכל כרטיס מקשר לקוד.',
+      filterAria: 'סינון פרויקטים', fAll: 'הכול', fWeb: 'Full-Stack ו-Web', fMl: 'AI ולמידת מכונה', fSys: 'מערכות, DevOps ואבטחה',
       featured: '★ מומלץ', okeatAlt: 'דף הבית והמפה הארצית של Okeat', okeatTag: 'אפליקציית Web מקצה לקצה',
       okeatDesc: 'מפה דו-לשונית של יותר מ-20,000 מקומות אוכל כשרים, טבעוניים, צמחוניים וללא גלוטן ברחבי ישראל. אימות קהילתי וניהול נאכפים בתוך מסד הנתונים, עם קריאת תעודות כשרות ב-OCR וניווט קולי בעברית.',
       live: '🌐 לאתר', code: '🐙 קוד', docs: '📄 מסמכים',
@@ -1064,7 +1172,8 @@
       chatTag: 'רשתות תקשורת', chatDesc: 'צ׳אט מרובה משתמשים עם שרת שמטפל בכל לקוח ב-thread נפרד, לקוחות עם ממשק גרפי והודעות פרטיות, וניתוח של לחיצת היד של TCP ותעבורת SEQ/ACK ב-Wireshark.',
       divAlt: 'דף הבית של DiviStay עם חיפוש מלונות לקבוצות', divTag: 'פול-סטאק · תוכנן בצוות של 3', divDesc: 'הזמנת מלון קבוצתית עם פיצול תשלומים, ממסמכי דרישות ו-UML ועד הדגמה חיה עם יותר מ-18,000 מלונות אמיתיים. נבנה עם תבניות Strategy, Factory ו-Adapter, החזקת חדרים אטומית ל-30 דקות ו-45 בדיקות אוטומטיות.', divNote: 'פרויקט הדגמה: התשלומים, החדרים והמחירים מדומים. הטעינה הראשונה יכולה לקחת כ-30 שניות.',
       hamTag: 'פרויקט גמר בתיכון', hamDesc: 'אפליקציית אנדרואיד להכנה למבחנים: תזכורות למידה חכמות עם WorkManager, מרחב עבודה לכל מקצוע, ותמונות ו-PDF שמסונכרנים ל-Firebase.', hamAlt: 'אפליקציית המבחנון עם תזכורות למידה', colab: '📓 לפתוח ב-Colab', report: '📄 דוח', portfolioPdf: '📄 תיק הפרויקט', sortAlt: 'Sort Photos ממיין ספריית תמונות למסמכים ולתמונות', emoAlt: 'Emotion Detection מזהה את הרגש במשפט', chatAlt: 'חלון צ׳אט לצד הקלטת Wireshark', webAlt: 'האתר הזה בעברית ובאנגלית',
-      webTag: 'אתר אישי', webTitle: 'האתר הזה', webDesc: 'תיק עבודות בעמוד אחד עם שם אינטראקטיבי מחלקיקים, עברית ואנגלית מלאות (RTL), מצב כהה ותפריט נגישות לפי WCAG.', stat1: 'מקומות אוכל ב-Okeat', stat2: 'מלונות אמיתיים ב-DiviStay', stat3: 'בדיקות אוטומטיות', stat4: 'מוצרים חיים', deepEyebrow: 'איך זה בנוי', deepTitle: 'שני פרויקטים מקרוב 🔍', deepSub: 'הבעיה, איך זה עובד וההחלטות המרכזיות.', csProblem: 'הבעיה', csFlow: 'איך טענה הופכת למאומתת', csFlow2: 'איך הזמנה עובדת', csDecisions: 'החלטות מרכזיות', csArch: '📐 ארכיטקטורה', okProblem: 'מידע על מקומות כשרים, טבעוניים וללא גלוטן מפוזר בהרבה מקומות ומתיישן מהר.', okF1: 'הוספת טענה', okF2: 'ממתינה', okF3: '3 אישורים', okF4: 'מאומתת', okD1: 'הכללים נמצאים במסד הנתונים: RLS וטריגרים מגנים על הנתונים גם אם פונים ל-API בלי האתר.', okD2: 'המפה טוענת נקודות קלות ומקבצת אותן, כך ש-20,000 מקומות נשארים מהירים.', okD3: 'מידע מיובא נשאר מסומן ולא נחשב כמאומת על ידי הקהילה.', dvProblem: 'בהזמנה קבוצתית אדם אחד בדרך כלל משלם על כולם ואז צריך לגבות מהאחרים.', dvF1: 'החזקה ל-30 דקות', dvF2: 'פיצול העלות', dvF3: 'כולם משלמים', dvF4: 'אישור', dvD1: 'החזקת החדרים אטומית: בדיקה מריצה 32 תהליכים על אותו חדר ורק אחד מצליח.', dvD2: 'הכסף נשמר באגורות שלמות, כך שכל פיצול מסתכם במדויק.', dvD3: 'התשלומים אידמפוטנטיים, כך שלחיצה כפולה לא תחייב פעמיים.',
+      webTag: 'אתר אישי', webTitle: 'האתר הזה', webDesc: 'תיק עבודות בעמוד אחד עם שם אינטראקטיבי מחלקיקים, עברית ואנגלית מלאות (RTL), מצב כהה ותפריט נגישות לפי WCAG.', stat1: 'מקומות אוכל ב-Okeat', stat2: 'מלונות אמיתיים ב-DiviStay', stat3: 'פרויקטים בגיטהאב', stat4: 'אתרים באוויר', deepEyebrow: 'איך זה בנוי', deepTitle: 'שני פרויקטים מקרוב 🔍', deepSub: 'הבעיה, איך זה עובד וההחלטות המרכזיות.', csProblem: 'הבעיה', csFlow: 'איך טענה הופכת למאומתת', csFlow2: 'איך הזמנה עובדת', csDecisions: 'החלטות מרכזיות', csArch: '📐 ארכיטקטורה', okProblem: 'מידע על מקומות כשרים, טבעוניים וללא גלוטן מפוזר בהרבה מקומות ומתיישן מהר.', okF1: 'הוספת טענה', okF2: 'ממתינה', okF3: '3 אישורים', okF4: 'מאומתת', okD1: 'הכללים נמצאים במסד הנתונים: RLS וטריגרים מגנים על הנתונים גם אם פונים ל-API בלי האתר.', okD2: 'המפה טוענת נקודות קלות ומקבצת אותן, כך ש-20,000 מקומות נשארים מהירים.', okD3: 'מידע מיובא נשאר מסומן ולא נחשב כמאומת על ידי הקהילה.', dvProblem: 'בהזמנה קבוצתית אדם אחד בדרך כלל משלם על כולם ואז צריך לגבות מהאחרים.', dvF1: 'החזקה ל-30 דקות', dvF2: 'פיצול העלות', dvF3: 'כולם משלמים', dvF4: 'אישור', dvD1: 'החזקת החדרים אטומית: בדיקה מריצה 32 תהליכים על אותו חדר ורק אחד מצליח.', dvD2: 'הכסף נשמר באגורות שלמות, כך שכל פיצול מסתכם במדויק.', dvD3: 'התשלומים אידמפוטנטיים, כך שלחיצה כפולה לא תחייב פעמיים.',
+      lensAlt: 'Okeat Lens מזהה מנה מתמונה', lensTag: 'ראייה ממוחשבת · מתחבר ל-Okeat', lensDesc: 'מצלמים מנה ויודעים מה אפשר לאכול. מודל שאומן על 101 מנות הופך תמונה לרמזים תזונתיים (טבעוני, ללא גלוטן, סוג כשרות) שמתחברים ישר ל-Okeat. רץ בדפדפן וגם כ-API.', leakAlt: 'LeakLens בודק עד כמה סיסמה בטוחה', leakTag: 'אבטחת מידע · REST API', leakDesc: 'API שמדרג חוזק סיסמאות, בודק אם הן דלפו ומייצר סיסמאות חזקות. הסיסמה לא יוצאת מהמכשיר: רק 5 תווים מה-hash שלה נשלחים (k-anonymity).', shipAlt: 'הצינור של SplitShip מ-git push ועד הענן', shipTag: 'DevOps · CI/CD', shipDesc: 'API לחלוקת חשבון עטוף בצינור DevOps מלא: כל push נבדק על שתי גרסאות Node, נבנה לאימג׳ Docker בלי הרשאות root, עולה לענן ומאומת בבדיקת health.', nudgyAlt: 'Nudgy מזכיר דדליינים בטלגרם', nudgyTag: 'בוט טלגרם · דו לשוני', nudgyDesc: 'בוט טלגרם שזוכר את מועדי ההגשה ומזכיר לפני כל אחד. פקודות טבעיות כמו /add מחר 23:59 בעברית או באנגלית, משימות פרטיות לכל צ׳אט ובדיקות אוטומטיות.', twinsAlt: 'Photo Twins מוצא תמונות כפולות', twinsTag: 'עיבוד תמונה · שורת פקודה', twinsDesc: 'מוצא תמונות כפולות זהות ודומות בספריות ענק בעזרת SHA-256 ו-hash תפיסתי של 64 ביט, גם אחרי הקטנה או דחיסה של וואטסאפ. אף פעם לא מוחק, וכל העברה ניתנת לביטול.', bloomAlt: 'החלון של FocusBloom עם טיימר הריכוז', bloomTag: 'תוסף לכרום', bloomDesc: 'תוסף לכרום שמחבר טיימר פומודורו וחוסם אתרים. אתרים מסיחים חסומים רק בזמן ריכוז ונפתחים ברגע שההפסקה מתחילה. נבנה על Manifest V3.', gradeAlt: 'Gradely, מחשבון ממוצע תואר', gradeTag: 'אפליקציית Web · עברית ואנגלית', gradeDesc: 'מחשבון ממוצע משוקלל לכל תואר. מוסיפים סמסטרים, רואים את הממוצע מתעדכן בזמן אמת ומגלים בדיוק איזה ממוצע צריך בנקודות שנשארו כדי להגיע ליעד.', pomoAlt: 'טיימר פומודורו עם טבעת ריכוז מונפשת', pomoTag: 'אפליקציית Web · פרודוקטיביות', pomoDesc: 'טיימר למידה ב-JavaScript נקי עם אנימציות, רשימת משימות, נתונים יומיים וגרף שבועי. מצב בהיר וכהה, עברית ואנגלית, ושום דבר לא נמחק ברענון.',
       termEyebrow: 'מאחורי הקלעים', termTitle: 'ספריית תמונות שלמה, פקודה אחת ⚡', termSub: 'Sort Photos ממיין ספריית תמונות שלמה גם על מחשב ישן - בלי אינטרנט, כך שתמונות פרטיות לא יוצאות מהמחשב. זו הרצה לדוגמה.',
       termAria: 'אנימציה של Sort Photos ממיין תמונות בטרמינל',
       aboutEyebrow: 'עליי', aboutTitle: 'היי, אני נויה 🌸',
@@ -1206,7 +1315,7 @@
       const o = off.getContext('2d');
       const fontSize = Math.min(ch * 0.47, cw * 0.27);
       o.fillStyle = '#000';
-      o.font = `900 ${fontSize}px Nunito, sans-serif`;
+      o.font = `700 ${fontSize}px Fredoka, Rubik, sans-serif`;
       o.textBaseline = 'middle';
       const rtl = root.dir === 'rtl';
       o.textAlign = rtl ? 'right' : 'left';
