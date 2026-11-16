@@ -9,6 +9,7 @@
  *         data-before="footer"                     where to put the FAQ (default: before the first <footer>)
  *         data-replace="#faq"                      replace an existing FAQ section
  *         data-home-only                          hash-router sites: show the FAQ on the home view only
+ *         data-install="off"                     no install popup (the site stays installable from the browser)
  *         data-top="off"                           hide the back-to-top button
  *         data-scroll="off"></script>              no progress bar and no back-to-top (site has its own)
  */
@@ -97,13 +98,13 @@
       sec.dir = he() ? 'rtl' : 'ltr';
       sec.innerHTML = '<div class="na-head"><span class="na-eye">' + T('שאלות נפוצות', 'FAQ') + '</span>' +
         '<h2>' + esc(L(D.title) || T('יש שאלה? יש תשובה', 'Questions? Answered')) + '</h2>' +
-        '<p class="na-sub">' + T('בוחרים נושא או מחפשים, והתשובה נפתחת בלחיצה', 'Pick a topic or search, then tap a question to open it') + '</p></div>' +
-        '<div class="na-search"><span aria-hidden="true">🔎</span><input type="search" aria-label="' + T('חיפוש בשאלות', 'Search the questions') + '" placeholder="' + T('חיפוש שאלה…', 'Search a question…') + '"></div>' +
+        '<p class="na-sub">' + (D.items.length > 6 ? T('בוחרים נושא או מחפשים, והתשובה נפתחת בלחיצה', 'Pick a topic or search, then tap a question to open it') : T('בוחרים נושא ולוחצים על שאלה', 'Pick a topic and tap a question')) + '</p></div>' +
+        (D.items.length > 6 ? '<div class="na-search"><span aria-hidden="true">🔎</span><input type="search" aria-label="' + T('חיפוש בשאלות', 'Search the questions') + '" placeholder="' + T('חיפוש שאלה…', 'Search a question…') + '"></div>' : '') +
         '<div class="na-chips" role="group" aria-label="' + T('סינון לפי נושא', 'Filter by topic') + '"></div>' +
         '<div class="na-list"></div><p class="na-empty" hidden></p>' +
         (opt.repo ? '<p class="na-more"><a href="' + esc(opt.repo) + '/issues/new" target="_blank" rel="noopener">💬 ' + T('לא מצאתם תשובה? כתבו לי בגיטהאב', 'Didn\'t find it? Ask me on GitHub') + '</a></p>' : '');
-      var inp = sec.querySelector('input'); inp.value = query;
-      inp.addEventListener('input', function () { query = inp.value.trim(); list(); chips(); });
+      var inp = sec.querySelector('input');
+      if (inp) { inp.value = query; inp.addEventListener('input', function () { query = inp.value.trim(); list(); chips(); }); }
       chips(); list();
     }
     function visible(it, ignoreTopic) {
@@ -169,6 +170,7 @@
     if (opt.sw && 'serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
       addEventListener('load', function () { navigator.serviceWorker.register(opt.sw).catch(function () {}); });
     }
+    if (opt.install === 'off') return;
     var standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
     if (standalone) { root.classList.add('na-standalone'); return; }
     var KEY = 'noya-app:install-dismissed', deferred = null, bar = null;

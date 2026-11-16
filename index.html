@@ -258,6 +258,9 @@
 
     /* ---------- Projects ---------- */
     .filter-bar .pill-btn { padding: .45rem 1.1rem; }
+    #projectGrid.collapsed .more-proj { display: none; }
+    #moreBtn .chev { display: inline-block; transition: transform .35s; }
+    #moreBtn[aria-expanded="true"] .chev { transform: rotate(180deg); }
     .project {
       height: 100%; overflow: hidden; display: flex; flex-direction: column;
       transition: transform .35s ease, box-shadow .35s ease;
@@ -571,7 +574,6 @@
           <button type="button" class="pill-btn" data-lang="en" aria-pressed="true">EN</button>
           <button type="button" class="pill-btn" data-lang="he" aria-pressed="false" lang="he">עב</button>
         </div>
-        <button type="button" class="pill-btn" id="installBtn" hidden aria-label="Install app" data-i18n-aria="installAria">📲</button>
         <button type="button" class="pill-btn" id="themeBtn" aria-label="Toggle dark mode" data-i18n-aria="themeAria">🌙</button>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu" data-i18n-aria="menuAria">
           <span class="navbar-toggler-icon"></span>
@@ -635,14 +637,14 @@
         <div class="reveal">
           <p class="eyebrow" data-i18n="projEyebrow">Selected work</p>
           <h2 class="section-title" id="projectsTitle" data-i18n="projTitle">Projects 🚀</h2>
-          <p class="section-sub" data-i18n="projSub">Seven live sites and 16 projects: full-stack products, AI, security, DevOps and everyday tools. Ordered from the most significant, and every card links to the code.</p>
+          <p class="section-sub" data-i18n="projSub">Full-stack products, AI, security and DevOps, ordered from the most significant.</p>
         </div>
 
         <div class="stats reveal">
           <div class="glass stat"><b data-count="20000" data-suffix="+">20,000+</b><span data-i18n="stat1">eateries on Okeat</span></div>
           <div class="glass stat"><b data-count="18000" data-suffix="+">18,000+</b><span data-i18n="stat2">real hotels on DiviStay</span></div>
-          <div class="glass stat"><b data-count="15">15</b><span data-i18n="stat3">projects on GitHub</span></div>
-          <div class="glass stat"><b data-count="7">7</b><span data-i18n="stat4">live sites</span></div>
+          <div class="glass stat"><b data-count="16">16</b><span data-i18n="stat3">projects on GitHub</span></div>
+          <div class="glass stat"><b data-count="9">9</b><span data-i18n="stat4">live sites</span></div>
         </div>
 
         <div class="filter-bar d-flex flex-wrap gap-2 my-4 reveal" role="group" aria-label="Filter projects" data-i18n-aria="filterAria">
@@ -652,8 +654,8 @@
           <button class="pill-btn" data-filter="sys" aria-pressed="false" data-i18n="fSys">Systems, DevOps & Security</button>
         </div>
 
-        <div class="row g-4" id="projectGrid">
-          <!-- Okeat (featured) -->
+        <div class="row g-4 collapsed" id="projectGrid">
+          <!-- Okeat -->
           <div class="col-12 project-col" data-cat="web">
             <article class="glass project reveal tilt">
               <div class="row g-0 h-100">
@@ -680,7 +682,7 @@
               </div>
             </article>
           </div>
-          <!-- DiviStay (featured) -->
+          <!-- DiviStay -->
           <div class="col-12 project-col" data-cat="web">
             <article class="glass project reveal tilt">
               <div class="row g-0 h-100">
@@ -707,62 +709,58 @@
               </div>
             </article>
           </div>
-          <!-- Okeat Lens -->
-          <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
-            <article class="glass project reveal tilt">
-              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/okeat-lens/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/okeat-lens-en.jpg" data-src-he="assets/projects/okeat-lens-he.jpg" alt="Okeat Lens recognizing a dish from a photo" data-i18n-alt="lensAlt" loading="lazy" width="1200" height="627"></div>
-              <div class="body">
-                <div class="tag-line"><span data-i18n="lensTag">Computer vision · connects to Okeat</span></div>
-                <h3><a class="proj-link" href="https://noyaadivi.github.io/okeat-lens/" target="_blank" rel="noopener">📸 Okeat Lens</a></h3>
-                <p data-i18n="lensDesc">Snap a dish and know what you can eat. A model trained on 101 dishes turns a photo into diet hints (vegan, gluten-free, kosher type) that plug straight into Okeat. Runs in the browser and as an API.</p>
-                <div><span class="chip c-blue">Python</span><span class="chip c-lav">PyTorch</span><span class="chip c-mint">FastAPI</span><span class="chip c-peach">ONNX</span></div>
-                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/okeat-lens/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/okeat-lens" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
-              </div>
-            </article>
-          </div>
-
-          <!-- LeakLens -->
-          <div class="col-md-6 col-lg-4 project-col" data-cat="sys">
-            <article class="glass project reveal tilt">
-              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/LeakLens/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/leaklens-en.jpg" data-src-he="assets/projects/leaklens-he.jpg" alt="LeakLens checking how safe a password is" data-i18n-alt="leakAlt" loading="lazy" width="1200" height="627"></div>
-              <div class="body">
-                <div class="tag-line"><span data-i18n="leakTag">Security · REST API</span></div>
-                <h3><a class="proj-link" href="https://noyaadivi.github.io/LeakLens/" target="_blank" rel="noopener">🔐 LeakLens</a></h3>
-                <p data-i18n="leakDesc">A REST API that scores password strength, checks data breaches and generates secure passphrases. Your password never leaves the device: only 5 characters of its hash are sent (k-anonymity).</p>
-                <div><span class="chip c-blue">Python</span><span class="chip c-lav">FastAPI</span><span class="chip c-mint">Docker</span><span class="chip c-peach">pytest</span></div>
-                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/LeakLens/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/LeakLens" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
-              </div>
-            </article>
-          </div>
-
           <!-- Evenly -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="web">
             <article class="glass project reveal tilt">
-              <div class="cover cover-img"><a class="cover-link" href="https://evenly-app.up.railway.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/evenly-en.jpg" data-src-he="assets/projects/evenly-he.jpg" alt="Evenly splitting a restaurant bill per dish" data-i18n-alt="shipAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="cover cover-img"><a class="cover-link" href="https://evenly-app.up.railway.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/evenly-en.jpg" data-src-he="assets/projects/evenly-he.jpg" alt="Evenly splitting a restaurant bill per dish" data-i18n-alt="evenAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
-                <div class="tag-line"><span data-i18n="shipTag">Full-stack · DevOps</span></div>
+                <div class="tag-line"><span data-i18n="evenTag">Full-stack · DevOps</span></div>
                 <h3><a class="proj-link" href="https://evenly-app.up.railway.app" target="_blank" rel="noopener">🧾 Evenly</a></h3>
-                <p data-i18n="shipDesc">Split any bill: scan the receipt, split per dish, equally or by people, and share a group link where everyone taps their own items. Tested on every push, packed in Docker and deployed to the cloud by GitHub Actions.</p>
+                <p data-i18n="evenDesc">Split any bill: scan the receipt, split per dish, equally or by people, and share a group link where everyone taps their own items. Tested on every push, packed in Docker and deployed to the cloud by GitHub Actions.</p>
                 <div><span class="chip c-blue">Node.js</span><span class="chip c-lav">Docker</span><span class="chip c-mint">GitHub Actions</span><span class="chip c-peach">Railway</span></div>
                 <div class="links"><a class="btn btn-main btn-sm" href="https://evenly-app.up.railway.app" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/evenly" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
             </article>
           </div>
-
           <!-- Kashuv -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
             <article class="glass project reveal tilt">
-              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/kashuv" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/kashuv-en.jpg" data-src-he="assets/projects/kashuv-he.jpg" alt="Kashuv transcribing a Zoom lecture live" data-i18n-alt="kashAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/kashuv/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/kashuv-en.jpg" data-src-he="assets/projects/kashuv-he.jpg" alt="Kashuv transcribing a Zoom lecture live" data-i18n-alt="kashAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
                 <div class="tag-line"><span data-i18n="kashTag">AI · Speech to text</span></div>
-                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/kashuv" target="_blank" rel="noopener">🎧 Kashuv</a></h3>
-                <p data-i18n="kashDesc">Stay focused in every Zoom: live transcription, a "what did I miss?" button, alerts when your name is called and smart summaries with a quiz. Runs 100% on your computer and costs nothing.</p>
-                <div><span class="chip c-blue">Python</span><span class="chip c-lav">Whisper</span><span class="chip c-mint">Ollama</span><span class="chip c-peach">Flask</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/kashuv" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+                <h3><a class="proj-link" href="https://noyaadivi.github.io/kashuv/" target="_blank" rel="noopener">🎧 Kashuv</a></h3>
+                <p data-i18n="kashDesc">Stay focused in every Zoom or class: live Hebrew transcription, a "what did I miss?" button, an alert when your name is called and study-ready summaries with a quiz. Runs 100% on your computer, for free.</p>
+                <div><span class="chip c-blue">Python</span><span class="chip c-lav">faster-whisper</span><span class="chip c-mint">Ollama LLM</span><span class="chip c-peach">Flask</span></div>
+                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/kashuv/" target="_blank" rel="noopener" data-i18n="demo">🌐 Live demo</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/kashuv" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
             </article>
           </div>
-
+          <!-- Okeat Lens -->
+          <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/okeat-lens/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/okeat-lens-en.jpg" data-src-he="assets/projects/okeat-lens-he.jpg" alt="Okeat Lens recognizing a dish from a photo" data-i18n-alt="lensAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="lensTag">Computer vision · Nutrition</span></div>
+                <h3><a class="proj-link" href="https://noyaadivi.github.io/okeat-lens/" target="_blank" rel="noopener">📸 Okeat Lens</a></h3>
+                <p data-i18n="lensDesc">Snap a dish and see what is in it. A model fine-tuned on 101 dishes shows calories, macros, allergens and diet hints (vegan, gluten-free, kosher type) that plug straight into Okeat.</p>
+                <div><span class="chip c-blue">Python</span><span class="chip c-lav">PyTorch</span><span class="chip c-mint">FastAPI</span><span class="chip c-peach">TF.js</span></div>
+                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/okeat-lens/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/okeat-lens" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
+          <!-- LeakLens -->
+          <div class="col-md-6 col-lg-4 project-col" data-cat="sys">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/LeakLens/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/leaklens-en.jpg" data-src-he="assets/projects/leaklens-he.jpg" alt="LeakLens checking how safe a password is" data-i18n-alt="leakAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="leakTag">Security · Playground · REST API</span></div>
+                <h3><a class="proj-link" href="https://noyaadivi.github.io/LeakLens/" target="_blank" rel="noopener">🔐 LeakLens</a></h3>
+                <p data-i18n="leakDesc">An interactive security lab and REST API: it X-rays password patterns, races them against real attacks, checks data breaches and creates strong passwords. Only 5 characters of the hash ever leave the device (k-anonymity).</p>
+                <div><span class="chip c-blue">Python</span><span class="chip c-lav">FastAPI</span><span class="chip c-mint">Web Crypto</span><span class="chip c-peach">Docker</span></div>
+                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/LeakLens/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/LeakLens" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
           <!-- Nudgy -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="sys">
             <article class="glass project reveal tilt">
@@ -776,34 +774,6 @@
               </div>
             </article>
           </div>
-
-          <!-- Sort Photos -->
-          <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
-            <article class="glass project reveal tilt">
-              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/sort-en.jpg" data-src-he="assets/projects/sort-he.jpg" alt="Sort Photos sorting a photo library into documents and photos" data-i18n-alt="sortAlt" loading="lazy" width="1200" height="627"></div>
-              <div class="body">
-                <div class="tag-line"><span data-i18n="sortTag">Computer vision</span></div>
-                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener">🖼️ Sort Photos</a></h3>
-                <p data-i18n="sortDesc">Offline CLI that separates documents from photos using zero-shot CLIP, with no training data, optimized for CPU with int8 quantization.</p>
-                <div><span class="chip c-blue">Python</span><span class="chip c-lav">PyTorch</span><span class="chip c-mint">OpenCLIP</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
-              </div>
-            </article>
-          </div>
-          <!-- Photo Twins -->
-          <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
-            <article class="glass project reveal tilt">
-              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/photo-twins-en.jpg" data-src-he="assets/projects/photo-twins-he.jpg" alt="Photo Twins finding duplicate photos" data-i18n-alt="twinsAlt" loading="lazy" width="1200" height="627"></div>
-              <div class="body">
-                <div class="tag-line"><span data-i18n="twinsTag">Image processing · CLI</span></div>
-                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener">👯 Photo Twins</a></h3>
-                <p data-i18n="twinsDesc">Finds exact and similar duplicate photos in huge libraries with SHA-256 and a 64-bit perceptual hash, even after resizing or WhatsApp compression. Never deletes, and every move can be undone.</p>
-                <div><span class="chip c-blue">Python</span><span class="chip c-lav">Pillow</span><span class="chip c-mint">Perceptual hashing</span><span class="chip c-peach">CLI</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
-              </div>
-            </article>
-          </div>
-
           <!-- FocusBloom -->
           <div class="col-md-6 col-lg-4 project-col" data-cat="web">
             <article class="glass project reveal tilt">
@@ -817,9 +787,34 @@
               </div>
             </article>
           </div>
-
+          <!-- Sort Photos -->
+          <div class="col-md-6 col-lg-4 project-col more-proj" data-cat="ml">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/sort-en.jpg" data-src-he="assets/projects/sort-he.jpg" alt="Sort Photos sorting a photo library into documents and photos" data-i18n-alt="sortAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="sortTag">Computer vision</span></div>
+                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener">🖼️ Sort Photos</a></h3>
+                <p data-i18n="sortDesc">Offline CLI that separates documents from photos using zero-shot CLIP, with no training data, optimized for CPU with int8 quantization.</p>
+                <div><span class="chip c-blue">Python</span><span class="chip c-lav">PyTorch</span><span class="chip c-mint">OpenCLIP</span></div>
+                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
+          <!-- Photo Twins -->
+          <div class="col-md-6 col-lg-4 project-col more-proj" data-cat="ml">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/photo-twins-en.jpg" data-src-he="assets/projects/photo-twins-he.jpg" alt="Photo Twins finding duplicate photos" data-i18n-alt="twinsAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="twinsTag">Image processing · CLI</span></div>
+                <h3><a class="proj-link" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener">👯 Photo Twins</a></h3>
+                <p data-i18n="twinsDesc">Finds exact and similar duplicate photos in huge libraries with SHA-256 and a 64-bit perceptual hash, even after resizing or WhatsApp compression. Never deletes, and every move can be undone.</p>
+                <div><span class="chip c-blue">Python</span><span class="chip c-lav">Pillow</span><span class="chip c-mint">Perceptual hashing</span><span class="chip c-peach">CLI</span></div>
+                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
           <!-- Emotion -->
-          <div class="col-md-6 col-lg-4 project-col" data-cat="ml">
+          <div class="col-md-6 col-lg-4 project-col more-proj" data-cat="ml">
             <article class="glass project reveal tilt">
               <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/emotion-en.jpg" data-src-he="assets/projects/emotion-he.jpg" alt="Emotion Detection predicting the emotion of a sentence" data-i18n-alt="emoAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
@@ -831,36 +826,8 @@
               </div>
             </article>
           </div>
-          <!-- Gradely -->
-          <div class="col-md-6 col-lg-4 project-col" data-cat="web">
-            <article class="glass project reveal tilt">
-              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/gradely/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/gradely-en.jpg" data-src-he="assets/projects/gradely-he.jpg" alt="Gradely degree GPA calculator" data-i18n-alt="gradeAlt" loading="lazy" width="1200" height="627"></div>
-              <div class="body">
-                <div class="tag-line"><span data-i18n="gradeTag">Web app · Hebrew and English</span></div>
-                <h3><a class="proj-link" href="https://noyaadivi.github.io/gradely/" target="_blank" rel="noopener">🎓 Gradely</a></h3>
-                <p data-i18n="gradeDesc">A credit-weighted GPA calculator for any degree. Add semesters, watch the average update live and find out exactly what you need in the remaining credits to reach your goal.</p>
-                <div><span class="chip c-blue">JavaScript</span><span class="chip c-lav">HTML</span><span class="chip c-mint">CSS</span><span class="chip c-peach">localStorage</span></div>
-                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/gradely/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/gradely" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
-              </div>
-            </article>
-          </div>
-
-          <!-- Pomodoro Timer -->
-          <div class="col-md-6 col-lg-4 project-col" data-cat="web">
-            <article class="glass project reveal tilt">
-              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/pomodoro-timer/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/pomodoro-en.jpg" data-src-he="assets/projects/pomodoro-he.jpg" alt="Pomodoro Timer with an animated focus ring" data-i18n-alt="pomoAlt" loading="lazy" width="1200" height="627"></div>
-              <div class="body">
-                <div class="tag-line"><span data-i18n="pomoTag">Web app · productivity</span></div>
-                <h3><a class="proj-link" href="https://noyaadivi.github.io/pomodoro-timer/" target="_blank" rel="noopener">🍅 Pomodoro Timer</a></h3>
-                <p data-i18n="pomoDesc">A study timer in pure JavaScript with smooth animations, a task list, daily stats and a weekly chart. Light and dark mode, Hebrew and English, and nothing is lost on refresh.</p>
-                <div><span class="chip c-blue">JavaScript</span><span class="chip c-lav">HTML</span><span class="chip c-mint">CSS</span><span class="chip c-peach">localStorage</span></div>
-                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/pomodoro-timer/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/pomodoro-timer" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
-              </div>
-            </article>
-          </div>
-
           <!-- TCP Chat -->
-          <div class="col-md-6 col-lg-4 project-col" data-cat="sys">
+          <div class="col-md-6 col-lg-4 project-col more-proj" data-cat="sys">
             <article class="glass project reveal tilt">
               <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/chat-en.jpg" data-src-he="assets/projects/chat-he.jpg" alt="TCP chat window next to a Wireshark capture" data-i18n-alt="chatAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
@@ -872,8 +839,34 @@
               </div>
             </article>
           </div>
+          <!-- Gradely -->
+          <div class="col-md-6 col-lg-4 project-col more-proj" data-cat="web">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/gradely/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/gradely-en.jpg" data-src-he="assets/projects/gradely-he.jpg" alt="Gradely degree GPA calculator" data-i18n-alt="gradeAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="gradeTag">Web app · Hebrew and English</span></div>
+                <h3><a class="proj-link" href="https://noyaadivi.github.io/gradely/" target="_blank" rel="noopener">🎓 Gradely</a></h3>
+                <p data-i18n="gradeDesc">A credit-weighted GPA calculator for any degree. Add semesters, watch the average update live and find out exactly what you need in the remaining credits to reach your goal.</p>
+                <div><span class="chip c-blue">JavaScript</span><span class="chip c-lav">HTML</span><span class="chip c-mint">CSS</span><span class="chip c-peach">localStorage</span></div>
+                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/gradely/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/gradely" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
+          <!-- Pomodoro Timer -->
+          <div class="col-md-6 col-lg-4 project-col more-proj" data-cat="web">
+            <article class="glass project reveal tilt">
+              <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/pomodoro-timer/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/pomodoro-en.jpg" data-src-he="assets/projects/pomodoro-he.jpg" alt="Pomodoro Timer with an animated focus ring" data-i18n-alt="pomoAlt" loading="lazy" width="1200" height="627"></div>
+              <div class="body">
+                <div class="tag-line"><span data-i18n="pomoTag">Web app · productivity</span></div>
+                <h3><a class="proj-link" href="https://noyaadivi.github.io/pomodoro-timer/" target="_blank" rel="noopener">🍅 Pomodoro Timer</a></h3>
+                <p data-i18n="pomoDesc">A study timer in pure JavaScript with smooth animations, a task list, daily stats and a weekly chart. Light and dark mode, Hebrew and English, and nothing is lost on refresh.</p>
+                <div><span class="chip c-blue">JavaScript</span><span class="chip c-lav">HTML</span><span class="chip c-mint">CSS</span><span class="chip c-peach">localStorage</span></div>
+                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/pomodoro-timer/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/pomodoro-timer" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+              </div>
+            </article>
+          </div>
           <!-- HaMivchanon -->
-          <div class="col-md-6 col-lg-4 project-col" data-cat="web">
+          <div class="col-md-6 col-lg-4 project-col more-proj" data-cat="web">
             <article class="glass project reveal tilt">
               <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/HaMivchanon" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/hamivchanon-en.jpg" data-src-he="assets/projects/hamivchanon-he.jpg" alt="HaMivchanon Android app with study reminders" data-i18n-alt="hamAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
@@ -886,7 +879,7 @@
             </article>
           </div>
           <!-- This website -->
-          <div class="col-md-6 col-lg-4 project-col" data-cat="web">
+          <div class="col-md-6 col-lg-4 project-col more-proj" data-cat="web">
             <article class="glass project reveal tilt">
               <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/noya-website" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/website-en.jpg" data-src-he="assets/projects/website-he.jpg" alt="This portfolio website in English and Hebrew" data-i18n-alt="webAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
@@ -898,7 +891,9 @@
               </div>
             </article>
           </div>
-        
+        </div>
+        <div class="text-center mt-4" id="moreWrap">
+          <button type="button" class="btn btn-soft" id="moreBtn" aria-expanded="false" aria-controls="projectGrid"><span data-i18n="moreShow">Show all 16 projects</span> <span class="chev" aria-hidden="true">▾</span></button>
         </div>
       </div>
     </section>
@@ -941,25 +936,6 @@
                 </ul></div>
               <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/DiviStay/tree/main/docs" target="_blank" rel="noopener" data-i18n="csArch">📐 Architecture</a></div>
             </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== Terminal ========== -->
-    <section class="pt-0" aria-labelledby="termTitle">
-      <div class="container">
-        <div class="row g-4 g-lg-5 align-items-center">
-          <div class="col-lg-5 reveal">
-            <p class="eyebrow" data-i18n="termEyebrow">Under the hood</p>
-            <h2 class="section-title" id="termTitle" data-i18n="termTitle">A whole photo library, one command ⚡</h2>
-            <p class="section-sub" data-i18n="termSub">Sort Photos classifies a whole photo library on an old laptop - fully offline, so private photos never leave the computer. This is a sample run.</p>
-          </div>
-          <div class="col-lg-7 reveal">
-            <div class="terminal" role="img" aria-label="Terminal animation of Sort Photos sorting images" data-i18n-aria="termAria">
-              <div class="bar"><i></i><i></i><i></i><span>sort_photos.py</span><button type="button" class="term-run" id="termRun" data-i18n="runAgain">▶ Run again</button></div>
-              <pre id="termOut" aria-hidden="true"></pre>
-            </div>
           </div>
         </div>
       </div>
@@ -1072,15 +1048,15 @@
         </div>
         <div class="row g-4 mt-1">
           <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-blue"><div class="icon" aria-hidden="true">💻</div><h3 data-i18n="sk1">Languages</h3>
-            <button type="button" class="skill" data-uses="Sort Photos · Text Emotion Recognition · TCP Chat">Python</button><button type="button" class="skill" data-uses="DiviStay · HaMivchanon">Java</button><button type="button" class="skill" data-uses="HIT coursework">C</button><button type="button" class="skill" data-uses="HIT coursework">C++</button><button type="button" class="skill" data-uses="Okeat">TypeScript</button><button type="button" class="skill" data-uses="Okeat · This website">JavaScript</button><button type="button" class="skill" data-uses="Okeat · HIT coursework">SQL</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+            <button type="button" class="skill" data-uses="Kashuv · Okeat Lens · LeakLens · Nudgy · Sort Photos">Python</button><button type="button" class="skill" data-uses="DiviStay · HaMivchanon">Java</button><button type="button" class="skill" data-uses="Okeat">TypeScript</button><button type="button" class="skill" data-uses="Evenly · FocusBloom · Gradely · Pomodoro Timer">JavaScript</button><button type="button" class="skill" data-uses="Okeat · Nudgy">SQL</button><button type="button" class="skill" data-uses="HIT coursework">C</button><button type="button" class="skill" data-uses="HIT coursework">C++</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
           <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-lav"><div class="icon" aria-hidden="true">🌐</div><h3 data-i18n="sk2">Web & Backend</h3>
-            <button type="button" class="skill" data-uses="DiviStay">Spring Boot</button><button type="button" class="skill" data-uses="Okeat">React</button><button type="button" class="skill" data-uses="Okeat">Next.js</button><button type="button" class="skill" data-uses="This website · Okeat · DiviStay">HTML/CSS</button><button type="button" class="skill" data-uses="This website">Bootstrap</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
-          <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-mint"><div class="icon" aria-hidden="true">🧠</div><h3 data-i18n="sk3">Data & ML</h3>
-            <button type="button" class="skill" data-uses="Sort Photos">PyTorch</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Scikit-Learn</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Pandas</button><button type="button" class="skill" data-uses="Text Emotion Recognition">NumPy</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+            <button type="button" class="skill" data-uses="Okeat">Next.js</button><button type="button" class="skill" data-uses="Okeat">React</button><button type="button" class="skill" data-uses="Evenly">Node.js</button><button type="button" class="skill" data-uses="DiviStay">Spring Boot</button><button type="button" class="skill" data-uses="LeakLens · Okeat Lens">FastAPI</button><button type="button" class="skill" data-uses="Kashuv">Flask</button><button type="button" class="skill" data-uses="DiviStay · Evenly · LeakLens · Okeat Lens">REST APIs</button><button type="button" class="skill" data-uses="This website · Gradely · Pomodoro Timer">HTML/CSS</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+          <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-mint"><div class="icon" aria-hidden="true">🧠</div><h3 data-i18n="sk3">AI & Data</h3>
+            <button type="button" class="skill" data-uses="Okeat Lens · Sort Photos">PyTorch</button><button type="button" class="skill" data-uses="Okeat Lens · Sort Photos">Computer Vision</button><button type="button" class="skill" data-uses="Kashuv">Speech to text</button><button type="button" class="skill" data-uses="Kashuv">LLMs (Ollama)</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Scikit-Learn</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Pandas</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
           <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-peach"><div class="icon" aria-hidden="true">🗄️</div><h3 data-i18n="sk4">Databases & Cloud</h3>
-            <button type="button" class="skill" data-uses="Okeat">PostgreSQL</button><button type="button" class="skill" data-uses="Okeat">PostGIS</button><button type="button" class="skill" data-uses="Okeat">Supabase</button><button type="button" class="skill" data-uses="HaMivchanon">Firebase</button><button type="button" class="skill" data-uses="Okeat">Vercel</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
-          <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-rose"><div class="icon" aria-hidden="true">🛠️</div><h3 data-i18n="sk5">Tools</h3>
-            <button type="button" class="skill" data-uses="All projects">Git</button><button type="button" class="skill" data-uses="DiviStay">Docker</button><button type="button" class="skill" data-uses="Okeat">GitHub Actions</button><button type="button" class="skill" data-uses="DiviStay">JUnit</button><button type="button" class="skill" data-uses="HIT coursework">Linux</button><button type="button" class="skill" data-uses="TCP Chat">Wireshark</button><button type="button" class="skill" data-uses="HaMivchanon">Android Studio</button><button type="button" class="skill" data-uses="All projects">VS Code</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+            <button type="button" class="skill" data-uses="Okeat">PostgreSQL</button><button type="button" class="skill" data-uses="Okeat">PostGIS</button><button type="button" class="skill" data-uses="Okeat">Supabase</button><button type="button" class="skill" data-uses="Nudgy">SQLite</button><button type="button" class="skill" data-uses="HaMivchanon">Firebase</button><button type="button" class="skill" data-uses="Okeat">Vercel</button><button type="button" class="skill" data-uses="Evenly">Railway</button><button type="button" class="skill" data-uses="DiviStay">Render</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+          <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-rose"><div class="icon" aria-hidden="true">🛠️</div><h3 data-i18n="sk5">DevOps & Tools</h3>
+            <button type="button" class="skill" data-uses="All projects">Git</button><button type="button" class="skill" data-uses="DiviStay · Evenly · LeakLens">Docker</button><button type="button" class="skill" data-uses="Evenly · Okeat Lens · Okeat">GitHub Actions</button><button type="button" class="skill" data-uses="LeakLens · Nudgy · Photo Twins">pytest</button><button type="button" class="skill" data-uses="DiviStay">JUnit</button><button type="button" class="skill" data-uses="FocusBloom">Chrome Extensions</button><button type="button" class="skill" data-uses="TCP Chat">Wireshark</button><button type="button" class="skill" data-uses="HIT coursework">Linux</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
         </div>
       </div>
     </section>
@@ -1181,7 +1157,7 @@
       location: 'ישראל · מחפשת משרת סטודנטית לפיתוח', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת - ממסד הנתונים ועד העלייה לאוויר.',
       iBuild: 'אני בונה', ctaWork: 'לפרויקטים שלי ↓', ctaLinkedin: '💼 לינקדאין', ctaGithub: '🐙 גיטהאב',
-      projEyebrow: 'עבודות נבחרות', projTitle: 'פרויקטים 🚀', projSub: 'שבעה אתרים באוויר ו-16 פרויקטים: מוצרי פול-סטאק, בינה מלאכותית, אבטחת מידע, DevOps וכלים יומיומיים. מסודרים מהמשמעותי ביותר, וכל כרטיס מקשר לקוד.',
+      projEyebrow: 'עבודות נבחרות', projTitle: 'פרויקטים 🚀', projSub: 'מוצרי פול-סטאק, בינה מלאכותית, אבטחת מידע ו-DevOps, מסודרים מהמשמעותי ביותר.', moreShow: 'להצגת כל 16 הפרויקטים', moreHide: 'להצגת פחות', demo: '🌐 לדמו החי',
       filterAria: 'סינון פרויקטים', fAll: 'הכול', fWeb: 'Full-Stack ו-Web', fMl: 'AI ולמידת מכונה', fSys: 'מערכות, DevOps ואבטחה',
       featured: '★ מומלץ', okeatAlt: 'דף הבית והמפה הארצית של Okeat', okeatTag: 'אפליקציית Web מקצה לקצה',
       okeatDesc: 'מפה דו-לשונית של יותר מ-20,000 מקומות אוכל כשרים, טבעוניים, צמחוניים וללא גלוטן ברחבי ישראל. אימות קהילתי וניהול נאכפים בתוך מסד הנתונים, עם קריאת תעודות כשרות ב-OCR וניווט קולי בעברית.',
@@ -1192,7 +1168,7 @@
       divAlt: 'דף הבית של DiviStay עם חיפוש מלונות לקבוצות', divTag: 'פול-סטאק · תוכנן בצוות של 3', divDesc: 'הזמנת מלון קבוצתית עם פיצול תשלומים, ממסמכי דרישות ו-UML ועד הדגמה חיה עם יותר מ-18,000 מלונות אמיתיים. נבנה עם תבניות Strategy, Factory ו-Adapter, החזקת חדרים אטומית ל-30 דקות ו-45 בדיקות אוטומטיות.', divNote: 'פרויקט הדגמה: התשלומים, החדרים והמחירים מדומים. הטעינה הראשונה יכולה לקחת כ-30 שניות.',
       hamTag: 'פרויקט גמר בתיכון', hamDesc: 'אפליקציית אנדרואיד להכנה למבחנים: תזכורות למידה חכמות עם WorkManager, מרחב עבודה לכל מקצוע, ותמונות ו-PDF שמסונכרנים ל-Firebase.', hamAlt: 'אפליקציית המבחנון עם תזכורות למידה', colab: '📓 לפתוח ב-Colab', report: '📄 דוח', portfolioPdf: '📄 תיק הפרויקט', sortAlt: 'Sort Photos ממיין ספריית תמונות למסמכים ולתמונות', emoAlt: 'Emotion Detection מזהה את הרגש במשפט', chatAlt: 'חלון צ׳אט לצד הקלטת Wireshark', webAlt: 'האתר הזה בעברית ובאנגלית',
       webTag: 'אתר אישי', webTitle: 'האתר הזה', webDesc: 'תיק עבודות בעמוד אחד עם שם אינטראקטיבי מחלקיקים, עברית ואנגלית מלאות (RTL), מצב כהה ותפריט נגישות לפי WCAG.', stat1: 'מקומות אוכל ב-Okeat', stat2: 'מלונות אמיתיים ב-DiviStay', stat3: 'פרויקטים בגיטהאב', stat4: 'אתרים באוויר', deepEyebrow: 'איך זה בנוי', deepTitle: 'שני פרויקטים מקרוב 🔍', deepSub: 'הבעיה, איך זה עובד וההחלטות המרכזיות.', csProblem: 'הבעיה', csFlow: 'איך טענה הופכת למאומתת', csFlow2: 'איך הזמנה עובדת', csDecisions: 'החלטות מרכזיות', csArch: '📐 ארכיטקטורה', okProblem: 'מידע על מקומות כשרים, טבעוניים וללא גלוטן מפוזר בהרבה מקומות ומתיישן מהר.', okF1: 'הוספת טענה', okF2: 'ממתינה', okF3: '3 אישורים', okF4: 'מאומתת', okD1: 'הכללים נמצאים במסד הנתונים: RLS וטריגרים מגנים על הנתונים גם אם פונים ל-API בלי האתר.', okD2: 'המפה טוענת נקודות קלות ומקבצת אותן, כך ש-20,000 מקומות נשארים מהירים.', okD3: 'מידע מיובא נשאר מסומן ולא נחשב כמאומת על ידי הקהילה.', dvProblem: 'בהזמנה קבוצתית אדם אחד בדרך כלל משלם על כולם ואז צריך לגבות מהאחרים.', dvF1: 'החזקה ל-30 דקות', dvF2: 'פיצול העלות', dvF3: 'כולם משלמים', dvF4: 'אישור', dvD1: 'החזקת החדרים אטומית: בדיקה מריצה 32 תהליכים על אותו חדר ורק אחד מצליח.', dvD2: 'הכסף נשמר באגורות שלמות, כך שכל פיצול מסתכם במדויק.', dvD3: 'התשלומים אידמפוטנטיים, כך שלחיצה כפולה לא תחייב פעמיים.',
-      lensAlt: 'Okeat Lens מזהה מנה מתמונה', lensTag: 'ראייה ממוחשבת · מתחבר ל-Okeat', lensDesc: 'מצלמים מנה ויודעים מה אפשר לאכול. מודל שאומן על 101 מנות הופך תמונה לרמזים תזונתיים (טבעוני, ללא גלוטן, סוג כשרות) שמתחברים ישר ל-Okeat. רץ בדפדפן וגם כ-API.', leakAlt: 'LeakLens בודק עד כמה סיסמה בטוחה', leakTag: 'אבטחת מידע · REST API', leakDesc: 'API שמדרג חוזק סיסמאות, בודק אם הן דלפו ומייצר סיסמאות חזקות. הסיסמה לא יוצאת מהמכשיר: רק 5 תווים מה-hash שלה נשלחים (k-anonymity).', shipAlt: 'Evenly מחלק חשבון במסעדה לפי מנות', shipTag: 'פול-סטאק · DevOps', shipDesc: 'מחלקים כל חשבון: סורקים קבלה, מחלקים לפי מנות, שווה בשווה או לפי אנשים, ושולחים קישור קבוצתי שבו כל אחד מסמן את מה שהזמין. נבדק בכל push, ארוז ב-Docker ועולה לענן עם GitHub Actions.', kashAlt: 'Kashuv מתמלל הרצאה בזום בזמן אמת', kashTag: 'בינה מלאכותית · דיבור לטקסט', kashDesc: 'נשארים מרוכזים בכל זום: תמלול חי, כפתור "מה פספסתי?", התראה כשקוראים בשמכם וסיכומים חכמים עם בוחן. רץ כולו במחשב שלכם ולא עולה כלום.', nudgyAlt: 'Nudgy מזכיר דדליינים בטלגרם', nudgyTag: 'בוט טלגרם · דו לשוני', nudgyDesc: 'בוט טלגרם שזוכר את מועדי ההגשה ומזכיר לפני כל אחד. פקודות טבעיות כמו /add מחר 23:59 בעברית או באנגלית, משימות פרטיות לכל צ׳אט ובדיקות אוטומטיות.', twinsAlt: 'Photo Twins מוצא תמונות כפולות', twinsTag: 'עיבוד תמונה · שורת פקודה', twinsDesc: 'מוצא תמונות זהות ודומות בספריות ענק בעזרת SHA-256 ו-hash תפיסתי של 64 ביט, גם אחרי הקטנה או דחיסה של וואטסאפ. אף פעם לא מוחק, וכל העברה ניתנת לביטול.', bloomAlt: 'החלון של FocusBloom עם טיימר הריכוז', bloomTag: 'תוסף לכרום', bloomDesc: 'תוסף לכרום שמחבר טיימר פומודורו וחוסם אתרים. אתרים מסיחים חסומים רק בזמן ריכוז ונפתחים ברגע שההפסקה מתחילה. נבנה על Manifest V3.', gradeAlt: 'Gradely, מחשבון ממוצע תואר', gradeTag: 'אפליקציית Web · עברית ואנגלית', gradeDesc: 'מחשבון ממוצע משוקלל לכל תואר. מוסיפים סמסטרים, רואים את הממוצע מתעדכן בזמן אמת ומגלים בדיוק איזה ממוצע צריך בנקודות שנשארו כדי להגיע ליעד.', pomoAlt: 'טיימר פומודורו עם טבעת ריכוז מונפשת', pomoTag: 'אפליקציית Web · פרודוקטיביות', pomoDesc: 'טיימר למידה ב-JavaScript נקי עם אנימציות, רשימת משימות, נתונים יומיים וגרף שבועי. מצב בהיר וכהה, עברית ואנגלית, ושום דבר לא נמחק ברענון.',
+      lensAlt: 'Okeat Lens מזהה מנה מתמונה', lensTag: 'ראייה ממוחשבת · תזונה', lensDesc: 'מצלמים מנה ורואים מה יש בצלחת. מודל שאומן על 101 מנות מציג קלוריות, ערכים תזונתיים, אלרגנים ורמזים תזונתיים (טבעוני, ללא גלוטן, סוג כשרות) שמתחברים ישר ל-Okeat.', leakAlt: 'LeakLens בודק עד כמה סיסמה בטוחה', leakTag: 'אבטחת מידע · מעבדה · REST API', leakDesc: 'מעבדת אבטחה אינטראקטיבית ו-REST API: מנתחת דפוסים בסיסמה, מריצה אותה מול מתקפות אמיתיות, בודקת דליפות ומייצרת סיסמאות חזקות. רק 5 תווים מה-hash יוצאים מהמכשיר (k-anonymity).', evenAlt: 'Evenly מחלק חשבון במסעדה לפי מנות', evenTag: 'פול-סטאק · DevOps', evenDesc: 'מחלקים כל חשבון: סורקים קבלה, מחלקים לפי מנות, שווה בשווה או לפי אנשים, ושולחים קישור קבוצתי שבו כל אחד מסמן את מה שהזמין. נבדק בכל push, ארוז ב-Docker ועולה לענן עם GitHub Actions.', kashAlt: 'Kashuv מתמלל הרצאה בזום בזמן אמת', kashTag: 'בינה מלאכותית · דיבור לטקסט', kashDesc: 'נשארים מרוכזים בכל זום או שיעור: תמלול חי בעברית, כפתור "מה פספסתי?", התראה כשקוראים בשמכם וסיכומים מוכנים ללמידה עם בוחן. רץ כולו במחשב שלכם, בחינם.', nudgyAlt: 'Nudgy מזכיר דדליינים בטלגרם', nudgyTag: 'בוט טלגרם · דו לשוני', nudgyDesc: 'בוט טלגרם שזוכר את מועדי ההגשה ומזכיר לפני כל אחד. פקודות טבעיות כמו /add מחר 23:59 בעברית או באנגלית, משימות פרטיות לכל צ׳אט ובדיקות אוטומטיות.', twinsAlt: 'Photo Twins מוצא תמונות כפולות', twinsTag: 'עיבוד תמונה · שורת פקודה', twinsDesc: 'מוצא תמונות זהות ודומות בספריות ענק בעזרת SHA-256 ו-hash תפיסתי של 64 ביט, גם אחרי הקטנה או דחיסה של וואטסאפ. אף פעם לא מוחק, וכל העברה ניתנת לביטול.', bloomAlt: 'החלון של FocusBloom עם טיימר הריכוז', bloomTag: 'תוסף לכרום', bloomDesc: 'תוסף לכרום שמחבר טיימר פומודורו וחוסם אתרים. אתרים מסיחים חסומים רק בזמן ריכוז ונפתחים ברגע שההפסקה מתחילה. נבנה על Manifest V3.', gradeAlt: 'Gradely, מחשבון ממוצע תואר', gradeTag: 'אפליקציית Web · עברית ואנגלית', gradeDesc: 'מחשבון ממוצע משוקלל לכל תואר. מוסיפים סמסטרים, רואים את הממוצע מתעדכן בזמן אמת ומגלים בדיוק איזה ממוצע צריך בנקודות שנשארו כדי להגיע ליעד.', pomoAlt: 'טיימר פומודורו עם טבעת ריכוז מונפשת', pomoTag: 'אפליקציית Web · פרודוקטיביות', pomoDesc: 'טיימר למידה ב-JavaScript נקי עם אנימציות, רשימת משימות, נתונים יומיים וגרף שבועי. מצב בהיר וכהה, עברית ואנגלית, ושום דבר לא נמחק ברענון.',
       termEyebrow: 'מאחורי הקלעים', termTitle: 'ספריית תמונות שלמה, פקודה אחת ⚡', termSub: 'Sort Photos ממיין ספריית תמונות שלמה גם על מחשב ישן - בלי אינטרנט, כך שתמונות פרטיות לא יוצאות מהמחשב. זו הרצה לדוגמה.',
       termAria: 'אנימציה של Sort Photos ממיין תמונות בטרמינל',
       aboutEyebrow: 'עליי', aboutTitle: 'היי, אני נויה 🌸',
@@ -1206,7 +1182,7 @@
       csHead: '💻 מדעי המחשב', ipTag: '· בתהליך', mathHead: '📐 מתמטיקה', cs0: 'מבני נתונים', cs1: 'אלגוריתמים 1', cs2: 'אלגוריתמים 2', cs3: 'תכנות מונחה עצמים', cs4: 'סדנה מתקדמת בתכנות', cs5: 'מבוא למדעי המחשב', cs6: 'מבוא למערכות מחשב', cs7: 'מערכות הפעלה', cs8: 'רשתות תקשורת מחשבים', cs9: 'מערכות בסיסי נתונים', cs10: 'הנדסת תוכנה', cs11: 'למידת מכונה', cs12: 'מבוא למדעי הנתונים - שיטות וכלים', cs13: 'אוטומטים ושפות פורמליות', cs14: 'חישוביות וסיבוכיות אלגוריתמים', mt0: 'חשבון אינפיניטסימלי 1', mt1: 'חשבון אינפיניטסימלי 2', mt2: 'אלגברה לינארית', mt3: 'אלגברה 2', mt4: 'הסתברות', mt5: 'מתמטיקה בדידה 1', mt6: 'מתמטיקה בדידה 2',
       edu1Title: 'תואר ראשון במדעי המחשב', edu1Place: 'מכון טכנולוגי חולון (HIT)', edu1Desc: 'תכנות (C, C++), מדעי הנתונים, למידת מכונה, מערכות מסדי נתונים, רשתות תקשורת ויסודות תיאורטיים.',
       edu2Title: 'הנדסת תוכנה (35 יחידות)', edu2Place: 'תיכון אילון', edu2Desc: 'מגמות: מדעי המחשב, פיתוח תוכנה (אנדרואיד/Java), כימיה, מתמטיקה ואנגלית.',
-      skillsEyebrow: 'ארגז הכלים', skillsSub: 'כל כישור מקושר לפרויקטים שבהם השתמשתי בו בפועל.', usesHint: 'העבירו את העכבר או לחצו על כישור כדי לראות איפה השתמשתי בו', runAgain: '▶ להריץ שוב', skillsTitle: 'כישורים 🧩', sk1: 'שפות', sk2: 'Web ו-Backend', sk3: 'נתונים ו-ML', sk4: 'מסדי נתונים וענן', sk5: 'כלים',
+      skillsEyebrow: 'ארגז הכלים', skillsSub: 'כל כישור מקושר לפרויקטים שבהם השתמשתי בו בפועל.', usesHint: 'העבירו את העכבר או לחצו על כישור כדי לראות איפה השתמשתי בו', runAgain: '▶ להריץ שוב', skillsTitle: 'כישורים 🧩', sk1: 'שפות', sk2: 'Web ו-Backend', sk3: 'AI ונתונים', sk4: 'מסדי נתונים וענן', sk5: 'DevOps וכלים',
       contactEyebrow: 'בואו נדבר', contactTitle: 'מחפשים סטודנטית לפיתוח? 📬', contactSub: 'אני מחפשת משרת סטודנטית בהנדסת תוכנה או בפיתוח תוכנה, ואשמח לשמוע מכם.',
       madeWith: 'נבנה עם 💙 ו-Bootstrap', statementLink: 'הצהרת נגישות', topAria: 'חזרה למעלה',
       a11yAria: 'אפשרויות נגישות', a11yTitle: '♿ נגישות', closeAria: 'סגירה', sizeDownAria: 'הקטנת טקסט', sizeUpAria: 'הגדלת טקסט', textSize: 'גודל טקסט',
@@ -1216,10 +1192,10 @@
       stBody: '<p>האתר נבנה כך שכל אחד יוכל להשתמש בו, בהתאם להנחיות WCAG 2.1 ברמה AA ולתקן הישראלי ת״י 5568.</p><ul><li>ניווט מלא במקלדת, קישור "דילוג לתוכן" וסימון ברור של הרכיב שבפוקוס.</li><li>תפריט נגישות: גודל טקסט, ניגודיות גבוהה, מצב כהה, עצירת אנימציות, גופן קריא, הדגשת קישורים, ריווח טקסט וסמן גדול.</li><li>כותרות ואזורים סמנטיים, טקסט חלופי לתמונות ותוויות לכפתורים.</li><li>תמיכה בהגדרת "הפחתת תנועה" של המערכת, וגרסה מלאה בעברית מימין לשמאל.</li></ul><p class="mb-0">מצאתם משהו שאינו נגיש? אשמח שתכתבו לי ב-<a href="https://www.linkedin.com/in/noya-adivi/" target="_blank" rel="noopener">לינקדאין</a> ואתקן.</p>'
     };
     const typedWords = {
-      en: ['full-stack web apps', 'machine learning models', 'networked systems', 'accessible interfaces'],
-      he: ['אפליקציות Web מקצה לקצה', 'מודלים של למידת מכונה', 'מערכות תקשורת', 'ממשקים נגישים']
+      en: ['full-stack web apps', 'AI and computer vision tools', 'DevOps pipelines', 'security tools', 'accessible interfaces'],
+      he: ['אפליקציות Web מקצה לקצה', 'כלי AI וראייה ממוחשבת', 'תהליכי DevOps', 'כלי אבטחת מידע', 'ממשקים נגישים']
     };
-    const marqueeWords = ['Full-Stack', 'Next.js', 'TypeScript', 'Spring Boot', 'Java', 'Machine Learning', 'PyTorch', 'PostgreSQL', 'Supabase', 'Docker', 'Computer Networks', 'Accessibility', 'UML & Design Patterns', 'Python', 'C++'];
+    const marqueeWords = ['Full-Stack', 'Next.js', 'TypeScript', 'Node.js', 'Spring Boot', 'FastAPI', 'Python', 'Computer Vision', 'PyTorch', 'LLMs', 'PostgreSQL', 'Docker', 'GitHub Actions', 'Security', 'Accessibility'];
 
     const en = {};
     document.querySelectorAll('[data-i18n]').forEach(el => en[el.dataset.i18n] = el.textContent);
@@ -1227,6 +1203,7 @@
     document.querySelectorAll('[data-i18n-aria]').forEach(el => en[el.dataset.i18nAria] = el.getAttribute('aria-label'));
     document.querySelectorAll('[data-i18n-alt]').forEach(el => en[el.dataset.i18nAlt] = el.getAttribute('alt'));
     en.hintTouch = '✨ Tap my name to scatter it';
+    en.moreHide = 'Show fewer'; en.demo = '🌐 Live demo';
     en.hideCourses = 'Hide courses'; en.hideMajors = 'Hide majors';
     let lang = 'en';
 
@@ -1277,12 +1254,8 @@
     })();
 
 
-    /* ---------------- Install as an app (PWA) ---------------- */
+    /* ---------------- Offline support (PWA) ---------------- */
     if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
-    let installEvt = null; const installBtn = document.getElementById('installBtn');
-    addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvt = e; installBtn.hidden = false; });
-    installBtn.addEventListener('click', async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice; installEvt = null; installBtn.hidden = true; });
-    addEventListener('appinstalled', () => { installBtn.hidden = true; });
 
     /* ---------------- Typed text ---------------- */
     const typedEl = document.getElementById('typed');
@@ -1492,7 +1465,20 @@
         col.classList.toggle('d-none', !show);
         if (show) col.querySelector('.reveal').classList.add('in');
       });
+      document.getElementById('moreWrap').hidden = f !== 'all';
+      grid.classList.toggle('collapsed', f === 'all' && moreBtn.getAttribute('aria-expanded') !== 'true');
     }));
+    // Show all / show less
+    const grid = document.getElementById('projectGrid'), moreBtn = document.getElementById('moreBtn');
+    moreBtn.addEventListener('click', () => {
+      const open = moreBtn.getAttribute('aria-expanded') !== 'true';
+      moreBtn.setAttribute('aria-expanded', String(open));
+      grid.classList.toggle('collapsed', !open);
+      const lbl = moreBtn.querySelector('[data-i18n]'); lbl.dataset.i18n = open ? 'moreHide' : 'moreShow';
+      lbl.textContent = (lang === 'he' ? he : en)[lbl.dataset.i18n];
+      if (open) grid.querySelectorAll('.more-proj .reveal').forEach((r, i) => setTimeout(() => r.classList.add('in'), i * 70));
+      else document.getElementById('projects').scrollIntoView({ behavior: motionOff() ? 'auto' : 'smooth' });
+    });
 
 
     // Flip cards (click / tap / keyboard)
@@ -1553,33 +1539,6 @@
     });
 
     /* ---------------- Terminal ---------------- */
-    const termLines = [
-      ['<span class="pk">$</span> python sort_photos.py "D:\\Pictures" "D:\\Sorted"', 0],
-      ['<span class="muted">Loading CLIP model ViT-B-32 (int8)...</span>', 500],
-      ['<span class="muted">Found 40,212 images</span>', 400],
-      ['Classifying ████████████████████ 100%  <span class="hl">58 img/s</span>', 900],
-      ['  📄 documents   <span class="ok">6,481</span>', 300],
-      ['  🖼️ photos      <span class="ok">32,947</span>', 250],
-      ['  🤔 uncertain   <span class="hl">784</span>  <span class="muted">→ review by hand</span>', 250],
-      ['<span class="ok">✓ Done. Originals untouched, results.csv saved.</span>', 500]
-    ];
-    const termOut = document.getElementById('termOut');
-    let termStarted = false, termRun = 0;
-    function runTerminal() {
-      const myRun = ++termRun;
-      if (motionOff()) { termOut.innerHTML = termLines.map(l => l[0]).join('\n'); return; }
-      let i = 0; termOut.innerHTML = '';
-      (function next() {
-        if (myRun !== termRun) return;
-        if (i >= termLines.length) { termOut.innerHTML += '\n<span class="cursor-blink">&nbsp;</span>'; return; }
-        termOut.innerHTML += (i ? '\n' : '') + termLines[i][0];
-        i++; setTimeout(next, termLines[i] ? termLines[i][1] + 250 : 600);
-      })();
-    }
-    document.getElementById('termRun').addEventListener('click', runTerminal);
-    new IntersectionObserver((entries, obs) => {
-      if (entries[0].isIntersecting && !termStarted) { termStarted = true; runTerminal(); obs.disconnect(); }
-    }, { threshold: .4 }).observe(termOut);
 
     /* ---------------- Accessibility ---------------- */
     const opts = ['contrast', 'dark', 'still', 'readable', 'links', 'spacing', 'cursor'];
@@ -1633,6 +1592,6 @@
   })();
   </script>
 <script src="faq.js" defer></script>
-<script src="noya-app.js" data-repo="https://github.com/NoyaAdivi/noya-website" data-before="footer" data-scroll="off" defer></script>
+<script src="noya-app.js" data-before="footer" data-scroll="off" data-install="off" defer></script>
 </body>
 </html>

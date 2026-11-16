@@ -43,18 +43,18 @@
 
 - 🗺️ **[Okeat](https://github.com/NoyaAdivi/Okeat)** - מפה דו-לשונית של 20,000+ מקומות אוכל · [לאתר](https://okeat.vercel.app)
 - 🏨 **[DiviStay](https://github.com/NoyaAdivi/DiviStay)** - הזמנת מלון קבוצתית עם פיצול תשלום · [לאתר](https://divistay.onrender.com)
+- 🧾 **[Evenly](https://github.com/NoyaAdivi/evenly)** - חלוקת כל חשבון לפי מנות, עם סריקת קבלה וקישור קבוצתי · [לאתר](https://evenly-app.up.railway.app)
+- 🎧 **[Kashuv](https://github.com/NoyaAdivi/kashuv)** - תמלול זום חי, עזרה להתרכז וסיכומים, הכל במחשב שלך · [לאתר](https://noyaadivi.github.io/kashuv/)
 - 🍽️ **[Okeat Lens](https://github.com/NoyaAdivi/okeat-lens)** - מזהה מנה מתמונה ומראה מה אפשר לאכול · [לאתר](https://noyaadivi.github.io/okeat-lens/)
 - 🔐 **[LeakLens](https://github.com/NoyaAdivi/LeakLens)** - חוזק סיסמאות, בדיקת דליפות וסיסמאות בטוחות · [לאתר](https://noyaadivi.github.io/LeakLens/)
-- 🧾 **[Evenly](https://github.com/NoyaAdivi/evenly)** - חלוקת כל חשבון לפי מנות, עם סריקת קבלה וקישור קבוצתי · [לאתר](https://evenly-app.up.railway.app)
-- 🎧 **[Kashuv](https://github.com/NoyaAdivi/kashuv)** - תמלול זום חי, עזרה להתרכז וסיכומים, הכל במחשב שלך
 - 🔔 **[Nudgy](https://github.com/NoyaAdivi/nudgy-bot)** - בוט טלגרם שמזכיר מועדי הגשה
+- 🌸 **[FocusBloom](https://github.com/NoyaAdivi/FocusBloom)** - תוסף כרום שחוסם אתרים מסיחים בזמן לימודים
 - 🖼️ **[Sort Photos](https://github.com/NoyaAdivi/sort-photos)** - מסווג תמונות AI שעובד בלי אינטרנט
 - 👯 **[Photo Twins](https://github.com/NoyaAdivi/photo-twins)** - מוצא תמונות כפולות ודומות
-- 🌸 **[FocusBloom](https://github.com/NoyaAdivi/FocusBloom)** - תוסף כרום שחוסם אתרים מסיחים בזמן לימודים
 - 🎭 **[Emotion Detection](https://github.com/NoyaAdivi/emotion_detection_ml)** - Naive Bayes מאפס לזיהוי 6 רגשות
+- 💬 **[TCP Chat](https://github.com/NoyaAdivi/Networking-project)** - צ'אט מרובה משתמשים וניתוח ב-Wireshark
 - 🎓 **[Gradely](https://github.com/NoyaAdivi/gradely)** - מחשבון ממוצע לכל תואר · [לאתר](https://noyaadivi.github.io/gradely/)
 - 🍅 **[Pomodoro Timer](https://github.com/NoyaAdivi/pomodoro-timer)** - טיימר פומודורו עם אנימציות וסטטיסטיקות · [לאתר](https://noyaadivi.github.io/pomodoro-timer/)
-- 💬 **[TCP Chat](https://github.com/NoyaAdivi/Networking-project)** - צ'אט מרובה משתמשים וניתוח ב-Wireshark
 - 📚 **[HaMivchanon](https://github.com/NoyaAdivi/HaMivchanon)** - אפליקציית לימוד לאנדרואיד, פרויקט הגמר שלי בתיכון
 
 <a name="s2"></a>

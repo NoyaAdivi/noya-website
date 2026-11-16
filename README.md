@@ -40,18 +40,18 @@
 
 - 🗺️ **[Okeat](https://github.com/NoyaAdivi/Okeat)** - bilingual map of 20,000+ eateries · [live](https://okeat.vercel.app)
 - 🏨 **[DiviStay](https://github.com/NoyaAdivi/DiviStay)** - group hotel booking with payment splitting · [live](https://divistay.onrender.com)
+- 🧾 **[Evenly](https://github.com/NoyaAdivi/evenly)** - split any bill per dish, with receipt scanning and group links · [live](https://evenly-app.up.railway.app)
+- 🎧 **[Kashuv](https://github.com/NoyaAdivi/kashuv)** - live Zoom transcription, focus help and summaries, all on your computer · [live](https://noyaadivi.github.io/kashuv/)
 - 🍽️ **[Okeat Lens](https://github.com/NoyaAdivi/okeat-lens)** - recognizes a dish from a photo and shows what you can eat · [live](https://noyaadivi.github.io/okeat-lens/)
 - 🔐 **[LeakLens](https://github.com/NoyaAdivi/LeakLens)** - password strength, breach checks and safe passphrases · [live](https://noyaadivi.github.io/LeakLens/)
-- 🧾 **[Evenly](https://github.com/NoyaAdivi/evenly)** - split any bill per dish, with receipt scanning and group links · [live](https://evenly-app.up.railway.app)
-- 🎧 **[Kashuv](https://github.com/NoyaAdivi/kashuv)** - live Zoom transcription, focus help and summaries, all on your computer
 - 🔔 **[Nudgy](https://github.com/NoyaAdivi/nudgy-bot)** - Telegram bot that reminds you of assignment deadlines
+- 🌸 **[FocusBloom](https://github.com/NoyaAdivi/FocusBloom)** - Chrome extension that blocks distracting sites while you study
 - 🖼️ **[Sort Photos](https://github.com/NoyaAdivi/sort-photos)** - offline AI photo classifier with CLIP
 - 👯 **[Photo Twins](https://github.com/NoyaAdivi/photo-twins)** - finds duplicate and near duplicate photos
-- 🌸 **[FocusBloom](https://github.com/NoyaAdivi/FocusBloom)** - Chrome extension that blocks distracting sites while you study
 - 🎭 **[Emotion Detection](https://github.com/NoyaAdivi/emotion_detection_ml)** - Naive Bayes from scratch for 6 emotions
+- 💬 **[TCP Chat](https://github.com/NoyaAdivi/Networking-project)** - multi-client chat with Wireshark analysis
 - 🎓 **[Gradely](https://github.com/NoyaAdivi/gradely)** - GPA calculator for any degree · [live](https://noyaadivi.github.io/gradely/)
 - 🍅 **[Pomodoro Timer](https://github.com/NoyaAdivi/pomodoro-timer)** - animated focus timer with stats · [live](https://noyaadivi.github.io/pomodoro-timer/)
-- 💬 **[TCP Chat](https://github.com/NoyaAdivi/Networking-project)** - multi-client chat with Wireshark analysis
 - 📚 **[HaMivchanon](https://github.com/NoyaAdivi/HaMivchanon)** - Android study app, my high school final project
 
 <a name="what-s-inside"></a>
