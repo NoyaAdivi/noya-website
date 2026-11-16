@@ -28,7 +28,7 @@
 
 <table align="center">
   <tr>
-    <td align="center" width="25%"><a href="#projects-on-the-site"><b>🚀 7</b></a><br><sub>projects on the site</sub></td>
+    <td align="center" width="25%"><a href="#projects-on-the-site"><b>🚀 16</b></a><br><sub>projects on the site</sub></td>
     <td align="center" width="25%"><a href="https://noyaadivi.github.io/noya-website"><b>🌍 HE · EN</b></a><br><sub>bilingual, RTL ready</sub></td>
     <td align="center" width="25%"><a href="https://noyaadivi.github.io/noya-website"><b>🌙 Dark</b></a><br><sub>dark mode</sub></td>
     <td align="center" width="25%"><a href="index.html"><b>📄 1</b></a><br><sub>file, no build step</sub></td>
@@ -40,9 +40,19 @@
 
 - 🗺️ **[Okeat](https://github.com/NoyaAdivi/Okeat)** - bilingual map of 20,000+ eateries · [live](https://okeat.vercel.app)
 - 🏨 **[DiviStay](https://github.com/NoyaAdivi/DiviStay)** - group hotel booking with payment splitting · [live](https://divistay.onrender.com)
+- 🍽️ **[Okeat Lens](https://github.com/NoyaAdivi/okeat-lens)** - recognizes a dish from a photo and shows what you can eat · [live](https://noyaadivi.github.io/okeat-lens/)
+- 🔐 **[LeakLens](https://github.com/NoyaAdivi/LeakLens)** - password strength, breach checks and safe passphrases · [live](https://noyaadivi.github.io/LeakLens/)
+- 🧾 **[Evenly](https://github.com/NoyaAdivi/evenly)** - split any bill per dish, with receipt scanning and group links · [live](https://evenly-app.up.railway.app)
+- 🎧 **[Kashuv](https://github.com/NoyaAdivi/kashuv)** - live Zoom transcription, focus help and summaries, all on your computer
+- 🔔 **[Nudgy](https://github.com/NoyaAdivi/nudgy-bot)** - Telegram bot that reminds you of assignment deadlines
 - 🖼️ **[Sort Photos](https://github.com/NoyaAdivi/sort-photos)** - offline AI photo classifier with CLIP
+- 👯 **[Photo Twins](https://github.com/NoyaAdivi/photo-twins)** - finds duplicate and near duplicate photos
+- 🌸 **[FocusBloom](https://github.com/NoyaAdivi/FocusBloom)** - Chrome extension that blocks distracting sites while you study
 - 🎭 **[Emotion Detection](https://github.com/NoyaAdivi/emotion_detection_ml)** - Naive Bayes from scratch for 6 emotions
+- 🎓 **[Gradely](https://github.com/NoyaAdivi/gradely)** - GPA calculator for any degree · [live](https://noyaadivi.github.io/gradely/)
+- 🍅 **[Pomodoro Timer](https://github.com/NoyaAdivi/pomodoro-timer)** - animated focus timer with stats · [live](https://noyaadivi.github.io/pomodoro-timer/)
 - 💬 **[TCP Chat](https://github.com/NoyaAdivi/Networking-project)** - multi-client chat with Wireshark analysis
+- 📚 **[HaMivchanon](https://github.com/NoyaAdivi/HaMivchanon)** - Android study app, my high school final project
 
 <a name="what-s-inside"></a>
 <p align="center"><a href="#built-with"><img src="docs/readme/what-s-inside-en.svg" width="100%" alt="What's inside"></a></p>
@@ -54,6 +64,7 @@
 - 🌙 **Dark mode** that follows the system setting
 - ♿ **Accessibility menu:** text size, high contrast, readable font and pausing animations
 - 📱 **Responsive** from phones to wide screens
+- ❓ **FAQ by topic** and an **installable app** with its own icon
 
 <a name="built-with"></a>
 <p align="center"><a href="#run-locally"><img src="docs/readme/built-with-en.svg" width="100%" alt="Built with"></a></p>
