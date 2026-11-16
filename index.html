@@ -941,6 +941,25 @@
       </div>
     </section>
 
+    <!-- ========== Terminal ========== -->
+    <section class="pt-0" aria-labelledby="termTitle">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-5 reveal">
+            <p class="eyebrow" data-i18n="termEyebrow">Under the hood</p>
+            <h2 class="section-title" id="termTitle" data-i18n="termTitle">A whole photo library, one command ⚡</h2>
+            <p class="section-sub" data-i18n="termSub">Sort Photos classifies a whole photo library on an old laptop - fully offline, so private photos never leave the computer. This is a sample run.</p>
+          </div>
+          <div class="col-lg-7 reveal">
+            <div class="terminal" role="img" aria-label="Terminal animation of Sort Photos sorting images" data-i18n-aria="termAria">
+              <div class="bar"><i></i><i></i><i></i><span>sort_photos.py</span><button type="button" class="term-run" id="termRun" data-i18n="runAgain">▶ Run again</button></div>
+              <pre id="termOut" aria-hidden="true"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ========== About ========== -->
     <section id="about" aria-labelledby="aboutTitle">
       <div class="container">
@@ -1152,7 +1171,7 @@
 
     /* ---------------- Translations ---------------- */
     const he = {
-      skip: 'דילוג לתוכן הראשי', installAria: 'התקנת האתר כאפליקציה', nowBuilding: 'עכשיו בונה', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
+      skip: 'דילוג לתוכן הראשי', nowBuilding: 'עכשיו בונה', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
       navProjects: 'פרויקטים', navAbout: 'עליי', navSkills: 'כישורים', navContact: 'יצירת קשר',
       location: 'ישראל · מחפשת משרת סטודנטית לפיתוח', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת - ממסד הנתונים ועד העלייה לאוויר.',
@@ -1539,6 +1558,34 @@
     });
 
     /* ---------------- Terminal ---------------- */
+
+    const termLines = [
+      ['<span class="pk">$</span> python sort_photos.py "D:\\Pictures" "D:\\Sorted"', 0],
+      ['<span class="muted">Loading CLIP model ViT-B-32 (int8)...</span>', 500],
+      ['<span class="muted">Found 40,212 images</span>', 400],
+      ['Classifying ████████████████████ 100%  <span class="hl">58 img/s</span>', 900],
+      ['  📄 documents   <span class="ok">6,481</span>', 300],
+      ['  🖼️ photos      <span class="ok">32,947</span>', 250],
+      ['  🤔 uncertain   <span class="hl">784</span>  <span class="muted">→ review by hand</span>', 250],
+      ['<span class="ok">✓ Done. Originals untouched, results.csv saved.</span>', 500]
+    ];
+    const termOut = document.getElementById('termOut');
+    let termStarted = false, termRun = 0;
+    function runTerminal() {
+      const myRun = ++termRun;
+      if (motionOff()) { termOut.innerHTML = termLines.map(l => l[0]).join('\n'); return; }
+      let i = 0; termOut.innerHTML = '';
+      (function next() {
+        if (myRun !== termRun) return;
+        if (i >= termLines.length) { termOut.innerHTML += '\n<span class="cursor-blink">&nbsp;</span>'; return; }
+        termOut.innerHTML += (i ? '\n' : '') + termLines[i][0];
+        i++; setTimeout(next, termLines[i] ? termLines[i][1] + 250 : 600);
+      })();
+    }
+    document.getElementById('termRun').addEventListener('click', runTerminal);
+    new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting && !termStarted) { termStarted = true; runTerminal(); obs.disconnect(); }
+    }, { threshold: .4 }).observe(termOut);
 
     /* ---------------- Accessibility ---------------- */
     const opts = ['contrast', 'dark', 'still', 'readable', 'links', 'spacing', 'cursor'];
