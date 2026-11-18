@@ -210,6 +210,7 @@
     .orbit { position: relative; width: min(30rem, 100%); aspect-ratio: 1; margin-inline: auto; }
     .orbit-ring { position: absolute; border-radius: 50%; border: 2px dashed color-mix(in srgb, var(--accent-2) 45%, transparent); animation: spin 38s linear infinite; }
     .orbit-ring.r1 { inset: 6%; }
+    @media (max-width: 520px) { .orbit-ring.r1 { inset: 13%; } .o-chip { font-size: .72rem; } }
     .orbit-ring.r2 { inset: 24%; animation-direction: reverse; animation-duration: 28s; }
     .o-chip { position: absolute; left: calc(50% + 50% * cos(var(--a))); top: calc(50% + 50% * sin(var(--a)));
       white-space: nowrap; font-weight: 800; font-size: .9rem; padding: .45rem .9rem; border-radius: 50rem;

@@ -8,7 +8,8 @@
  *         data-repo="https://github.com/..."       "still have a question?" link
  *         data-before="footer"                     where to put the FAQ (default: before the first <footer>)
  *         data-replace="#faq"                      replace an existing FAQ section
- *         data-home-only                          hash-router sites: show the FAQ on the home view only
+ *         data-home-only                          hash-router sites: show the FAQ on the home view only (automatic for #/route sites)
+ *         data-faq-show="5"                       how many questions show before "show all" (default 5)
  *         data-install="off"                     no install popup (the site stays installable from the browser)
  *         data-top="off"                           hide the back-to-top button
  *         data-scroll="off"></script>              no progress bar and no back-to-top (site has its own)
@@ -75,7 +76,32 @@
     'html[data-theme=dark] .na-top{color:#C9C1FF}' +
     '@media (prefers-reduced-motion:reduce){.na-item,.na-a,.na-pm,.na-top,.na-install,.na-chip{animation:none!important;transition:none!important}}' +
     'html.nk-still .na-item,html.nk-still .na-a,html.nk-still .na-pm{animation:none!important;transition:none!important}' +
-    '@media (max-width:560px){.na-a p,[dir=rtl] .na-a p{padding:0 20px 18px}.na-top{bottom:84px}}';
+    '.na-all{display:flex;justify-content:center;margin-top:16px}' +
+    '.na-all button{border:2px solid #E3DEFF;background:#FBFAFF;color:#5548C8;border-radius:999px;padding:11px 20px;font:700 .95rem Rubik,system-ui,sans-serif;cursor:pointer;display:inline-flex;gap:8px;align-items:center;transition:transform .2s,box-shadow .25s}' +
+    '.na-all button:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(85,72,200,.15)}' +
+    'html[data-theme=dark] .na-all button{background:#2F2847;border-color:#3E3560;color:#E2DCFF}' +
+    '@media (max-width:560px){' +
+      '.na-faq{margin:48px auto 28px;padding:0 14px}.na-faq .na-sub{font-size:.95rem}' +
+      '.na-chips{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 0 18px;padding:2px 14px 8px;mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent)}' +
+      '.na-chips::-webkit-scrollbar{display:none}.na-chip{flex:none;scroll-snap-align:start;padding:7px 13px;font-size:.88rem}' +
+      '.na-q{padding:14px 14px;gap:10px;font-size:.97rem}.na-q .na-ic{width:30px;height:30px;border-radius:10px}' +
+      '.na-a p,[dir=rtl] .na-a p{padding:0 16px 16px}.na-item{border-radius:18px}' +
+      '.na-top{bottom:calc(84px + env(safe-area-inset-bottom));width:44px;height:44px}' +
+      '.na-install{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));transform:translateY(160%);border-radius:20px;font-size:.88rem;padding:10px 10px 10px 12px}' +
+      '.na-install.show{transform:none}.na-install span{flex:1;min-width:0;line-height:1.35}' +
+    '}' +
+    /* mobile guard: nothing wider than the screen, no sideways wobble, no iOS zoom on inputs */
+    'html{-webkit-text-size-adjust:100%;text-size-adjust:100%}' +
+    'html,body{max-width:100%;overflow-x:hidden}@supports (overflow:clip){html,body{overflow-x:clip}}' +
+    'img,video,iframe,canvas{max-width:100%}img,video{height:auto}' +
+    'h1,h2,h3,h4,h5,p,li,dt,dd,blockquote,figcaption,label,td,th{overflow-wrap:break-word}' +
+    'pre{max-width:100%;overflow-x:auto}' +
+    '.nk-panel{max-height:calc(100dvh - 24px)!important;overscroll-behavior:contain}' +
+    '@media (max-width:700px){' +
+      'input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea{font-size:max(16px,1em)}' +
+      'table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}' +
+      '.nk-tab{width:46px!important;height:46px!important}' +
+    '}';
   var st = document.createElement('style'); st.id = 'noya-app-css'; st.textContent = css; document.head.appendChild(st);
 
   /* ---------- FAQ ---------- */
@@ -88,7 +114,7 @@
       var before = document.querySelector(opt.before || 'footer');
       if (before && before.parentNode) before.parentNode.insertBefore(sec, before); else (document.querySelector('main') || document.body).appendChild(sec);
     }
-    var topic = 'all', query = '', openId = null;
+    var topic = 'all', query = '', openId = null, all = false, LIM = +(opt.faqShow || 5);
     var L = function (o) { return o ? (he() ? (o.he || o.en) : (o.en || o.he)) : ''; };
     var topicOf = function (id) { for (var i = 0; i < D.topics.length; i++) if (D.topics[i].id === id) return D.topics[i]; return null; };
     var norm = function (s) { return String(s).toLowerCase().replace(/[֑-ׇ]/g, ''); };
@@ -101,7 +127,7 @@
         '<p class="na-sub">' + (D.items.length > 6 ? T('בוחרים נושא או מחפשים, והתשובה נפתחת בלחיצה', 'Pick a topic or search, then tap a question to open it') : T('בוחרים נושא ולוחצים על שאלה', 'Pick a topic and tap a question')) + '</p></div>' +
         (D.items.length > 6 ? '<div class="na-search"><span aria-hidden="true">🔎</span><input type="search" aria-label="' + T('חיפוש בשאלות', 'Search the questions') + '" placeholder="' + T('חיפוש שאלה…', 'Search a question…') + '"></div>' : '') +
         '<div class="na-chips" role="group" aria-label="' + T('סינון לפי נושא', 'Filter by topic') + '"></div>' +
-        '<div class="na-list"></div><p class="na-empty" hidden></p>' +
+        '<div class="na-list"></div><div class="na-all" hidden><button type="button"></button></div><p class="na-empty" hidden></p>' +
         (opt.repo ? '<p class="na-more"><a href="' + esc(opt.repo) + '/issues/new" target="_blank" rel="noopener">💬 ' + T('לא מצאתם תשובה? כתבו לי בגיטהאב', 'Didn\'t find it? Ask me on GitHub') + '</a></p>' : '');
       var inp = sec.querySelector('input');
       if (inp) { inp.value = query; inp.addEventListener('input', function () { query = inp.value.trim(); list(); chips(); }); }
@@ -120,7 +146,10 @@
       }).join('');
     }
     function list() {
-      var box = sec.querySelector('.na-list'), shown = D.items.filter(function (it) { return visible(it); });
+      var box = sec.querySelector('.na-list'), match = D.items.filter(function (it) { return visible(it); });
+      var cut = !all && !query && topic === 'all' && match.length > LIM + 1, shown = cut ? match.slice(0, LIM) : match;
+      var more = sec.querySelector('.na-all'); more.hidden = !cut;
+      if (cut) more.firstChild.innerHTML = '<span aria-hidden="true">▾</span> ' + T('להצגת כל ' + match.length + ' השאלות', 'Show all ' + match.length + ' questions');
       box.innerHTML = shown.map(function (it, i) {
         var p = (he() ? it.he : it.en) || it.he || it.en, id = D.items.indexOf(it), tp = topicOf(it.t), open = openId === id;
         return '<div class="na-item' + (open ? ' open' : '') + '" style="animation-delay:' + Math.min(i * 45, 400) + 'ms">' +
@@ -129,18 +158,19 @@
           (topic === 'all' && tp ? '<span class="na-tag">' + esc(L(tp)) + '</span>' : '') + '</span><span class="na-pm" aria-hidden="true">+</span></button>' +
           '<div class="na-a" id="na-a' + id + '" role="region"><div><p>' + hl(p[1]) + '</p></div></div></div>';
       }).join('');
-      var em = sec.querySelector('.na-empty'); em.hidden = shown.length > 0;
+      var em = sec.querySelector('.na-empty'); em.hidden = match.length > 0;
       em.textContent = T('לא מצאתי שאלה כזו. נסו מילה אחרת 🙂', 'No question matches that. Try another word 🙂');
     }
     sec.addEventListener('click', function (e) {
-      var c = e.target.closest('.na-chip'); if (c) { topic = c.getAttribute('data-topic'); openId = null; chips(); list(); return; }
+      if (e.target.closest('.na-all')) { all = true; list(); return; }
+      var c = e.target.closest('.na-chip'); if (c) { c.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); topic = c.getAttribute('data-topic'); openId = null; chips(); list(); return; }
       var q = e.target.closest('.na-q'); if (!q) return;
       var id = +q.getAttribute('data-q'), item = q.parentNode, was = item.classList.contains('open');
       sec.querySelectorAll('.na-item.open').forEach(function (x) { x.classList.remove('open'); x.querySelector('.na-q').setAttribute('aria-expanded', 'false'); });
       if (!was) { item.classList.add('open'); q.setAttribute('aria-expanded', 'true'); openId = id; } else openId = null;
     });
     new MutationObserver(shell).observe(root, { attributes: true, attributeFilter: ['lang'] });
-    if (opt.homeOnly) { var vis = function () { var v = location.hash.split('/')[1]; sec.hidden = !!v && v !== 'home'; }; addEventListener('hashchange', vis); vis(); }
+    { /* #/route views other than home hide the FAQ; plain #anchors never do */ var vis = function () { var v = location.hash.split('/')[1]; sec.hidden = !!v && v !== 'home'; }; addEventListener('hashchange', vis); vis(); }
     shell();
     if (location.hash === '#faq') setTimeout(function () { sec.scrollIntoView({ behavior: 'smooth' }); }, 300);
   }
@@ -199,6 +229,28 @@
     if (ios && opt.sw) setTimeout(function () { show(true); }, 6000);
   }
 
-  function init() { faq(); scrollers(); app(); }
+  /* ---------- phone overflow guard ---------- */
+  function guard() {
+    var busy = false, runs = 0;
+    function scan() {
+      busy = false; if (innerWidth > 760) return;
+      var W = document.documentElement.clientWidth, els = document.body.querySelectorAll('*');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i], r = el.getBoundingClientRect();
+        if (r.width <= W + 1 || !r.height) continue;
+        var cs = getComputedStyle(el); if (cs.position === 'fixed' || cs.position === 'absolute') continue;
+        var p = el.parentElement, inside = false;
+        for (; p && p !== document.body; p = p.parentElement) { var o = getComputedStyle(p).overflowX; if (o === 'auto' || o === 'scroll' || o === 'hidden' || o === 'clip') { inside = true; break; } }
+        if (inside) continue;
+        el.style.maxWidth = '100%'; el.style.boxSizing = 'border-box'; if (cs.whiteSpace === 'nowrap') el.style.whiteSpace = 'normal';
+      }
+    }
+    function later(e) { if (e && e.type === 'resize') runs = 0; if (busy || runs > 25) return; busy = true; runs++; setTimeout(scan, 900); }
+    addEventListener('load', later); addEventListener('resize', later); addEventListener('hashchange', later);
+    new MutationObserver(function () { later(); }).observe(document.body, { childList: true, subtree: true });
+    later();
+  }
+
+  function init() { faq(); scrollers(); app(); guard(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
