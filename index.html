@@ -562,6 +562,8 @@
     /* show the whole cover image, never crop it */
     .project .cover.cover-img img, .project .cover.cover-featured img { object-fit: contain !important; object-position: center !important; }
     .project:hover .cover.cover-img img, .project:hover .cover.cover-featured img { transform: scale(1.02); }
+    /* Okeat cover: pastel fill instead of white around the image */
+    .project .cover.cover-featured:has(img[src*="okeat"]) { background: linear-gradient(160deg, #f6eef9 0%, #fff3ee 50%, #fbe3e6 100%) !important; }
     .flag .body { padding: 1.75rem; }
     .flag h3 { font-size: 1.6rem; }
     .mini .project .body { padding: 1rem 1.1rem 1.1rem; }
