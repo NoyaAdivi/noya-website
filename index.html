@@ -587,6 +587,45 @@
     /* consistency fixes */
     button,input,select,textarea{font-family:inherit}
     html,body{overflow-x:clip;max-width:100%}
+
+    /* ---------- Delight layer: playful but calm ---------- */
+    .uses { transition: opacity .35s ease, max-height .45s ease, padding .35s ease, margin .35s ease; max-height: 12rem; overflow: hidden; }
+    .uses.idle { opacity: 0; max-height: 0; min-height: 0; padding-block: 0; margin-top: 0; }
+    /* Section titles: a soft gradient line draws in, the emoji waves hello */
+    .section-title { position: relative; display: inline-block; }
+    .section-title::after { content: ""; position: absolute; inset-inline-start: 0; bottom: -.15em; height: .32rem; width: 3.2em; border-radius: 99px;
+      background: linear-gradient(90deg, var(--sky), var(--lavender-deep), var(--rose)); transform: scaleX(0); transform-origin: var(--line-origin, left);
+      transition: transform 1s cubic-bezier(.2,.8,.2,1) .25s; }
+    [dir="rtl"] .section-title::after { --line-origin: right; }
+    .reveal.in .section-title::after, .section-title.in::after { transform: scaleX(1); }
+    .t-emo { display: inline-block; transform-origin: 70% 80%; }
+    .reveal.in .t-emo { animation: wave 1.4s ease .5s 1; }
+    .section-title:hover .t-emo { animation: wave 1s ease infinite; }
+    @keyframes wave { 0%,100% { transform: rotate(0); } 20% { transform: rotate(-14deg) scale(1.1); } 40% { transform: rotate(10deg); } 60% { transform: rotate(-6deg); } 80% { transform: rotate(4deg); } }
+    /* Chips and skills pop in one after another */
+    .reveal:not(.in) :is(.skill, .chip, .course) { opacity: 0; }
+    .reveal.in :is(.skill, .chip, .course) { animation: chipIn .5s cubic-bezier(.2,.9,.3,1.4) backwards; animation-delay: calc(var(--i, 0) * 35ms + .15s); }
+    @keyframes chipIn { from { opacity: 0; transform: translateY(8px) scale(.8); } }
+    /* Click sparkles */
+    .spark { position: fixed; z-index: 2147483000; width: 8px; height: 8px; border-radius: 50%; pointer-events: none; }
+    .spark.star { width: auto; height: auto; background: none !important; font-size: 13px; line-height: 1; }
+    /* Soft light that follows the mouse */
+    #glow { position: fixed; left: 0; top: 0; width: 420px; height: 420px; margin: -210px 0 0 -210px; border-radius: 50%; pointer-events: none; z-index: 0;
+      background: radial-gradient(circle, rgba(203,188,244,.28), rgba(169,214,245,.16) 40%, transparent 70%); opacity: 0; transition: opacity .6s ease; will-change: transform; }
+    #glow.on { opacity: 1; }
+    :root[data-theme="dark"] #glow { background: radial-gradient(circle, rgba(203,188,244,.13), rgba(169,214,245,.07) 40%, transparent 70%); }
+    /* Theme switch: a circle grows from the moon button */
+    ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+    ::view-transition-new(root) { animation: themeReveal .7s cubic-bezier(.4,0,.2,1); }
+    @keyframes themeReveal { from { clip-path: circle(0 at var(--vt-x, 90%) var(--vt-y, 0)); } to { clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 90%) var(--vt-y, 0)); } }
+    html.a11y-still #glow, html.a11y-contrast #glow, html.a11y-contrast .section-title::after { display: none; }
+    html.a11y-still .reveal :is(.skill, .chip, .course), html.a11y-still .t-emo { animation: none !important; opacity: 1; }
+    html.a11y-still .section-title::after { transition: none; }
+    @media (prefers-reduced-motion: reduce) {
+      #glow { display: none; }
+      .reveal :is(.skill, .chip, .course), .t-emo { animation: none !important; opacity: 1; }
+      ::view-transition-new(root) { animation: none; }
+    }
   </style>
 <style>.built-by{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.45em;margin:.6em 0;font-weight:600}.built-by a{display:inline-flex;align-items:center;gap:.4em;padding:.28em .8em;border-radius:999px;font-weight:800;text-decoration:none;color:inherit;background:rgba(10,102,194,.1);transition:transform .25s ease,background .25s ease,box-shadow .25s ease}.built-by a:hover,.built-by a:focus-visible{transform:translateY(-2px);background:rgba(10,102,194,.18);box-shadow:0 6px 16px rgba(10,102,194,.18)}.built-by svg{width:1.1em;height:1.1em;fill:#0A66C2;flex:none;transition:transform .35s ease}.built-by a:hover svg{transform:rotate(-8deg) scale(1.12)}html[lang="he"] .built-by .bb-en,html:not([lang="he"]) .built-by .bb-he{display:none}@media (prefers-reduced-motion:reduce){.built-by a,.built-by svg{transition:none}}
 /* ===== Mobile stability: no sideways drift, pinch-zoom stays allowed ===== */
@@ -1094,19 +1133,19 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
         <div class="reveal">
           <p class="eyebrow" data-i18n="skillsEyebrow">Toolbox</p>
           <h2 class="section-title" id="skillsTitle" data-i18n="skillsTitle">Skills 🧩</h2>
-          <p class="section-sub" data-i18n="skillsSub">Each skill is linked to the projects where I actually used it.</p>
+          <p class="section-sub" data-i18n="skillsSub">Tap a skill to see the projects where I used it.</p>
         </div>
         <div class="row g-4 mt-1">
           <div class="col-md-6 col-lg-4 reveal"><div class="glass skill-group g-blue"><div class="icon" aria-hidden="true">💻</div><h3 data-i18n="sk1">Languages</h3>
-            <button type="button" class="skill" data-uses="Kashuv · Okeat Lens · LeakLens · Nudgy · Sort Photos">Python</button><button type="button" class="skill" data-uses="DiviStay · HaMivchanon">Java</button><button type="button" class="skill" data-uses="Okeat">TypeScript</button><button type="button" class="skill" data-uses="Evenly · FocusBloom · Gradely · Pomodoro Timer">JavaScript</button><button type="button" class="skill" data-uses="Okeat · Nudgy">SQL</button><button type="button" class="skill" data-uses="HIT coursework">C</button><button type="button" class="skill" data-uses="HIT coursework">C++</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+            <button type="button" class="skill" data-uses="Kashuv · Okeat Lens · LeakLens · Nudgy · Sort Photos">Python</button><button type="button" class="skill" data-uses="DiviStay · HaMivchanon">Java</button><button type="button" class="skill" data-uses="Okeat">TypeScript</button><button type="button" class="skill" data-uses="Evenly · FocusBloom · Gradely · Pomodoro Timer">JavaScript</button><button type="button" class="skill" data-uses="Okeat · Nudgy">SQL</button><button type="button" class="skill" data-uses="HIT coursework">C</button><button type="button" class="skill" data-uses="HIT coursework">C++</button><p class="uses idle" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
           <div class="col-md-6 col-lg-4 reveal"><div class="glass skill-group g-lav"><div class="icon" aria-hidden="true">🌐</div><h3 data-i18n="sk2">Web & Backend</h3>
-            <button type="button" class="skill" data-uses="Okeat">Next.js</button><button type="button" class="skill" data-uses="Okeat">React</button><button type="button" class="skill" data-uses="Evenly">Node.js</button><button type="button" class="skill" data-uses="DiviStay">Spring Boot</button><button type="button" class="skill" data-uses="LeakLens · Okeat Lens">FastAPI</button><button type="button" class="skill" data-uses="Kashuv">Flask</button><button type="button" class="skill" data-uses="DiviStay · Evenly · LeakLens · Okeat Lens">REST APIs</button><button type="button" class="skill" data-uses="This website · Gradely · Pomodoro Timer">HTML/CSS</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+            <button type="button" class="skill" data-uses="Okeat">Next.js</button><button type="button" class="skill" data-uses="Okeat">React</button><button type="button" class="skill" data-uses="Evenly">Node.js</button><button type="button" class="skill" data-uses="DiviStay">Spring Boot</button><button type="button" class="skill" data-uses="LeakLens · Okeat Lens">FastAPI</button><button type="button" class="skill" data-uses="Kashuv">Flask</button><button type="button" class="skill" data-uses="DiviStay · Evenly · LeakLens · Okeat Lens">REST APIs</button><button type="button" class="skill" data-uses="This website · Gradely · Pomodoro Timer">HTML/CSS</button><p class="uses idle" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
           <div class="col-md-6 col-lg-4 reveal"><div class="glass skill-group g-mint"><div class="icon" aria-hidden="true">🧠</div><h3 data-i18n="sk3">AI & Data</h3>
-            <button type="button" class="skill" data-uses="Okeat Lens · Sort Photos">PyTorch</button><button type="button" class="skill" data-uses="Okeat Lens · Sort Photos">Computer Vision</button><button type="button" class="skill" data-uses="Kashuv">Speech to text</button><button type="button" class="skill" data-uses="Kashuv">LLMs (Ollama)</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Scikit-Learn</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Pandas</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+            <button type="button" class="skill" data-uses="Okeat Lens · Sort Photos">PyTorch</button><button type="button" class="skill" data-uses="Okeat Lens · Sort Photos">Computer Vision</button><button type="button" class="skill" data-uses="Kashuv">Speech to text</button><button type="button" class="skill" data-uses="Kashuv">LLMs (Ollama)</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Scikit-Learn</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Pandas</button><p class="uses idle" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
           <div class="col-md-6 col-lg-6 reveal"><div class="glass skill-group g-peach"><div class="icon" aria-hidden="true">🗄️</div><h3 data-i18n="sk4">Databases & Cloud</h3>
-            <button type="button" class="skill" data-uses="Okeat">PostgreSQL</button><button type="button" class="skill" data-uses="Okeat">PostGIS</button><button type="button" class="skill" data-uses="Okeat">Supabase</button><button type="button" class="skill" data-uses="Nudgy">SQLite</button><button type="button" class="skill" data-uses="HaMivchanon">Firebase</button><button type="button" class="skill" data-uses="Okeat">Vercel</button><button type="button" class="skill" data-uses="Evenly">Railway</button><button type="button" class="skill" data-uses="DiviStay">Render</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+            <button type="button" class="skill" data-uses="Okeat">PostgreSQL</button><button type="button" class="skill" data-uses="Okeat">PostGIS</button><button type="button" class="skill" data-uses="Okeat">Supabase</button><button type="button" class="skill" data-uses="Nudgy">SQLite</button><button type="button" class="skill" data-uses="HaMivchanon">Firebase</button><button type="button" class="skill" data-uses="Okeat">Vercel</button><button type="button" class="skill" data-uses="Evenly">Railway</button><button type="button" class="skill" data-uses="DiviStay">Render</button><p class="uses idle" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
           <div class="col-md-12 col-lg-6 reveal"><div class="glass skill-group g-rose"><div class="icon" aria-hidden="true">🛠️</div><h3 data-i18n="sk5">DevOps & Tools</h3>
-            <button type="button" class="skill" data-uses="All projects">Git</button><button type="button" class="skill" data-uses="DiviStay · Evenly · LeakLens">Docker</button><button type="button" class="skill" data-uses="Evenly · Okeat Lens · Okeat">GitHub Actions</button><button type="button" class="skill" data-uses="LeakLens · Nudgy · Photo Twins">pytest</button><button type="button" class="skill" data-uses="DiviStay">JUnit</button><button type="button" class="skill" data-uses="FocusBloom">Chrome Extensions</button><button type="button" class="skill" data-uses="TCP Chat">Wireshark</button><button type="button" class="skill" data-uses="HIT coursework">Linux</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
+            <button type="button" class="skill" data-uses="All projects">Git</button><button type="button" class="skill" data-uses="DiviStay · Evenly · LeakLens">Docker</button><button type="button" class="skill" data-uses="Evenly · Okeat Lens · Okeat">GitHub Actions</button><button type="button" class="skill" data-uses="LeakLens · Nudgy · Photo Twins">pytest</button><button type="button" class="skill" data-uses="DiviStay">JUnit</button><button type="button" class="skill" data-uses="FocusBloom">Chrome Extensions</button><button type="button" class="skill" data-uses="TCP Chat">Wireshark</button><button type="button" class="skill" data-uses="HIT coursework">Linux</button><p class="uses idle" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
         </div>
       </div>
     </section>
@@ -1232,7 +1271,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       csHead: '💻 מדעי המחשב', ipTag: '· בתהליך', mathHead: '📐 מתמטיקה', cs0: 'מבני נתונים', cs1: 'אלגוריתמים 1', cs2: 'אלגוריתמים 2', cs3: 'תכנות מונחה עצמים', cs4: 'סדנה מתקדמת בתכנות', cs5: 'מבוא למדעי המחשב', cs6: 'מבוא למערכות מחשב', cs7: 'מערכות הפעלה', cs8: 'רשתות תקשורת מחשבים', cs9: 'מערכות בסיסי נתונים', cs10: 'הנדסת תוכנה', cs11: 'למידת מכונה', cs12: 'מבוא למדעי הנתונים: שיטות וכלים', cs13: 'אוטומטים ושפות פורמליות', cs14: 'חישוביות וסיבוכיות אלגוריתמים', mt0: 'חשבון אינפיניטסימלי 1', mt1: 'חשבון אינפיניטסימלי 2', mt2: 'אלגברה לינארית', mt3: 'אלגברה 2', mt4: 'הסתברות', mt5: 'מתמטיקה בדידה 1', mt6: 'מתמטיקה בדידה 2',
       edu1Title: 'תואר ראשון במדעי המחשב', edu1Place: 'מכון טכנולוגי חולון (HIT)', edu1Desc: 'תכנות (C, C++), מדעי הנתונים, למידת מכונה, מערכות מסדי נתונים, רשתות תקשורת ויסודות תיאורטיים.',
       edu2Title: 'הנדסת תוכנה (35 יחידות)', edu2Place: 'תיכון אילון', edu2Desc: 'מגמות: מדעי המחשב, פיתוח תוכנה (אנדרואיד/Java), כימיה, מתמטיקה ואנגלית.',
-      skillsEyebrow: 'ארגז הכלים', skillsSub: 'כל כישור מקושר לפרויקטים שבהם השתמשתי בו בפועל.', usesHint: 'העבירו את העכבר או לחצו על כישור כדי לראות איפה השתמשתי בו', runAgain: '▶ להריץ שוב', skillsTitle: 'כישורים 🧩', sk1: 'שפות', sk2: 'Web ו-Backend', sk3: 'AI ונתונים', sk4: 'מסדי נתונים וענן', sk5: 'DevOps וכלים',
+      skillsEyebrow: 'ארגז הכלים', skillsSub: 'לחצו על כישור כדי לראות באילו פרויקטים השתמשתי בו.', usesHint: 'העבירו את העכבר או לחצו על כישור כדי לראות איפה השתמשתי בו', runAgain: '▶ להריץ שוב', skillsTitle: 'כישורים 🧩', sk1: 'שפות', sk2: 'Web ו-Backend', sk3: 'AI ונתונים', sk4: 'מסדי נתונים וענן', sk5: 'DevOps וכלים',
       contactEyebrow: 'בואו נדבר', contactTitle: 'מחפשים סטודנטית לפיתוח? 📬', contactSub: 'אני מחפשת משרת סטודנטית בהנדסת תוכנה או בפיתוח תוכנה, ואשמח לשמוע מכם.',
       madeWith: 'נבנה עם 💙 ו-Bootstrap', statementLink: 'הצהרת נגישות', topAria: 'חזרה למעלה',
       a11yAria: 'אפשרויות נגישות', a11yTitle: '♿ נגישות', closeAria: 'סגירה', sizeDownAria: 'הקטנת טקסט', sizeUpAria: 'הגדלת טקסט', textSize: 'גודל טקסט',
@@ -1568,7 +1607,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
           const name = (lang === 'he' && heUses[x]) || x, card = projCards[usesAlias[x] || x];
           return card ? `<button type="button" class="uses-go" data-go="${usesAlias[x] || x}">${name}</button>` : `<b>${name}</b>`;
         }).join(' · ');
-        out.innerHTML = `${btn.textContent} → ${list}`;
+        out.innerHTML = `${btn.textContent} → ${list}`; out.classList.remove('idle');
         out.classList.remove('flash'); void out.offsetWidth; out.classList.add('flash');
       };
       g.querySelectorAll('.skill').forEach(b => {
@@ -1682,11 +1721,64 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       applyA11y();
     }
     document.querySelectorAll('[data-a11y]').forEach(b => b.addEventListener('click', () => toggle(b.dataset.a11y)));
-    themeBtn.addEventListener('click', () => toggle('dark'));
+    themeBtn.addEventListener('click', () => themeSwitch());
     document.getElementById('sizeUp').addEventListener('click', () => { size = Math.min(size + 10, 150); applyA11y(); });
     document.getElementById('sizeDown').addEventListener('click', () => { size = Math.max(size - 10, 80); applyA11y(); });
     document.getElementById('a11yReset').addEventListener('click', () => { state = {}; size = 100; applyA11y(); });
     reduceMotionMQ.addEventListener && reduceMotionMQ.addEventListener('change', startCanvas);
+
+    // ---------- Delight layer ----------
+    // Stagger index for chips, skills and courses
+    document.querySelectorAll('.reveal').forEach(r => r.querySelectorAll('.skill, .chip, .course').forEach((c, i) => c.style.setProperty('--i', Math.min(i, 14))));
+    // Wrap the emoji at the end of each section title so it can wave
+    const emoRe = /(\s*)([\p{Extended_Pictographic}][\p{Extended_Pictographic}️‍]*)\s*$/u;
+    const wrapEmo = t => {
+      if (t.querySelector('.t-emo')) return;
+      const n = [...t.childNodes].reverse().find(x => x.nodeType === 3 && x.textContent.trim());
+      if (!n) return; const m = n.textContent.match(emoRe); if (!m) return;
+      n.textContent = n.textContent.slice(0, m.index) + m[1];
+      const sp = document.createElement('span'); sp.className = 't-emo'; sp.setAttribute('aria-hidden', 'true'); sp.textContent = m[2];
+      t.appendChild(sp);
+    };
+    document.querySelectorAll('.section-title').forEach(t => {
+      wrapEmo(t);
+      new MutationObserver(() => wrapEmo(t)).observe(t, { childList: true, characterData: true, subtree: true });
+      if (!t.closest('.reveal')) new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { t.classList.add('in'); o.disconnect(); } }), { threshold: .4 }).observe(t);
+    });
+    // Pastel sparkles on click
+    const sparkColors = ['#a9d6f5', '#cbbcf4', '#a9e3cd', '#f8c8b6', '#f5b8c8'];
+    document.addEventListener('pointerdown', e => {
+      if (motionOff() || root.classList.contains('a11y-contrast')) return;
+      const t = e.target.closest('button, a, .skill, .chip'); if (!t || t.closest('#a11yBtn, .offcanvas, .modal')) return;
+      const n = 9;
+      for (let i = 0; i < n; i++) {
+        const d = document.createElement('span'), star = i % 3 === 0;
+        d.className = 'spark' + (star ? ' star' : ''); if (star) d.textContent = '✦';
+        d.style.left = e.clientX - 4 + 'px'; d.style.top = e.clientY - 4 + 'px';
+        d.style.background = sparkColors[i % sparkColors.length]; d.style.color = sparkColors[(i + 2) % sparkColors.length];
+        document.body.appendChild(d);
+        const a = (Math.PI * 2 * i) / n + Math.random() * .5, r = 28 + Math.random() * 26;
+        d.animate([{ transform: 'translate(0,0) scale(1)', opacity: 1 }, { transform: `translate(${Math.cos(a) * r}px, ${Math.sin(a) * r + 10}px) scale(.2) rotate(${star ? 180 : 0}deg)`, opacity: 0 }],
+          { duration: 600 + Math.random() * 250, easing: 'cubic-bezier(.2,.7,.3,1)' }).onfinish = () => d.remove();
+      }
+    }, { passive: true });
+    // Soft light that follows the mouse (desktop only)
+    if (matchMedia('(pointer: fine)').matches) {
+      const glow = document.createElement('div'); glow.id = 'glow'; glow.setAttribute('aria-hidden', 'true'); document.body.prepend(glow);
+      let gx = innerWidth / 2, gy = innerHeight / 3, tx = gx, ty = gy, raf = 0;
+      const tick = () => { gx += (tx - gx) * .12; gy += (ty - gy) * .12; glow.style.transform = `translate(${gx}px, ${gy}px)`;
+        raf = Math.abs(tx - gx) + Math.abs(ty - gy) > .5 ? requestAnimationFrame(tick) : 0; };
+      addEventListener('pointermove', e => { if (e.pointerType !== 'mouse' || motionOff()) return; tx = e.clientX; ty = e.clientY; glow.classList.add('on'); if (!raf) raf = requestAnimationFrame(tick); }, { passive: true });
+      document.addEventListener('pointerleave', () => glow.classList.remove('on'));
+    }
+    // Theme switch grows as a circle from the button
+    function themeSwitch() {
+      if (!document.startViewTransition || motionOff()) return toggle('dark');
+      const r = themeBtn.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
+      root.style.setProperty('--vt-x', x + 'px'); root.style.setProperty('--vt-y', y + 'px');
+      root.style.setProperty('--vt-r', Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y)) + 'px');
+      document.startViewTransition(() => toggle('dark'));
+    }
 
     /* ---------------- Init ---------------- */
     // The site always opens in English; Hebrew is chosen per visit

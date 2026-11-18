@@ -19,7 +19,7 @@
 <h3 align="center">Projects, skills and a little about me, in one place.</h3>
 
 <p align="center">
-  A soft pastel design, a particle name that reacts to the mouse, and a full accessibility menu.
+  A soft pastel design full of gentle motion, a particle name that reacts to the mouse, and a full accessibility menu.
 </p>
 
 <p align="center">
@@ -50,7 +50,7 @@
 - 👯 **[Photo Twins](https://github.com/NoyaAdivi/photo-twins)** - finds duplicate and near-duplicate photos
 - 🎭 **[Emotion Detection](https://github.com/NoyaAdivi/emotion_detection_ml)** - Naive Bayes from scratch for 6 emotions
 - 💬 **[TCP Chat](https://github.com/NoyaAdivi/Networking-project)** - multi-client chat with Wireshark analysis
-- 🎓 **[Gradely](https://github.com/NoyaAdivi/gradely)** - GPA calculator for any degree · [live](https://noyaadivi.github.io/gradely/)
+- 🎓 **[Gradely](https://github.com/NoyaAdivi/gradely)** - GPA calculator for any degree, fills grades from a photo or document of your grade sheet · [live](https://noyaadivi.github.io/gradely/)
 - 🍅 **[Pomodoro Timer](https://github.com/NoyaAdivi/pomodoro-timer)** - animated focus timer with stats · [live](https://noyaadivi.github.io/pomodoro-timer/)
 - 📚 **[HaMivchanon](https://github.com/NoyaAdivi/HaMivchanon)** - Android study app, my high school final project
 
@@ -61,15 +61,17 @@
 - 🌍 **Hebrew and English** with a full right-to-left layout
 - 🔍 **Project deep dives** for Okeat and DiviStay: the problem, how it works and the main decisions
 - 🗂️ **Project filters** and clickable cards that open each live site or repository
+- 🧩 **Skills linked to projects:** tap a skill, then tap a project name to jump to its card
+- ✨ **Playful touches:** pastel sparkles on every click, a soft light that follows the mouse, waving title emojis, chips that pop in one by one and a dark mode that grows as a circle from the moon button
 - 🌙 **Dark mode** that follows the system setting
-- ♿ **Accessibility menu:** text size, high contrast, readable font and pausing animations
+- ♿ **Accessibility menu:** text size, high contrast, readable font and pausing animations (also turns off every playful effect)
 - 📱 **Responsive** from phones to wide screens
-- ❓ **FAQ by topic** and an **installable app** with its own icon
+- ❓ **FAQ by topic**, an **installable app** with its own icon and a friendly [404 page](404.html)
 
 <a name="built-with"></a>
 <p align="center"><a href="#run-locally"><img src="docs/readme/built-with-en.svg" width="100%" alt="Built with"></a></p>
 
-A single `index.html` file with HTML, CSS, JavaScript and Bootstrap 5, hosted on GitHub Pages. No build step.
+A single `index.html` file (plus a [404 page](404.html)) with HTML, CSS, JavaScript and Bootstrap 5, hosted on GitHub Pages. No build step.
 
 <a name="run-locally"></a>
 <p align="center"><a href="#contact"><img src="docs/readme/run-locally-en.svg" width="100%" alt="Run locally"></a></p>

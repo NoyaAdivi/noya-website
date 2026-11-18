@@ -22,7 +22,7 @@
 <h3 align="center">פרויקטים, כישורים וקצת עליי, במקום אחד.</h3>
 
 <p align="center">
-  עיצוב פסטלי רך, שם מחלקיקים שמגיב לעכבר, ותפריט נגישות מלא.
+  עיצוב פסטלי רך ומלא תנועה עדינה, שם מחלקיקים שמגיב לעכבר, ותפריט נגישות מלא.
 </p>
 
 <p align="center">
@@ -53,7 +53,7 @@
 - 👯 **[Photo Twins](https://github.com/NoyaAdivi/photo-twins)** - מוצא תמונות כפולות ודומות
 - 🎭 **[Emotion Detection](https://github.com/NoyaAdivi/emotion_detection_ml)** - Naive Bayes מאפס לזיהוי 6 רגשות
 - 💬 **[TCP Chat](https://github.com/NoyaAdivi/Networking-project)** - צ'אט מרובה משתמשים וניתוח ב-Wireshark
-- 🎓 **[Gradely](https://github.com/NoyaAdivi/gradely)** - מחשבון ממוצע לכל תואר · [לאתר](https://noyaadivi.github.io/gradely/)
+- 🎓 **[Gradely](https://github.com/NoyaAdivi/gradely)** - מחשבון ממוצע לכל תואר, ממלא ציונים מצילום או ממסמך של גיליון הציונים · [לאתר](https://noyaadivi.github.io/gradely/)
 - 🍅 **[Pomodoro Timer](https://github.com/NoyaAdivi/pomodoro-timer)** - טיימר פומודורו עם אנימציות וסטטיסטיקות · [לאתר](https://noyaadivi.github.io/pomodoro-timer/)
 - 📚 **[HaMivchanon](https://github.com/NoyaAdivi/HaMivchanon)** - אפליקציית לימוד לאנדרואיד, פרויקט הגמר שלי בתיכון
 
@@ -64,15 +64,17 @@
 - 🌍 **עברית ואנגלית** עם תצוגה מלאה מימין לשמאל
 - 🔍 **הצצה לעומק** ל-Okeat ול-DiviStay: הבעיה, איך זה עובד וההחלטות המרכזיות
 - 🗂️ **סינון פרויקטים** וכרטיסים שנפתחים לאתר החי או לקוד
+- 🧩 **כישורים שמקושרים לפרויקטים:** לוחצים על כישור ואז על שם פרויקט, ועוברים ישר לכרטיס שלו
+- ✨ **נגיעות כיפיות:** ניצוצות פסטל בכל לחיצה, אור רך שעוקב אחרי העכבר, אימוג'ים שמנופפים בכותרות, תגיות שקופצות אחת אחרי השנייה ומצב כהה שמתפשט בעיגול מכפתור הירח
 - 🌙 **מצב כהה** לפי הגדרות המחשב
-- ♿ **תפריט נגישות:** גודל טקסט, ניגודיות גבוהה, גופן קריא ועצירת אנימציות
+- ♿ **תפריט נגישות:** גודל טקסט, ניגודיות גבוהה, גופן קריא ועצירת אנימציות (שמכבה גם את כל האפקטים)
 - 📱 **מותאם** לטלפון ולמסך רחב
-- ❓ **שאלות נפוצות לפי נושא** ו**אפליקציה להתקנה** עם אייקון משלה
+- ❓ **שאלות נפוצות לפי נושא**, **אפליקציה להתקנה** עם אייקון משלה ו[עמוד 404](404.html) ידידותי
 
 <a name="s3"></a>
 <p align="center"><a href="#s4"><img src="docs/readme/s3-he.svg" width="100%" alt="טכנולוגיות"></a></p>
 
-קובץ `index.html` אחד עם HTML, CSS, JavaScript ו-Bootstrap 5, באחסון GitHub Pages, בלי שלב בנייה.
+קובץ `index.html` אחד (ועוד [עמוד 404](404.html)) עם HTML, CSS, JavaScript ו-Bootstrap 5, באחסון GitHub Pages, בלי שלב בנייה.
 
 <a name="s4"></a>
 <p align="center"><a href="#contact"><img src="docs/readme/s4-he.svg" width="100%" alt="הרצה מקומית"></a></p>
