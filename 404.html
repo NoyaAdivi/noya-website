@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found | Noya Adivi</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#cfe8fb">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23a9d6f5'/%3E%3Cstop offset='1' stop-color='%23cbbcf4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Ctext x='32' y='45' font-family='Arial' font-size='36' font-weight='700' text-anchor='middle' fill='%23fff'%3EN%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --sky: #a9d6f5; --lav: #cbbcf4; --mint: #a9e3cd; --peach: #f8c8b6; --ink: #46566a; --soft: #7a86a8; --title: #4f7fb5; --bg: #f6fbff; }
+    @media (prefers-color-scheme: dark) { :root { --ink: #dbe4f3; --soft: #a8b3cf; --title: #a9d6f5; --bg: #1b2233; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1.5rem; overflow: hidden;
+      font-family: 'Rubik', system-ui, sans-serif; color: var(--ink); background: var(--bg); text-align: center; }
+    .blob { position: fixed; border-radius: 50%; filter: blur(70px); opacity: .6; z-index: -1; animation: float 14s ease-in-out infinite alternate; }
+    .b1 { width: 380px; height: 380px; background: var(--sky); top: -90px; left: -90px; }
+    .b2 { width: 340px; height: 340px; background: var(--lav); bottom: -100px; right: -80px; animation-delay: -5s; }
+    .b3 { width: 240px; height: 240px; background: var(--peach); top: 55%; left: 12%; animation-delay: -9s; }
+    @keyframes float { to { transform: translate(50px, 35px) scale(1.12); } }
+    .card { max-width: 520px; padding: 2.6rem 2rem; border-radius: 2rem; background: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.9);
+      box-shadow: 0 1.5rem 3rem rgba(140,170,210,.3); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); animation: pop .7s cubic-bezier(.2,.9,.3,1.3) both; }
+    @media (prefers-color-scheme: dark) { .card { background: rgba(40,50,72,.72); border-color: rgba(255,255,255,.08); } }
+    @keyframes pop { from { opacity: 0; transform: translateY(24px) scale(.95); } }
+    .code { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: clamp(4.5rem, 18vw, 7rem); line-height: 1; margin: 0;
+      background: linear-gradient(120deg, var(--sky), var(--lav), var(--peach), var(--sky)); background-size: 300% 100%;
+      -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 6s linear infinite; }
+    @keyframes shine { to { background-position: 300% 0; } }
+    .emoji { font-size: 2.6rem; display: inline-block; animation: wobble 2.4s ease-in-out infinite; }
+    @keyframes wobble { 50% { transform: rotate(-12deg) translateY(-6px); } }
+    h1 { font-family: 'Fredoka', sans-serif; color: var(--title); font-size: 1.6rem; margin: .6rem 0 .4rem; }
+    p { color: var(--soft); margin: 0 0 1.6rem; line-height: 1.6; }
+    .he { direction: rtl; margin-top: -.9rem; }
+    .btns { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; }
+    a.btn { text-decoration: none; font-weight: 700; padding: .7rem 1.4rem; border-radius: 999px; transition: transform .2s, box-shadow .2s; }
+    a.btn:hover { transform: translateY(-3px); box-shadow: 0 .6rem 1.4rem rgba(140,170,210,.4); }
+    a.btn:focus-visible { outline: 3px solid #3f6d9f; outline-offset: 3px; }
+    .main { background: linear-gradient(120deg, var(--sky), var(--lav)); color: #2f3f5a; }
+    .soft { background: rgba(255,255,255,.85); color: #4f7fb5; border: 1px solid #dbe6f5; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div><div class="blob b3" aria-hidden="true"></div>
+  <main class="card">
+    <span class="emoji" aria-hidden="true">🧭</span>
+    <p class="code">404</p>
+    <h1>This page wandered off</h1>
+    <p>The link may be old or mistyped. Everything is on the home page.</p>
+    <p class="he" lang="he">העמוד הזה לא נמצא. הכל מחכה בעמוד הבית.</p>
+    <div class="btns">
+      <a class="btn main" href="/noya-website/">🏠 Home page · עמוד הבית</a>
+      <a class="btn soft" href="/noya-website/#projects">🚀 Projects · פרויקטים</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Noya Adivi | Computer Science Student</title>
   <meta name="description" content="Noya Adivi, 3rd-year Computer Science student at HIT, looking for a software engineering student position. Creator of Okeat and DiviStay.">
+  <link rel="canonical" href="https://noyaadivi.github.io/noya-website/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Noya Adivi | Computer Science Student">
   <meta property="og:description" content="Full-stack projects, machine learning and networking. Creator of Okeat and DiviStay.">
@@ -437,6 +438,12 @@
     .uses { min-height: 2.8rem; margin: .6rem 0 0; padding: .55rem .8rem; border-radius: .9rem; font-size: .85rem; font-weight: 700;
       background: color-mix(in srgb, var(--g2, var(--baby-blue)) 70%, transparent); color: var(--g3, var(--title)); transition: background .3s ease; }
     .uses b { font-weight: 900; }
+    .uses-go { background: none; border: 0; padding: 0 .1rem; font: inherit; font-weight: 900; color: inherit; cursor: pointer;
+      text-decoration: underline dotted; text-underline-offset: 3px; border-radius: .3rem; transition: color .2s, background .2s; }
+    .uses-go:hover, .uses-go:focus-visible { color: var(--title); background: rgba(255,255,255,.6); text-decoration-style: solid; }
+    .project.spotlight { animation: spotlight 2.2s ease; }
+    @keyframes spotlight { 0%, 100% { box-shadow: var(--shadow); } 20%, 60% { box-shadow: 0 0 0 4px var(--lavender-deep), 0 18px 40px rgba(127,184,227,.45); transform: translateY(-6px); } }
+    @media (prefers-reduced-motion: reduce) { .project.spotlight { animation: none; outline: 4px solid var(--lavender-deep); } }
     :root[data-theme="dark"] .uses { background: rgba(255,255,255,.06); color: var(--g1); }
     .uses.flash { animation: flash .5s ease; }
     @keyframes flash { from { transform: scale(.97); opacity: .4; } to { transform: none; opacity: 1; } }
@@ -685,7 +692,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
               <div class="row g-0 h-100">
                 <div class="col-12">
                   <div class="cover cover-featured h-100"><a class="cover-link" href="https://okeat.vercel.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
-                    <img src="assets/projects/okeat-en.jpg" data-src-he="assets/projects/okeat-he.jpg" alt="Okeat home page and nationwide map" data-i18n-alt="okeatAlt" loading="lazy">
+                    <img src="assets/projects/okeat-en.jpg" data-src-he="assets/projects/okeat-he.jpg" alt="Okeat home page and nationwide map" data-i18n-alt="okeatAlt" loading="lazy" width="1400" height="732">
                     <span class="featured-badge" data-i18n="featured">★ Featured</span>
                   </div>
                 </div>
@@ -712,7 +719,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
               <div class="row g-0 h-100">
                 <div class="col-12">
                   <div class="cover cover-featured h-100"><a class="cover-link" href="https://divistay.onrender.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>
-                    <img src="assets/projects/divistay-en.jpg" data-src-he="assets/projects/divistay-he.jpg" alt="DiviStay home page with the group hotel search" data-i18n-alt="divAlt" loading="lazy">
+                    <img src="assets/projects/divistay-en.jpg" data-src-he="assets/projects/divistay-he.jpg" alt="DiviStay home page with the group hotel search" data-i18n-alt="divAlt" loading="lazy" width="1400" height="732">
                     <span class="featured-badge" data-i18n="featured">★ Featured</span>
                   </div>
                 </div>
@@ -1090,15 +1097,15 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
           <p class="section-sub" data-i18n="skillsSub">Each skill is linked to the projects where I actually used it.</p>
         </div>
         <div class="row g-4 mt-1">
-          <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-blue"><div class="icon" aria-hidden="true">💻</div><h3 data-i18n="sk1">Languages</h3>
+          <div class="col-md-6 col-lg-4 reveal"><div class="glass skill-group g-blue"><div class="icon" aria-hidden="true">💻</div><h3 data-i18n="sk1">Languages</h3>
             <button type="button" class="skill" data-uses="Kashuv · Okeat Lens · LeakLens · Nudgy · Sort Photos">Python</button><button type="button" class="skill" data-uses="DiviStay · HaMivchanon">Java</button><button type="button" class="skill" data-uses="Okeat">TypeScript</button><button type="button" class="skill" data-uses="Evenly · FocusBloom · Gradely · Pomodoro Timer">JavaScript</button><button type="button" class="skill" data-uses="Okeat · Nudgy">SQL</button><button type="button" class="skill" data-uses="HIT coursework">C</button><button type="button" class="skill" data-uses="HIT coursework">C++</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
-          <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-lav"><div class="icon" aria-hidden="true">🌐</div><h3 data-i18n="sk2">Web & Backend</h3>
+          <div class="col-md-6 col-lg-4 reveal"><div class="glass skill-group g-lav"><div class="icon" aria-hidden="true">🌐</div><h3 data-i18n="sk2">Web & Backend</h3>
             <button type="button" class="skill" data-uses="Okeat">Next.js</button><button type="button" class="skill" data-uses="Okeat">React</button><button type="button" class="skill" data-uses="Evenly">Node.js</button><button type="button" class="skill" data-uses="DiviStay">Spring Boot</button><button type="button" class="skill" data-uses="LeakLens · Okeat Lens">FastAPI</button><button type="button" class="skill" data-uses="Kashuv">Flask</button><button type="button" class="skill" data-uses="DiviStay · Evenly · LeakLens · Okeat Lens">REST APIs</button><button type="button" class="skill" data-uses="This website · Gradely · Pomodoro Timer">HTML/CSS</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
-          <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-mint"><div class="icon" aria-hidden="true">🧠</div><h3 data-i18n="sk3">AI & Data</h3>
+          <div class="col-md-6 col-lg-4 reveal"><div class="glass skill-group g-mint"><div class="icon" aria-hidden="true">🧠</div><h3 data-i18n="sk3">AI & Data</h3>
             <button type="button" class="skill" data-uses="Okeat Lens · Sort Photos">PyTorch</button><button type="button" class="skill" data-uses="Okeat Lens · Sort Photos">Computer Vision</button><button type="button" class="skill" data-uses="Kashuv">Speech to text</button><button type="button" class="skill" data-uses="Kashuv">LLMs (Ollama)</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Scikit-Learn</button><button type="button" class="skill" data-uses="Text Emotion Recognition">Pandas</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
-          <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-peach"><div class="icon" aria-hidden="true">🗄️</div><h3 data-i18n="sk4">Databases & Cloud</h3>
+          <div class="col-md-6 col-lg-6 reveal"><div class="glass skill-group g-peach"><div class="icon" aria-hidden="true">🗄️</div><h3 data-i18n="sk4">Databases & Cloud</h3>
             <button type="button" class="skill" data-uses="Okeat">PostgreSQL</button><button type="button" class="skill" data-uses="Okeat">PostGIS</button><button type="button" class="skill" data-uses="Okeat">Supabase</button><button type="button" class="skill" data-uses="Nudgy">SQLite</button><button type="button" class="skill" data-uses="HaMivchanon">Firebase</button><button type="button" class="skill" data-uses="Okeat">Vercel</button><button type="button" class="skill" data-uses="Evenly">Railway</button><button type="button" class="skill" data-uses="DiviStay">Render</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
-          <div class="col-md-6 col-lg reveal"><div class="glass skill-group g-rose"><div class="icon" aria-hidden="true">🛠️</div><h3 data-i18n="sk5">DevOps & Tools</h3>
+          <div class="col-md-12 col-lg-6 reveal"><div class="glass skill-group g-rose"><div class="icon" aria-hidden="true">🛠️</div><h3 data-i18n="sk5">DevOps & Tools</h3>
             <button type="button" class="skill" data-uses="All projects">Git</button><button type="button" class="skill" data-uses="DiviStay · Evenly · LeakLens">Docker</button><button type="button" class="skill" data-uses="Evenly · Okeat Lens · Okeat">GitHub Actions</button><button type="button" class="skill" data-uses="LeakLens · Nudgy · Photo Twins">pytest</button><button type="button" class="skill" data-uses="DiviStay">JUnit</button><button type="button" class="skill" data-uses="FocusBloom">Chrome Extensions</button><button type="button" class="skill" data-uses="TCP Chat">Wireshark</button><button type="button" class="skill" data-uses="HIT coursework">Linux</button><p class="uses" aria-live="polite"><span data-i18n="usesHint">Hover or tap a skill to see where I used it</span></p></div></div>
         </div>
       </div>
@@ -1557,17 +1564,45 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       const show = btn => {
         g.querySelectorAll('.skill').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
         const label = lang === 'he' ? 'שימשה אותי ב:' : 'Used in:';
-        const list = btn.dataset.uses.split(' · ').map(x => (lang === 'he' && heUses[x]) || x).join(' · ');
-        out.innerHTML = `${btn.textContent} → <b>${list}</b>`;
+        const list = btn.dataset.uses.split(' · ').map(x => {
+          const name = (lang === 'he' && heUses[x]) || x, card = projCards[usesAlias[x] || x];
+          return card ? `<button type="button" class="uses-go" data-go="${usesAlias[x] || x}">${name}</button>` : `<b>${name}</b>`;
+        }).join(' · ');
+        out.innerHTML = `${btn.textContent} → ${list}`;
         out.classList.remove('flash'); void out.offsetWidth; out.classList.add('flash');
       };
       g.querySelectorAll('.skill').forEach(b => {
         b.setAttribute('aria-pressed', 'false');
-        b.addEventListener('click', () => show(b));
-        b.addEventListener('mouseenter', () => show(b));
+        // Click pins a skill so its project links can be reached; hover only previews (with a short delay)
+        let t;
+        b.addEventListener('click', () => { g.dataset.pinned = '1'; show(b); });
+        b.addEventListener('mouseenter', () => { if (g.dataset.pinned) return; clearTimeout(t); t = setTimeout(() => show(b), 140); });
+        b.addEventListener('mouseleave', () => clearTimeout(t));
         b.addEventListener('focus', () => show(b));
       });
     });
+    // Project names inside "Used in" jump to their card
+    const projCards = {};
+    document.querySelectorAll('#projectGrid .project-col').forEach(col => {
+      const a = col.querySelector('.proj-link'); if (!a) return;
+      const name = a.textContent.replace(/^[^\p{L}]+/u, '').trim(); if (name && !projCards[name]) projCards[name] = col;
+    });
+    const usesAlias = { 'TCP Chat': 'Client-Server TCP Chat' };
+    const goToProject = name => {
+      const col = projCards[name]; if (!col) return;
+      if (getComputedStyle(col).display === 'none' || col.hidden) {
+        const allBtn = document.querySelector('[data-filter="all"]'); if (allBtn && allBtn.getAttribute('aria-pressed') !== 'true') allBtn.click();
+        if (col.classList.contains('more-proj') && grid.classList.contains('collapsed')) moreBtn.click();
+      }
+      const card = col.querySelector('.project'); card.classList.add('in');
+      setTimeout(() => {
+        card.scrollIntoView({ behavior: motionOff() ? 'auto' : 'smooth', block: 'center' });
+        card.classList.remove('spotlight'); void card.offsetWidth; card.classList.add('spotlight');
+        setTimeout(() => card.classList.remove('spotlight'), 2200);
+        const link = col.querySelector('.proj-link'); if (link) link.focus({ preventScroll: true });
+      }, 80);
+    };
+    document.addEventListener('click', e => { const b = e.target.closest('.uses-go'); if (b) goToProject(b.dataset.go); });
     const heUses = { 'HIT coursework': 'קורסים ב-HIT', 'All projects': 'כל הפרויקטים', 'This website': 'האתר הזה', 'TCP Chat': 'צ׳אט TCP' };
 
     // Magnetic contact buttons
