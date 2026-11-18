@@ -558,6 +558,9 @@
     /* ---------- Calmer projects layout ---------- */
     .flag .cover.cover-featured { aspect-ratio: 1200 / 627 !important; min-height: 0 !important; border-radius: 1.6rem 1.6rem 0 0 !important; }
     .flag .cover.cover-featured img { position: absolute; inset: 0; }
+    /* show the whole cover image, never crop it */
+    .project .cover.cover-img img, .project .cover.cover-featured img { object-fit: contain !important; object-position: center !important; }
+    .project:hover .cover.cover-img img, .project:hover .cover.cover-featured img { transform: scale(1.02); }
     .flag .body { padding: 1.75rem; }
     .flag h3 { font-size: 1.6rem; }
     .mini .project .body { padding: 1rem 1.1rem 1.1rem; }
