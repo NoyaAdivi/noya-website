@@ -47,7 +47,7 @@
 - 🔔 **[Nudgy](https://github.com/NoyaAdivi/nudgy-bot)** - Telegram bot that reminds you of assignment deadlines
 - 🌸 **[FocusBloom](https://github.com/NoyaAdivi/FocusBloom)** - Chrome extension that blocks distracting sites while you study
 - 🖼️ **[Sort Photos](https://github.com/NoyaAdivi/sort-photos)** - offline AI photo classifier with CLIP
-- 👯 **[Photo Twins](https://github.com/NoyaAdivi/photo-twins)** - finds duplicate and near duplicate photos
+- 👯 **[Photo Twins](https://github.com/NoyaAdivi/photo-twins)** - finds duplicate and near-duplicate photos
 - 🎭 **[Emotion Detection](https://github.com/NoyaAdivi/emotion_detection_ml)** - Naive Bayes from scratch for 6 emotions
 - 💬 **[TCP Chat](https://github.com/NoyaAdivi/Networking-project)** - multi-client chat with Wireshark analysis
 - 🎓 **[Gradely](https://github.com/NoyaAdivi/gradely)** - GPA calculator for any degree · [live](https://noyaadivi.github.io/gradely/)
