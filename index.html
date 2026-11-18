@@ -558,7 +558,15 @@
     button,input,select,textarea{font-family:inherit}
     html,body{overflow-x:clip;max-width:100%}
   </style>
-<style>.built-by{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.45em;margin:.6em 0;font-weight:600}.built-by a{display:inline-flex;align-items:center;gap:.4em;padding:.28em .8em;border-radius:999px;font-weight:800;text-decoration:none;color:inherit;background:rgba(10,102,194,.1);transition:transform .25s ease,background .25s ease,box-shadow .25s ease}.built-by a:hover,.built-by a:focus-visible{transform:translateY(-2px);background:rgba(10,102,194,.18);box-shadow:0 6px 16px rgba(10,102,194,.18)}.built-by svg{width:1.1em;height:1.1em;fill:#0A66C2;flex:none;transition:transform .35s ease}.built-by a:hover svg{transform:rotate(-8deg) scale(1.12)}html[lang="he"] .built-by .bb-en,html:not([lang="he"]) .built-by .bb-he{display:none}@media (prefers-reduced-motion:reduce){.built-by a,.built-by svg{transition:none}}</style>
+<style>.built-by{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.45em;margin:.6em 0;font-weight:600}.built-by a{display:inline-flex;align-items:center;gap:.4em;padding:.28em .8em;border-radius:999px;font-weight:800;text-decoration:none;color:inherit;background:rgba(10,102,194,.1);transition:transform .25s ease,background .25s ease,box-shadow .25s ease}.built-by a:hover,.built-by a:focus-visible{transform:translateY(-2px);background:rgba(10,102,194,.18);box-shadow:0 6px 16px rgba(10,102,194,.18)}.built-by svg{width:1.1em;height:1.1em;fill:#0A66C2;flex:none;transition:transform .35s ease}.built-by a:hover svg{transform:rotate(-8deg) scale(1.12)}html[lang="he"] .built-by .bb-en,html:not([lang="he"]) .built-by .bb-he{display:none}@media (prefers-reduced-motion:reduce){.built-by a,.built-by svg{transition:none}}
+/* ===== Mobile stability: no sideways drift, pinch-zoom stays allowed ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x:none}
+:where(img,svg,video,canvas,iframe,table){max-width:100%}
+:where(img,video){height:auto}
+:where(h1,h2,h3,h4,p,li,a,span,td,th,label,button){overflow-wrap:break-word}
+@media (pointer:coarse){input,select,textarea{font-size:max(16px,1em)}}
+</style>
 </head>
 <body>
   <a href="#main" class="skip-link" data-i18n="skip">Skip to main content</a>
