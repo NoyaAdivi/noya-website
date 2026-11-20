@@ -44,6 +44,7 @@
 - 🎧 **[Kashuv](https://github.com/NoyaAdivi/kashuv)** - live Zoom transcription, focus help and summaries, all on your computer · [live](https://noyaadivi.github.io/kashuv/)
 - 🍽️ **[Okeat Lens](https://github.com/NoyaAdivi/okeat-lens)** - recognizes a dish from a photo and shows what you can eat · [live](https://noyaadivi.github.io/okeat-lens/)
 - 🔐 **[LeakLens](https://github.com/NoyaAdivi/LeakLens)** - password strength, breach checks and safe passphrases · [live](https://noyaadivi.github.io/LeakLens/)
+- 🏡 **[Nestly](https://github.com/NoyaAdivi/nestly)** - household chores and one shared shopping list for the whole family · [live](https://noyaadivi.github.io/nestly/)
 - 🔔 **[Nudgy](https://github.com/NoyaAdivi/nudgy-bot)** - Telegram bot that reminds you of assignment deadlines
 - 🌸 **[FocusBloom](https://github.com/NoyaAdivi/FocusBloom)** - Chrome extension that blocks distracting sites while you study
 - 🖼️ **[Sort Photos](https://github.com/NoyaAdivi/sort-photos)** - offline AI photo classifier with CLIP

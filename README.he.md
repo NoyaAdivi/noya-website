@@ -47,6 +47,7 @@
 - 🎧 **[Kashuv](https://github.com/NoyaAdivi/kashuv)** - תמלול זום חי, עזרה להתרכז וסיכומים, הכל במחשב שלך · [לאתר](https://noyaadivi.github.io/kashuv/)
 - 🍽️ **[Okeat Lens](https://github.com/NoyaAdivi/okeat-lens)** - מזהה מנה מתמונה ומראה מה אפשר לאכול · [לאתר](https://noyaadivi.github.io/okeat-lens/)
 - 🔐 **[LeakLens](https://github.com/NoyaAdivi/LeakLens)** - חוזק סיסמאות, בדיקת דליפות וסיסמאות בטוחות · [לאתר](https://noyaadivi.github.io/LeakLens/)
+- 🏡 **[Nestly](https://github.com/NoyaAdivi/nestly)** - משימות הבית ורשימת קניות אחת לכל המשפחה · [לאתר](https://noyaadivi.github.io/nestly/)
 - 🔔 **[Nudgy](https://github.com/NoyaAdivi/nudgy-bot)** - בוט טלגרם שמזכיר מועדי הגשה
 - 🌸 **[FocusBloom](https://github.com/NoyaAdivi/FocusBloom)** - תוסף כרום שחוסם אתרים מסיחים בזמן לימודים
 - 🖼️ **[Sort Photos](https://github.com/NoyaAdivi/sort-photos)** - מסווג תמונות AI שעובד בלי אינטרנט
