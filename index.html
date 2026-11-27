@@ -202,6 +202,16 @@
       border-radius: 50rem; padding: .8rem 1.6rem; transition: transform .25s ease;
     }
     .btn-soft:hover { transform: translateY(-3px); color: var(--title); background: var(--surface-solid); }
+    /* Project buttons next to "Live site": each kind gets its own pastel color, in light and dark mode */
+    .links .btn-soft { --b-bg: #e6e0ff; --b-ink: #4a3db8; --b-br: #cfc6ff; background: var(--b-bg); color: var(--b-ink); border-color: var(--b-br); box-shadow: 0 .35rem .9rem color-mix(in srgb, var(--b-br) 55%, transparent); }
+    .links .btn-soft:hover { background: var(--b-bg); color: var(--b-ink); filter: brightness(1.04) saturate(1.1); box-shadow: 0 .55rem 1.2rem color-mix(in srgb, var(--b-br) 75%, transparent); }
+    .links .btn-soft[data-i18n="mako"] { --b-bg: #fff1c9; --b-ink: #7a5a0c; --b-br: #f5d98a; }
+    .links .btn-soft:is([data-i18n="docs"], [data-i18n="report"], [data-i18n="portfolioPdf"], [data-i18n="csArch"]) { --b-bg: #d9f3e7; --b-ink: #1a6646; --b-br: #a9e3cd; }
+    .links .btn-soft[data-i18n="colab"] { --b-bg: #ffe2d6; --b-ink: #9a3f31; --b-br: #f8c3b2; }
+    :root[data-theme="dark"] .links .btn-soft { --b-bg: rgba(170,155,255,.2); --b-ink: #ddd6ff; --b-br: rgba(170,155,255,.5); }
+    :root[data-theme="dark"] .links .btn-soft[data-i18n="mako"] { --b-bg: rgba(245,210,120,.18); --b-ink: #ffe7a8; --b-br: rgba(245,210,120,.5); }
+    :root[data-theme="dark"] .links .btn-soft:is([data-i18n="docs"], [data-i18n="report"], [data-i18n="portfolioPdf"], [data-i18n="csArch"]) { --b-bg: rgba(127,211,176,.18); --b-ink: #c4f0dd; --b-br: rgba(127,211,176,.5); }
+    :root[data-theme="dark"] .links .btn-soft[data-i18n="colab"] { --b-bg: rgba(248,180,160,.18); --b-ink: #ffd7cb; --b-br: rgba(248,180,160,.5); }
 
     .scroll-cue { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); color: var(--ink-soft); font-size: 1.6rem; animation: bob 2s ease-in-out infinite; text-decoration: none; }
     @keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
