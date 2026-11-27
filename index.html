@@ -301,6 +301,9 @@
     :root[data-theme="dark"] .chip { filter: saturate(.9) brightness(.92); }
     .project .links { margin-top: auto; padding-top: 1rem; display: flex; gap: .5rem; flex-wrap: wrap; }
     .project .links a { text-decoration: none; }
+    /* All project buttons: same height, text and emoji centered exactly in the middle */
+    .links .btn { display: inline-flex; align-items: center; justify-content: center; gap: .35em; line-height: 1.2; white-space: nowrap; }
+    .links .btn-main { border: 1px solid transparent; }
     .featured-badge { position: absolute; top: 1rem; inset-inline-start: 1rem; background: rgba(255,255,255,.92); color: #b24d6e; font-weight: 800; font-size: .8rem; padding: .3rem .8rem; border-radius: 50rem; box-shadow: var(--shadow); }
     .project.hide { display: none; }
 
