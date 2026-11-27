@@ -594,8 +594,16 @@
     /* Section titles: a soft gradient line draws in, the emoji waves hello */
     .section-title { position: relative; display: inline-block; }
     .section-title::after { content: ""; position: absolute; inset-inline-start: 0; bottom: -.15em; height: .32rem; width: 3.2em; border-radius: 99px;
-      background: linear-gradient(90deg, var(--sky), var(--lavender-deep), var(--rose)); transform: scaleX(0); transform-origin: var(--line-origin, left);
+      background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.95) 50%, transparent 70%) no-repeat,
+        linear-gradient(90deg, var(--sky), var(--lavender-deep), var(--rose), var(--lavender-deep), var(--sky));
+      background-size: 45% 100%, 250% 100%; background-position: -60% 0, 0 0;
+      transform: scaleX(0); transform-origin: var(--line-origin, left);
       transition: transform 1s cubic-bezier(.2,.8,.2,1) .25s; }
+    /* The first time a title is reached: the colors flow along the line and a soft shine passes over it */
+    .reveal.in .section-title::after, .section-title.in::after { animation: lineFlow 2.6s ease-in-out 1s 1 both; }
+    [dir="rtl"] .reveal.in .section-title::after, [dir="rtl"] .section-title.in::after { animation-name: lineFlowRtl; }
+    @keyframes lineFlow { from { background-position: -60% 0, 0 0; } to { background-position: 170% 0, 100% 0; } }
+    @keyframes lineFlowRtl { from { background-position: 170% 0, 100% 0; } to { background-position: -60% 0, 0 0; } }
     [dir="rtl"] .section-title::after { --line-origin: right; }
     .reveal.in .section-title::after, .section-title.in::after { transform: scaleX(1); }
     .t-emo { display: inline-block; transform-origin: 70% 80%; }
