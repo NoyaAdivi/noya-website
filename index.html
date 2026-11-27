@@ -202,13 +202,21 @@
       border-radius: 50rem; padding: .8rem 1.6rem; transition: transform .25s ease;
     }
     .btn-soft:hover { transform: translateY(-3px); color: var(--title); background: var(--surface-solid); }
-    /* Project buttons next to "Live site": a soft pastel version of the same blue-lavender gradient, so all buttons match */
-    .links .btn-soft { background: linear-gradient(135deg, #e3f0fb, #ece6fd); color: #4b5fa6; border: 1px solid #cfd6f3;
-      box-shadow: 0 .35rem .9rem rgba(164,147,224,.22); }
-    .links .btn-soft:hover { background: linear-gradient(135deg, #d6e9f9, #e3dbfc); color: #3f4f96; box-shadow: 0 .55rem 1.2rem rgba(164,147,224,.32); }
-    :root[data-theme="dark"] .links .btn-soft { background: linear-gradient(135deg, rgba(127,184,227,.2), rgba(164,147,224,.24)); color: #dfe4ff; border-color: rgba(169,190,240,.45);
-      box-shadow: 0 .35rem .9rem rgba(0,0,0,.25); }
-    :root[data-theme="dark"] .links .btn-soft:hover { background: linear-gradient(135deg, rgba(127,184,227,.3), rgba(164,147,224,.34)); color: #fff; }
+    /* Project buttons next to "Live site": each kind has its own pastel gradient from the same soft palette
+       (sky, lavender, rose, peach, mint), all at the same lightness so they sit together like one family */
+    .links .btn-soft { --g1: #ece6fd; --g2: #fbe3ee; --ink-b: #6648b0; --br-b: #ddd0f7;
+      background: linear-gradient(135deg, var(--g1), var(--g2)); color: var(--ink-b); border: 1px solid var(--br-b);
+      box-shadow: 0 .35rem .9rem color-mix(in srgb, var(--br-b) 60%, transparent); }
+    .links .btn-soft:hover { background: linear-gradient(135deg, var(--g1), var(--g2)); color: var(--ink-b); filter: saturate(1.25) brightness(1.02);
+      box-shadow: 0 .55rem 1.2rem color-mix(in srgb, var(--br-b) 85%, transparent); }
+    .links .btn-soft[data-i18n="mako"] { --g1: #ffe9dc; --g2: #fde0ea; --ink-b: #a04a5c; --br-b: #f6cfd6; }
+    .links .btn-soft:is([data-i18n="docs"], [data-i18n="report"], [data-i18n="portfolioPdf"], [data-i18n="csArch"]) { --g1: #dcf5ea; --g2: #e0eefb; --ink-b: #2c6e68; --br-b: #bfe5da; }
+    .links .btn-soft[data-i18n="colab"] { --g1: #fff3d6; --g2: #ffe6da; --ink-b: #93561f; --br-b: #f6dcb8; }
+    :root[data-theme="dark"] .links .btn-soft { --g1: rgba(164,147,224,.24); --g2: rgba(240,168,192,.18); --ink-b: #e4dcff; --br-b: rgba(190,170,240,.45); }
+    :root[data-theme="dark"] .links .btn-soft[data-i18n="mako"] { --g1: rgba(248,190,160,.22); --g2: rgba(240,168,192,.18); --ink-b: #ffdbe2; --br-b: rgba(245,180,190,.45); }
+    :root[data-theme="dark"] .links .btn-soft:is([data-i18n="docs"], [data-i18n="report"], [data-i18n="portfolioPdf"], [data-i18n="csArch"]) { --g1: rgba(127,211,176,.2); --g2: rgba(127,184,227,.2); --ink-b: #ccf2e6; --br-b: rgba(140,210,190,.45); }
+    :root[data-theme="dark"] .links .btn-soft[data-i18n="colab"] { --g1: rgba(245,215,140,.2); --g2: rgba(248,190,160,.18); --ink-b: #ffe6c4; --br-b: rgba(240,200,150,.45); }
+    :root[data-theme="dark"] .links .btn-soft { box-shadow: 0 .35rem .9rem rgba(0,0,0,.25); }
 
     .scroll-cue { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); color: var(--ink-soft); font-size: 1.6rem; animation: bob 2s ease-in-out infinite; text-decoration: none; }
     @keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
