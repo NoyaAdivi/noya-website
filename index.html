@@ -566,6 +566,14 @@
     /* ---------- Calmer projects layout ---------- */
     .flag .cover.cover-featured { aspect-ratio: 1200 / 627 !important; min-height: 0 !important; border-radius: 1.6rem 1.6rem 0 0 !important; }
     .flag .cover.cover-featured img { position: absolute; inset: 0; }
+    /* Both featured cards share one layout: same image size, the text fills the rest, buttons sit on the same line */
+    .flag .project > .row { flex-direction: column; flex-wrap: nowrap; }
+    .flag .project > .row > .col-12:first-child { flex: 0 0 auto; }
+    .flag .project > .row > .col-12:last-child { flex: 1 1 auto; display: flex; }
+    .flag .cover.cover-featured { height: auto !important; }
+    .flag .body { display: flex; flex-direction: column; flex: 1 1 auto; height: auto !important; }
+    .flag .body .proj-note { margin: .9rem 0 0; }
+    .flag .body .links { margin-top: auto; padding-top: 1.25rem; }
     /* show the whole cover image, never crop it */
     .project .cover.cover-img img, .project .cover.cover-featured img { object-fit: contain !important; object-position: center !important; }
     .project:hover .cover.cover-img img, .project:hover .cover.cover-featured img { transform: scale(1.02); }
@@ -751,6 +759,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                     <div>
                       <span class="chip c-blue">Next.js</span><span class="chip c-lav">TypeScript</span><span class="chip c-mint">Supabase</span><span class="chip c-peach">PostGIS</span><span class="chip c-blue">Mapbox</span><span class="chip c-lav">Tesseract OCR</span>
                     </div>
+                    <p class="small text-body-secondary proj-note" data-i18n="okeatNote">Live since November 2026 and featured in a Mako article about building products as a developer in the AI era.</p>
                     <div class="links">
                       <a class="btn btn-main btn-sm" href="https://okeat.vercel.app" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a>
                       <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/Okeat" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a>
@@ -777,12 +786,12 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                 <h3><a class="proj-link" href="https://divistay.onrender.com" target="_blank" rel="noopener">🏨 DiviStay</a></h3>
                 <p data-i18n="divDesc">Group hotel booking with payment splitting. Designed in a team of 3 (SRS and UML), then built on my own into a live demo with 18,000+ real hotels. Built with Strategy, Factory and Adapter patterns, an atomic 30-minute room hold and 45 automated tests.</p>
                 <div><span class="chip c-blue">Java</span><span class="chip c-lav">Spring Boot</span><span class="chip c-mint">Design Patterns</span><span class="chip c-peach">UML</span><span class="chip c-blue">Docker</span></div>
+                <p class="small text-body-secondary proj-note" data-i18n="divNote">Demo project: payments, rooms and prices are simulated. The first load can take about 30 seconds.</p>
                 <div class="links">
                   <a class="btn btn-main btn-sm" href="https://divistay.onrender.com" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a>
                   <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/DiviStay" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a>
                   <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/DiviStay/tree/main/docs" target="_blank" rel="noopener" data-i18n="docs">📄 Docs</a>
                 </div>
-                <p class="small text-body-secondary mt-3 mb-0" data-i18n="divNote">Demo project: payments, rooms and prices are simulated. The first load can take about 30 seconds.</p>
                   </div>
                 </div>
               </div>
@@ -1130,6 +1139,10 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                     <span class="course c-blue" data-i18n="cs12">Intro to Data Science: Methods & Tools</span>
                     <span class="course c-lav in-progress"><span data-i18n="cs13">Automata & Formal Languages</span> <span class="ip-tag" data-i18n="ipTag">· in progress</span></span>
                     <span class="course c-mint in-progress"><span data-i18n="cs14">Computability & Complexity</span> <span class="ip-tag" data-i18n="ipTag">· in progress</span></span>
+                    <span class="course c-peach in-progress"><span data-i18n="cs15">Reverse Engineering & Malware Analysis</span> <span class="ip-tag" data-i18n="ipTag">· in progress</span></span>
+                    <span class="course c-blue in-progress"><span data-i18n="cs16">Front-End Development</span> <span class="ip-tag" data-i18n="ipTag">· in progress</span></span>
+                    <span class="course c-lav in-progress"><span data-i18n="cs17">Concurrent Programming</span> <span class="ip-tag" data-i18n="ipTag">· in progress</span></span>
+                    <span class="course c-mint in-progress"><span data-i18n="cs18">Software Development for an Intelligent Autonomous Vehicle</span> <span class="ip-tag" data-i18n="ipTag">· in progress</span></span>
                     <p class="course-head mt-2" data-i18n="mathHead">📐 Mathematics</p>
                     <span class="course c-blue" data-i18n="mt0">Calculus 1</span>
                     <span class="course c-lav" data-i18n="mt1">Calculus 2</span>
@@ -1271,7 +1284,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       projEyebrow: 'עבודות נבחרות', projTitle: 'פרויקטים 🚀', projSub: 'מוצרי פול-סטאק, בינה מלאכותית, אבטחת מידע ו-DevOps, מסודרים מהמשמעותי ביותר.', moreShow: 'להצגת כל 17 הפרויקטים', moreHide: 'להצגת פחות', demo: '🌐 לדמו החי',
       filterAria: 'סינון פרויקטים', fAll: 'הכול', fWeb: 'Full-Stack ו-Web', fMl: 'AI ולמידת מכונה', fSys: 'מערכות, DevOps ואבטחה',
       featured: '★ מומלץ', okeatAlt: 'דף הבית והמפה הארצית של Okeat', okeatTag: 'אפליקציית Web מקצה לקצה',
-      okeatDesc: 'מפה דו-לשונית של יותר מ-20,000 מקומות אוכל כשרים, טבעוניים, צמחוניים וללא גלוטן ברחבי ישראל. אימות קהילתי וניהול נאכפים בתוך מסד הנתונים, עם קריאת תעודות כשרות ב-OCR וניווט קולי בעברית.',
+      okeatNote: 'באוויר מנובמבר 2026, והופיע בכתבה במאקו על בניית מוצרים כמפתחת בעידן ה-AI.', okeatDesc: 'מפה דו-לשונית של יותר מ-20,000 מקומות אוכל כשרים, טבעוניים, צמחוניים וללא גלוטן ברחבי ישראל. אימות קהילתי וניהול נאכפים בתוך מסד הנתונים, עם קריאת תעודות כשרות ב-OCR וניווט קולי בעברית.',
       live: '🌐 לאתר', mako: '📰 כתבה במאקו', code: '🐙 קוד', docs: '📄 מסמכים',
       sortTag: 'ראייה ממוחשבת', sortDesc: 'כלי שורת פקודה שמפריד בין מסמכים לתמונות בעזרת CLIP, בלי נתוני אימון ובלי אינטרנט, ומותאם למעבד בעזרת int8 quantization.',
       emoTag: 'עיבוד שפה · צוות של 3', emoDesc: 'מסווג Multinomial Naive Bayes שמימשנו מאפס לזיהוי 6 רגשות. Grid Search ו-oversampling העלו את ה-recall של הרגש הנדיר ביותר מ-0.10 ל-0.55.',
@@ -1290,7 +1303,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       edu1Prog: 'שנה ג׳ מתוך 3 · בתהליך', edu2Prog: 'בגרות מלאה · 5 מגמות', showCourses: 'הצגת הקורסים', hideCourses: 'הסתרת הקורסים', showMajors: 'הצגת המגמות', hideMajors: 'הסתרת המגמות',
       c1: 'מבני נתונים', c2: 'אלגוריתמים 1 ו-2', c3: 'תכנות מונחה עצמים', c4: 'מערכות הפעלה', c5: 'רשתות תקשורת', c6: 'מערכות מסדי נתונים', c7: 'הנדסת תוכנה', c8: 'למידת מכונה', c9: 'מבוא למדעי הנתונים',
       m1: 'מדעי המחשב', m2: 'פיתוח תוכנה (אנדרואיד / Java)', m3: 'מתמטיקה', m4: 'אנגלית', m5: 'כימיה', m6: 'פרויקט גמר: HaMivchanon, אפליקציית אנדרואיד לתכנון למידה.', tNext: 'הבא בתור: התפקיד הראשון שלי כסטודנטית לפיתוח',
-      csHead: '💻 מדעי המחשב', ipTag: '· בתהליך', mathHead: '📐 מתמטיקה', cs0: 'מבני נתונים', cs1: 'אלגוריתמים 1', cs2: 'אלגוריתמים 2', cs3: 'תכנות מונחה עצמים', cs4: 'סדנה מתקדמת בתכנות', cs5: 'מבוא למדעי המחשב', cs6: 'מבוא למערכות מחשב', cs7: 'מערכות הפעלה', cs8: 'רשתות תקשורת מחשבים', cs9: 'מערכות בסיסי נתונים', cs10: 'הנדסת תוכנה', cs11: 'למידת מכונה', cs12: 'מבוא למדעי הנתונים: שיטות וכלים', cs13: 'אוטומטים ושפות פורמליות', cs14: 'חישוביות וסיבוכיות אלגוריתמים', mt0: 'חשבון אינפיניטסימלי 1', mt1: 'חשבון אינפיניטסימלי 2', mt2: 'אלגברה לינארית', mt3: 'אלגברה 2', mt4: 'הסתברות', mt5: 'מתמטיקה בדידה 1', mt6: 'מתמטיקה בדידה 2',
+      csHead: '💻 מדעי המחשב', ipTag: '· בתהליך', mathHead: '📐 מתמטיקה', cs0: 'מבני נתונים', cs1: 'אלגוריתמים 1', cs2: 'אלגוריתמים 2', cs3: 'תכנות מונחה עצמים', cs4: 'סדנה מתקדמת בתכנות', cs5: 'מבוא למדעי המחשב', cs6: 'מבוא למערכות מחשב', cs7: 'מערכות הפעלה', cs8: 'רשתות תקשורת מחשבים', cs9: 'מערכות בסיסי נתונים', cs10: 'הנדסת תוכנה', cs11: 'למידת מכונה', cs12: 'מבוא למדעי הנתונים: שיטות וכלים', cs13: 'אוטומטים ושפות פורמליות', cs14: 'חישוביות וסיבוכיות אלגוריתמים', cs15: 'הנדסה לאחור וניתוח נוזקות', cs16: 'פיתוח צד לקוח', cs17: 'תכנות מקבילי', cs18: 'פיתוח תוכנה לרכב אוטונומי חכם', mt0: 'חשבון אינפיניטסימלי 1', mt1: 'חשבון אינפיניטסימלי 2', mt2: 'אלגברה לינארית', mt3: 'אלגברה 2', mt4: 'הסתברות', mt5: 'מתמטיקה בדידה 1', mt6: 'מתמטיקה בדידה 2',
       edu1Title: 'תואר ראשון במדעי המחשב', edu1Place: 'מכון טכנולוגי חולון (HIT)', edu1Desc: 'תכנות (C, C++), מדעי הנתונים, למידת מכונה, מערכות מסדי נתונים, רשתות תקשורת ויסודות תיאורטיים.',
       edu2Title: 'הנדסת תוכנה (35 יחידות)', edu2Place: 'תיכון אילון', edu2Desc: 'מגמות: מדעי המחשב, פיתוח תוכנה (אנדרואיד/Java), כימיה, מתמטיקה ואנגלית.',
       skillsEyebrow: 'ארגז הכלים', skillsSub: 'לחצו על כישור כדי לראות באילו פרויקטים השתמשתי בו.', usesHint: 'העבירו את העכבר או לחצו על כישור כדי לראות איפה השתמשתי בו', runAgain: '▶ להריץ שוב', skillsTitle: 'כישורים 🧩', sk1: 'שפות', sk2: 'Web ו-Backend', sk3: 'AI ונתונים', sk4: 'מסדי נתונים וענן', sk5: 'DevOps וכלים',
