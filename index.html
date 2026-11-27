@@ -389,6 +389,17 @@
     .progress-year { height: .5rem; border-radius: 50rem; background: var(--lavender); overflow: hidden; margin: .5rem 0 .35rem; max-width: 18rem; }
     .progress-year span { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #7fb8e3, #a493e0); transition: width 1.6s cubic-bezier(.2,.7,.2,1); }
     .t-item.in .progress-year span { width: var(--p); }
+    /* The first time it is reached: the bar fills, its colors flow and a soft shine passes over it, like the title lines */
+    .progress-year span { position: relative; overflow: hidden;
+      background: linear-gradient(90deg, #7fb8e3, #a493e0, #f0a8c0, #a493e0, #7fb8e3); background-size: 250% 100%; background-position: 0 0; }
+    .progress-year span::after { content: ""; position: absolute; inset: 0; transform: translateX(-120%);
+      background: linear-gradient(100deg, transparent 20%, rgba(255,255,255,.9) 50%, transparent 80%); }
+    .t-item.in .progress-year span { animation: barFlow 2.6s ease-in-out 1.2s 1 both; }
+    .t-item.in .progress-year span::after { animation: barShine 1.6s ease-in-out 1.5s 1 both; }
+    [dir="rtl"] .t-item.in .progress-year span::after { animation-name: barShineRtl; }
+    @keyframes barFlow { from { background-position: 0 0; } to { background-position: 100% 0; } }
+    @keyframes barShine { from { transform: translateX(-120%); } to { transform: translateX(120%); } }
+    @keyframes barShineRtl { from { transform: translateX(120%); } to { transform: translateX(-120%); } }
     .t-toggle { margin-top: .4rem; border: 1px solid var(--border); background: var(--surface-solid); color: var(--title); font-weight: 800; border-radius: 50rem; padding: .35rem 1rem; font-size: .88rem; transition: background .2s ease; }
     .t-toggle:hover { background: var(--baby-blue); }
     .t-toggle .chev { display: inline-block; transition: transform .3s ease; }
