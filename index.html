@@ -303,9 +303,9 @@
     .press-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-bottom: 1rem; color: var(--ink-soft); font-weight: 700; font-size: .9rem; }
     .press-tag { background: #fff4b0; color: #6b5a00; border-radius: .4rem; padding: .05rem .5rem; }
     :root[data-theme="dark"] .press-tag { background: rgba(255,230,120,.2); color: #ffeaa0; }
-    .press-head { font-size: clamp(1.5rem, 2.8vw, 2.15rem); font-weight: 900; line-height: 1.25; margin-bottom: .75rem; }
-    .press-sum { color: var(--ink); font-size: 1.05rem; }
-    .press-quote { position: relative; margin: 1.3rem 0 1.6rem; padding: 1rem 1.2rem; padding-inline-start: 3.1rem; background: linear-gradient(120deg, var(--lavender), var(--baby-blue)); border-radius: 1.2rem; color: #46566a; }
+    .press-head { font-size: clamp(1.45rem, 2.6vw, 2rem); font-weight: 900; line-height: 1.25; margin-bottom: .6rem; }
+    .press-sum { color: var(--ink); font-size: 1.05rem; margin-bottom: 1rem; }
+    .press-quote { position: relative; margin: 0 0 1.4rem; padding: .9rem 1.2rem; padding-inline-start: 3.1rem; background: linear-gradient(120deg, var(--lavender), var(--baby-blue)); border-radius: 1.2rem; color: #46566a; }
     .press-quote::before { content: '\201C'; position: absolute; inset-inline-start: .8rem; top: -.35rem; font-family: 'Fredoka', sans-serif; font-size: 3.8rem; line-height: 1; color: var(--accent-2); }
     html[dir="rtl"] .press-quote::before { content: '\201D'; }
     .press-quote p { margin: 0 0 .3rem; font-weight: 700; font-size: 1.1rem; }
@@ -313,11 +313,31 @@
     :root[data-theme="dark"] .press-quote { background: linear-gradient(120deg, rgba(164,147,224,.22), rgba(127,184,227,.18)); color: var(--ink); }
     :root[data-theme="dark"] .press-cite { color: var(--ink-soft); }
     :root[data-theme="dark"] .press-card::after { opacity: .12; }
-    .press-note { color: var(--ink-soft); margin: .9rem 0 0; }
+    .press-note { color: var(--ink-soft); font-weight: 600; }
     html[lang="he"] .press-note { display: none; }
     @media (max-width: 991.98px) { .press-shot, html[dir="rtl"] .press-shot { transform: none; } }
     @media (prefers-reduced-motion: reduce) { .press-float, .press-card::before, .press-sticker { animation: none; } .press-shot::after { display: none; } }
     html.a11y-still .press-shot::after { display: none; }
+
+    .press-sec { padding-top: 1.5rem; padding-bottom: 1rem; }
+    .press-intro .section-title { margin-bottom: 1.6rem; }
+    .press-ribbon { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin: -.2rem 0 1.4rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--lavender-deep); color: var(--ink-soft); font-weight: 800; font-size: .95rem; }
+    .mako-lg { font-size: 1.15rem; padding: .1rem .85rem .18rem; }
+    .press-ribbon-txt { color: var(--title); text-transform: uppercase; letter-spacing: .12em; font-size: .82rem; }
+    html[lang="he"] .press-ribbon-txt { letter-spacing: .03em; font-size: .95rem; }
+    .press-dot { width: .35rem; height: .35rem; border-radius: 50%; background: var(--rose); }
+    .press-open { position: absolute; inset-inline-end: .9rem; bottom: .9rem; background: rgba(38,45,69,.88); color: #fff; font-weight: 800; font-size: .85rem; padding: .35rem .8rem; border-radius: 999px; opacity: 0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
+    .press-shot:hover .press-open, .press-shot:focus-visible .press-open { opacity: 1; transform: none; }
+    .press-okeat { position: absolute; bottom: -1.3rem; inset-inline-end: -1rem; width: 4.4rem; height: 4.4rem; border-radius: 50%; border: 4px solid var(--surface-solid); box-shadow: var(--shadow-lg); z-index: 2; animation: okeatBob 5s ease-in-out infinite; }
+    @keyframes okeatBob { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-6px) rotate(8deg); } }
+    .press-chips { list-style: none; padding: 0; margin: 0 0 1.2rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+    .press-chips li { padding: .3rem .8rem; border-radius: 999px; font-weight: 700; font-size: .88rem; color: #4f5f80; background: var(--mint); border: 1px solid var(--mint-deep); }
+    .press-chips li:nth-child(2) { background: var(--peach); border-color: var(--peach-deep); }
+    .press-chips li:nth-child(3) { background: var(--lavender); border-color: var(--lavender-deep); }
+    :root[data-theme="dark"] .press-chips li { background: rgba(127,211,176,.16); border-color: rgba(127,211,176,.35); color: var(--ink); }
+    :root[data-theme="dark"] .press-chips li:nth-child(2) { background: rgba(248,190,160,.16); border-color: rgba(248,190,160,.35); }
+    :root[data-theme="dark"] .press-chips li:nth-child(3) { background: rgba(164,147,224,.18); border-color: rgba(164,147,224,.4); }
+    @media (prefers-reduced-motion: reduce) { .press-okeat { animation: none; } }
 
     /* ---------- Stats ---------- */
     .stat { padding: 1.6rem 1rem; text-align: center; height: 100%; transition: transform .3s ease; }
@@ -808,43 +828,6 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
 
   <main id="main" tabindex="-1">
 
-    <!-- ========== Press ========== -->
-    <section id="press" aria-labelledby="pressTitle">
-      <div class="container">
-        <div class="reveal">
-          <p class="eyebrow" data-i18n="pressEyebrow">In the press</p>
-          <h2 class="section-title" id="pressTitle" data-i18n="pressTitle">Featured on mako 📰</h2>
-        </div>
-        <article class="press-card reveal">
-          <div class="row g-5 align-items-center">
-            <div class="col-lg-6">
-              <div class="press-float">
-                <span class="press-sticker" aria-hidden="true" data-i18n="pressSticker">✨ In the news</span>
-                <a class="press-shot" href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" aria-label="Open the mako article (opens in a new tab)" data-i18n-aria="pressShotAria">
-                  <span class="press-bar" aria-hidden="true"><i></i><i></i><i></i><span class="press-url">mako.co.il/nexter-news</span></span>
-                  <img src="assets/press/mako-article.jpg" width="1400" height="589" loading="lazy" decoding="async" alt="Screenshot of the mako article headline about Noya and Okeat, by Michal Dubinsky, published 27.11.26" data-i18n-alt="pressAlt">
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="press-meta"><span class="mako-logo">mako</span><span class="press-tag" data-i18n="pressTag">Digital · News</span><span data-i18n="pressDate">November 27, 2026</span></div>
-              <h3 class="press-head" data-i18n="pressHead">“Noya wants to solve the biggest problem of eating out”</h3>
-              <p class="press-sum" data-i18n="pressSum">An interview by journalist Michal Dubinsky about Okeat, the map I built for finding restaurants that fit everyone's diet, and about starting out as a developer in the AI era.</p>
-              <blockquote class="press-quote">
-                <p data-i18n="pressQuote">I built a product that a few years ago would have required a whole team.</p>
-                <cite class="press-cite" data-i18n="pressCite">Noya, in the interview</cite>
-              </blockquote>
-              <div class="d-flex flex-wrap gap-3">
-                <a class="btn btn-main" href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" data-i18n="pressRead">📰 Read the article ↗</a>
-                <a class="btn btn-soft" href="https://okeat.vercel.app" target="_blank" rel="noopener" data-i18n="pressOkeat">🗺️ Try Okeat</a>
-              </div>
-              <p class="press-note small" data-i18n="pressNote">The article is in Hebrew.</p>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
     <!-- ========== Projects ========== -->
     <section id="projects" aria-labelledby="projectsTitle">
       <div class="container">
@@ -1182,6 +1165,48 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       </div>
     </section>
 
+    <!-- ========== Press ========== -->
+    <section id="press" class="press-sec" aria-labelledby="pressTitle">
+      <div class="container">
+        <div class="reveal text-center press-intro">
+          <p class="eyebrow" data-i18n="pressEyebrow">In the press</p>
+          <h2 class="section-title" id="pressTitle" data-i18n="pressTitle">Featured on mako 📰</h2>
+        </div>
+        <article class="press-card reveal">
+          <div class="press-ribbon"><span class="mako-logo mako-lg">mako</span><span class="press-ribbon-txt" data-i18n="pressRibbon">Featured story</span><span class="press-dot" aria-hidden="true"></span><span class="press-ribbon-date" data-i18n="pressDate">November 27, 2026</span></div>
+          <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+              <div class="press-float">
+                <span class="press-sticker" aria-hidden="true" data-i18n="pressSticker">✨ In the news</span>
+                <a class="press-shot" href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" aria-label="Open the mako article (opens in a new tab)" data-i18n-aria="pressShotAria">
+                  <span class="press-bar" aria-hidden="true"><i></i><i></i><i></i><span class="press-url">mako.co.il/nexter-news</span></span>
+                  <img src="assets/press/mako-article.jpg" width="1400" height="589" loading="lazy" decoding="async" alt="Screenshot of the mako article headline about Noya and Okeat, by Michal Dubinsky, published 27.11.26" data-i18n-alt="pressAlt">
+                  <span class="press-open" aria-hidden="true" data-i18n="pressOpen">Open article ↗</span>
+                </a>
+                <img class="press-okeat" src="assets/press/okeat-logo.png" width="120" height="120" alt="" aria-hidden="true">
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+              <h3 class="press-head" data-i18n="pressHead">“Noya wants to solve the biggest problem of eating out”</h3>
+              <p class="press-sum" data-i18n="pressSum">An interview by journalist Michal Dubinsky about Okeat, the map I built for finding restaurants that fit everyone's diet, and about starting out as a developer in the AI era.</p>
+              <ul class="press-chips" aria-label="Topics" data-i18n-aria="pressTopicsAria">
+                <li data-i18n="pressChip1">🎙️ Interview</li><li data-i18n="pressChip2">🗺️ Okeat</li><li data-i18n="pressChip3">🤖 Devs in the AI era</li>
+              </ul>
+              <blockquote class="press-quote">
+                <p data-i18n="pressQuote">I built a product that a few years ago would have required a whole team.</p>
+                <cite class="press-cite" data-i18n="pressCite">Noya, in the interview</cite>
+              </blockquote>
+              <div class="d-flex flex-wrap align-items-center gap-3">
+                <a class="btn btn-main" href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" data-i18n="pressRead">📰 Read the article ↗</a>
+                <a class="btn btn-soft" href="https://okeat.vercel.app" target="_blank" rel="noopener" data-i18n="pressOkeat">🗺️ Try Okeat</a>
+                <span class="press-note small" data-i18n="pressNote">Article in Hebrew</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <!-- ========== About ========== -->
     <section id="about" aria-labelledby="aboutTitle">
       <div class="container">
@@ -1396,7 +1421,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
     /* ---------------- Translations ---------------- */
     const he = {
       skip: 'דילוג לתוכן הראשי', nowBuilding: 'עכשיו בונה', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
-      navPress: 'בתקשורת', pressPill: 'כתבה עליי במאקו · נובמבר 2026', pressEyebrow: 'בתקשורת', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
+      pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'בתקשורת', pressPill: 'כתבה עליי במאקו · נובמבר 2026', pressEyebrow: 'בתקשורת', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
       navProjects: 'פרויקטים', navAbout: 'עליי', navSkills: 'כישורים', navContact: 'יצירת קשר',
       location: 'ישראל · מחפשת משרת סטודנטית ב-SWE או ML', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת, ממסד הנתונים ועד העלייה לאוויר.',
