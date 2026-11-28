@@ -349,6 +349,45 @@
     :root[data-theme="dark"] .btn-demo { background: linear-gradient(120deg, rgba(245,215,140,.2), rgba(248,190,160,.18)) !important; color: #ffe6c4 !important; border-color: rgba(240,200,150,.45) !important; }
     @media (prefers-reduced-motion: reduce) { .term-dialog[open] { animation: none; } }
 
+
+    .demo-note { color: var(--ink-soft); font-size: .82rem; margin: .8rem 0 0; }
+    .demo-note:empty { display: none; }
+    .term-dialog .terminal pre { min-height: 15rem; }
+    /* Telegram mock */
+    .tg { border-radius: 1.2rem; overflow: hidden; box-shadow: var(--shadow-lg); background: #dfe9f3; }
+    .tg-head { display: flex; align-items: center; gap: .7rem; padding: .7rem 1rem; background: #fff; color: #2c3a52; }
+    .tg-head small { display: block; color: #7a86a8; font-size: .75rem; }
+    .tg-ava { width: 2.3rem; height: 2.3rem; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, #ffe0ea, #e7e0fb); font-size: 1.1rem; }
+    .tg-head .term-run { background: #eef2f9; color: #4f7fb5; }
+    .tg-body { display: flex; flex-direction: column; gap: .55rem; padding: 1rem; min-height: 19rem; max-height: 26rem; overflow-y: auto; background: radial-gradient(circle at 20% 20%, #eaf3ff, #dbe8f5); }
+    .tg-msg { max-width: 82%; padding: .55rem .8rem; border-radius: 1rem; font-size: .95rem; line-height: 1.45; color: #2c3a52; background: #fff; box-shadow: 0 .2rem .5rem rgba(80,110,150,.12); animation: tgIn .35s ease; }
+    .tg-msg.me { align-self: flex-end; background: #dcf8c6; border-end-end-radius: .3rem; }
+    .tg-msg.bot { align-self: flex-start; border-end-start-radius: .3rem; }
+    .tg-msg.time { align-self: center; background: none; box-shadow: none; padding: 0; }
+    .tg-msg.time span { background: rgba(70,90,120,.25); color: #fff; font-size: .75rem; font-weight: 700; padding: .15rem .7rem; border-radius: 999px; }
+    .tg-btns { display: flex; gap: .4rem; margin-top: .55rem; }
+    .tg-btns span { flex: 1; text-align: center; font-size: .82rem; font-weight: 700; padding: .35rem .5rem; border-radius: .6rem; background: #eef4fb; color: #4f7fb5; transition: background .3s, transform .3s; }
+    .tg-btns span.tapped { background: #cfe6ff; transform: scale(.96); }
+    @keyframes tgIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    /* FocusBloom mock */
+    .bloom-win { border-radius: 1.2rem; overflow: hidden; box-shadow: var(--shadow-lg); background: #fff; }
+    .bloom-win .bar { background: #eef2f9; padding: .6rem 1rem; display: flex; gap: .45rem; align-items: center; }
+    .bloom-win .bar i { width: .7rem; height: .7rem; border-radius: 50%; background: #f5a3b8; }
+    .bloom-win .bar i:nth-child(2) { background: #f9d98c; } .bloom-win .bar i:nth-child(3) { background: #9fe0c4; }
+    .bloom-url { margin-inline-start: .6rem; background: #fff; border-radius: 999px; padding: .1rem .8rem; font-family: var(--font-mono); font-size: .78rem; color: #7a86a8; text-decoration: line-through; text-decoration-color: #f5a3b8; }
+    .bloom-win .term-run { background: #fff; color: #4f7fb5; }
+    .bloom-page { text-align: center; padding: 2rem 1rem 2.2rem; background: linear-gradient(160deg, #fff4f7, #f1ecff 55%, #e9f6ff); min-height: 19rem; }
+    .bloom-flower { position: relative; width: 7rem; height: 7rem; margin: 0 auto 1rem; }
+    .bloom-flower b { position: absolute; left: 50%; top: 50%; width: 2.2rem; height: 3.2rem; margin: -3.2rem 0 0 -1.1rem; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: linear-gradient(#ffc9d9, #f5a3b8); transform-origin: 50% 100%; transform: rotate(calc(var(--i) * 45deg)) scale(.2); opacity: .25; transition: transform .6s cubic-bezier(.2,.8,.2,1.3), opacity .6s; }
+    .bloom-flower b.open { transform: rotate(calc(var(--i) * 45deg)) scale(1); opacity: .9; }
+    .bloom-flower b:nth-child(1) { --i: 0; } .bloom-flower b:nth-child(2) { --i: 1; } .bloom-flower b:nth-child(3) { --i: 2; } .bloom-flower b:nth-child(4) { --i: 3; }
+    .bloom-flower b:nth-child(5) { --i: 4; } .bloom-flower b:nth-child(6) { --i: 5; } .bloom-flower b:nth-child(7) { --i: 6; } .bloom-flower b:nth-child(8) { --i: 7; }
+    .bloom-flower em { position: absolute; inset: 0; display: grid; place-items: center; font-style: normal; font-size: 1.6rem; }
+    .bloom-h { font-weight: 900; font-size: 1.4rem; color: #c0607e; margin: 0 0 .2rem; }
+    .bloom-site { color: #7a86a8; margin: 0 0 .6rem; }
+    .bloom-time { font-family: var(--font-mono); font-size: 2.4rem; font-weight: 700; color: #6648b0; margin: 0; }
+    @media (prefers-reduced-motion: reduce) { .tg-msg { animation: none; } .bloom-flower b { transition: none; } }
+
     /* ---------- Stats ---------- */
     .stat { padding: 1.6rem 1rem; text-align: center; height: 100%; transition: transform .3s ease; }
     .stat:hover { transform: translateY(-6px); }
@@ -985,7 +1024,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/nudgy-bot" target="_blank" rel="noopener">🔔 Nudgy</a></h3>
                 <p data-i18n="nudgyDesc">A Telegram bot that remembers assignment deadlines and nudges you before each one. Natural commands like /add tomorrow 23:59 in Hebrew or English, private tasks per chat and automated tests.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">Telegram Bot API</span><span class="chip c-mint">SQLite</span><span class="chip c-peach">pytest</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/nudgy-bot" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+                <div class="links"><button type="button" class="btn btn-soft btn-sm btn-demo" data-demo="nudgy" data-i18n="termDemo">⚡ Watch it run</button><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/nudgy-bot" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
             </article>
           </div>
@@ -998,7 +1037,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener">👯 Photo Twins</a></h3>
                 <p data-i18n="twinsDesc">Finds exact and similar duplicate photos in huge libraries with SHA-256 and a 64-bit perceptual hash, even after resizing or WhatsApp compression. Never deletes, and every move can be undone.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">Pillow</span><span class="chip c-mint">Perceptual hashing</span><span class="chip c-peach">CLI</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+                <div class="links"><button type="button" class="btn btn-soft btn-sm btn-demo" data-demo="twins" data-i18n="termDemo">⚡ Watch it run</button><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
             </article>
           </div>
@@ -1011,7 +1050,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/FocusBloom" target="_blank" rel="noopener">🌸 FocusBloom</a></h3>
                 <p data-i18n="bloomDesc">A Chrome extension that combines a Pomodoro timer and a site blocker. Distracting sites are blocked only while you focus and open again the moment your break starts. Built on Manifest V3.</p>
                 <div><span class="chip c-blue">JavaScript</span><span class="chip c-lav">Manifest V3</span><span class="chip c-mint">Chrome APIs</span><span class="chip c-peach">Node test</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/FocusBloom" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+                <div class="links"><button type="button" class="btn btn-soft btn-sm btn-demo" data-demo="bloom" data-i18n="termDemo">⚡ Watch it run</button><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/FocusBloom" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
             </article>
           </div>
@@ -1024,7 +1063,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener">🖼️ Sort Photos</a></h3>
                 <p data-i18n="sortDesc">Offline CLI that separates documents from photos using zero-shot CLIP, with no training data, optimized for CPU with int8 quantization.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">PyTorch</span><span class="chip c-mint">OpenCLIP</span></div>
-                <div class="links"><button type="button" class="btn btn-soft btn-sm btn-demo" id="termOpen" data-i18n="termDemo">⚡ Watch it run</button><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+                <div class="links"><button type="button" class="btn btn-soft btn-sm btn-demo" data-demo="sort" data-i18n="termDemo">⚡ Watch it run</button><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
             </article>
           </div>
@@ -1037,7 +1076,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener">🎭 Text Emotion Recognition</a></h3>
                 <p data-i18n="emoDesc">Multinomial Naive Bayes implemented from scratch for 6 emotions. Grid search and oversampling raised recall of the rarest emotion from 0.10 to 0.55.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">Scikit-Learn</span><span class="chip c-mint">Pandas</span><span class="chip c-peach">NumPy</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a> <a class="btn btn-soft btn-sm" href="https://colab.research.google.com/github/NoyaAdivi/emotion_detection_ml/blob/main/Notebook.ipynb" target="_blank" rel="noopener" data-i18n="colab">📓 Open in Colab</a></div>
+                <div class="links"><button type="button" class="btn btn-soft btn-sm btn-demo" data-demo="emo" data-i18n="termDemo">⚡ Watch it run</button><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/emotion_detection_ml" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a> <a class="btn btn-soft btn-sm" href="https://colab.research.google.com/github/NoyaAdivi/emotion_detection_ml/blob/main/Notebook.ipynb" target="_blank" rel="noopener" data-i18n="colab">📓 Open in Colab</a></div>
               </div>
             </article>
           </div>
@@ -1063,7 +1102,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener">💬 Client-Server TCP Chat</a></h3>
                 <p data-i18n="chatDesc">Multi-client chat with a thread-per-client server, GUI clients and private messages, plus Wireshark analysis of the TCP handshake and SEQ/ACK traffic.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">TCP/IP</span><span class="chip c-mint">Sockets</span><span class="chip c-peach">Wireshark</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/Networking-project/blob/main/Summary_Report.pdf" target="_blank" rel="noopener" data-i18n="report">📄 Report</a></div>
+                <div class="links"><button type="button" class="btn btn-soft btn-sm btn-demo" data-demo="chat" data-i18n="termDemo">⚡ Watch it run</button><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/Networking-project" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/Networking-project/blob/main/Summary_Report.pdf" target="_blank" rel="noopener" data-i18n="report">📄 Report</a></div>
               </div>
             </article>
           </div>
@@ -1345,16 +1384,14 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
   <button id="toTop" type="button" aria-label="Back to top" data-i18n-aria="topAria">↑</button>
 
 
-  <!-- ========== Sort Photos terminal demo ========== -->
-  <dialog class="term-dialog" id="termDialog" aria-labelledby="termTitle">
+  <!-- ========== Project demos (projects without a live site) ========== -->
+  <dialog class="term-dialog" id="termDialog" aria-labelledby="demoTitle">
     <button type="button" class="term-close" id="termClose" aria-label="Close" data-i18n-aria="closeAria">✕</button>
     <p class="eyebrow mb-1" data-i18n="termEyebrow">Under the hood</p>
-    <h2 class="term-title" id="termTitle" data-i18n="termTitle">A whole photo library, one command ⚡</h2>
-    <p class="term-sub" data-i18n="termSub">Sort Photos classifies a whole photo library on an old laptop, fully offline, so private photos never leave the computer. This is a sample run.</p>
-    <div class="terminal" role="img" aria-label="Terminal animation of Sort Photos sorting images" data-i18n-aria="termAria">
-      <div class="bar"><i></i><i></i><i></i><span>sort_photos.py</span><button type="button" class="term-run" id="termRun" data-i18n="runAgain">▶ Run again</button></div>
-      <pre id="termOut" aria-hidden="true"></pre>
-    </div>
+    <h2 class="term-title" id="demoTitle"></h2>
+    <p class="term-sub" id="demoSub"></p>
+    <div id="demoStage"></div>
+    <p class="demo-note" id="demoNote"></p>
   </dialog>
 
   <!-- ========== Accessibility button + panel ========== -->
@@ -1841,38 +1878,113 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
 
     /* ---------------- Terminal ---------------- */
 
-    const termLines = [
-      ['<span class="pk">$</span> python sort_photos.py "D:\\Pictures" "D:\\Sorted"', 0],
-      ['<span class="muted">Loading CLIP model ViT-B-32 (int8)...</span>', 500],
-      ['<span class="muted">Found 40,212 images</span>', 400],
-      ['Classifying ████████████████████ 100%  <span class="hl">58 img/s</span>', 900],
-      ['  📄 documents   <span class="ok">6,481</span>', 300],
-      ['  🖼️ photos      <span class="ok">32,947</span>', 250],
-      ['  🤔 uncertain   <span class="hl">784</span>  <span class="muted">→ review by hand</span>', 250],
-      ['<span class="ok">✓ Done. Originals untouched, results.csv saved.</span>', 500]
-    ];
-    const termOut = document.getElementById('termOut');
-    let termStarted = false, termRun = 0;
-    function runTerminal() {
-      const myRun = ++termRun;
-      if (motionOff()) { termOut.innerHTML = termLines.map(l => l[0]).join('\n'); return; }
-      let i = 0; termOut.innerHTML = '';
-      (function next() {
-        if (myRun !== termRun) return;
-        if (i >= termLines.length) { termOut.innerHTML += '\n<span class="cursor-blink">&nbsp;</span>'; return; }
-        termOut.innerHTML += (i ? '\n' : '') + termLines[i][0];
-        i++; setTimeout(next, termLines[i] ? termLines[i][1] + 250 : 600);
-      })();
-    }
-    document.getElementById('termRun').addEventListener('click', runTerminal);
+    /* ---------------- Project demos ---------------- */
+    const P = '<span class="pk">$</span> ', M = t => `<span class="muted">${t}</span>`, OK = t => `<span class="ok">${t}</span>`, H = t => `<span class="hl">${t}</span>`;
+    const bar = '████████████████████';
+    const DEMOS = {
+      sort: { kind: 'term', file: 'sort_photos.py',
+        en: ['A whole photo library, one command ⚡', 'Sort Photos classifies a whole photo library on an old laptop, fully offline, so private photos never leave the computer.'],
+        he: ['ספריית תמונות שלמה, פקודה אחת ⚡', 'Sort Photos ממיין ספריית תמונות שלמה גם על מחשב ישן, בלי אינטרנט, כך שתמונות פרטיות לא יוצאות מהמחשב.'],
+        lines: [[P + 'python sort_photos.py "D:\\Pictures" "D:\\Sorted"', 0], [M('Loading CLIP model ViT-B-32 (int8)...'), 500], [M('Found 40,212 images'), 400],
+          ['Classifying ' + bar + ' 100%  ' + H('58 img/s'), 900], ['  📄 documents   ' + OK('6,481'), 300], ['  🖼️ photos      ' + OK('32,947'), 250],
+          ['  🤔 uncertain   ' + H('784') + '  ' + M('→ review by hand'), 250], [OK('✓ Done. Originals untouched, results.csv saved.'), 500]] },
+      twins: { kind: 'term', file: 'photo_twins.py',
+        en: ['Every twin photo, found in one run 👯', 'Exact copies by SHA-256, similar ones by a 64-bit perceptual hash and a BK-tree. Nothing is deleted, and one command undoes every move.'],
+        he: ['כל תמונה כפולה, בריצה אחת 👯', 'כפילויות מדויקות לפי SHA-256, ודומות לפי טביעת אצבע של 64 ביט ועץ BK. שום דבר לא נמחק, ופקודה אחת מבטלת כל העברה.'],
+        lines: [[P + 'python photo_twins.py "D:\\Pictures" --similar --move-to "D:\\Duplicates"', 0], ['Found 40,212 images in D:\\Pictures', 500],
+          ['Exact:   100%|' + bar + '| 3,118/3,118 img', 700], ['Similar: 100%|' + bar + '| 40,212/40,212 img', 1000], ['Report:  100%|' + bar + '| 1,284/1,284 group', 500],
+          [H('1,284 groups, 1,902 extra copies, 6.3 GB can be freed'), 400], [M('Report: twins-report\\report.html'), 250], [M('CSV:    twins-report\\duplicates.csv'), 200],
+          [OK('Moved 1,902 files to D:\\Duplicates'), 400], [M('Undo with: python photo_twins.py --undo "D:\\Duplicates\\moves.csv"'), 250]] },
+      emo: { kind: 'term', file: 'Notebook.ipynb',
+        en: ['Naive Bayes from scratch, tuned the right way 🎭', 'Grid Search with 5-fold CV over the vectorizer and alpha, then oversampling so the rarest emotion is not drowned out. These are the real results.'],
+        he: ['Naive Bayes מאפס, עם כיוונון נכון 🎭', 'Grid Search עם 5-fold CV על סוג הווקטוריזציה ועל alpha, ואז oversampling כדי שהרגש הנדיר לא ייבלע. אלה התוצאות האמיתיות.'],
+        lines: [[M('# 16,000 labeled sentences · 6 emotions · 80/20 split'), 0], [P + 'baseline = MultinomialNB(alpha=1.0).fit(X_train, y_train)', 400],
+          ['  Test Macro-F1 ' + H('0.63') + '   Accuracy 78%', 600], [P + 'grid_search(vectorizer=["bow", "tfidf"], alpha=[...], cv=5)', 500],
+          ['  TF-IDF  best CV Macro-F1  0.609', 800], ['  BoW     best CV Macro-F1  ' + OK('0.694') + '  ' + M('(alpha = 0.1)'), 400],
+          [P + 'model = train(oversample(X_train, y_train), alpha=0.1)', 500], ['  Test Macro-F1 ' + OK('0.67') + '   Accuracy 73%', 600],
+          ['  recall("surprise")  0.10 → ' + OK('0.55') + ' 🎯', 500]] },
+      chat: { kind: 'term', file: 'server.py + client · 127.0.0.1:12345',
+        en: ['A real TCP chat, one thread per client 💬', 'The server greets every client, checks the name and routes broadcasts and private messages. Every byte of it was also captured in Wireshark.'],
+        he: ['צ׳אט TCP אמיתי, תהליכון לכל לקוח 💬', 'השרת מקבל כל לקוח, בודק את השם ומנתב הודעות לכולם והודעות פרטיות. כל בייט מזה גם תועד ב-Wireshark.'],
+        lines: [[P + 'python3 server.py', 0], [M('Server starting on 127.0.0.1:12345'), 400], [M('Server listening...'), 300],
+          ['SYS Welcome. Please identify: HELLO &lt;your_name&gt;', 600], [H('&gt; HELLO noya'), 500], ['SYS Hello noya. Commands: /users, /dm &lt;name&gt; &lt;msg&gt;, /all &lt;msg&gt;', 400],
+          [H('&gt; /users'), 600], ['SYS Users: amit, amir, noya', 300], ['FROM amit: the server is up 🎉', 700], [H('&gt; /dm amir check the capture'), 600],
+          [M('wireshark · tcp.port == 12345 → SYN, SYN-ACK, ACK ✓'), 600]] },
+      nudgy: { kind: 'chat',
+        en: ['Deadlines that remind themselves 🔔', 'One natural message, and Nudgy plans 4 reminders. These are the bot\'s real replies.'],
+        he: ['דדליינים שמזכירים את עצמם 🔔', 'הודעה אחת בשפה טבעית, ו-Nudgy מתזמן 4 תזכורות. אלה התשובות האמיתיות של הבוט.'],
+        msgs: {
+          en: [['me', '/add tomorrow 23:59 Algorithms HW 3'], ['bot', '✅ <b>Saved!</b><br>📌 Algorithms HW 3<br>🗓 tomorrow, 23:59<br><br>I\'ll remind you 4 times.'],
+            ['time', 'the next evening'], ['bot', '⏰ <b>Only 3 hours left</b><br>📌 Algorithms HW 3<br>🗓 23:59', ['✅ Done', '⏰ Remind me in 1h']],
+            ['tap', '✅ Done'], ['bot', '🎉 Nice work! <s>Algorithms HW 3</s> is done. (1 finished so far)']],
+          he: [['me', '/add מחר 23:59 מטלה 3 באלגוריתמים'], ['bot', '✅ <b>נשמר!</b><br>📌 מטלה 3 באלגוריתמים<br>🗓 מחר, 23:59<br><br>אזכיר לך 4 פעמים.'],
+            ['time', 'למחרת בערב'], ['bot', '⏰ <b>נשארו רק 3 שעות</b><br>📌 מטלה 3 באלגוריתמים<br>🗓 23:59', ['✅ הוגש', '⏰ תזכיר לי בעוד שעה']],
+            ['tap', '✅ הוגש'], ['bot', '🎉 כל הכבוד! <s>מטלה 3 באלגוריתמים</s> הושלם. (1 הושלמו עד עכשיו)']] } },
+      bloom: { kind: 'bloom',
+        en: ['Distractions wait outside 🌸', 'While you focus, Chrome itself redirects blocked sites to a calm page, and they open again the moment your break starts.'],
+        he: ['ההסחות מחכות בחוץ 🌸', 'בזמן ריכוז, Chrome עצמו מפנה אתרים חסומים לעמוד רגוע, והם נפתחים שוב ברגע שההפסקה מתחילה.'],
+        note: { en: 'An illustration of how it works. The extension runs in Chrome.', he: 'המחשה של איך זה עובד. התוסף רץ בתוך Chrome.' } }
+    };
     const termDialog = document.getElementById('termDialog');
-    document.getElementById('termOpen').addEventListener('click', () => {
+    const demoStage = document.getElementById('demoStage');
+    let demoRun = 0, demoKey = null, demoOpener = null;
+    const wait = ms => new Promise(r => setTimeout(r, motionOff() ? 0 : ms));
+    function runDemo(key) {
+      const d = DEMOS[key], my = ++demoRun, L = lang === 'he' ? 'he' : 'en';
+      demoKey = key;
+      document.getElementById('demoTitle').textContent = d[L][0];
+      document.getElementById('demoSub').textContent = d[L][1];
+      document.getElementById('demoNote').textContent = d.note ? d.note[L] : (key === 'emo' || key === 'nudgy' ? '' : (L === 'he' ? 'הרצה לדוגמה.' : 'A sample run.'));
+      const again = `<button type="button" class="term-run" data-again>${L === 'he' ? '▶ להריץ שוב' : '▶ Run again'}</button>`;
+      if (d.kind === 'term') {
+        demoStage.innerHTML = `<div class="terminal" dir="ltr"><div class="bar"><i></i><i></i><i></i><span>${d.file}</span>${again}</div><pre></pre></div>`;
+        const out = demoStage.querySelector('pre');
+        (async () => {
+          for (let i = 0; i < d.lines.length; i++) {
+            await wait(d.lines[i][1] + (i ? 250 : 0)); if (my !== demoRun) return;
+            out.innerHTML += (i ? '\n' : '') + d.lines[i][0];
+          }
+          out.innerHTML += '\n<span class="cursor-blink">&nbsp;</span>';
+        })();
+      } else if (d.kind === 'chat') {
+        demoStage.innerHTML = `<div class="tg"><div class="tg-head"><span class="tg-ava">🔔</span><div><b>Nudgy</b><small>${L === 'he' ? 'בוט' : 'bot'}</small></div>${again}</div><div class="tg-body"></div></div>`;
+        const body = demoStage.querySelector('.tg-body');
+        (async () => {
+          for (const m of d.msgs[L]) {
+            await wait(m[0] === 'me' ? 300 : 900); if (my !== demoRun) return;
+            if (m[0] === 'tap') { const btn = [...body.querySelectorAll('.tg-btns span')].find(b => b.textContent === m[1]); if (btn) btn.classList.add('tapped'); continue; }
+            const el = document.createElement('div');
+            el.className = 'tg-msg ' + m[0];
+            el.innerHTML = m[0] === 'time' ? `<span>${m[1]}</span>` : m[1] + (m[2] ? `<div class="tg-btns">${m[2].map(b => `<span>${b}</span>`).join('')}</div>` : '');
+            body.appendChild(el); body.scrollTop = body.scrollHeight;
+          }
+        })();
+      } else {
+        demoStage.innerHTML = `<div class="bloom-win" dir="ltr"><div class="bar"><i></i><i></i><i></i><span class="bloom-url">youtube.com</span>${again}</div>
+          <div class="bloom-page"><div class="bloom-flower" aria-hidden="true">${'<b></b>'.repeat(8)}<em>🌸</em></div>
+          <p class="bloom-h">${L === 'he' ? 'זמן ריכוז 🍅' : 'Focus time 🍅'}</p><p class="bloom-site" dir="auto">${L === 'he' ? 'youtube.com מחכה לך בהפסקה' : 'youtube.com is waiting for your break'}</p>
+          <p class="bloom-time">24:59</p></div></div>`;
+        const t = demoStage.querySelector('.bloom-time'), petals = demoStage.querySelectorAll('.bloom-flower b');
+        let sec = 25 * 60 - 1, n = 0;
+        (async () => {
+          while (my === demoRun && sec > 24 * 60 + 40) {
+            await wait(motionOff() ? 0 : 450); if (my !== demoRun) return;
+            sec--; t.textContent = `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
+            if (n < petals.length) petals[n++].classList.add('open');
+            if (motionOff()) break;
+          }
+        })();
+      }
+      demoStage.querySelector('[data-again]').addEventListener('click', () => runDemo(key));
+    }
+    document.querySelectorAll('[data-demo]').forEach(b => b.addEventListener('click', () => {
+      demoOpener = b;
       if (termDialog.showModal) termDialog.showModal(); else termDialog.setAttribute('open', '');
-      runTerminal();
-    });
+      runDemo(b.dataset.demo);
+    }));
     document.getElementById('termClose').addEventListener('click', () => termDialog.close());
     termDialog.addEventListener('click', e => { if (e.target === termDialog) termDialog.close(); });
-    termDialog.addEventListener('close', () => { termRun++; document.getElementById('termOpen').focus(); });
+    termDialog.addEventListener('close', () => { if (termDialog.open) return; demoRun++; if (demoOpener) demoOpener.focus(); });
 
     /* ---------------- Accessibility ---------------- */
     const opts = ['contrast', 'dark', 'still', 'readable', 'links', 'spacing', 'cursor'];
