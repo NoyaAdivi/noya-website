@@ -269,24 +269,12 @@
 
     /* ---------- Press (mako) ---------- */
     @property --pa { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
-    .press-pill { position: relative; display: inline-flex; align-items: center; gap: .6rem; margin-bottom: 1.1rem; padding: .38rem .45rem .38rem .55rem; border-radius: 999px; text-decoration: none; color: var(--ink); font-weight: 700; font-size: .93rem; overflow: hidden; isolation: isolate;
-      background: linear-gradient(var(--surface-solid), var(--surface-solid)) padding-box, linear-gradient(110deg, var(--peach-deep), var(--rose), var(--lavender-deep), var(--sky)) border-box; border: 1.5px solid transparent;
-      box-shadow: 0 .5rem 1.4rem rgba(200, 150, 190, .22); transition: transform .3s ease, box-shadow .3s ease; }
-    .press-pill::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255, 220, 230, .7) 50%, transparent 70%); transform: translateX(-120%); animation: ppShine 4.5s ease-in-out infinite; }
-    @keyframes ppShine { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
-    .press-pill:hover, .press-pill:focus-visible { transform: translateY(-2px); box-shadow: 0 .8rem 1.8rem rgba(200, 150, 190, .32); color: var(--ink); }
-    .pp-new { width: .5rem; height: .5rem; border-radius: 50%; background: #ff6f91; box-shadow: 0 0 0 0 rgba(255, 111, 145, .6); animation: ppPulse 2s ease-out infinite; }
-    @keyframes ppPulse { 0% { box-shadow: 0 0 0 0 rgba(255, 111, 145, .55); } 100% { box-shadow: 0 0 0 .55rem rgba(255, 111, 145, 0); } }
-    .pp-sep { width: 1px; height: 1.1rem; background: var(--lavender-deep); }
-    .pp-cta { display: inline-flex; align-items: center; gap: .25rem; padding: .22rem .75rem; border-radius: 999px; background: linear-gradient(120deg, var(--peach), var(--lavender)); color: var(--title); font-weight: 800; font-size: .85rem; }
-    .press-pill .arr { display: inline-block; transition: transform .3s ease; }
-    .press-pill:hover .arr { transform: translateX(3px); }
-    html[dir="rtl"] .press-pill .arr { transform: scaleX(-1); }
-    html[dir="rtl"] .press-pill:hover .arr { transform: scaleX(-1) translateX(3px); }
-    :root[data-theme="dark"] .press-pill { box-shadow: 0 .5rem 1.4rem rgba(0, 0, 0, .3); }
-    :root[data-theme="dark"] .press-pill::after { background: linear-gradient(110deg, transparent 30%, rgba(255, 200, 220, .14) 50%, transparent 70%); }
-    :root[data-theme="dark"] .pp-cta { background: linear-gradient(120deg, rgba(248,190,160,.22), rgba(164,147,224,.26)); }
-    @media (prefers-reduced-motion: reduce) { .press-pill::after, .pp-new { animation: none; } }
+    .btn-mako { display: inline-flex; align-items: center; gap: .55rem; font-weight: 800; color: var(--title); border-radius: 50rem; padding: .8rem 1.4rem .8rem .7rem; padding-inline: .7rem 1.4rem;
+      background: linear-gradient(var(--surface-solid), var(--surface-solid)) padding-box, linear-gradient(110deg, var(--peach-deep), var(--rose), var(--lavender-deep), var(--sky)) border-box;
+      border: 1.5px solid transparent; box-shadow: var(--shadow); transition: transform .3s ease, box-shadow .3s ease; }
+    .btn-mako:hover, .btn-mako:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow-lg); color: var(--title); }
+    .btn-mako .mako-logo { font-size: .85rem; padding: 0 .55rem .06rem; transition: transform .3s ease; }
+    .btn-mako:hover .mako-logo { transform: rotate(-6deg) scale(1.06); }
     .mako-logo { display: inline-block; background: linear-gradient(#262d45, #262d45) padding-box, linear-gradient(90deg, #ffd400, #ff7a59, #ff5a9a, #8b5cf6, #2bb3ff) border-box; border: 2px solid transparent; color: #fff; font-family: 'Fredoka', sans-serif; font-weight: 700; border-radius: 999px; padding: .05rem .65rem .12rem; letter-spacing: .02em; line-height: 1.4; direction: ltr; }
 
     .press-card { position: relative; padding: clamp(1.3rem, 3.2vw, 2.6rem); border-radius: 2rem; background: var(--surface); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: var(--shadow-lg); isolation: isolate; }
@@ -347,6 +335,20 @@
     :root[data-theme="dark"] .press-chips li:nth-child(2) { background: rgba(248,190,160,.16); border-color: rgba(248,190,160,.35); }
     :root[data-theme="dark"] .press-chips li:nth-child(3) { background: rgba(164,147,224,.18); border-color: rgba(164,147,224,.4); }
 
+
+    /* ---------- Sort Photos terminal dialog ---------- */
+    .term-dialog { width: min(46rem, calc(100vw - 2rem)); border: 0; padding: 1.8rem; border-radius: 1.8rem; background: var(--surface-solid); color: var(--ink); box-shadow: 0 2rem 4rem rgba(60, 80, 130, .35); }
+    .term-dialog[open] { animation: termPop .45s cubic-bezier(.2,.8,.2,1.1); }
+    .term-dialog::backdrop { background: rgba(70, 86, 120, .35); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    @keyframes termPop { from { opacity: 0; transform: translateY(18px) scale(.96); } to { opacity: 1; transform: none; } }
+    .term-title { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 900; margin-bottom: .5rem; padding-inline-end: 2.5rem; }
+    .term-sub { color: var(--ink-soft); margin-bottom: 1.2rem; }
+    .term-close { position: absolute; top: 1rem; inset-inline-end: 1rem; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 1px solid var(--lavender-deep); background: var(--lavender); color: #5a4f99; font-weight: 800; transition: transform .25s ease; }
+    .term-close:hover { transform: rotate(90deg); }
+    .btn-demo { background: linear-gradient(120deg, #fff3d6, #ffe6da) !important; color: #93561f !important; border-color: #f6dcb8 !important; }
+    :root[data-theme="dark"] .btn-demo { background: linear-gradient(120deg, rgba(245,215,140,.2), rgba(248,190,160,.18)) !important; color: #ffe6c4 !important; border-color: rgba(240,200,150,.45) !important; }
+    @media (prefers-reduced-motion: reduce) { .term-dialog[open] { animation: none; } }
+
     /* ---------- Stats ---------- */
     .stat { padding: 1.6rem 1rem; text-align: center; height: 100%; transition: transform .3s ease; }
     .stat:hover { transform: translateY(-6px); }
@@ -357,6 +359,7 @@
     /* ---------- Projects ---------- */
     .filter-bar .pill-btn { padding: .45rem 1.1rem; }
     #projectGrid.collapsed .more-proj { display: none; }
+    @media (min-width: 992px) { #projectGrid.collapsed > .mini:not(.more-proj) { flex: 0 0 50%; max-width: 50%; margin-inline: auto; } }
     #moreBtn .chev { display: inline-block; transition: transform .35s; }
     #moreBtn[aria-expanded="true"] .chev { transform: rotate(180deg); }
     .project {
@@ -800,7 +803,6 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       <div class="row align-items-center g-4">
       <div class="col-lg-7">
       <p class="hero-meta mb-2"><span class="live-dot" aria-hidden="true"></span><span aria-hidden="true">📍</span> <span data-i18n="location">Israel · Open to SWE & ML student positions</span></p>
-      <a href="#press" class="press-pill"><span class="pp-new" aria-hidden="true"></span><span class="mako-logo" aria-hidden="true">mako</span><span class="pp-sep" aria-hidden="true"></span><span class="pp-txt" data-i18n="pressPill">Interviewed about Okeat</span><span class="pp-cta" aria-hidden="true"><span data-i18n="pressPillCta">Read</span> <span class="arr">→</span></span></a>
       <div class="name-wrap" id="nameWrap">
         <canvas id="nameCanvas" aria-hidden="true"></canvas>
         <h1 class="hero-name">Noya<br>Adivi</h1>
@@ -810,6 +812,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       <p class="lead-hero mb-4"><span data-i18n="iBuild">I build</span> <span class="typed" id="typed" aria-live="off">full-stack web apps</span></p>
       <div class="d-flex flex-wrap gap-3">
         <a href="#projects" class="btn btn-main" data-i18n="ctaWork">See my work ↓</a>
+        <a href="#press" class="btn btn-mako"><span class="mako-logo" aria-hidden="true">mako</span><span data-i18n="pressBtn">Featured article</span></a>
         <a href="https://www.linkedin.com/in/noya-adivi/" class="btn btn-soft" target="_blank" rel="noopener" data-i18n="ctaLinkedin">💼 LinkedIn</a>
         <a href="https://github.com/NoyaAdivi" class="btn btn-soft" target="_blank" rel="noopener" data-i18n="ctaGithub">🐙 GitHub</a>
       </div>
@@ -923,7 +926,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
             </article>
           </div>
           <!-- Okeat Lens -->
-          <div class="col-6 col-lg-3 project-col mini" data-cat="ml">
+          <div class="col-6 col-lg-3 project-col mini more-proj" data-cat="ml">
             <article class="glass project reveal tilt">
               <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/okeat-lens/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/okeat-lens-en.jpg" data-src-he="assets/projects/okeat-lens-he.jpg" alt="Okeat Lens recognizing a dish from a photo" data-i18n-alt="lensAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
@@ -936,7 +939,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
             </article>
           </div>
           <!-- Kashuv -->
-          <div class="col-6 col-lg-3 project-col mini" data-cat="ml">
+          <div class="col-6 col-lg-3 project-col mini more-proj" data-cat="ml">
             <article class="glass project reveal tilt">
               <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/kashuv/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/kashuv-en.jpg" data-src-he="assets/projects/kashuv-he.jpg" alt="Kashuv transcribing a Zoom lecture live" data-i18n-alt="kashAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
@@ -949,7 +952,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
             </article>
           </div>
           <!-- LeakLens -->
-          <div class="col-6 col-lg-3 project-col mini" data-cat="sys">
+          <div class="col-6 col-lg-3 project-col mini more-proj" data-cat="sys">
             <article class="glass project reveal tilt">
               <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/LeakLens/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/leaklens-en.jpg" data-src-he="assets/projects/leaklens-he.jpg" alt="LeakLens checking how safe a password is" data-i18n-alt="leakAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
@@ -962,7 +965,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
             </article>
           </div>
           <!-- Nestly -->
-          <div class="col-6 col-lg-3 project-col mini" data-cat="web">
+          <div class="col-6 col-lg-3 project-col mini more-proj" data-cat="web">
             <article class="glass project reveal tilt">
               <div class="cover cover-img"><a class="cover-link" href="https://noyaadivi.github.io/nestly/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/nestly-en.jpg" data-src-he="assets/projects/nestly-he.jpg" alt="Nestly showing household chores and a shared shopping list" data-i18n-alt="nestAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
@@ -975,7 +978,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
             </article>
           </div>
           <!-- Nudgy -->
-          <div class="col-6 col-lg-3 project-col mini" data-cat="sys">
+          <div class="col-6 col-lg-3 project-col mini more-proj" data-cat="sys">
             <article class="glass project reveal tilt">
               <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/nudgy-bot" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/nudgy-en.jpg" data-src-he="assets/projects/nudgy-he.jpg" alt="Nudgy reminding about deadlines in Telegram" data-i18n-alt="nudgyAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
@@ -988,7 +991,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
             </article>
           </div>
           <!-- Photo Twins -->
-          <div class="col-6 col-lg-3 project-col mini" data-cat="ml">
+          <div class="col-6 col-lg-3 project-col mini more-proj" data-cat="ml">
             <article class="glass project reveal tilt">
               <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/photo-twins" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/photo-twins-en.jpg" data-src-he="assets/projects/photo-twins-he.jpg" alt="Photo Twins finding duplicate photos" data-i18n-alt="twinsAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
@@ -1001,7 +1004,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
             </article>
           </div>
           <!-- FocusBloom -->
-          <div class="col-6 col-lg-3 project-col mini" data-cat="web">
+          <div class="col-6 col-lg-3 project-col mini more-proj" data-cat="web">
             <article class="glass project reveal tilt">
               <div class="cover cover-img"><a class="cover-link" href="https://github.com/NoyaAdivi/FocusBloom" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a><img src="assets/projects/focusbloom-en.jpg" data-src-he="assets/projects/focusbloom-he.jpg" alt="FocusBloom popup with the focus timer" data-i18n-alt="bloomAlt" loading="lazy" width="1200" height="627"></div>
               <div class="body">
@@ -1022,7 +1025,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                 <h3><a class="proj-link" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener">🖼️ Sort Photos</a></h3>
                 <p data-i18n="sortDesc">Offline CLI that separates documents from photos using zero-shot CLIP, with no training data, optimized for CPU with int8 quantization.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">PyTorch</span><span class="chip c-mint">OpenCLIP</span></div>
-                <div class="links"><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+                <div class="links"><button type="button" class="btn btn-soft btn-sm btn-demo" id="termOpen" data-i18n="termDemo">⚡ Watch it run</button><a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/sort-photos" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
             </article>
           </div>
@@ -1154,24 +1157,6 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       </div>
     </section>
 
-    <!-- ========== Terminal ========== -->
-    <section class="pt-0" aria-labelledby="termTitle">
-      <div class="container">
-        <div class="row g-4 g-lg-5 align-items-center">
-          <div class="col-lg-5 reveal">
-            <p class="eyebrow" data-i18n="termEyebrow">Under the hood</p>
-            <h2 class="section-title" id="termTitle" data-i18n="termTitle">A whole photo library, one command ⚡</h2>
-            <p class="section-sub" data-i18n="termSub">Sort Photos classifies a whole photo library on an old laptop, fully offline, so private photos never leave the computer. This is a sample run.</p>
-          </div>
-          <div class="col-lg-7 reveal">
-            <div class="terminal" role="img" aria-label="Terminal animation of Sort Photos sorting images" data-i18n-aria="termAria">
-              <div class="bar"><i></i><i></i><i></i><span>sort_photos.py</span><button type="button" class="term-run" id="termRun" data-i18n="runAgain">▶ Run again</button></div>
-              <pre id="termOut" aria-hidden="true"></pre>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ========== Press ========== -->
     <section id="press" class="press-sec" aria-labelledby="pressTitle">
@@ -1360,6 +1345,19 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
 
   <button id="toTop" type="button" aria-label="Back to top" data-i18n-aria="topAria">↑</button>
 
+
+  <!-- ========== Sort Photos terminal demo ========== -->
+  <dialog class="term-dialog" id="termDialog" aria-labelledby="termTitle">
+    <button type="button" class="term-close" id="termClose" aria-label="Close" data-i18n-aria="closeAria">✕</button>
+    <p class="eyebrow mb-1" data-i18n="termEyebrow">Under the hood</p>
+    <h2 class="term-title" id="termTitle" data-i18n="termTitle">A whole photo library, one command ⚡</h2>
+    <p class="term-sub" data-i18n="termSub">Sort Photos classifies a whole photo library on an old laptop, fully offline, so private photos never leave the computer. This is a sample run.</p>
+    <div class="terminal" role="img" aria-label="Terminal animation of Sort Photos sorting images" data-i18n-aria="termAria">
+      <div class="bar"><i></i><i></i><i></i><span>sort_photos.py</span><button type="button" class="term-run" id="termRun" data-i18n="runAgain">▶ Run again</button></div>
+      <pre id="termOut" aria-hidden="true"></pre>
+    </div>
+  </dialog>
+
   <!-- ========== Accessibility button + panel ========== -->
   <button id="a11yBtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#a11yPanel" aria-controls="a11yPanel" aria-label="Accessibility options" data-i18n-aria="a11yAria">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M20 8.5c-2.6.6-5.3.9-8 .9s-5.4-.3-8-.9l-.5 1.9c2 .5 4.2.8 6.3.9V14l-2.2 7.2 1.9.6L11.6 15h.8l2.1 6.8 1.9-.6L14.2 14v-2.7c2.1-.1 4.3-.4 6.3-.9z"/></svg>
@@ -1428,7 +1426,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
     /* ---------------- Translations ---------------- */
     const he = {
       skip: 'דילוג לתוכן הראשי', nowBuilding: 'עכשיו בונה', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
-      pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'בתקשורת', pressPill: 'ראיון עליי ועל Okeat', pressPillCta: 'לקריאה', pressEyebrow: 'בתקשורת', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
+      pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'בתקשורת', pressBtn: 'כתבה עליי', termDemo: '⚡ לראות אותו רץ', pressPill: 'ראיון עליי ועל Okeat', pressPillCta: 'לקריאה', pressEyebrow: 'בתקשורת', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
       navProjects: 'פרויקטים', navAbout: 'עליי', navSkills: 'כישורים', navContact: 'יצירת קשר',
       location: 'ישראל · מחפשת משרת סטודנטית ב-SWE או ML', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת, ממסד הנתונים ועד העלייה לאוויר.',
@@ -1868,9 +1866,14 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       })();
     }
     document.getElementById('termRun').addEventListener('click', runTerminal);
-    new IntersectionObserver((entries, obs) => {
-      if (entries[0].isIntersecting && !termStarted) { termStarted = true; runTerminal(); obs.disconnect(); }
-    }, { threshold: .4 }).observe(termOut);
+    const termDialog = document.getElementById('termDialog');
+    document.getElementById('termOpen').addEventListener('click', () => {
+      if (termDialog.showModal) termDialog.showModal(); else termDialog.setAttribute('open', '');
+      runTerminal();
+    });
+    document.getElementById('termClose').addEventListener('click', () => termDialog.close());
+    termDialog.addEventListener('click', e => { if (e.target === termDialog) termDialog.close(); });
+    termDialog.addEventListener('close', () => { termRun++; document.getElementById('termOpen').focus(); });
 
     /* ---------------- Accessibility ---------------- */
     const opts = ['contrast', 'dark', 'still', 'readable', 'links', 'spacing', 'cursor'];
