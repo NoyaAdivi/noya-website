@@ -269,14 +269,25 @@
 
     /* ---------- Press (mako) ---------- */
     @property --pa { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
-    .press-pill { display: inline-flex; align-items: center; gap: .55rem; padding: .35rem .95rem .35rem .4rem; margin-bottom: 1rem; border-radius: 999px; background: linear-gradient(120deg, var(--peach), var(--lavender)); border: 1px solid var(--border); color: var(--ink); font-weight: 700; font-size: .92rem; text-decoration: none; box-shadow: var(--shadow); transition: transform .3s ease, box-shadow .3s ease; }
-    .press-pill:hover, .press-pill:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-lg); color: var(--title); }
+    .press-pill { position: relative; display: inline-flex; align-items: center; gap: .6rem; margin-bottom: 1.1rem; padding: .38rem .45rem .38rem .55rem; border-radius: 999px; text-decoration: none; color: var(--ink); font-weight: 700; font-size: .93rem; overflow: hidden; isolation: isolate;
+      background: linear-gradient(var(--surface-solid), var(--surface-solid)) padding-box, linear-gradient(110deg, var(--peach-deep), var(--rose), var(--lavender-deep), var(--sky)) border-box; border: 1.5px solid transparent;
+      box-shadow: 0 .5rem 1.4rem rgba(200, 150, 190, .22); transition: transform .3s ease, box-shadow .3s ease; }
+    .press-pill::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255, 220, 230, .7) 50%, transparent 70%); transform: translateX(-120%); animation: ppShine 4.5s ease-in-out infinite; }
+    @keyframes ppShine { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+    .press-pill:hover, .press-pill:focus-visible { transform: translateY(-2px); box-shadow: 0 .8rem 1.8rem rgba(200, 150, 190, .32); color: var(--ink); }
+    .pp-new { width: .5rem; height: .5rem; border-radius: 50%; background: #ff6f91; box-shadow: 0 0 0 0 rgba(255, 111, 145, .6); animation: ppPulse 2s ease-out infinite; }
+    @keyframes ppPulse { 0% { box-shadow: 0 0 0 0 rgba(255, 111, 145, .55); } 100% { box-shadow: 0 0 0 .55rem rgba(255, 111, 145, 0); } }
+    .pp-sep { width: 1px; height: 1.1rem; background: var(--lavender-deep); }
+    .pp-cta { display: inline-flex; align-items: center; gap: .25rem; padding: .22rem .75rem; border-radius: 999px; background: linear-gradient(120deg, var(--peach), var(--lavender)); color: var(--title); font-weight: 800; font-size: .85rem; }
     .press-pill .arr { display: inline-block; transition: transform .3s ease; }
-    .press-pill:hover .arr { transform: translateX(4px); }
+    .press-pill:hover .arr { transform: translateX(3px); }
     html[dir="rtl"] .press-pill .arr { transform: scaleX(-1); }
-    html[dir="rtl"] .press-pill:hover .arr { transform: scaleX(-1) translateX(4px); }
+    html[dir="rtl"] .press-pill:hover .arr { transform: scaleX(-1) translateX(3px); }
+    :root[data-theme="dark"] .press-pill { box-shadow: 0 .5rem 1.4rem rgba(0, 0, 0, .3); }
+    :root[data-theme="dark"] .press-pill::after { background: linear-gradient(110deg, transparent 30%, rgba(255, 200, 220, .14) 50%, transparent 70%); }
+    :root[data-theme="dark"] .pp-cta { background: linear-gradient(120deg, rgba(248,190,160,.22), rgba(164,147,224,.26)); }
+    @media (prefers-reduced-motion: reduce) { .press-pill::after, .pp-new { animation: none; } }
     .mako-logo { display: inline-block; background: linear-gradient(#262d45, #262d45) padding-box, linear-gradient(90deg, #ffd400, #ff7a59, #ff5a9a, #8b5cf6, #2bb3ff) border-box; border: 2px solid transparent; color: #fff; font-family: 'Fredoka', sans-serif; font-weight: 700; border-radius: 999px; padding: .05rem .65rem .12rem; letter-spacing: .02em; line-height: 1.4; direction: ltr; }
-    :root[data-theme="dark"] .press-pill { background: linear-gradient(120deg, rgba(248,190,160,.2), rgba(164,147,224,.24)); }
 
     .press-card { position: relative; padding: clamp(1.3rem, 3.2vw, 2.6rem); border-radius: 2rem; background: var(--surface); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: var(--shadow-lg); isolation: isolate; }
     .press-card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 2.5px; z-index: -1; pointer-events: none;
@@ -297,7 +308,7 @@
     .press-bar i:nth-child(2) { background: #f7d488; } .press-bar i:nth-child(3) { background: #9edbb4; }
     .press-url { margin-inline-start: .6rem; flex: 1; background: #fff; border-radius: 999px; padding: .1rem .75rem; font-size: .75rem; color: #7a86a8; font-family: var(--font-mono); }
     .press-shot img { display: block; width: 100%; height: auto; }
-    .press-sticker { position: absolute; top: -1rem; inset-inline-start: -.7rem; z-index: 2; background: linear-gradient(120deg, #fff3d6, #ffe0ea); color: #a04a5c; font-weight: 800; font-size: .9rem; padding: .4rem .85rem; border-radius: 999px; box-shadow: var(--shadow); transform: rotate(-8deg); animation: stickerWiggle 4s ease-in-out infinite; }
+    .press-sticker { position: absolute; top: -1.6rem; inset-inline-start: -.9rem; z-index: 2; background: linear-gradient(120deg, #fff3d6, #ffe0ea); color: #a04a5c; font-weight: 800; font-size: .9rem; padding: .4rem .85rem; border-radius: 999px; box-shadow: var(--shadow); transform: rotate(-8deg); animation: stickerWiggle 4s ease-in-out infinite; }
     @keyframes stickerWiggle { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(-3deg) scale(1.06); } }
 
     .press-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-bottom: 1rem; color: var(--ink-soft); font-weight: 700; font-size: .9rem; }
@@ -328,8 +339,6 @@
     .press-dot { width: .35rem; height: .35rem; border-radius: 50%; background: var(--rose); }
     .press-open { position: absolute; inset-inline-end: .9rem; bottom: .9rem; background: rgba(38,45,69,.88); color: #fff; font-weight: 800; font-size: .85rem; padding: .35rem .8rem; border-radius: 999px; opacity: 0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
     .press-shot:hover .press-open, .press-shot:focus-visible .press-open { opacity: 1; transform: none; }
-    .press-okeat { position: absolute; bottom: -1.3rem; inset-inline-end: -1rem; width: 4.4rem; height: 4.4rem; border-radius: 50%; border: 4px solid var(--surface-solid); box-shadow: var(--shadow-lg); z-index: 2; animation: okeatBob 5s ease-in-out infinite; }
-    @keyframes okeatBob { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-6px) rotate(8deg); } }
     .press-chips { list-style: none; padding: 0; margin: 0 0 1.2rem; display: flex; flex-wrap: wrap; gap: .5rem; }
     .press-chips li { padding: .3rem .8rem; border-radius: 999px; font-weight: 700; font-size: .88rem; color: #4f5f80; background: var(--mint); border: 1px solid var(--mint-deep); }
     .press-chips li:nth-child(2) { background: var(--peach); border-color: var(--peach-deep); }
@@ -337,7 +346,6 @@
     :root[data-theme="dark"] .press-chips li { background: rgba(127,211,176,.16); border-color: rgba(127,211,176,.35); color: var(--ink); }
     :root[data-theme="dark"] .press-chips li:nth-child(2) { background: rgba(248,190,160,.16); border-color: rgba(248,190,160,.35); }
     :root[data-theme="dark"] .press-chips li:nth-child(3) { background: rgba(164,147,224,.18); border-color: rgba(164,147,224,.4); }
-    @media (prefers-reduced-motion: reduce) { .press-okeat { animation: none; } }
 
     /* ---------- Stats ---------- */
     .stat { padding: 1.6rem 1rem; text-align: center; height: 100%; transition: transform .3s ease; }
@@ -792,7 +800,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       <div class="row align-items-center g-4">
       <div class="col-lg-7">
       <p class="hero-meta mb-2"><span class="live-dot" aria-hidden="true"></span><span aria-hidden="true">📍</span> <span data-i18n="location">Israel · Open to SWE & ML student positions</span></p>
-      <a href="#press" class="press-pill"><span class="mako-logo" aria-hidden="true">mako</span><span data-i18n="pressPill">Featured in a mako article · Nov 2026</span><span class="arr" aria-hidden="true">→</span></a>
+      <a href="#press" class="press-pill"><span class="pp-new" aria-hidden="true"></span><span class="mako-logo" aria-hidden="true">mako</span><span class="pp-sep" aria-hidden="true"></span><span class="pp-txt" data-i18n="pressPill">Interviewed about Okeat</span><span class="pp-cta" aria-hidden="true"><span data-i18n="pressPillCta">Read</span> <span class="arr">→</span></span></a>
       <div class="name-wrap" id="nameWrap">
         <canvas id="nameCanvas" aria-hidden="true"></canvas>
         <h1 class="hero-name">Noya<br>Adivi</h1>
@@ -1183,7 +1191,6 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                   <img src="assets/press/mako-article.jpg" width="1400" height="589" loading="lazy" decoding="async" alt="Screenshot of the mako article headline about Noya and Okeat, by Michal Dubinsky, published 27.11.26" data-i18n-alt="pressAlt">
                   <span class="press-open" aria-hidden="true" data-i18n="pressOpen">Open article ↗</span>
                 </a>
-                <img class="press-okeat" src="assets/press/okeat-logo.png" width="120" height="120" alt="" aria-hidden="true">
               </div>
             </div>
             <div class="col-lg-6 order-lg-1">
@@ -1421,7 +1428,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
     /* ---------------- Translations ---------------- */
     const he = {
       skip: 'דילוג לתוכן הראשי', nowBuilding: 'עכשיו בונה', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
-      pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'בתקשורת', pressPill: 'כתבה עליי במאקו · נובמבר 2026', pressEyebrow: 'בתקשורת', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
+      pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'בתקשורת', pressPill: 'ראיון עליי ועל Okeat', pressPillCta: 'לקריאה', pressEyebrow: 'בתקשורת', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
       navProjects: 'פרויקטים', navAbout: 'עליי', navSkills: 'כישורים', navContact: 'יצירת קשר',
       location: 'ישראל · מחפשת משרת סטודנטית ב-SWE או ML', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת, ממסד הנתונים ועד העלייה לאוויר.',
