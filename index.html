@@ -433,8 +433,9 @@
     main > section, main > section.pt-0 { padding: 3rem 0 !important; }
     main > section:first-child { padding-top: 3.5rem !important; }
     @media (max-width: 767.98px) { main > section, main > section.pt-0 { padding: 2.25rem 0 !important; } }
-    .core-label { white-space: nowrap; letter-spacing: .08em; font-size: .68rem; display: inline-flex; align-items: center; gap: .35rem; }
-    .core-dot { width: .45rem; height: .45rem; border-radius: 50%; background: #34c38f; animation: livePulse 2s ease-out infinite; }
+    .core-label { white-space: nowrap; letter-spacing: .08em; font-size: .64rem; display: inline-flex; align-items: center; gap: .3rem; }
+    .core-dot { width: .34rem; height: .34rem; border-radius: 50%; background: #34c38f; animation: coreDot 2s ease-out infinite; }
+    @keyframes coreDot { 0% { box-shadow: 0 0 0 0 rgba(52,195,143,.5); } 100% { box-shadow: 0 0 0 .3rem rgba(52,195,143,0); } }
     html.a11y-still .core-dot { animation: none; }
     html[lang="he"] .core-label { letter-spacing: 0; }
 
