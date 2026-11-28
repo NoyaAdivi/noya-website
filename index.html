@@ -266,6 +266,59 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
     .reveal.in { opacity: 1; transform: none; }
 
+
+    /* ---------- Press (mako) ---------- */
+    @property --pa { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+    .press-pill { display: inline-flex; align-items: center; gap: .55rem; padding: .35rem .95rem .35rem .4rem; margin-bottom: 1rem; border-radius: 999px; background: linear-gradient(120deg, var(--peach), var(--lavender)); border: 1px solid var(--border); color: var(--ink); font-weight: 700; font-size: .92rem; text-decoration: none; box-shadow: var(--shadow); transition: transform .3s ease, box-shadow .3s ease; }
+    .press-pill:hover, .press-pill:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow-lg); color: var(--title); }
+    .press-pill .arr { display: inline-block; transition: transform .3s ease; }
+    .press-pill:hover .arr { transform: translateX(4px); }
+    html[dir="rtl"] .press-pill .arr { transform: scaleX(-1); }
+    html[dir="rtl"] .press-pill:hover .arr { transform: scaleX(-1) translateX(4px); }
+    .mako-logo { display: inline-block; background: linear-gradient(#262d45, #262d45) padding-box, linear-gradient(90deg, #ffd400, #ff7a59, #ff5a9a, #8b5cf6, #2bb3ff) border-box; border: 2px solid transparent; color: #fff; font-family: 'Fredoka', sans-serif; font-weight: 700; border-radius: 999px; padding: .05rem .65rem .12rem; letter-spacing: .02em; line-height: 1.4; direction: ltr; }
+    :root[data-theme="dark"] .press-pill { background: linear-gradient(120deg, rgba(248,190,160,.2), rgba(164,147,224,.24)); }
+
+    .press-card { position: relative; padding: clamp(1.3rem, 3.2vw, 2.6rem); border-radius: 2rem; background: var(--surface); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: var(--shadow-lg); isolation: isolate; }
+    .press-card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 2.5px; z-index: -1; pointer-events: none;
+      background: conic-gradient(from var(--pa), var(--peach-deep), var(--lavender-deep), var(--sky), var(--mint-deep), var(--rose), var(--peach-deep));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: pressSpin 9s linear infinite; }
+    .press-card::after { content: ''; position: absolute; width: 16rem; height: 16rem; inset-inline-end: -5rem; top: -6rem; z-index: -2; border-radius: 50%; background: radial-gradient(circle, var(--peach) 0%, transparent 70%); opacity: .9; pointer-events: none; }
+    @keyframes pressSpin { to { --pa: 360deg; } }
+
+    .press-float { position: relative; animation: pressFloat 6s ease-in-out infinite; }
+    @keyframes pressFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .press-shot { display: block; position: relative; border-radius: 1.2rem; overflow: hidden; background: #fff; text-decoration: none; box-shadow: 0 1.4rem 2.6rem rgba(120, 140, 190, .3); transform: perspective(1000px) rotateY(-7deg) rotateX(3deg); transition: transform .7s cubic-bezier(.2,.7,.2,1), box-shadow .7s ease; }
+    html[dir="rtl"] .press-shot { transform: perspective(1000px) rotateY(7deg) rotateX(3deg); }
+    .press-shot:hover, .press-shot:focus-visible, html[dir="rtl"] .press-shot:hover, html[dir="rtl"] .press-shot:focus-visible { transform: perspective(1000px) scale(1.025); box-shadow: 0 1.8rem 3.4rem rgba(120, 140, 190, .4); }
+    .press-shot::after { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.6) 50%, transparent 65%); transform: translateX(-130%); transition: transform 1.1s ease; pointer-events: none; }
+    .press-shot:hover::after, .press-shot:focus-visible::after { transform: translateX(130%); }
+    .press-bar { display: flex; align-items: center; gap: .35rem; padding: .55rem .8rem; background: #eef2f9; border-bottom: 1px solid #e1e6f0; direction: ltr; }
+    .press-bar i { width: .65rem; height: .65rem; border-radius: 50%; background: #f5a5a5; }
+    .press-bar i:nth-child(2) { background: #f7d488; } .press-bar i:nth-child(3) { background: #9edbb4; }
+    .press-url { margin-inline-start: .6rem; flex: 1; background: #fff; border-radius: 999px; padding: .1rem .75rem; font-size: .75rem; color: #7a86a8; font-family: var(--font-mono); }
+    .press-shot img { display: block; width: 100%; height: auto; }
+    .press-sticker { position: absolute; top: -1rem; inset-inline-start: -.7rem; z-index: 2; background: linear-gradient(120deg, #fff3d6, #ffe0ea); color: #a04a5c; font-weight: 800; font-size: .9rem; padding: .4rem .85rem; border-radius: 999px; box-shadow: var(--shadow); transform: rotate(-8deg); animation: stickerWiggle 4s ease-in-out infinite; }
+    @keyframes stickerWiggle { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(-3deg) scale(1.06); } }
+
+    .press-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-bottom: 1rem; color: var(--ink-soft); font-weight: 700; font-size: .9rem; }
+    .press-tag { background: #fff4b0; color: #6b5a00; border-radius: .4rem; padding: .05rem .5rem; }
+    :root[data-theme="dark"] .press-tag { background: rgba(255,230,120,.2); color: #ffeaa0; }
+    .press-head { font-size: clamp(1.5rem, 2.8vw, 2.15rem); font-weight: 900; line-height: 1.25; margin-bottom: .75rem; }
+    .press-sum { color: var(--ink); font-size: 1.05rem; }
+    .press-quote { position: relative; margin: 1.3rem 0 1.6rem; padding: 1rem 1.2rem; padding-inline-start: 3.1rem; background: linear-gradient(120deg, var(--lavender), var(--baby-blue)); border-radius: 1.2rem; color: #46566a; }
+    .press-quote::before { content: '\201C'; position: absolute; inset-inline-start: .8rem; top: -.35rem; font-family: 'Fredoka', sans-serif; font-size: 3.8rem; line-height: 1; color: var(--accent-2); }
+    html[dir="rtl"] .press-quote::before { content: '\201D'; }
+    .press-quote p { margin: 0 0 .3rem; font-weight: 700; font-size: 1.1rem; }
+    .press-cite { display: block; font-style: normal; font-size: .85rem; color: #7a86a8; font-weight: 600; }
+    :root[data-theme="dark"] .press-quote { background: linear-gradient(120deg, rgba(164,147,224,.22), rgba(127,184,227,.18)); color: var(--ink); }
+    :root[data-theme="dark"] .press-cite { color: var(--ink-soft); }
+    :root[data-theme="dark"] .press-card::after { opacity: .12; }
+    .press-note { color: var(--ink-soft); margin: .9rem 0 0; }
+    html[lang="he"] .press-note { display: none; }
+    @media (max-width: 991.98px) { .press-shot, html[dir="rtl"] .press-shot { transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .press-float, .press-card::before, .press-sticker { animation: none; } .press-shot::after { display: none; } }
+    html.a11y-still .press-shot::after { display: none; }
+
     /* ---------- Stats ---------- */
     .stat { padding: 1.6rem 1rem; text-align: center; height: 100%; transition: transform .3s ease; }
     .stat:hover { transform: translateY(-6px); }
@@ -704,6 +757,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       <div class="collapse navbar-collapse order-lg-2" id="navLinks">
         <ul class="navbar-nav mx-auto gap-lg-1">
           <li class="nav-item"><a class="nav-link" href="#projects" data-i18n="navProjects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#press" data-i18n="navPress">Press</a></li>
           <li class="nav-item"><a class="nav-link" href="#about" data-i18n="navAbout">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#skills" data-i18n="navSkills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="navContact">Contact</a></li>
@@ -718,6 +772,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       <div class="row align-items-center g-4">
       <div class="col-lg-7">
       <p class="hero-meta mb-2"><span class="live-dot" aria-hidden="true"></span><span aria-hidden="true">📍</span> <span data-i18n="location">Israel · Open to SWE & ML student positions</span></p>
+      <a href="#press" class="press-pill"><span class="mako-logo" aria-hidden="true">mako</span><span data-i18n="pressPill">Featured in a mako article · Nov 2026</span><span class="arr" aria-hidden="true">→</span></a>
       <div class="name-wrap" id="nameWrap">
         <canvas id="nameCanvas" aria-hidden="true"></canvas>
         <h1 class="hero-name">Noya<br>Adivi</h1>
@@ -752,6 +807,43 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
   </div>
 
   <main id="main" tabindex="-1">
+
+    <!-- ========== Press ========== -->
+    <section id="press" aria-labelledby="pressTitle">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow" data-i18n="pressEyebrow">In the press</p>
+          <h2 class="section-title" id="pressTitle" data-i18n="pressTitle">Featured on mako 📰</h2>
+        </div>
+        <article class="press-card reveal">
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+              <div class="press-float">
+                <span class="press-sticker" aria-hidden="true" data-i18n="pressSticker">✨ In the news</span>
+                <a class="press-shot" href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" aria-label="Open the mako article (opens in a new tab)" data-i18n-aria="pressShotAria">
+                  <span class="press-bar" aria-hidden="true"><i></i><i></i><i></i><span class="press-url">mako.co.il/nexter-news</span></span>
+                  <img src="assets/press/mako-article.jpg" width="1400" height="589" loading="lazy" decoding="async" alt="Screenshot of the mako article headline about Noya and Okeat, by Michal Dubinsky, published 27.11.26" data-i18n-alt="pressAlt">
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="press-meta"><span class="mako-logo">mako</span><span class="press-tag" data-i18n="pressTag">Digital · News</span><span data-i18n="pressDate">November 27, 2026</span></div>
+              <h3 class="press-head" data-i18n="pressHead">“Noya wants to solve the biggest problem of eating out”</h3>
+              <p class="press-sum" data-i18n="pressSum">An interview by journalist Michal Dubinsky about Okeat, the map I built for finding restaurants that fit everyone's diet, and about starting out as a developer in the AI era.</p>
+              <blockquote class="press-quote">
+                <p data-i18n="pressQuote">I built a product that a few years ago would have required a whole team.</p>
+                <cite class="press-cite" data-i18n="pressCite">Noya, in the interview</cite>
+              </blockquote>
+              <div class="d-flex flex-wrap gap-3">
+                <a class="btn btn-main" href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" data-i18n="pressRead">📰 Read the article ↗</a>
+                <a class="btn btn-soft" href="https://okeat.vercel.app" target="_blank" rel="noopener" data-i18n="pressOkeat">🗺️ Try Okeat</a>
+              </div>
+              <p class="press-note small" data-i18n="pressNote">The article is in Hebrew.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <!-- ========== Projects ========== -->
     <section id="projects" aria-labelledby="projectsTitle">
@@ -1304,6 +1396,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
     /* ---------------- Translations ---------------- */
     const he = {
       skip: 'דילוג לתוכן הראשי', nowBuilding: 'עכשיו בונה', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
+      navPress: 'בתקשורת', pressPill: 'כתבה עליי במאקו · נובמבר 2026', pressEyebrow: 'בתקשורת', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
       navProjects: 'פרויקטים', navAbout: 'עליי', navSkills: 'כישורים', navContact: 'יצירת קשר',
       location: 'ישראל · מחפשת משרת סטודנטית ב-SWE או ML', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת, ממסד הנתונים ועד העלייה לאוויר.',
