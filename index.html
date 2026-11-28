@@ -312,8 +312,7 @@
     @media (prefers-reduced-motion: reduce) { .press-float, .press-card::before, .press-sticker { animation: none; } .press-shot::after { display: none; } }
     html.a11y-still .press-shot::after { display: none; }
 
-    .press-sec { padding-top: 1.5rem; padding-bottom: 1rem; }
-    .press-intro .section-title { margin-bottom: 1.6rem; }
+    .press-intro .section-title { margin-bottom: 1rem; }
     .press-ribbon { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin: -.2rem 0 1.4rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--lavender-deep); color: var(--ink-soft); font-weight: 800; font-size: .95rem; }
     .mako-lg { font-size: 1.15rem; padding: .1rem .85rem .18rem; }
     .press-ribbon-txt { color: var(--title); text-transform: uppercase; letter-spacing: .12em; font-size: .82rem; }
@@ -433,6 +432,13 @@
     /* Floating buttons never cover content */
     @media (min-width: 992px) { #a11yBtn, #toTop { bottom: 1rem; } #a11yBtn:not(.placed) { inset-inline-start: .8rem; } #toTop { inset-inline-end: .8rem; } }
     footer { padding-bottom: 5.5rem !important; }
+
+    /* Same space between every two sections */
+    main > section, main > section.pt-0 { padding: 3rem 0 !important; }
+    main > section:first-child { padding-top: 3.5rem !important; }
+    @media (max-width: 767.98px) { main > section, main > section.pt-0 { padding: 2.25rem 0 !important; } }
+    .core-label { white-space: nowrap; letter-spacing: .06em; }
+    html[lang="he"] .core-label { letter-spacing: 0; }
 
     /* ---------- Stats ---------- */
     .stat { padding: 1.6rem 1rem; text-align: center; height: 100%; transition: transform .3s ease; }
@@ -876,7 +882,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       <div class="collapse navbar-collapse order-lg-2" id="navLinks">
         <ul class="navbar-nav mx-auto gap-lg-1">
           <li class="nav-item"><a class="nav-link" href="#projects" data-i18n="navProjects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#press" data-i18n="navPress">Press</a></li>
+          <li class="nav-item"><a class="nav-link" href="#press" data-i18n="navPress">Article</a></li>
           <li class="nav-item"><a class="nav-link" href="#about" data-i18n="navAbout">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#skills" data-i18n="navSkills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="navContact">Contact</a></li>
@@ -1250,7 +1256,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
     <section id="press" class="press-sec" aria-labelledby="pressTitle">
       <div class="container">
         <div class="reveal text-center press-intro">
-          <p class="eyebrow" data-i18n="pressEyebrow">In the press</p>
+          <p class="eyebrow" data-i18n="pressEyebrow">As seen on mako</p>
           <h2 class="section-title" id="pressTitle" data-i18n="pressTitle">Featured on mako 📰</h2>
         </div>
         <article class="press-card reveal">
@@ -1510,7 +1516,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
     /* ---------------- Translations ---------------- */
     const he = {
       skip: 'דילוג לתוכן הראשי', nowBuilding: 'הושק עכשיו', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
-      pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'בתקשורת', pressBtn: 'כתבה עליי', termDemo: '⚡ הדגמה', pressPill: 'ראיון עליי ועל Okeat', pressPillCta: 'לקריאה', pressEyebrow: 'בתקשורת', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
+      pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'כתבה', pressBtn: 'כתבה עליי', termDemo: '⚡ הדגמה', pressPill: 'ראיון עליי ועל Okeat', pressPillCta: 'לקריאה', pressEyebrow: 'מה כתבו עליי', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
       navProjects: 'פרויקטים', navAbout: 'עליי', navSkills: 'כישורים', navContact: 'יצירת קשר',
       location: 'ישראל · מחפשת משרת סטודנטית ב-SWE או ML', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת, ממסד הנתונים ועד העלייה לאוויר.',
