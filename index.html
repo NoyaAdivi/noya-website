@@ -269,12 +269,6 @@
 
     /* ---------- Press (mako) ---------- */
     @property --pa { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
-    .btn-mako { display: inline-flex; align-items: center; gap: .55rem; font-weight: 800; color: var(--title); border-radius: 50rem; padding: .8rem 1.4rem .8rem .7rem; padding-inline: .7rem 1.4rem;
-      background: linear-gradient(var(--surface-solid), var(--surface-solid)) padding-box, linear-gradient(110deg, var(--peach-deep), var(--rose), var(--lavender-deep), var(--sky)) border-box;
-      border: 1.5px solid transparent; box-shadow: var(--shadow); transition: transform .3s ease, box-shadow .3s ease; }
-    .btn-mako:hover, .btn-mako:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow-lg); color: var(--title); }
-    .btn-mako .mako-logo { font-size: .85rem; padding: 0 .55rem .06rem; transition: transform .3s ease; }
-    .btn-mako:hover .mako-logo { transform: rotate(-6deg) scale(1.06); }
     .mako-logo { display: inline-block; background: linear-gradient(#262d45, #262d45) padding-box, linear-gradient(90deg, #ffd400, #ff7a59, #ff5a9a, #8b5cf6, #2bb3ff) border-box; border: 2px solid transparent; color: #fff; font-family: 'Fredoka', sans-serif; font-weight: 700; border-radius: 999px; padding: .05rem .65rem .12rem; letter-spacing: .02em; line-height: 1.4; direction: ltr; }
 
     .press-card { position: relative; padding: clamp(1.3rem, 3.2vw, 2.6rem); border-radius: 2rem; background: var(--surface); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: var(--shadow-lg); isolation: isolate; }
@@ -387,6 +381,34 @@
     .bloom-site { color: #7a86a8; margin: 0 0 .6rem; }
     .bloom-time { font-family: var(--font-mono); font-size: 2.4rem; font-weight: 700; color: #6648b0; margin: 0; }
     @media (prefers-reduced-motion: reduce) { .tg-msg { animation: none; } .bloom-flower b { transition: none; } }
+
+
+    /* ---------- Hero buttons: one family, pastel ---------- */
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: .8rem; }
+    .hcta { --c1: #fff; --c2: #fff; --bd: #ddd; --ink-c: var(--title); --glow: rgba(140,170,210,.25);
+      position: relative; overflow: hidden; isolation: isolate; display: inline-flex; align-items: center; gap: .5rem;
+      min-height: 3.1rem; padding: .7rem 1.4rem; border-radius: 50rem; border: 2px solid var(--bd);
+      background: linear-gradient(135deg, var(--c1), var(--c2)); color: var(--ink-c); font-weight: 800; font-size: 1rem; text-decoration: none; line-height: 1.2;
+      box-shadow: 0 .55rem 1.3rem var(--glow), inset 0 1px 0 rgba(255,255,255,.7);
+      transition: transform .3s cubic-bezier(.2,.8,.2,1.2), box-shadow .3s ease, border-color .3s ease; }
+    .hcta::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.65) 50%, transparent 70%); transform: translateX(-130%); transition: transform .8s ease; }
+    .hcta:hover, .hcta:focus-visible { transform: translateY(-3px); color: var(--ink-c); box-shadow: 0 .9rem 1.9rem var(--glow), inset 0 1px 0 rgba(255,255,255,.7); }
+    .hcta:hover::after, .hcta:focus-visible::after { transform: translateX(130%); }
+    .hcta:active { transform: translateY(-1px) scale(.98); }
+    .hcta-main { --c1: #8fc3ec; --c2: #b3a3ec; --bd: #c9bdf5; --ink-c: #fff; --glow: rgba(150,160,230,.45); text-shadow: 0 1px 2px rgba(70,80,150,.25); }
+    .hcta-mako { --c1: #ffeee6; --c2: #fde3ec; --bd: #f6c6d3; --ink-c: #a04a5c; --glow: rgba(240,170,190,.35); padding-inline-start: .55rem; }
+    .hcta-in   { --c1: #e6f3ff; --c2: #dcecfb; --bd: #b9dbf5; --ink-c: #3f6d9f; --glow: rgba(127,184,227,.32); }
+    .hcta-gh   { --c1: #efe9fd; --c2: #e4f6ef; --bd: #d3c7f5; --ink-c: #6648b0; --glow: rgba(164,147,224,.32); }
+    .hcta .mako-logo { font-size: .85rem; padding: 0 .55rem .06rem; transition: transform .3s ease; }
+    .hcta-mako:hover .mako-logo { transform: rotate(-6deg) scale(1.06); }
+    :root[data-theme="dark"] .hcta { box-shadow: 0 .55rem 1.3rem rgba(0,0,0,.28); }
+    :root[data-theme="dark"] .hcta::after { background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.14) 50%, transparent 70%); }
+    :root[data-theme="dark"] .hcta-mako { --c1: rgba(248,190,160,.2); --c2: rgba(240,168,192,.18); --bd: rgba(245,180,190,.45); --ink-c: #ffdbe2; }
+    :root[data-theme="dark"] .hcta-in   { --c1: rgba(127,184,227,.2); --c2: rgba(127,184,227,.14); --bd: rgba(150,200,240,.45); --ink-c: #cfe6fb; }
+    :root[data-theme="dark"] .hcta-gh   { --c1: rgba(164,147,224,.24); --c2: rgba(127,211,176,.14); --bd: rgba(190,170,240,.45); --ink-c: #e4dcff; }
+    html.a11y-contrast .hcta { background: #fff; color: #002b80; border-color: #002b80; text-shadow: none; }
+    @media (max-width: 575.98px) { .hero-ctas { gap: .6rem; } .hcta { padding: .6rem 1.1rem; font-size: .95rem; min-height: 2.8rem; } }
+    @media (prefers-reduced-motion: reduce) { .hcta::after { display: none; } }
 
     /* ---------- Stats ---------- */
     .stat { padding: 1.6rem 1rem; text-align: center; height: 100%; transition: transform .3s ease; }
@@ -848,11 +870,11 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       <p class="hint mb-4" aria-hidden="true" data-i18n="hint">✨ Move your cursor over my name</p>
       <p class="lead-hero mb-2" data-i18n="heroLead">3rd-year Computer Science student at HIT who turns ideas into complete, working software, from database to deployment.</p>
       <p class="lead-hero mb-4"><span data-i18n="iBuild">I build</span> <span class="typed" id="typed" aria-live="off">full-stack web apps</span></p>
-      <div class="d-flex flex-wrap gap-3">
-        <a href="#projects" class="btn btn-main" data-i18n="ctaWork">See my work ↓</a>
-        <a href="#press" class="btn btn-mako"><span class="mako-logo" aria-hidden="true">mako</span><span data-i18n="pressBtn">Featured article</span></a>
-        <a href="https://www.linkedin.com/in/noya-adivi/" class="btn btn-soft" target="_blank" rel="noopener" data-i18n="ctaLinkedin">💼 LinkedIn</a>
-        <a href="https://github.com/NoyaAdivi" class="btn btn-soft" target="_blank" rel="noopener" data-i18n="ctaGithub">🐙 GitHub</a>
+      <div class="hero-ctas">
+        <a href="#projects" class="hcta hcta-main"><span data-i18n="ctaWork">See my work ↓</span></a>
+        <a href="#press" class="hcta hcta-mako"><span class="mako-logo" aria-hidden="true">mako</span><span data-i18n="pressBtn">Featured article</span></a>
+        <a href="https://www.linkedin.com/in/noya-adivi/" class="hcta hcta-in" target="_blank" rel="noopener"><span data-i18n="ctaLinkedin">💼 LinkedIn</span></a>
+        <a href="https://github.com/NoyaAdivi" class="hcta hcta-gh" target="_blank" rel="noopener"><span data-i18n="ctaGithub">🐙 GitHub</span></a>
       </div>
       </div>
       <div class="col-lg-5 d-none d-lg-block" aria-hidden="true">
