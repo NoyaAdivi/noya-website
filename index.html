@@ -437,7 +437,9 @@
     main > section, main > section.pt-0 { padding: 3rem 0 !important; }
     main > section:first-child { padding-top: 3.5rem !important; }
     @media (max-width: 767.98px) { main > section, main > section.pt-0 { padding: 2.25rem 0 !important; } }
-    .core-label { white-space: nowrap; letter-spacing: .06em; }
+    .core-label { white-space: nowrap; letter-spacing: .08em; font-size: .68rem; display: inline-flex; align-items: center; gap: .35rem; }
+    .core-dot { width: .45rem; height: .45rem; border-radius: 50%; background: #34c38f; animation: livePulse 2s ease-out infinite; }
+    html.a11y-still .core-dot { animation: none; }
     html[lang="he"] .core-label { letter-spacing: 0; }
 
     /* ---------- Stats ---------- */
@@ -915,7 +917,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
           <div class="orbit-ring r2"><span class="o-chip" style="--a:90deg">▲ Next.js</span><span class="o-chip" style="--a:210deg">🤖 LLMs</span><span class="o-chip" style="--a:330deg">🐳 Docker</span></div>
           <div class="orbit-core glass">
             <div class="core-emoji">👩‍💻</div>
-            <div class="core-label" data-i18n="nowBuilding">Just launched</div>
+            <div class="core-label"><span class="core-dot" aria-hidden="true"></span><span data-i18n="nowBuilding">Now live</span></div>
             <div class="core-title">Okeat 🚀</div>
           </div>
         </div>
@@ -1513,7 +1515,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
 
     /* ---------------- Translations ---------------- */
     const he = {
-      skip: 'דילוג לתוכן הראשי', nowBuilding: 'הושק עכשיו', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
+      skip: 'דילוג לתוכן הראשי', nowBuilding: 'באוויר', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
       pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'כתבה', pressBtn: 'כתבה עליי', termDemo: '⚡ הדגמה', pressPill: 'ראיון עליי ועל Okeat', pressPillCta: 'לקריאה', pressEyebrow: 'מה כתבו עליי', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
       navProjects: 'פרויקטים', navAbout: 'עליי', navSkills: 'כישורים', navContact: 'יצירת קשר',
       location: 'ישראל · מחפשת משרת סטודנטית ב-SWE או ML', hint: '✨ העבירו את העכבר מעל השם שלי',
