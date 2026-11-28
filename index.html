@@ -554,6 +554,28 @@
       .press-glow { display: none; }
     }
 
+
+    /* Article card: clearer against the pastel page */
+    .press-card { background: var(--surface-solid) !important; box-shadow: 0 1.4rem 3rem rgba(120,140,190,.28), 0 0 0 1px rgba(203,188,244,.35) !important; }
+    .pstat { display: flex !important; flex-direction: column; align-items: center; justify-content: center; min-height: 5.4rem; border-width: 1.5px !important; border-style: solid !important; }
+    .pstat:nth-child(1) { background: linear-gradient(160deg, #e3f1ff, #f4f9ff) !important; border-color: #b9dbf5 !important; }
+    .pstat:nth-child(2) { background: linear-gradient(160deg, #dcf5ec, #f2fbf7) !important; border-color: #a9e3cd !important; }
+    .pstat:nth-child(3) { background: linear-gradient(160deg, #ffe6dc, #fff6f2) !important; border-color: #f8c8b6 !important; }
+    .pstat:nth-child(1) b { color: #3f6d9f; } .pstat:nth-child(2) b { color: #2c7a5f; } .pstat:nth-child(3) b { color: #c0607e; }
+    .pstat span { color: #5f6b85 !important; white-space: nowrap; }
+    :root[data-theme="dark"] .pstat:nth-child(1) { background: rgba(127,184,227,.16) !important; border-color: rgba(150,200,240,.45) !important; }
+    :root[data-theme="dark"] .pstat:nth-child(2) { background: rgba(127,211,176,.14) !important; border-color: rgba(140,210,190,.45) !important; }
+    :root[data-theme="dark"] .pstat:nth-child(3) { background: rgba(248,190,160,.14) !important; border-color: rgba(245,180,190,.45) !important; }
+    :root[data-theme="dark"] .pstat:nth-child(1) b { color: #a9cdf0; } :root[data-theme="dark"] .pstat:nth-child(2) b { color: #9fe0c4; } :root[data-theme="dark"] .pstat:nth-child(3) b { color: #ffc2d1; }
+    :root[data-theme="dark"] .pstat span { color: var(--ink-soft) !important; }
+    .press-quote { background: linear-gradient(120deg, #e6defc, #d9eafc) !important; border: 1.5px solid #cfc3f3; color: #3d4a63 !important; }
+    :root[data-theme="dark"] .press-quote { background: linear-gradient(120deg, rgba(164,147,224,.26), rgba(127,184,227,.2)) !important; border-color: rgba(190,170,240,.4); color: var(--ink) !important; }
+    .press-shot { border: 1px solid #dfe4f0; box-shadow: 0 1.4rem 2.8rem rgba(90,110,160,.32) !important; }
+    .press-topics a { color: #5f6b85; }
+    :root[data-theme="dark"] .press-topics a { color: var(--ink-soft); }
+    .press-sum { color: #46566a; }
+    :root[data-theme="dark"] .press-sum { color: var(--ink); }
+
     /* ---------- Stats ---------- */
     .stat { padding: 1.6rem 1rem; text-align: center; height: 100%; transition: transform .3s ease; }
     .stat:hover { transform: translateY(-6px); }
@@ -1389,8 +1411,8 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
               <p class="press-sum" data-i18n="pressSum">An interview by journalist Michal Dubinsky about Okeat, the map I built for finding restaurants that fit everyone's diet, and about starting out as a developer in the AI era.</p>
               <div class="press-stats">
                 <a class="pstat" href="https://okeat.vercel.app" target="_blank" rel="noopener" title="Open the Okeat map" data-i18n-title="pstat1T"><b dir="ltr" data-count="20000" data-suffix="+">0</b><span data-i18n="pstat1">places on the map</span><i class="pstat-go" aria-hidden="true">↗</i></a>
-                <a class="pstat" href="#projects" data-go-okeat title="See Okeat in my projects" data-i18n-title="pstat2T"><b dir="ltr" data-count="4">0</b><span data-i18n="pstat2">diets in one filter</span><i class="pstat-go" aria-hidden="true">→</i></a>
-                <a class="pstat" href="#about" title="About me" data-i18n-title="pstat3T"><b dir="ltr" data-count="1">0</b><span data-i18n="pstat3">developer, no team</span><i class="pstat-go" aria-hidden="true">→</i></a>
+                <a class="pstat" href="#projects" data-go-okeat title="See Okeat in my projects" data-i18n-title="pstat2T"><b dir="ltr" data-count="4">0</b><span data-i18n="pstat2">diets, one filter</span><i class="pstat-go" aria-hidden="true">→</i></a>
+                <a class="pstat" href="#about" title="About me" data-i18n-title="pstat3T"><b dir="ltr" data-count="1">0</b><span data-i18n="pstat3">solo developer</span><i class="pstat-go" aria-hidden="true">→</i></a>
               </div>
               <p class="press-topics"><a href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" data-i18n="pressChip1">🎙️ Interview</a><a href="#projects" data-go-okeat data-i18n="pressChip2">🗺️ Okeat</a><a href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" data-i18n="pressChip3">🤖 Devs in the AI era</a></p>
               <blockquote class="press-quote">
@@ -1633,7 +1655,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
     /* ---------------- Translations ---------------- */
     const he = {
       skip: 'דילוג לתוכן הראשי', nowBuilding: 'באוויר', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
-      pstat1: 'מקומות על המפה', pstat1T: 'לפתיחת המפה של Okeat', pstat2T: 'ל-Okeat בפרויקטים שלי', pstat3T: 'עליי', pstat2: 'תזונות בפילטר אחד', pstat3: 'מפתחת אחת, בלי צוות', pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'כתבה', pressBtn: 'כתבה עליי', termDemo: '⚡ הדגמה', pressPill: 'ראיון עליי ועל Okeat', pressPillCta: 'לקריאה', pressEyebrow: 'מה כתבו עליי', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
+      pstat1: 'מקומות על המפה', pstat1T: 'לפתיחת המפה של Okeat', pstat2T: 'ל-Okeat בפרויקטים שלי', pstat3T: 'עליי', pstat2: 'סוגי תזונה', pstat3: 'מפתחת, בלי צוות', pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'כתבה', pressBtn: 'כתבה עליי', termDemo: '⚡ הדגמה', pressPill: 'ראיון עליי ועל Okeat', pressPillCta: 'לקריאה', pressEyebrow: 'מה כתבו עליי', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
       navProjects: 'פרויקטים', navAbout: 'עליי', navSkills: 'כישורים', navContact: 'יצירת קשר',
       location: 'ישראל · מחפשת משרת סטודנטית ב-SWE או ML', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת, ממסד הנתונים ועד העלייה לאוויר.',
