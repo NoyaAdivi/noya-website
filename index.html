@@ -508,13 +508,16 @@
     .pstat:hover { transform: translateY(-5px) rotate(-1.5deg) scale(1.04); box-shadow: var(--shadow-lg); }
     .pstat b { display: block; font-size: 1.45rem; font-weight: 900; color: var(--title); line-height: 1.1; font-family: 'Fredoka', var(--font-body); }
     .pstat span { font-size: .78rem; font-weight: 700; color: var(--ink-soft); }
-    .press-emojis i { position: absolute; left: var(--x); top: var(--y); margin: -.6em 0 0 -.5em; font-size: var(--s); font-style: normal; z-index: 3; pointer-events: none; filter: drop-shadow(0 .3rem .4rem rgba(120,140,190,.3));
-      animation: emoFloat 5s ease-in-out infinite; animation-delay: var(--d); translate: var(--px, 0) var(--py, 0); transition: translate .5s ease-out; }
-    @keyframes emoFloat { 0%, 100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-12px) rotate(8deg); } }
     .press-quote p.typing::after { content: ''; display: inline-block; width: 2px; height: 1.1em; margin-inline-start: 2px; vertical-align: -.15em; background: var(--accent-2); animation: blink 1s steps(2) infinite; }
     @media (max-width: 575.98px) { .press-stats { gap: .4rem; } .pstat b { font-size: 1.2rem; } .pstat span { font-size: .7rem; } }
-    html.a11y-still .press-emojis i, html.a11y-still .press-glow { animation: none !important; display: none; }
-    @media (prefers-reduced-motion: reduce) { .press-emojis i { animation: none; } }
+    html.a11y-still .press-glow { display: none; }
+
+
+    a.pstat { display: block; position: relative; text-decoration: none; cursor: pointer; }
+    a.pstat:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .pstat-go { position: absolute; top: .35rem; inset-inline-end: .55rem; font-style: normal; font-weight: 800; font-size: .8rem; color: var(--accent-2); opacity: 0; transform: translateY(3px); transition: opacity .3s ease, transform .3s ease; }
+    html[dir="rtl"] .pstat-go { scale: -1 1; }
+    a.pstat:hover .pstat-go, a.pstat:focus-visible .pstat-go { opacity: 1; transform: none; }
 
     /* ---------- Stats ---------- */
     .stat { padding: 1.6rem 1rem; text-align: center; height: 100%; transition: transform .3s ease; }
@@ -1339,7 +1342,6 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
             <div class="col-lg-6 order-lg-2">
               <div class="press-float">
                 <span class="press-sticker" aria-hidden="true" data-i18n="pressSticker">✨ In the news</span>
-                <span class="press-emojis" aria-hidden="true"><i style="--x:-2.5%;--y:24%;--s:1.6rem;--d:0s">🥗</i><i style="--x:58%;--y:-17%;--s:1.4rem;--d:-1.2s">🌯</i><i style="--x:-2%;--y:78%;--s:1.35rem;--d:-2.4s">🍕</i><i style="--x:48%;--y:110%;--s:1.6rem;--d:-.6s">🗺️</i><i style="--x:42%;--y:-15%;--s:1.15rem;--d:-1.8s">⭐</i></span>
                 <a class="press-shot" href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" aria-label="Open the mako article (opens in a new tab)" data-i18n-aria="pressShotAria">
                   <span class="press-bar" aria-hidden="true"><i></i><i></i><i></i><span class="press-url">mako.co.il/nexter-news</span></span>
                   <img src="assets/press/mako-article.jpg" width="1400" height="589" loading="lazy" decoding="async" alt="Screenshot of the mako article headline about Noya and Okeat, by Michal Dubinsky, published 27.11.26" data-i18n-alt="pressAlt">
@@ -1351,9 +1353,9 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
               <h3 class="press-head" data-i18n="pressHead">“Noya wants to solve the biggest problem of eating out”</h3>
               <p class="press-sum" data-i18n="pressSum">An interview by journalist Michal Dubinsky about Okeat, the map I built for finding restaurants that fit everyone's diet, and about starting out as a developer in the AI era.</p>
               <div class="press-stats">
-                <div class="pstat"><b dir="ltr" data-count="20000" data-suffix="+">0</b><span data-i18n="pstat1">places on the map</span></div>
-                <div class="pstat"><b dir="ltr" data-count="4">0</b><span data-i18n="pstat2">diets in one filter</span></div>
-                <div class="pstat"><b dir="ltr" data-count="1">0</b><span data-i18n="pstat3">developer, no team</span></div>
+                <a class="pstat" href="https://okeat.vercel.app" target="_blank" rel="noopener" title="Open the Okeat map" data-i18n-title="pstat1T"><b dir="ltr" data-count="20000" data-suffix="+">0</b><span data-i18n="pstat1">places on the map</span><i class="pstat-go" aria-hidden="true">↗</i></a>
+                <a class="pstat" href="#projects" data-go-okeat title="See Okeat in my projects" data-i18n-title="pstat2T"><b dir="ltr" data-count="4">0</b><span data-i18n="pstat2">diets in one filter</span><i class="pstat-go" aria-hidden="true">→</i></a>
+                <a class="pstat" href="#about" title="About me" data-i18n-title="pstat3T"><b dir="ltr" data-count="1">0</b><span data-i18n="pstat3">developer, no team</span><i class="pstat-go" aria-hidden="true">→</i></a>
               </div>
               <p class="press-topics"><a href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" data-i18n="pressChip1">🎙️ Interview</a><a href="#projects" data-go-okeat data-i18n="pressChip2">🗺️ Okeat</a><a href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" data-i18n="pressChip3">🤖 Devs in the AI era</a></p>
               <blockquote class="press-quote">
@@ -1596,7 +1598,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
     /* ---------------- Translations ---------------- */
     const he = {
       skip: 'דילוג לתוכן הראשי', nowBuilding: 'באוויר', hintTouch: '✨ געו בשם שלי', themeAria: 'החלפת מצב כהה', menuAria: 'פתיחת תפריט', scrollAria: 'גלילה למטה',
-      pstat1: 'מקומות על המפה', pstat2: 'תזונות בפילטר אחד', pstat3: 'מפתחת אחת, בלי צוות', pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'כתבה', pressBtn: 'כתבה עליי', termDemo: '⚡ הדגמה', pressPill: 'ראיון עליי ועל Okeat', pressPillCta: 'לקריאה', pressEyebrow: 'מה כתבו עליי', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
+      pstat1: 'מקומות על המפה', pstat1T: 'לפתיחת המפה של Okeat', pstat2T: 'ל-Okeat בפרויקטים שלי', pstat3T: 'עליי', pstat2: 'תזונות בפילטר אחד', pstat3: 'מפתחת אחת, בלי צוות', pressRibbon: 'כתבה מומלצת', pressTopicsAria: 'נושאי הכתבה', pressOpen: 'לפתיחת הכתבה ↗', pressChip1: '🎙️ ראיון', pressChip2: '🗺️ Okeat', pressChip3: '🤖 מפתחים בעידן ה-AI', navPress: 'כתבה', pressBtn: 'כתבה עליי', termDemo: '⚡ הדגמה', pressPill: 'ראיון עליי ועל Okeat', pressPillCta: 'לקריאה', pressEyebrow: 'מה כתבו עליי', pressTitle: 'כתבה עליי במאקו 📰', pressSticker: '✨ בחדשות', pressShotAria: 'פתיחת הכתבה במאקו (בכרטיסייה חדשה)', pressAlt: 'צילום מסך של כותרת הכתבה במאקו על נויה ו-Okeat, מאת מיכל דובינסקי, פורסמה ב-27.11.26', pressTag: 'דיגיטל · חדשות', pressDate: '27 בנובמבר 2026', pressHead: 'נויה רוצה לפתור את הבעיה הכי גדולה כשיוצאים למסעדות', pressSum: 'ראיון של העיתונאית מיכל דובינסקי על Okeat, המפה שבניתי למציאת מסעדות שמתאימות לכל ההעדפות התזונתיות, ועל היציאה לשוק העבודה כמפתחת בעידן ה-AI.', pressQuote: 'בניתי מוצר שלפני כמה שנים היה דורש צוות שלם.', pressCite: 'נויה, בראיון', pressRead: '📰 לקריאת הכתבה ↗', pressOkeat: '🗺️ לנסות את Okeat',
       navProjects: 'פרויקטים', navAbout: 'עליי', navSkills: 'כישורים', navContact: 'יצירת קשר',
       location: 'ישראל · מחפשת משרת סטודנטית ב-SWE או ML', hint: '✨ העבירו את העכבר מעל השם שלי',
       heroLead: 'סטודנטית שנה ג׳ למדעי המחשב ב-HIT, שהופכת רעיונות לתוכנה שלמה ועובדת, ממסד הנתונים ועד העלייה לאוויר.',
@@ -1646,6 +1648,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
     document.querySelectorAll('[data-i18n-html]').forEach(el => en[el.dataset.i18nHtml] = el.innerHTML);
     document.querySelectorAll('[data-i18n-aria]').forEach(el => en[el.dataset.i18nAria] = el.getAttribute('aria-label'));
     document.querySelectorAll('[data-i18n-alt]').forEach(el => en[el.dataset.i18nAlt] = el.getAttribute('alt'));
+    document.querySelectorAll('[data-i18n-title]').forEach(el => en[el.dataset.i18nTitle] = el.getAttribute('title'));
     en.hintTouch = '✨ Tap my name to scatter it';
     en.moreHide = 'Show fewer'; en.demo = '🌐 Live demo';
     en.hideCourses = 'Hide courses'; en.hideMajors = 'Hide majors';
@@ -1663,6 +1666,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       document.querySelectorAll('[data-i18n-html]').forEach(el => { const v = dict[el.dataset.i18nHtml]; if (v) el.innerHTML = v; });
       document.querySelectorAll('[data-i18n-aria]').forEach(el => { const v = dict[el.dataset.i18nAria]; if (v) el.setAttribute('aria-label', v); });
       document.querySelectorAll('[data-i18n-alt]').forEach(el => { const v = dict[el.dataset.i18nAlt]; if (v) el.setAttribute('alt', v); });
+      document.querySelectorAll('[data-i18n-title]').forEach(el => { const v = dict[el.dataset.i18nTitle]; if (v) el.setAttribute('title', v); });
       document.querySelectorAll('img[data-src-he]').forEach(img => { if (!img.dataset.srcEn) img.dataset.srcEn = img.getAttribute('src'); img.src = l === 'he' ? img.dataset.srcHe : img.dataset.srcEn; });
       document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === l)));
       document.querySelectorAll('[data-suffix]').forEach(el => { el.dataset.suffixNow = el.dataset.suffix; if (el.dataset.done) el.textContent = Number(el.dataset.count).toLocaleString('en-US') + (el.dataset.suffixNow || ''); });
@@ -2036,15 +2040,13 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       wrap.addEventListener('pointerleave', () => { shot.style.transform = ''; });
 
       // Cursor glow + gentle card tilt + emoji parallax
-      const emojis = [...card.querySelectorAll('.press-emojis i')];
       card.addEventListener('pointermove', e => {
         const r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
         card.style.setProperty('--mx', (x * 100) + '%'); card.style.setProperty('--my', (y * 100) + '%');
         if (motionOff() || e.pointerType !== 'mouse') return;
         card.style.transform = `perspective(1400px) rotateX(${(y - .5) * -3}deg) rotateY(${(x - .5) * 3}deg)`;
-        emojis.forEach((em, i) => { const k = (i % 2 ? 1 : -1) * (10 + i * 4); em.style.setProperty('--px', ((x - .5) * k) + 'px'); em.style.setProperty('--py', ((y - .5) * k) + 'px'); });
       });
-      card.addEventListener('pointerleave', () => { card.style.transform = ''; emojis.forEach(em => { em.style.removeProperty('--px'); em.style.removeProperty('--py'); }); });
+      card.addEventListener('pointerleave', () => { card.style.transform = ''; });
       // Type the quote when the card shows up (and again on hover)
       const qp = card.querySelector('.press-quote p');
       let typingRun = 0;
