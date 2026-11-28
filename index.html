@@ -312,7 +312,7 @@
     html.a11y-still .press-shot::after { display: none; }
 
     .press-intro .section-title { margin-bottom: 1rem; }
-    .press-ribbon { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin: -.2rem 0 1.4rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--lavender-deep); color: var(--ink-soft); font-weight: 800; font-size: .95rem; }
+    .press-ribbon { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin: -.2rem 0 1.4rem; padding-bottom: 1rem; position: relative; color: var(--ink-soft); font-weight: 800; font-size: .95rem; }
     .mako-lg { font-size: 1.15rem; padding: .1rem .85rem .18rem; }
     .press-ribbon-txt { color: var(--title); text-transform: uppercase; letter-spacing: .12em; font-size: .82rem; }
     html[lang="he"] .press-ribbon-txt { letter-spacing: .03em; font-size: .95rem; }
@@ -470,6 +470,29 @@
     .press-shot { will-change: transform; }
     @media (prefers-reduced-motion: reduce) { .press-card *, .press-card .press-float { animation: none !important; opacity: 1 !important; transform: none !important; } }
     html.a11y-still .press-card *, html.a11y-still .press-card .press-float { opacity: 1 !important; transform: none !important; }
+
+
+    /* Article card top row */
+    .press-ribbon::after { content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 2px;
+      background: repeating-linear-gradient(90deg, var(--lavender-deep) 0 8px, transparent 8px 14px), linear-gradient(90deg, var(--rose), var(--lavender-deep), var(--sky));
+      background-blend-mode: normal; -webkit-mask: repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 14px); mask: repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 14px);
+      background-size: 28px 100%, 200% 100%; animation: ribbonMarch 1.6s linear infinite, ribbonHue 6s ease-in-out infinite alternate; }
+    @keyframes ribbonMarch { to { -webkit-mask-position: 28px 0; mask-position: 28px 0; } }
+    @keyframes ribbonHue { to { background-position: 0 0, 100% 0; } }
+    .press-ribbon-link { display: inline-flex; align-items: center; gap: .6rem; color: var(--ink-soft); text-decoration: none; padding: .2rem .7rem .2rem .45rem; border-radius: 999px; transition: background .3s ease, color .3s ease, transform .3s ease; }
+    .press-ribbon-link:hover, .press-ribbon-link:focus-visible { background: linear-gradient(120deg, var(--peach), var(--lavender)); color: var(--title); transform: translateY(-2px); }
+    :root[data-theme="dark"] .press-ribbon-link:hover { background: rgba(164,147,224,.2); }
+    .press-ribbon-txt { background: linear-gradient(100deg, var(--title) 0 40%, #e58aa8 50%, var(--title) 60% 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: headShine 3.2s ease-in-out infinite alternate; }
+    .press-spark { display: inline-block; animation: sparkTwinkle 2.4s ease-in-out infinite; }
+    @keyframes sparkTwinkle { 0%, 100% { transform: scale(1) rotate(0); opacity: 1; } 50% { transform: scale(1.3) rotate(20deg); opacity: .7; } }
+    .press-dot { animation: livePulse 2s ease-out infinite; }
+    .press-ribbon-arr { display: inline-block; opacity: 0; transform: translate(-4px, 4px); transition: opacity .3s ease, transform .3s ease; }
+    .press-ribbon-link:hover .press-ribbon-arr, .press-ribbon-link:focus-visible .press-ribbon-arr { opacity: 1; transform: none; }
+    .press-ribbon .mako-logo { animation: makoBob 4s ease-in-out infinite; }
+    @keyframes makoBob { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-4deg) translateY(-1px); } }
+    .press-ribbon .mako-logo:hover { animation: none; transform: rotate(-6deg) scale(1.08); }
+    html.a11y-still .press-ribbon *, html.a11y-still .press-ribbon::after { animation: none !important; }
+    @media (prefers-reduced-motion: reduce) { .press-ribbon *, .press-ribbon::after { animation: none !important; } }
 
     /* ---------- Stats ---------- */
     .stat { padding: 1.6rem 1rem; text-align: center; height: 100%; transition: transform .3s ease; }
@@ -1289,7 +1312,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
           <h2 class="section-title" id="pressTitle" data-i18n="pressTitle">Featured on mako 📰</h2>
         </div>
         <article class="press-card reveal">
-          <div class="press-ribbon"><a class="mako-logo mako-lg" href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" aria-label="mako (opens the article)" data-i18n-aria="pressShotAria">mako</a><span class="press-ribbon-txt" data-i18n="pressRibbon">Featured story</span><span class="press-dot" aria-hidden="true"></span><span class="press-ribbon-date" data-i18n="pressDate">November 27, 2026</span></div>
+          <div class="press-ribbon"><a class="mako-logo mako-lg" href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" aria-label="mako (opens the article)" data-i18n-aria="pressShotAria">mako</a><a class="press-ribbon-link" href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener"><span class="press-spark" aria-hidden="true">✨</span><span class="press-ribbon-txt" data-i18n="pressRibbon">Featured story</span><span class="press-dot" aria-hidden="true"></span><span class="press-ribbon-date" data-i18n="pressDate">November 27, 2026</span><span class="press-ribbon-arr" aria-hidden="true">↗</span></a></div>
           <div class="row g-4 g-lg-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
               <div class="press-float">
