@@ -211,11 +211,11 @@
       box-shadow: 0 .55rem 1.2rem color-mix(in srgb, var(--br-b) 85%, transparent); }
     .links .btn-soft[data-i18n="mako"] { --g1: #ffe9dc; --g2: #fde0ea; --ink-b: #a04a5c; --br-b: #f6cfd6; }
     .links .btn-soft:is([data-i18n="docs"], [data-i18n="report"], [data-i18n="portfolioPdf"], [data-i18n="csArch"]) { --g1: #dcf5ea; --g2: #e0eefb; --ink-b: #2c6e68; --br-b: #bfe5da; }
-    .links .btn-soft[data-i18n="colab"] { --g1: #fbf6cf; --g2: #e4f6e6; --ink-b: #5d6a14; --br-b: #e2dfa4; }
+    .links .btn-soft[data-i18n="colab"] { --g1: #e6e3ff; --g2: #dbeefe; --ink-b: #4f5bb0; --br-b: #c9cff5; }
     :root[data-theme="dark"] .links .btn-soft { --g1: rgba(164,147,224,.24); --g2: rgba(240,168,192,.18); --ink-b: #e4dcff; --br-b: rgba(190,170,240,.45); }
     :root[data-theme="dark"] .links .btn-soft[data-i18n="mako"] { --g1: rgba(248,190,160,.22); --g2: rgba(240,168,192,.18); --ink-b: #ffdbe2; --br-b: rgba(245,180,190,.45); }
     :root[data-theme="dark"] .links .btn-soft:is([data-i18n="docs"], [data-i18n="report"], [data-i18n="portfolioPdf"], [data-i18n="csArch"]) { --g1: rgba(127,211,176,.2); --g2: rgba(127,184,227,.2); --ink-b: #ccf2e6; --br-b: rgba(140,210,190,.45); }
-    :root[data-theme="dark"] .links .btn-soft[data-i18n="colab"] { --g1: rgba(240,230,140,.18); --g2: rgba(140,220,170,.16); --ink-b: #f2f0bf; --br-b: rgba(225,220,150,.42); }
+    :root[data-theme="dark"] .links .btn-soft[data-i18n="colab"] { --g1: rgba(150,150,240,.22); --g2: rgba(127,184,227,.18); --ink-b: #dcdcff; --br-b: rgba(170,175,240,.45); }
     :root[data-theme="dark"] .links .btn-soft { box-shadow: 0 .35rem .9rem rgba(0,0,0,.25); }
 
     .scroll-cue { position: absolute; bottom: .4rem; left: 50%; transform: translateX(-50%); color: var(--ink-soft); font-size: 1.6rem; animation: bob 2s ease-in-out infinite; text-decoration: none; }
@@ -321,13 +321,6 @@
     .press-dot { width: .35rem; height: .35rem; border-radius: 50%; background: var(--rose); }
     .press-open { position: absolute; inset-inline-end: .9rem; bottom: .9rem; background: rgba(38,45,69,.88); color: #fff; font-weight: 800; font-size: .85rem; padding: .35rem .8rem; border-radius: 999px; opacity: 0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
     .press-shot:hover .press-open, .press-shot:focus-visible .press-open { opacity: 1; transform: none; }
-    .press-chips { list-style: none; padding: 0; margin: 0 0 1.2rem; display: flex; flex-wrap: wrap; gap: .5rem; }
-    .press-chips li { padding: .3rem .8rem; border-radius: 999px; font-weight: 700; font-size: .88rem; color: #4f5f80; background: var(--mint); border: 1px solid var(--mint-deep); }
-    .press-chips li:nth-child(2) { background: var(--peach); border-color: var(--peach-deep); }
-    .press-chips li:nth-child(3) { background: var(--lavender); border-color: var(--lavender-deep); }
-    :root[data-theme="dark"] .press-chips li { background: rgba(127,211,176,.16); border-color: rgba(127,211,176,.35); color: var(--ink); }
-    :root[data-theme="dark"] .press-chips li:nth-child(2) { background: rgba(248,190,160,.16); border-color: rgba(248,190,160,.35); }
-    :root[data-theme="dark"] .press-chips li:nth-child(3) { background: rgba(164,147,224,.18); border-color: rgba(164,147,224,.4); }
 
 
     /* ---------- Sort Photos terminal dialog ---------- */
@@ -415,6 +408,31 @@
     .links .btn-soft.btn-demo { --g1: #ffe3ec; --g2: #fff0e4; --ink-b: #b04a6b; --br-b: #f7c9d6; }
     :root[data-theme="dark"] .links .btn-soft.btn-demo { --g1: rgba(240,168,192,.22); --g2: rgba(248,200,170,.16); --ink-b: #ffd6e2; --br-b: rgba(245,180,200,.45); }
     :root[data-theme="dark"] .project .links .btn-main { border-color: rgba(190,170,240,.5); }
+
+
+    .press-topics { display: flex; flex-wrap: wrap; gap: .2rem 0; margin: 0 0 1.1rem; color: var(--ink-soft); font-weight: 700; font-size: .92rem; }
+    .press-topics span:not(:last-child)::after { content: '·'; margin: 0 .55rem; color: var(--rose); }
+    .press-sticker { pointer-events: none; }
+    a.mako-logo { text-decoration: none; transition: transform .3s ease; }
+    a.mako-logo:hover { transform: rotate(-5deg) scale(1.06); color: #fff; }
+    .press-quote p::after { content: '\201D'; color: var(--accent-2); font-family: 'Fredoka', sans-serif; font-size: 1.5em; line-height: 0; vertical-align: -.35em; margin-inline-start: .15rem; }
+    html[dir="rtl"] .press-quote p::after { content: '\201C'; }
+    /* Tags that jump to the matching skill */
+    .chip.chip-go, .o-chip.chip-go { cursor: pointer; transition: transform .25s ease, box-shadow .25s ease; }
+    .chip.chip-go:hover, .chip.chip-go:focus-visible { transform: translateY(-2px); box-shadow: 0 .3rem .7rem rgba(140,170,210,.3); }
+    .orbit-core.core-go { cursor: pointer; }
+    /* Courses are labels, not buttons */
+    .course:hover { transform: none !important; }
+
+    /* When the page margin is too narrow, the floating buttons tuck into the edge and slide out on hover or focus */
+    #a11yBtn, #toTop { transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .3s ease; }
+    html.fab-tight #a11yBtn:not(.placed):not(:hover):not(:focus-visible):not(.dragging) { transform: translateX(-62%); opacity: .9; }
+    html.fab-tight[dir="rtl"] #a11yBtn:not(.placed):not(:hover):not(:focus-visible):not(.dragging) { transform: translateX(62%); }
+    html.fab-tight #toTop.show:not(:hover):not(:focus-visible) { transform: translateX(62%); opacity: .9; }
+    html.fab-tight[dir="rtl"] #toTop.show:not(:hover):not(:focus-visible) { transform: translateX(-62%); }
+    /* Floating buttons never cover content */
+    @media (min-width: 992px) { #a11yBtn, #toTop { bottom: 1rem; } #a11yBtn:not(.placed) { inset-inline-start: .8rem; } #toTop { inset-inline-end: .8rem; } }
+    footer { padding-bottom: 5.5rem !important; }
 
     /* ---------- Stats ---------- */
     .stat { padding: 1.6rem 1rem; text-align: center; height: 100%; transition: transform .3s ease; }
@@ -766,7 +784,11 @@
     .mini .project p { font-size: .85rem; line-height: 1.5; margin: 0; color: var(--ink-soft); }
     .mini .chip, .mini .project .body > div:has(> .chip) { display: none; }
     .mini .project .links { padding-top: .75rem; gap: .35rem; }
-    .mini .project .links .btn { font-size: .75rem; padding: .25rem .6rem; }
+    .mini .project .links .btn { font-size: .74rem; padding: .25rem .55rem; }
+    .mini .project .links { flex-wrap: nowrap; }
+    .mini .project .links .btn { flex: 0 1 auto; min-width: 0; }
+    @media (max-width: 1399.98px) { .mini .project .links:has(> :nth-child(3)) { gap: .25rem; } .mini .project .links:has(> :nth-child(3)) .btn { font-size: .7rem; padding: .22rem .42rem; gap: .2rem; } }
+    @media (max-width: 1199.98px) { .mini .project .links:has(> :nth-child(3)) { flex-wrap: wrap; } }
     .mini .featured-badge { display: none; }
     #projectGrid { --bs-gutter-y: 1.25rem; }
     @media (max-width: 575.98px) { .mini .project .links .btn { padding: .2rem .45rem; } }
@@ -1013,7 +1035,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
                 <h3><a class="proj-link" href="https://noyaadivi.github.io/kashuv/" target="_blank" rel="noopener">🎧 Kashuv</a></h3>
                 <p data-i18n="kashDesc">Stay focused in every Zoom or class: live Hebrew transcription, a "what did I miss?" button, an alert when your name is called and study-ready summaries with a quiz. Runs 100% on your computer, for free.</p>
                 <div><span class="chip c-blue">Python</span><span class="chip c-lav">faster-whisper</span><span class="chip c-mint">Ollama LLM</span><span class="chip c-peach">Flask</span></div>
-                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/kashuv/" target="_blank" rel="noopener" data-i18n="demo">🌐 Live demo</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/kashuv" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
+                <div class="links"><a class="btn btn-main btn-sm" href="https://noyaadivi.github.io/kashuv/" target="_blank" rel="noopener" data-i18n="live">🌐 Live site</a> <a class="btn btn-soft btn-sm" href="https://github.com/NoyaAdivi/kashuv" target="_blank" rel="noopener" data-i18n="code">🐙 Code</a></div>
               </div>
             </article>
           </div>
@@ -1232,7 +1254,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
           <h2 class="section-title" id="pressTitle" data-i18n="pressTitle">Featured on mako 📰</h2>
         </div>
         <article class="press-card reveal">
-          <div class="press-ribbon"><span class="mako-logo mako-lg">mako</span><span class="press-ribbon-txt" data-i18n="pressRibbon">Featured story</span><span class="press-dot" aria-hidden="true"></span><span class="press-ribbon-date" data-i18n="pressDate">November 27, 2026</span></div>
+          <div class="press-ribbon"><a class="mako-logo mako-lg" href="https://www.mako.co.il/nexter-news/Article-8ef77a1ce2712a1027.htm" target="_blank" rel="noopener" aria-label="mako (opens the article)" data-i18n-aria="pressShotAria">mako</a><span class="press-ribbon-txt" data-i18n="pressRibbon">Featured story</span><span class="press-dot" aria-hidden="true"></span><span class="press-ribbon-date" data-i18n="pressDate">November 27, 2026</span></div>
           <div class="row g-4 g-lg-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
               <div class="press-float">
@@ -1247,9 +1269,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
             <div class="col-lg-6 order-lg-1">
               <h3 class="press-head" data-i18n="pressHead">“Noya wants to solve the biggest problem of eating out”</h3>
               <p class="press-sum" data-i18n="pressSum">An interview by journalist Michal Dubinsky about Okeat, the map I built for finding restaurants that fit everyone's diet, and about starting out as a developer in the AI era.</p>
-              <ul class="press-chips" aria-label="Topics" data-i18n-aria="pressTopicsAria">
-                <li data-i18n="pressChip1">🎙️ Interview</li><li data-i18n="pressChip2">🗺️ Okeat</li><li data-i18n="pressChip3">🤖 Devs in the AI era</li>
-              </ul>
+              <p class="press-topics"><span data-i18n="pressChip1">🎙️ Interview</span><span data-i18n="pressChip2">🗺️ Okeat</span><span data-i18n="pressChip3">🤖 Devs in the AI era</span></p>
               <blockquote class="press-quote">
                 <p data-i18n="pressQuote">I built a product that a few years ago would have required a whole team.</p>
                 <cite class="press-cite" data-i18n="pressCite">Noya, in the interview</cite>
@@ -1891,6 +1911,32 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip;overscroll-behavior-x
       }, 80);
     };
     document.addEventListener('click', e => { const b = e.target.closest('.uses-go'); if (b) goToProject(b.dataset.go); });
+    // Tech tags and orbit chips open the matching skill (which lists every project that used it)
+    const skillBtns = [...document.querySelectorAll('.skill')];
+    const norm = t => t.replace(/[^\p{L}\p{N}+#.]/gu, ' ').trim().toLowerCase();
+    const chipAlias = { 'tf.js': 'TensorFlow.js', 'faster whisper': 'Speech to text', 'ollama llm': 'LLMs (Ollama)', 'postgres rls': 'PostgreSQL', 'vanilla js': 'JavaScript', 'css': 'HTML/CSS',
+      'manifest v3': 'Chrome Extensions', 'chrome apis': 'Chrome Extensions', 'openclip': 'Computer Vision', 'perceptual hashing': 'Computer Vision', 'tesseract ocr': 'Computer Vision',
+      'tcp ip': 'Wireshark', 'sockets': 'Wireshark', 'telegram bot api': 'REST APIs', 'pillow': 'Python', 'android studio': 'Java' };
+    const findSkill = txt => { const a = chipAlias[norm(txt).replace(/\s+/g, ' ')]; if (a) txt = a; const n = norm(txt); return skillBtns.find(b => norm(b.textContent) === n) || skillBtns.find(b => norm(b.textContent).startsWith(n + ' ') || norm(b.textContent).split(' ')[0] === n); };
+    const openSkill = b => {
+      b.scrollIntoView({ behavior: motionOff() ? 'auto' : 'smooth', block: 'center' });
+      setTimeout(() => { b.click(); b.focus({ preventScroll: true }); }, motionOff() ? 0 : 450);
+    };
+    document.querySelectorAll('.chip, .o-chip').forEach(c => {
+      const b = findSkill(c.textContent); if (!b) return;
+      c.classList.add('chip-go');
+      if (c.classList.contains('chip')) { c.setAttribute('role', 'button'); c.tabIndex = 0; }
+      c.title = (lang === 'he' ? 'איפה השתמשתי ב-' : 'Where I used ') + b.textContent.trim();
+      c.addEventListener('click', e => { e.preventDefault(); openSkill(b); });
+      c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openSkill(b); } });
+    });
+
+    // Tuck the floating buttons when they would sit on top of the content
+    const fabFit = () => { const c = document.querySelector('#projects .container'); if (!c) return; const gap = c.getBoundingClientRect().left + parseFloat(getComputedStyle(c).paddingLeft); root.classList.toggle('fab-tight', gap < 76); };
+    fabFit(); window.addEventListener('resize', fabFit);
+    const core = document.querySelector('.orbit-core');
+    if (core) { core.classList.add('core-go'); core.addEventListener('click', () => goToProject('Okeat')); }
+
     const heUses = { 'HIT coursework': 'קורסים ב-HIT', 'All projects': 'כל הפרויקטים', 'This website': 'האתר הזה', 'TCP Chat': 'צ׳אט TCP' };
 
     // Magnetic contact buttons
